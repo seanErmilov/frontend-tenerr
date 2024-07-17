@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
+import { CarouselImg } from './CarouselImg'
 
 export function GigPreview({ gig }) {
-    return <article className="preview">
-        {/* <header>
-            <Link to={`/gig/${gig._id}`}>{gig.vendor}</Link>
-        </header> */}
 
-        <p>title: <span>{gig.title.toLocaleString()}</span></p>
-        {/* {gig.owner && <p>Owner: <span>{gig.owner.fullname}</span></p>} */}
+
+    console.log(gig)
+    return <article className="preview">
+        <CarouselImg
+            imgsSrcs={null} />
+
 
     </article>
 }

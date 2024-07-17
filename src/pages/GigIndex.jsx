@@ -60,9 +60,10 @@ export function GigIndex() {
             </header>
             <GigFilter filterBy={filterBy} setFilterBy={setFilterBy} />
             <GigList
-                gigs={gigs}
-                onRemoveGig={onRemoveGig}
-                onUpdateGig={onUpdateGig} />
+                // gigs={gigs}
+                // onRemoveGig={onRemoveGig}
+                // onUpdateGig={onUpdateGig}
+                 />
         </main>
     )
 }

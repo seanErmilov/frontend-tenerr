@@ -1,0 +1,28 @@
+.carousel-img {
+    background-color: rgb(200, 255, 196);
+    width: 100%;
+    aspect-ratio: 30 / 18;
+    position: relative;
+    overflow: hidden;
+    
+    .container {
+        position: absolute;
+        right: 20%;
+        background-color: red;
+        width: 100%;
+        height: 100%;
+        transition: right  2s linear;
+        transition: all   2s linear;
+
+        .tst {
+            background-color: aliceblue;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+
+        }
+    }
+}

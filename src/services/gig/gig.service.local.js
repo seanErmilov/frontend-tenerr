@@ -10,7 +10,8 @@ export const gigService = {
     getById,
     save,
     remove,
-    addGigMsg
+    addGigMsg,
+    _createGigs
 }
 window.cs = gigService
 
