@@ -31,8 +31,8 @@ export function RootCmp() {
                         <Route path="team" element={<AboutTeam />} />
                         <Route path="vision" element={<AboutVision />} />
                     </Route>
-                    <Route path="gig" element={<GigIndex />} />
-                    <Route path="gig/:gigId" element={<GigDetails />} />
+                    {/* <Route path="gig" element={<GigIndex />} /> */}
+                    <Route path="gig" element={<GigDetails />} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="review" element={<ReviewIndex />} />
                     <Route path="chat" element={<ChatApp />} />

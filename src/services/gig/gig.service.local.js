@@ -17,7 +17,7 @@ window.cs = gigService
 
 async function query(filterBy = { txt: '', price: 0 }) {
     var gigs = await storageService.query(STORAGE_KEY)
-    if (gigs & gigs.length) {
+    if (!gigs.length) {
         gigs = _createGigs
     }
     const { txt, minSpeed, maxPrice, sortField, sortDir } = filterBy
