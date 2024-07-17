@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+import { gigService } from '../services/gig'
 
 export function GigFilter({ filterBy, setFilterBy }) {
     const [filterToEdit, setFilterToEdit] = useState(structuredClone(filterBy))
+    const [primeTags, setPrimeTags] = useState(gigService.getPrimeryTags())
 
     useEffect(() => {
         setFilterBy(filterToEdit)
@@ -34,15 +36,20 @@ export function GigFilter({ filterBy, setFilterBy }) {
     }
 
     return <section className="gig-filter">
+        <img src="src/assets/icon/filter-bc.png" alt="" />
+        <div>Find the right <p className='green-txt'>freelance</p> service, right away</div>
         <h3>Filter:</h3>
         <input
             type="text"
             name="txt"
             value={filterToEdit.txt}
-            placeholder="Free text"
+            placeholder="Search for any service..."
             onChange={handleChange}
             required
         />
+        <button className='btn-search'>
+            <img src="src/assets/icon/search-icon.svg" alt="" />
+        </button>
         <input
             type="number"
             min="0"
@@ -110,8 +117,21 @@ export function GigFilter({ filterBy, setFilterBy }) {
                 />
             </label>
         </div>
+
         <button
             className="btn-clear"
-            onClick={clearSort}>Clear</button>
+            onClick={clearSort}>
+
+            Clear
+        </button>
+
+        <h3>Prime Tags:</h3>
+        <div className="prime-labels">
+            {primeTags.map(tag => (
+                <button key={tag} onClick={() => handleTagClick(tag)}>
+                    {tag}
+                </button>
+            ))}
+        </div>
     </section>
 }

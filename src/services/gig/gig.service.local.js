@@ -3,7 +3,7 @@ import { storageService } from '../async-storage.service'
 import { makeId } from '../util.service'
 import { userService } from '../user'
 
-const STORAGE_KEY = 'gig'
+const STORAGE_KEY = 'gigDb'
 
 export const gigService = {
     query,
@@ -20,14 +20,16 @@ async function query(filterBy = { txt: '', price: 0 }) {
     var gigs = await storageService.query(STORAGE_KEY)
     if (!gigs.length) {
         gigs = _createGigs()
-        console.log('gigs :', gigs)
-    }
-    // const { txt, minSpeed, maxPrice, sortField, sortDir } = filterBy
+        gigs.map(gig => { save(gig) })
 
-    // if (txt) {
-    //     const regex = new RegExp(filterBy.txt, 'i')
-    //     gigs = gigs.filter(gig => regex.test(gig.vendor) || regex.test(gig.description))
-    // }
+    }
+    console.log('filterBy :', filterBy)
+    const { txt } = filterBy
+
+    if (txt) {
+        const regex = new RegExp(filterBy.txt, 'i')
+        gigs = gigs.filter(gig => regex.test(gig.vendor) || regex.test(gig.description))
+    }
     // if (minSpeed) {
     //     gigs = gigs.filter(gig => gig.speed >= minSpeed)
     // }
@@ -58,15 +60,17 @@ async function save(gig) {
     if (gig._id) {
         const gigToSave = {
             _id: gig._id,
+            title: gig.title,
             price: gig.price,
-            speed: gig.speed,
+            tags: gig.tags,
         }
         savedGig = await storageService.put(STORAGE_KEY, gigToSave)
+
     } else {
         const gigToSave = {
-            vendor: gig.vendor,
+            title: gig.title,
             price: gig.price,
-            speed: gig.speed,
+            tags: gig.tags,
             // Later, owner is set by the backend
             owner: userService.getLoggedinUser(),
             msgs: []
@@ -91,10 +95,11 @@ async function addGigMsg(gigId, txt) {
     return msg
 }
 
+
+
 function _createGigs() {
     return [
         {
-            _id: 'g101',
             title: 'I will design your logo',
             price: 12.16,
             owner: {
@@ -125,7 +130,6 @@ function _createGigs() {
             ],
         },
         {
-            _id: 'g102',
             title: 'I will create a website for you',
             price: 50.00,
             owner: {
@@ -156,7 +160,6 @@ function _createGigs() {
             ],
         },
         {
-            _id: 'g103',
             title: 'I will write SEO articles',
             price: 20.50,
             owner: {
@@ -187,7 +190,6 @@ function _createGigs() {
             ],
         },
         {
-            _id: 'g104',
             title: 'I will edit your videos',
             price: 35.75,
             owner: {
@@ -218,7 +220,6 @@ function _createGigs() {
             ],
         },
         {
-            _id: 'g105',
             title: 'I will do voice overs',
             price: 25.00,
             owner: {
