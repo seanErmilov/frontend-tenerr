@@ -18,27 +18,27 @@ window.cs = gigService
 async function query(filterBy = { txt: '', price: 0 }) {
     var gigs = await storageService.query(STORAGE_KEY)
     if (!gigs.length) {
-        gigs = _createGigs
+        gigs = _createGigs()
     }
-    const { txt, minSpeed, maxPrice, sortField, sortDir } = filterBy
+    // const { txt, minSpeed, maxPrice, sortField, sortDir } = filterBy
 
-    if (txt) {
-        const regex = new RegExp(filterBy.txt, 'i')
-        gigs = gigs.filter(gig => regex.test(gig.vendor) || regex.test(gig.description))
-    }
-    if (minSpeed) {
-        gigs = gigs.filter(gig => gig.speed >= minSpeed)
-    }
-    if (sortField === 'vendor' || sortField === 'owner') {
-        gigs.sort((gig1, gig2) =>
-            gig1[sortField].localeCompare(gig2[sortField]) * +sortDir)
-    }
-    if (sortField === 'price' || sortField === 'speed') {
-        gigs.sort((gig1, gig2) =>
-            (gig1[sortField] - gig2[sortField]) * +sortDir)
-    }
+    // if (txt) {
+    //     const regex = new RegExp(filterBy.txt, 'i')
+    //     gigs = gigs.filter(gig => regex.test(gig.vendor) || regex.test(gig.description))
+    // }
+    // if (minSpeed) {
+    //     gigs = gigs.filter(gig => gig.speed >= minSpeed)
+    // }
+    // if (sortField === 'vendor' || sortField === 'owner') {
+    //     gigs.sort((gig1, gig2) =>
+    //         gig1[sortField].localeCompare(gig2[sortField]) * +sortDir)
+    // }
+    // if (sortField === 'price' || sortField === 'speed') {
+    //     gigs.sort((gig1, gig2) =>
+    //         (gig1[sortField] - gig2[sortField]) * +sortDir)
+    // }
 
-    gigs = gigs.map(({ _id, vendor, price, speed, owner }) => ({ _id, vendor, price, speed, owner }))
+    // gigs = gigs.map(({ _id, vendor, price, speed, owner }) => ({ _id, vendor, price, speed, owner }))
     return gigs
 }
 
