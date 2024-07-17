@@ -10,32 +10,31 @@ const demoSrc5 = " https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_aut
 const srcs = [demoSrc1, demoSrc2, demoSrc3, demoSrc4, demoSrc5]
 
 export function CarouselImg({ imgsSrcs }) {
-    const [carouselIndicators, setCarouselIndicators] = useState(0)
-
+    const [carouselIndex, setCarouselIndex] = useState(0)
+    const [showRightArrow, setShowRightArrow] = useState(true)
+    const [showLeftArrow, setShowLeftArrow] = useState(false)
 
     function moveCarouse(dir) {
-        setCarouselIndicators(prev => prev + dir)
+        setShowLeftArrow(dir + carouselIndex >= 0 ? false : true)
+        setShowRightArrow(dir + carouselIndex <= -srcs.length + 1 ? false : true)
+        setCarouselIndex(prev => prev + dir)
     }
+
     return (
         <>
             <div className='carousel-img'>
                 {
                     srcs.map((src, ind) =>
-                        <div className="container" style={{ left: `${(ind + carouselIndicators) * 100}%` }}>
-                            <img src={srcs[ind]} alt="" />
+                        <div key={ind} className="container" style={{ left: `${(ind + carouselIndex) * 100}%` }}>
+                            <img src={src} alt="" />
                         </div>
                     )
                 }
+                {showLeftArrow && <button className="left" onClick={() => moveCarouse(1)}>left</button>}
+                {showRightArrow && <button className="right" onClick={() => moveCarouse(-1)}>Right</button>}
 
-                {/* <img src={demoSrc1} alt="" />
-        <img src={demoSrc2} alt="" />
-        <img src={demoSrc3} alt="" />
-        <img src={demoSrc4} alt="" />
-        <img src={demoSrc5} alt="" /> */}
             </div>
 
-            <button onClick={() => moveCarouse(-1)}>Right</button>
-            <button onClick={() => moveCarouse(1)}>left</button>
         </>
     )
 }

@@ -16,8 +16,8 @@ export function GigList({  onRemoveGig, onUpdateGig }) {
 
     return <section>
         <ul className="gig-list"> 
-            {gigs.map(gig =>
-                <li key={gig._id}>
+            {gigs.map((gig, ind) =>
+                <li key={ind}>
                     <GigPreview gig={gig} />
                     {/* {shouldShowActionBtns(gig) && <div className="actions">
                         <button onClick={() => onUpdateGig(gig)}>Edit</button>
