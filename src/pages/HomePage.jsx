@@ -1,4 +1,4 @@
-import { Gallery } from "../cmps/CarouselImg";
+import { CarouselImg } from "../cmps/CarouselImg";
 
 export function HomePage() {
     return (
