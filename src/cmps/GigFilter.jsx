@@ -36,10 +36,12 @@ export function GigFilter({ filterBy, setFilterBy }) {
     }
 
     return <section className="gig-filter">
-        <img src="src/assets/icon/filter-bc.png" alt="" />
-        <div>Find the right <p className='green-txt'>freelance</p> service, right away</div>
-        <h3>Filter:</h3>
-        <input
+        <img src="src/assets/img/hero-xl-x1.webp" alt="" />
+        <h1 className='filter-h1'>Find the right
+            <strong> freelance</strong>
+            <br />
+            service, right away</h1>
+        <input className='search-input'
             type="text"
             name="txt"
             value={filterToEdit.txt}
@@ -47,10 +49,13 @@ export function GigFilter({ filterBy, setFilterBy }) {
             onChange={handleChange}
             required
         />
+        
         <button className='btn-search'>
-            <img src="src/assets/icon/search-icon.svg" alt="" />
+            <img src="src/assets/icon/search white.svg" alt="" />
         </button>
-        <input
+        
+        {/* <input
+        
             type="number"
             min="0"
             name="minSpeed"
@@ -58,8 +63,8 @@ export function GigFilter({ filterBy, setFilterBy }) {
             placeholder="min. speed"
             onChange={handleChange}
             required
-        />
-        <button
+        /> */}
+        {/* <button
             className="btn-clear"
             onClick={clearFilter}>Clear</button>
         <h3>Sort:</h3>
@@ -82,8 +87,8 @@ export function GigFilter({ filterBy, setFilterBy }) {
                     value="vendor"
                     checked={filterToEdit.sortField === 'vendor'}
                     onChange={handleChange}
-                />
-            </label>
+                /> */}
+            {/* </label>
             <label>
                 <span>Owner</span>
                 <input
@@ -94,8 +99,8 @@ export function GigFilter({ filterBy, setFilterBy }) {
                     onChange={handleChange}
                 />
             </label>
-        </div>
-        <div className="sort-dir">
+        </div> */}
+        {/* <div className="sort-dir">
             <label>
                 <span>Asce</span>
                 <input
@@ -131,7 +136,7 @@ export function GigFilter({ filterBy, setFilterBy }) {
                 <button key={tag} onClick={() => handleTagClick(tag)}>
                     {tag}
                 </button>
-            ))}
-        </div>
-    </section>
+            ))}  */}
+    {/* </div> */}
+    </section >
 }

@@ -1,6 +1,6 @@
 .main-container {
     display: grid;
-    grid-template-columns: 1rem 1fr 1rem;
+    grid-template-columns: 14.75rem 1fr 14.75rem;
 
     >* {
         grid-column: 2;
@@ -30,8 +30,3 @@
     // }
 }
 
-.gigd-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 20px;
-}
