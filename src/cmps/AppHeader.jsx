@@ -21,9 +21,13 @@ export function AppHeader() {
 	return (
 		<header className="app-header full">
 			<nav>
-				<NavLink to="/" className="logo">
-					E2E Demo
-				</NavLink>
+				<div className="logo">
+					<Link className="link" to="/">
+						<span className="text">Tenner</span>
+					</Link>
+					<span className="dot">.</span>
+				</div>
+
 				<NavLink to="about">About</NavLink>
 				<NavLink to="gig">Gigs</NavLink>
 				<NavLink to="chat">Chat</NavLink>
@@ -31,7 +35,17 @@ export function AppHeader() {
 
 				{user?.isAdmin && <NavLink to="/admin">Admin</NavLink>}
 
-				{!user && <NavLink to="login" className="login-link">Login</NavLink>}
+				{!user &&
+					<>
+						<NavLink to="about">become seller</NavLink>
+						<NavLink to="signIn" className="login-link">
+							<button>sign In</button>
+						</NavLink>
+						<NavLink to="login" className="login-link">
+							<button>join</button>
+						</NavLink>
+					</>
+				}
 				{user && (
 					<div className="user-info">
 						<Link to={`user/${user._id}`}>
