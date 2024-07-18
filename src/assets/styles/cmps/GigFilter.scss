@@ -14,7 +14,27 @@
         margin: 0;
     }
 
-  
+    .company-logos {
+        display: flex;
+        flex-direction: row;
+        opacity: .5;
+        position: absolute;
+        bottom: 32px;
+        align-items: center;
+        right: 25rem;
+    }
+
+    .company-logos-img {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    span {
+        color: aliceblue;
+        margin-left: 25px;
+
+    }
 
     input:is([type="text"], [type="number"]) {
         height: 1.8em;
