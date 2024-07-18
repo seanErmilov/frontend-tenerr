@@ -12,6 +12,7 @@ export function GigEdit() {
         const price = +prompt('Add price to gig')
         const daystomake = +prompt('Add days to make')
         const tags = prompt('Add tags sperated by ,').split(',')
+
         const gigToEdit = { title, price, daystomake, tags }
         gigService.save(gigToEdit)
     }

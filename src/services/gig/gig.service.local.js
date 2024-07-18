@@ -18,25 +18,18 @@ _createGigs()
 
 async function query(filterBy = { txt: '', price: 0 }) {
     var gigs = await storageService.query(STORAGE_KEY)
-    const { txt } = filterBy
+    const { txt, tags } = filterBy
 
     if (txt) {
         const regex = new RegExp(filterBy.txt, 'i')
         gigs = gigs.filter(gig => regex.test(gig.vendor) || regex.test(gig.description))
     }
-    // if (minSpeed) {
-    //     gigs = gigs.filter(gig => gig.speed >= minSpeed)
-    // }
-    // if (sortField === 'vendor' || sortField === 'owner') {
-    //     gigs.sort((gig1, gig2) =>
-    //         gig1[sortField].localeCompare(gig2[sortField]) * +sortDir)
-    // }
-    // if (sortField === 'price' || sortField === 'speed') {
-    //     gigs.sort((gig1, gig2) =>
-    //         (gig1[sortField] - gig2[sortField]) * +sortDir)
-    // }
-
-    // gigs = gigs.map(({ _id, vendor, price, speed, owner }) => ({ _id, vendor, price, speed, owner }))
+    if (tags && tags.length) {
+        gigs = gigs.filter(gig => {
+            return tags.every(tag => gig.tags.includes(tag));
+        }
+        )
+    }
     return gigs
 }
 
@@ -68,11 +61,11 @@ async function save(gig) {
             daysToMake: gig.daysToMake,
             tags: gig.tags,
             // Later, owner is set by the backend
-            owner: userService.getLoggedinUser(),
-            msgs: []
+            // owner: userService.getLoggedinUser(),
+            // msgs: []
         }
 
-        savedGig = await storageService.post(STORAGE_KEY, getRandomGig(gigToSave))
+        savedGig = await storageService.post(STORAGE_KEY, _getRandomGig(gigToSave))
     }
     return savedGig
 }
@@ -93,7 +86,7 @@ async function addGigMsg(gigId, txt) {
 }
 
 
-function getRandomGig(semiReadyGig = {}) {
+function _getRandomGig(semiReadyGig = {}) {
     const titles = [
         'I will design your logo',
         'I will create a website for you',
@@ -113,11 +106,16 @@ function getRandomGig(semiReadyGig = {}) {
     const locations = ['Ghana', 'USA', 'India', 'Germany', 'Brazil'];
 
     const tags = [
-        ['Arts And Crafts', 'Logo Design'],
-        ['Web Development', 'Programming'],
-        ['Writing', 'Blogging'],
-        ['Video Production', 'Marketing'],
-        ['Digital Marketing', 'SEO']
+        ['graphics', 'lifestyle'],
+        ['video', 'business'],
+        ['writing', 'writing'],
+        ['ai', 'music'],
+        ['digital', 'ai'],
+        ['music', 'digital'],
+        ['programming', 'digital'],
+        ['business', 'digital'],
+        ['lifestyle', 'business']
+
     ]
 
     const users = [
@@ -154,160 +152,162 @@ function getRandomGig(semiReadyGig = {}) {
 function _createGigs() {
     const gigs = loadFromStorage(STORAGE_KEY) || []
     if (gigs && gigs.length) return
-
-    const _gigs = [
-        {
-            _id: 'u101',
-            title: 'I will design your logo',
-            price: 12.16,
-            owner: {
-                _id: 'u101',
-                fullname: 'Dudu Da',
-                imgUrl: 'url',
-                level: 'basic',
-                rate: 4,
-            },
-            daysToMake: 3,
-            description: 'Make unique logo...',
-            avgResponseTime: 1,
-            loc: 'Ghana',
-            imgUrls: ['/img/img1.jpg'],
-            tags: ['Arts And Crafts', 'Logo Design'],
-            likedByUsers: ['mini-user'],
-            reviews: [
-                {
-                    id: 'r101',
-                    txt: 'Did an amazing work',
-                    rate: 4,
-                    by: {
-                        _id: 'u102',
-                        fullname: 'user2',
-                        imgUrl: '/img/img2.jpg',
-                    },
-                },
-            ],
-        },
-        {
-            title: 'I will create a website for you',
-            price: 50.00,
-            owner: {
-                _id: 'u103',
-                fullname: 'Jane Doe',
-                imgUrl: 'url',
-                level: 'premium',
-                rate: 5,
-            },
-            daysToMake: 10,
-            description: 'Professional website design...',
-            avgResponseTime: 2,
-            loc: 'USA',
-            imgUrls: ['/img/img3.jpg'],
-            tags: ['Web Development', 'Website Design'],
-            likedByUsers: ['user1', 'user3'],
-            reviews: [
-                {
-                    id: 'r102',
-                    txt: 'Excellent service',
-                    rate: 5,
-                    by: {
-                        _id: 'u104',
-                        fullname: 'user4',
-                        imgUrl: '/img/img4.jpg',
-                    },
-                },
-            ],
-        },
-        {
-            title: 'I will write SEO articles',
-            price: 20.50,
-            owner: {
-                _id: 'u105',
-                fullname: 'John Smith',
-                imgUrl: 'url',
-                level: 'basic',
-                rate: 4.5,
-            },
-            daysToMake: 5,
-            description: 'SEO optimized articles...',
-            avgResponseTime: 3,
-            loc: 'UK',
-            imgUrls: ['/img/img5.jpg'],
-            tags: ['Writing', 'SEO'],
-            likedByUsers: ['user2', 'user5'],
-            reviews: [
-                {
-                    id: 'r103',
-                    txt: 'Great articles',
-                    rate: 4,
-                    by: {
-                        _id: 'u106',
-                        fullname: 'user6',
-                        imgUrl: '/img/img6.jpg',
-                    },
-                },
-            ],
-        },
-        {
-            title: 'I will edit your videos',
-            price: 35.75,
-            owner: {
-                _id: 'u107',
-                fullname: 'Emily White',
-                imgUrl: 'url',
-                level: 'premium',
-                rate: 4.7,
-            },
-            daysToMake: 7,
-            description: 'Professional video editing...',
-            avgResponseTime: 4,
-            loc: 'Australia',
-            imgUrls: ['/img/img7.jpg'],
-            tags: ['Video Editing', 'Multimedia'],
-            likedByUsers: ['user3', 'user7'],
-            reviews: [
-                {
-                    id: 'r104',
-                    txt: 'Outstanding editing skills',
-                    rate: 5,
-                    by: {
-                        _id: 'u108',
-                        fullname: 'user8',
-                        imgUrl: '/img/img8.jpg',
-                    },
-                },
-            ],
-        },
-        {
-            title: 'I will do voice overs',
-            price: 25.00,
-            owner: {
-                _id: 'u109',
-                fullname: 'Mike Brown',
-                imgUrl: 'url',
-                level: 'verified',
-                rate: 4.8,
-            },
-            daysToMake: 2,
-            description: 'High-quality voice over work...',
-            avgResponseTime: 1,
-            loc: 'Canada',
-            imgUrls: ['/img/img9.jpg'],
-            tags: ['Voice Over', 'Audio'],
-            likedByUsers: ['user4', 'user9'],
-            reviews: [
-                {
-                    id: 'r105',
-                    txt: 'Superb voice over',
-                    rate: 4.5,
-                    by: {
-                        _id: 'u110',
-                        fullname: 'user10',
-                        imgUrl: '/img/img10.jpg',
-                    },
-                },
-            ],
-        }
-    ];
-    saveToStorage(STORAGE_KEY, _gigs)
+    for (let i = 0; i < 5; i++) {
+        gigs.push(_getRandomGig())
+    }
+    // const _gigs = [
+    //     {
+    //         _id: 'u101',
+    //         title: 'I will design your logo',
+    //         price: 12.16,
+    //         owner: {
+    //             _id: 'u101',
+    //             fullname: 'Dudu Da',
+    //             imgUrl: 'url',
+    //             level: 'basic',
+    //             rate: 4,
+    //         },
+    //         daysToMake: 3,
+    //         description: 'Make unique logo...',
+    //         avgResponseTime: 1,
+    //         loc: 'Ghana',
+    //         imgUrls: ['/img/img1.jpg'],
+    //         tags: ['Arts And Crafts', 'Logo Design'],
+    //         likedByUsers: ['mini-user'],
+    //         reviews: [
+    //             {
+    //                 id: 'r101',
+    //                 txt: 'Did an amazing work',
+    //                 rate: 4,
+    //                 by: {
+    //                     _id: 'u102',
+    //                     fullname: 'user2',
+    //                     imgUrl: '/img/img2.jpg',
+    //                 },
+    //             },
+    //         ],
+    //     },
+    //     {
+    //         title: 'I will create a website for you',
+    //         price: 50.00,
+    //         owner: {
+    //             _id: 'u103',
+    //             fullname: 'Jane Doe',
+    //             imgUrl: 'url',
+    //             level: 'premium',
+    //             rate: 5,
+    //         },
+    //         daysToMake: 10,
+    //         description: 'Professional website design...',
+    //         avgResponseTime: 2,
+    //         loc: 'USA',
+    //         imgUrls: ['/img/img3.jpg'],
+    //         tags: ['Web Development', 'Website Design'],
+    //         likedByUsers: ['user1', 'user3'],
+    //         reviews: [
+    //             {
+    //                 id: 'r102',
+    //                 txt: 'Excellent service',
+    //                 rate: 5,
+    //                 by: {
+    //                     _id: 'u104',
+    //                     fullname: 'user4',
+    //                     imgUrl: '/img/img4.jpg',
+    //                 },
+    //             },
+    //         ],
+    //     },
+    //     {
+    //         title: 'I will write SEO articles',
+    //         price: 20.50,
+    //         owner: {
+    //             _id: 'u105',
+    //             fullname: 'John Smith',
+    //             imgUrl: 'url',
+    //             level: 'basic',
+    //             rate: 4.5,
+    //         },
+    //         daysToMake: 5,
+    //         description: 'SEO optimized articles...',
+    //         avgResponseTime: 3,
+    //         loc: 'UK',
+    //         imgUrls: ['/img/img5.jpg'],
+    //         tags: ['Writing', 'SEO'],
+    //         likedByUsers: ['user2', 'user5'],
+    //         reviews: [
+    //             {
+    //                 id: 'r103',
+    //                 txt: 'Great articles',
+    //                 rate: 4,
+    //                 by: {
+    //                     _id: 'u106',
+    //                     fullname: 'user6',
+    //                     imgUrl: '/img/img6.jpg',
+    //                 },
+    //             },
+    //         ],
+    //     },
+    //     {
+    //         title: 'I will edit your videos',
+    //         price: 35.75,
+    //         owner: {
+    //             _id: 'u107',
+    //             fullname: 'Emily White',
+    //             imgUrl: 'url',
+    //             level: 'premium',
+    //             rate: 4.7,
+    //         },
+    //         daysToMake: 7,
+    //         description: 'Professional video editing...',
+    //         avgResponseTime: 4,
+    //         loc: 'Australia',
+    //         imgUrls: ['/img/img7.jpg'],
+    //         tags: ['Video Editing', 'Multimedia'],
+    //         likedByUsers: ['user3', 'user7'],
+    //         reviews: [
+    //             {
+    //                 id: 'r104',
+    //                 txt: 'Outstanding editing skills',
+    //                 rate: 5,
+    //                 by: {
+    //                     _id: 'u108',
+    //                     fullname: 'user8',
+    //                     imgUrl: '/img/img8.jpg',
+    //                 },
+    //             },
+    //         ],
+    //     },
+    //     {
+    //         title: 'I will do voice overs',
+    //         price: 25.00,
+    //         owner: {
+    //             _id: 'u109',
+    //             fullname: 'Mike Brown',
+    //             imgUrl: 'url',
+    //             level: 'verified',
+    //             rate: 4.8,
+    //         },
+    //         daysToMake: 2,
+    //         description: 'High-quality voice over work...',
+    //         avgResponseTime: 1,
+    //         loc: 'Canada',
+    //         imgUrls: ['/img/img9.jpg'],
+    //         tags: ['Voice Over', 'Audio'],
+    //         likedByUsers: ['user4', 'user9'],
+    //         reviews: [
+    //             {
+    //                 id: 'r105',
+    //                 txt: 'Superb voice over',
+    //                 rate: 4.5,
+    //                 by: {
+    //                     _id: 'u110',
+    //                     fullname: 'user10',
+    //                     imgUrl: '/img/img10.jpg',
+    //                 },
+    //             },
+    //         ],
+    //     }
+    // ];
+    saveToStorage(STORAGE_KEY, gigs)
 
 }
