@@ -17,18 +17,6 @@ import { useEffect, useRef } from 'react';
 ////////////////////////////////////////////////////////////////////////
 export function GigPreview({ gig }) {
 
-    const ref = useRef();
-    const isVisible = useIntersectionObserver(ref, { threshold: 0.1 });
-
-    useEffect(() => {
-        if (!isVisible) {
-            console.log(gig.description + 'Component is out of the viewport');
-        } else {
-            console.log(gig.description + 'Component is in the viewport');
-        }
-    }, [isVisible]);
-
-
 
 
     function calcAverageRating() {

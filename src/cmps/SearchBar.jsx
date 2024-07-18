@@ -8,9 +8,9 @@ export function SearchBar({ filterToEdit, handleChange }) {
         <input className='search-input'
             type="text"
             name="txt"
-            value={filterToEdit.txt}
+            // value={filterToEdit.txt}
             placeholder="Search for any service..."
-            onChange={handleChange}
+            // onChange={handleChange}
             required
         />
         <button className='btn-search'>
