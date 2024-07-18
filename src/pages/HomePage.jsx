@@ -53,6 +53,7 @@ export function HomePage() {
                     <li><img src="src/assets/img/payoneer.svg" alt="payonner" />sdsds</li>
                 </ul>
             </div>
+            
 
             <PrimeCategoriesSection />
             <GigFilter filterBy={filterBy} setFilterBy={setFilterBy} />
