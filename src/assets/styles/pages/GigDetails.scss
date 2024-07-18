@@ -1,22 +1,29 @@
 .gig-details {
-
-
     h2 {
         margin-bottom: 20px;
         font-size: 24px;
         grid-column: 1;
-
     }
 
     .gig-overview {
-        // background-color: #fff;
-        // padding: 20px;
-        // position: relative;
-        // right: 0px;
-        // width: 500px;
         display: grid;
-        grid-template-columns: auto 276.5px;
-        gap: 30px;
+        grid-template-columns: 900px 276.5px;
+
+        .gig-mini-user-gig {
+            grid-column: 1;
+        }
+
+        .gig-reviewList {
+            grid-column: 1;
+        }
+
+        .gig-reviewList {
+            grid-column: 1;
+        }
+
+        .about-gig {
+            grid-column: 1;
+        }
 
         .text-display {
             grid-column: 1;
@@ -30,44 +37,6 @@
             font-family: Macan, "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
-        .gig-owner-details {
-            display: grid;
-            grid-template-columns: 70px 40px 5px auto;
-            grid-template-rows: 30px auto;
-            grid-column: 1;
-            margin-bottom: 20px;
-
-            .gig-owner-img {
-                width: max-content;
-
-                img {
-                    grid-column: 1;
-                    border-radius: 50%;
-                    width: 50px;
-                    height: 50px;
-                }
-            }
-
-            .gig-owner-name,
-            .gig-owner-rate {
-                grid-column: 2;
-                font-size: 16px;
-
-            }
-
-            span {
-                color: #404145;
-                opacity: 0.3;
-                align-items: center;
-            }
-
-            .gig-owner-level,
-            .gig-owner-loc {
-                grid-column: 4;
-                font-size: 16px;
-                margin-left: 20px;
-            }
-        }
 
         .gig-carousel {
             margin-bottom: 20px;
@@ -82,61 +51,14 @@
             grid-column: 1;
 
         }
-
-        .gig-reviews {
-            grid-column: 1;
-
-            h3 {
-                margin-bottom: 15px;
-                font-size: 22px;
-
-            }
-
-            .review {
-                grid-column: 1;
-
-                display: grid;
-                grid-template-columns: 55px 1fr;
-                grid-template-rows: 40px 1fr;
-                margin-bottom: 15px;
-                border-bottom: 1px solid #ff9500;
-                border: 1px solid #000000;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-                .reviewer-img {
-                    img {
-                        margin: 5px 2px;
-                        border-radius: 50%;
-                        height: 43px;
-                        width: 46px;
-                    }
-                }
-
-
-                .review-txt,
-                .review-rate {
-                    grid-column: 2;
-                    margin-left: 5px;
-                    font-size: 16px;
-                }
-
-                .name-and-loc {
-                    line-height: 1.2;
-                }
-
-                .reviewer-name,
-                .reviewer-loc {
-                    grid-column: 2;
-                    grid-row: 1;
-                    margin-left: 5px;
-                    font-size: 16px;
-                }
-
-                .review-rate {
-                    color: #000000;
-                    font-size: large;
-                }
-            }
-        }
     }
+    .read-more {
+        color: #cecece;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      
+      .read-more:hover {
+        text-decoration: underline;
+      }
 }

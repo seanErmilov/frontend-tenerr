@@ -98,32 +98,57 @@ function _createGigs() {
 
     const _gigs = [
         {
-            _id:'u101',
-            title: 'I will design your logo',
-            price: 12.16,
-            owner: {
-                _id: 'u101',
-                fullname: 'Dudu Da',
-                imgUrl: 'url',
-                level: 'basic',
-                rate: 4,
+            "_id": "u101",
+            "title": "I will design your logo",
+            "price": 12.16,
+            "owner": {
+                "_id": "u101",
+                "fullname": "Dudu Da",
+                "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqUHH63Qqv2vokjtR7pUKv0qd--76KzAuiHw&s",
+                "level": "basic",
+                "rate": 4
             },
-            daysToMake: 3,
-            description: 'Make unique logo...',
-            avgResponseTime: 1,
-            loc: 'Ghana',
-            imgUrls: ['/img/img1.jpg'],
-            tags: ['Arts And Crafts', 'Logo Design'],
-            likedByUsers: ['mini-user'],
-            reviews: [
+            "daysToMake": 3,
+            "description": "While Fiverr suggests this description is my chance to be creative, I believe the true creativity comes to life when I start designing your logo.\n\nMy goal is to leverage my expertise and experience to craft a logo that perfectly represents your business. Creativity is essential, and I’m dedicated to pushing boundaries and exploring new possibilities. I aim to create something unique that sets your brand apart from the competition.\n\nIt seems I've added a touch of creativity to this description after all!",
+            "avgResponseTime": 1,
+            "loc": "Ghana",
+            "imgUrls": ["/img/img1.jpg"],
+            "tags": ["Arts And Crafts", "Logo Design"],
+            "likedByUsers": ["mini-user"],
+            "reviews": [
+                {
+                    "id": "r101",
+                    "txt": "Did an amazing work",
+                    "rate": 4,
+                    "by": {
+                        "_id": "u102",
+                        "loc": "Ghana",
+                        "fullname": "momo",
+                        "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5_LmCJD3P-8Ey1AoowgI5iG8OM_EiPcU9oQ&s"
+                    }
+                },
                 {
                     id: 'r101',
-                    txt: 'Did an amazing work',
-                    rate: 4,
+                    txt: 'Stefan followed directions beautifully. Despite people weighing in on the logo and making too many comments, Stefan kept at it, and seemed to please everyone. Way to go!',
+                    rate: 5,
                     by: {
                         _id: 'u102',
+                        loc: 'Ghana',
+
                         fullname: 'user2',
-                        imgUrl: '/img/img2.jpg',
+                        imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0fzwv9NIlkcsxizK8O_-IHFzemQCPmOkNZQ&s',
+                    },
+                },
+                {
+                    id: 'r101',
+                    txt: 'Stefan is a pleasure to work with. Well consider using him again for future projects! He took our directions and presented a report that will be used for the coming years to communicate our plans effectively.',
+                    rate: 5,
+                    by: {
+                        _id: 'u10',
+                        loc: 'Ghana',
+
+                        fullname: 'user2',
+                        imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSsmJ3oBMkW0EKvuZXxItu9JCiZ24KqGRwrA&s',
                     },
                 },
             ],

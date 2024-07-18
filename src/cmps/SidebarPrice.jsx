@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export function SidebarPrice({ price }) {
     const [selectedPackage, setSelectedPackage] = useState('normal')
@@ -12,12 +13,12 @@ export function SidebarPrice({ price }) {
         medium: {
             name: 'Medium',
             description: 'Enhanced package with additional features',
-            price: price *2,
+            price: price * 2,
         },
         premium: {
             name: 'Premium',
             description: 'Premium package with full features',
-            price: price *5,
+            price: price * 5,
         },
     }
 
@@ -49,7 +50,8 @@ export function SidebarPrice({ price }) {
             <p className='sidbar-des'>{packages[selectedPackage].description}</p>
             <button className='sidebar-btn-price'>
                 Continue
-            </button>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z" /></svg></button>
+                <Link > <p className='link'>Compare packages</p></Link>
         </div>
 
     )

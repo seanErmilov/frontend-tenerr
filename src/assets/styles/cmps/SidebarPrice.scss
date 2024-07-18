@@ -1,21 +1,22 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    gap: 15px;
     border: 1px solid #c8cbd4;
     height: 300px;
-    width: auto;
+    width: 277px;
+    position: fixed;
+    top: 220px;
+    left: 1200px;
 
     .package-options {
-        // display: flex;
         flex-direction: column;
         gap: 10px;
 
         button {
-            font-family: Macan, "Helvetica Neue", Helvetica, Arial, sans-serif;
             padding: 16px;
-            border: 1px solid #c8cbd4;
+            border: 1px solid $clr5;
             color: #74767e;
+            font-weight: 500;
             font-size: 16px;
             cursor: pointer;
             text-align: center;
@@ -34,13 +35,14 @@
             }
 
             &.active {
-                color: #000000;
+                color: $clr9;
                 background-color: #ffffff;
 
 
                 &:after {
-                    background-color: #000000;
+                    background-color: $clr9;
                 }
+                margin-bottom: 15px;
             }
         }
     }
@@ -51,6 +53,8 @@
         margin-left: 10px;
         font-weight: bold;
         color: #404145;
+        margin-bottom: 10px;
+
         h4 {
             font-size: 1.2rem;
             margin-bottom: 10px;
@@ -70,16 +74,37 @@
         margin-left: 10px;
 
     }
-    .sidebar-btn-price{
+
+    .sidebar-btn-price {
         width: 80%;
         font-size: 16px;
         color: #ffffff;
-        padding: 12px; 
+        padding: 5px;
         text-align: center;
         line-height: 16px;
         border-radius: 5px;
-        background-color: #000000;
-        margin:0px auto;
-        
+        background-color: $clr9;
+        margin: 0px auto;
+        display: flex;
+        justify-content: end;
+        gap: 45px;
+        align-items: center;
+
+        &:hover {
+            background-color: $clr10;
+        }
+        margin-bottom: 8px;
     }
+
+    .link {
+        text-align: center;
+        font-size: 14px;
+        color: $clr9; 
+    
+        &:hover {
+            text-decoration: none;
+            color: darken($clr9, 10%); 
+        }
+    }
+    
 }

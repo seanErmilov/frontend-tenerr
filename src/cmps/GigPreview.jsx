@@ -13,9 +13,7 @@ export function GigPreview({ gig }) {
             return acc
         }, 0) / gig.reviews.length
     }
-    console.log(gig)
     return <article className="preview">
-        {/* carousel */}
         <CarouselImg
             imgsSrcs={null} />
 
