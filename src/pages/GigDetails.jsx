@@ -12,14 +12,12 @@ export function GigDetails() {
   const [gig, setGig] = useState(null)
 
   const { gigId } = useParams()
-  console.log(gig)
 
   useEffect(() => {
     loadGig(gigId)
   }, [gigId])
 
-  async function loadGig(gigId)
-  {
+  async function loadGig(gigId) {
     setGig(await gigService.getById(gigId))
   }
 
@@ -128,42 +126,41 @@ export function GigDetails() {
       </>
     );
   }
-  console.log('this 1',gig);
   if (!gig) return
 
-    return (
-      <section className="gig-details">
-        {/* <pre>{JSON.stringify(gig)}</pre> */}
+  return (
+    <section className="gig-details">
+      {/* <pre>{JSON.stringify(gig)}</pre> */}
 
-        <div className='gig-overview'>
-          <h1 className="text-display">{gig.title} </h1>
-          <div className="gig-owner-details">
-            <div className="gig-owner-img"><img src={gig.owner.imgUrl} alt={gig.owner.fullname} /></div>
-            <div className="gig-owner-name">{gig.owner.fullname}</div> <span>|</span>
-            <div className="gig-owner-level">{gig.owner.level}</div>
-            <div className="gig-owner-rate">{'★' + gig.owner.rate}</div>
-            {/* <div className="gig-owner-loc">{gig.loc}</div> */}
-          </div>
-          <div className="gig-carousel"><CarouselImg imgUrls={gig.imgUrls} /></div>
-          <div className="gig-SidebarPrice"><SidebarPrice price={gig.price} /></div>
-          <h2>About this gig</h2>
-          <div className="gig-description">{renderDescription()}</div>
-
-          <div className="gig-reviews">
-            <h3>Reviews</h3>
-            {gig.reviews.map(review => (
-              <div key={review.id} className="review">
-                <div className="reviewer-img"><img src={review.by.imgUrl} alt={review.by.fullname} /></div>
-                <div className='name-and-loc'>
-                  <div className="reviewer-name">{review.by.fullname}</div>
-                  <div className="reviewer-loc">{review.by.loc}</div>
-                </div>
-                <div className="review-rate">{renderStars(review.rate)}{review.rate}</div>
-                <div className="review-txt">{review.txt}</div>
-              </div>
-            ))}
-          </div>
+      <div className='gig-overview'>
+        <h1 className="text-display">{gig.title} </h1>
+        <div className="gig-owner-details">
+          <div className="gig-owner-img"><img src={gig.owner.imgUrl} alt={gig.owner.fullname} /></div>
+          <div className="gig-owner-name">{gig.owner.fullname}</div> <span>|</span>
+          <div className="gig-owner-level">{gig.owner.level}</div>
+          <div className="gig-owner-rate">{'★' + gig.owner.rate}</div>
+          {/* <div className="gig-owner-loc">{gig.loc}</div> */}
         </div>
-      </section>
-    )
+        <div className="gig-carousel"><CarouselImg imgUrls={gig.imgUrls} /></div>
+        <div className="gig-SidebarPrice"><SidebarPrice price={gig.price} /></div>
+        <h2>About this gig</h2>
+        <div className="gig-description">{renderDescription()}</div>
+
+        <div className="gig-reviews">
+          <h3>Reviews</h3>
+          {gig.reviews.map(review => (
+            <div key={review.id} className="review">
+              <div className="reviewer-img"><img src={review.by.imgUrl} alt={review.by.fullname} /></div>
+              <div className='name-and-loc'>
+                <div className="reviewer-name">{review.by.fullname}</div>
+                <div className="reviewer-loc">{review.by.loc}</div>
+              </div>
+              <div className="review-rate">{renderStars(review.rate)}{review.rate}</div>
+              <div className="review-txt">{review.txt}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
 }
