@@ -30,8 +30,8 @@ export function CarouselImg({ imgsSrcs }) {
                         </div>
                     )
                 }
-                {showLeftArrow && <button className="left" onClick={() => moveCarouse(1)}>left</button>}
-                {showRightArrow && <button className="right" onClick={() => moveCarouse(-1)}>Right</button>}
+                {showLeftArrow && <button className="arrow-prev" onClick={() => moveCarouse(1)}>left</button>}
+                {showRightArrow && <button className="arrow-next" onClick={() => moveCarouse(-1)}>Right</button>}
 
             </div>
 
