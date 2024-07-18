@@ -49,22 +49,22 @@ export function GigFilter({ filterBy, setFilterBy }) {
             onChange={handleChange}
             required
         />
-        
         <button className='btn-search'>
             <img src="src/assets/icon/search white.svg" alt="" />
         </button>
+
         <div className='company-logos'>
             <span>Trusted by:</span>
             <ul className='company-logos-img'>
-                <li><img src="src/assets/img/meta.svg"/></li>
-                <li><img src="src/assets/img/google.svg"/></li>
-                <li><img src="src/assets/img/netflix.svg"/></li>
-                <li><img src="src/assets/img/pg.svg"/></li>
-                <li><img src="src/assets/img/paypal.svg"/></li>
-                <li><img src="src/assets/img/payoneer.svg" alt = "payonner"/>sdsds</li>
+                <li><img src="src/assets/img/meta.svg" /></li>
+                <li><img src="src/assets/img/google.svg" /></li>
+                <li><img src="src/assets/img/netflix.svg" /></li>
+                <li><img src="src/assets/img/pg.svg" /></li>
+                <li><img src="src/assets/img/paypal.svg" /></li>
+                <li><img src="src/assets/img/payoneer.svg" alt="payonner" />sdsds</li>
             </ul>
         </div>
-        
+
         {/* <input
         
             type="number"
@@ -99,7 +99,7 @@ export function GigFilter({ filterBy, setFilterBy }) {
                     checked={filterToEdit.sortField === 'vendor'}
                     onChange={handleChange}
                 /> */}
-            {/* </label>
+        {/* </label>
             <label>
                 <span>Owner</span>
                 <input
@@ -148,6 +148,6 @@ export function GigFilter({ filterBy, setFilterBy }) {
                     {tag}
                 </button>
             ))}  */}
-    {/* </div> */}
+        {/* </div> */}
     </section >
 }

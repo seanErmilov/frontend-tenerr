@@ -1,4 +1,6 @@
 import { CarouselImg } from "../cmps/CarouselImg";
+import { GigFilter } from "../cmps/GigFilter";
+import { GigList } from "../cmps/GigList";
 
 export function GigIndex() {
     return (
@@ -9,10 +11,10 @@ export function GigIndex() {
             </header>
             <GigFilter filterBy={filterBy} setFilterBy={setFilterBy} />
             <GigList
-                // gigs={gigs}
-                // onRemoveGig={onRemoveGig}
-                // onUpdateGig={onUpdateGig} 
-                />
+            // gigs={gigs}
+            // onRemoveGig={onRemoveGig}
+            // onUpdateGig={onUpdateGig} 
+            />
         </main>
     )
 }

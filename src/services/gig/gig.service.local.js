@@ -1,8 +1,7 @@
 
 import { storageService } from '../async-storage.service'
-import { makeId } from '../util.service'
+import { loadFromStorage, makeId, saveToStorage } from '../util.service'
 import { userService } from '../user'
-
 const STORAGE_KEY = 'gigDb'
 
 export const gigService = {
@@ -15,15 +14,10 @@ export const gigService = {
 }
 window.cs = gigService
 
+_createGigs()
 
 async function query(filterBy = { txt: '', price: 0 }) {
     var gigs = await storageService.query(STORAGE_KEY)
-    if (!gigs.length) {
-        gigs = _createGigs()
-        gigs.map(gig => { save(gig) })
-
-    }
-    console.log('filterBy :', filterBy)
     const { txt } = filterBy
 
     if (txt) {
@@ -98,7 +92,10 @@ async function addGigMsg(gigId, txt) {
 
 
 function _createGigs() {
-    return [
+    const gigs = loadFromStorage(STORAGE_KEY) || []
+    if (gigs && gigs.length) return
+
+    const _gigs = [
         {
             title: 'I will design your logo',
             price: 12.16,
@@ -250,5 +247,6 @@ function _createGigs() {
             ],
         }
     ];
+    saveToStorage(STORAGE_KEY, _gigs)
 
 }
