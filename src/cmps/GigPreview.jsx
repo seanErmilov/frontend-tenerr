@@ -8,7 +8,7 @@ const demoProfilePic = "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto
 const d = "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_original/v1/attachments/profile/photo/301b9669da5ac1a5363a4d9a79693646-1633947435052/648c5f7b-b9f7-4758-a20b-0ebceaca7ca7.jpeg"
 
 
-import {useIntersectionObserver} from '../customHooks/useIntersectionObserver';
+import { useIntersectionObserver } from '../customHooks/useIntersectionObserver';
 
 
 import { useEffect, useRef } from 'react';
@@ -27,7 +27,7 @@ export function GigPreview({ gig }) {
     }
 
     // console.log(gig)
-    return <article className="preview" ref={ref}>
+    return <article className="preview">
 
         {/* <div role="tooltip" className="">This freelancer has been vetted for quality and expertise by the Fiverr Pro team.</div> */}
         {/* carousel */}

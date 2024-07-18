@@ -15,10 +15,10 @@ function getEmptyGig() {
 
 function getDefaultFilter() {
     return {
-        txt: '',
-        minSpeed: '',
-        sortField: '',
-        sortDir: '',
+        title: '',
+        price: null,
+        tags: [],
+        // sortDir: '',
     }
 }
 function getPrimeryTags() {

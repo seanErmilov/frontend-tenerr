@@ -5,10 +5,10 @@ import { Link, NavLink } from 'react-router-dom'
 // cmp
 import { GigFilter } from '../cmps/GigFilter'
 import { SearchBar } from '../cmps/SearchBar'
-import {PrimeCategoriesSection} from '../cmps/PrimeCategoriesSection'
+import { PrimeCategoriesSection } from '../cmps/PrimeCategoriesSection'
 
 // store - actions
-import { loadGigs, addGig, updateGig, removeGig, addGigMsg } from '../store/actions/gig.actions'
+import { loadGigs, addGig, updateGig, removeGig, addGigMsg, setFilter } from '../store/actions/gig.actions'
 
 // services
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
@@ -17,10 +17,15 @@ import { userService } from '../services/user'
 
 //hooks
 import { useIntersectionObserver } from '../customHooks/useIntersectionObserver'
+import { useSelector } from 'react-redux'
 
 
 export function HomePage() {
-    const [filterBy, setFilterBy] = useState(gigService.getDefaultFilter())
+    const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
+
+    function onSetFilter(filterBy) {
+        setFilter(filterBy)
+    }
 
     return (
         <main className="gig-homepage">
@@ -53,10 +58,10 @@ export function HomePage() {
                     <li><img src="src/assets/img/payoneer.svg" alt="payonner" />sdsds</li>
                 </ul>
             </div>
-            
 
-            <PrimeCategoriesSection />
-            <GigFilter filterBy={filterBy} setFilterBy={setFilterBy} />
+
+            <PrimeCategoriesSection filterBy={filterBy} setFilterBy={onSetFilter} />
+            <GigFilter filterBy={filterBy} setFilterBy={onSetFilter} />
         </main>
     )
 }

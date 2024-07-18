@@ -3,8 +3,8 @@ import { GigPreview } from './GigPreview'
 import { gigService } from '../services/gig/gig.service.local.js'
 
 
-export function GigList({  onRemoveGig, onUpdateGig }) {
-    let  gigs = gigService._createGigs()
+export function GigList({ gigs, onRemoveGig, onUpdateGig }) {
+    // let  gigs = gigService._createGigs()
 
     // function shouldShowActionBtns(gig) {
     //     const user = userService.getLoggedinUser()
@@ -15,7 +15,7 @@ export function GigList({  onRemoveGig, onUpdateGig }) {
     // }
 
     return <section>
-        <ul className="gig-list"> 
+        <ul className="gig-list">
             {gigs.map((gig, ind) =>
                 <li key={ind}>
                     <GigPreview gig={gig} />
