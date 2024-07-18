@@ -11,6 +11,7 @@ import { userService } from '../services/user'
 
 import { GigList } from '../cmps/GigList'
 import { GigFilter } from '../cmps/GigFilter'
+import { CarouselImg } from '../cmps/CarouselImg'
 
 export function  HomePage() {
 

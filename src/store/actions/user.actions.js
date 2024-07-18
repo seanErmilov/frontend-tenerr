@@ -1,5 +1,5 @@
 import { userService } from '../../services/user'
-import { socketService } from '../../services/socket.service'
+// import { socketService } from '../../services/socket.service'
 import { store } from '../store'
 
 import { showErrorMsg } from '../../services/event-bus.service'
@@ -64,7 +64,7 @@ export async function logout() {
             type: SET_USER,
             user: null
         })
-        socketService.logout()
+        // socketService.logout()
     } catch (err) {
         console.log('Cannot logout', err)
         throw err
