@@ -21,9 +21,12 @@ function getDefaultFilter() {
         sortDir: '',
     }
 }
+function getPrimeryTags() {
+    return ['logo-design', 'wordpress', 'voice-over', 'artisitic', 'proffesional', 'accessible']
+}
 
 const service = VITE_LOCAL === 'true' ? local : remote
-export const gigService = { getEmptyGig, getDefaultFilter, ...service }
+export const gigService = { getEmptyGig, getDefaultFilter, getPrimeryTags, ...service }
 
 // Easy access to this service from the dev tools console
 // when using script - dev / dev:local

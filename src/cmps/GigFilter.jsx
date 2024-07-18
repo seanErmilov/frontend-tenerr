@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+import { gigService } from '../services/gig'
 
 export function GigFilter({ filterBy, setFilterBy }) {
     const [filterToEdit, setFilterToEdit] = useState(structuredClone(filterBy))
+    const [primeTags, setPrimeTags] = useState(gigService.getPrimeryTags())
 
     useEffect(() => {
         setFilterBy(filterToEdit)
@@ -34,16 +36,37 @@ export function GigFilter({ filterBy, setFilterBy }) {
     }
 
     return <section className="gig-filter">
-        <h3>Filter:</h3>
-        <input
+        <img src="src/assets/img/hero-xl-x1.webp" alt="" />
+        <h1 className='filter-h1'>Find the right
+            <strong> freelance</strong>
+            <br />
+            service, right away</h1>
+        <input className='search-input'
             type="text"
             name="txt"
             value={filterToEdit.txt}
-            placeholder="Free text"
+            placeholder="Search for any service..."
             onChange={handleChange}
             required
         />
-        <input
+        
+        <button className='btn-search'>
+            <img src="src/assets/icon/search white.svg" alt="" />
+        </button>
+        <div className='company-logos'>
+            <span>Trusted by:</span>
+            <ul className='company-logos-img'>
+                <li><img src="src/assets/img/meta.svg"/></li>
+                <li><img src="src/assets/img/google.svg"/></li>
+                <li><img src="src/assets/img/netflix.svg"/></li>
+                <li><img src="src/assets/img/pg.svg"/></li>
+                <li><img src="src/assets/img/paypal.svg"/></li>
+                <li><img src="src/assets/img/payoneer.svg" alt = "payonner"/>sdsds</li>
+            </ul>
+        </div>
+        
+        {/* <input
+        
             type="number"
             min="0"
             name="minSpeed"
@@ -51,8 +74,8 @@ export function GigFilter({ filterBy, setFilterBy }) {
             placeholder="min. speed"
             onChange={handleChange}
             required
-        />
-        <button
+        /> */}
+        {/* <button
             className="btn-clear"
             onClick={clearFilter}>Clear</button>
         <h3>Sort:</h3>
@@ -75,8 +98,8 @@ export function GigFilter({ filterBy, setFilterBy }) {
                     value="vendor"
                     checked={filterToEdit.sortField === 'vendor'}
                     onChange={handleChange}
-                />
-            </label>
+                /> */}
+            {/* </label>
             <label>
                 <span>Owner</span>
                 <input
@@ -87,8 +110,8 @@ export function GigFilter({ filterBy, setFilterBy }) {
                     onChange={handleChange}
                 />
             </label>
-        </div>
-        <div className="sort-dir">
+        </div> */}
+        {/* <div className="sort-dir">
             <label>
                 <span>Asce</span>
                 <input
@@ -110,8 +133,21 @@ export function GigFilter({ filterBy, setFilterBy }) {
                 />
             </label>
         </div>
+
         <button
             className="btn-clear"
-            onClick={clearSort}>Clear</button>
-    </section>
+            onClick={clearSort}>
+
+            Clear
+        </button>
+
+        <h3>Prime Tags:</h3>
+        <div className="prime-labels">
+            {primeTags.map(tag => (
+                <button key={tag} onClick={() => handleTagClick(tag)}>
+                    {tag}
+                </button>
+            ))}  */}
+    {/* </div> */}
+    </section >
 }

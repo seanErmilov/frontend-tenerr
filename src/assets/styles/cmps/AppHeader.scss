@@ -1,34 +1,46 @@
 .app-header {
     display: flex;
-    min-height: 3.5rem;
-
+    height: 80px;
     background-color: $clr4;
-    padding: rem(10px) 1rem;
-    
+    border-bottom: 1px solid #e4e5e7;
+
     nav {
         display: flex;
-        width: 100%;
         align-items: center;
         gap: 1em;
-        
         font-size: .8em;
+        margin-left: 282px;
+        width: 1292px;
 
         .active {
             color: $clr1;
         }
 
+        .dot {
+            font-weight: bold;
+            color: #1dbf73;
+        }
+
         .logo {
             font-size: 1.4em;
             font-weight: bold;
-            margin-inline-end: 2em;
+            margin-inline-end: 26.2em;
+
         }
 
-        .login-link {
-            margin-inline-start: auto;
-        }
 
         button {
-            margin-inline-end: 0;
+            color: $clr1;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid $clr1;
+            background-color: transparent;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $clr1;
+                border-color: $clr1;
+            }
         }
     }
 
@@ -53,7 +65,7 @@
             aspect-ratio: 1;
             border-radius: 50%;
         }
-        
+
         .btn-link {
             color: $clr2;
         }
