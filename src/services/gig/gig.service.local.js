@@ -18,25 +18,18 @@ _createGigs()
 
 async function query(filterBy = { txt: '', price: 0 }) {
     var gigs = await storageService.query(STORAGE_KEY)
-    const { txt } = filterBy
+    const { txt, tags } = filterBy
 
     if (txt) {
         const regex = new RegExp(filterBy.txt, 'i')
         gigs = gigs.filter(gig => regex.test(gig.vendor) || regex.test(gig.description))
     }
-    // if (minSpeed) {
-    //     gigs = gigs.filter(gig => gig.speed >= minSpeed)
-    // }
-    // if (sortField === 'vendor' || sortField === 'owner') {
-    //     gigs.sort((gig1, gig2) =>
-    //         gig1[sortField].localeCompare(gig2[sortField]) * +sortDir)
-    // }
-    // if (sortField === 'price' || sortField === 'speed') {
-    //     gigs.sort((gig1, gig2) =>
-    //         (gig1[sortField] - gig2[sortField]) * +sortDir)
-    // }
-
-    // gigs = gigs.map(({ _id, vendor, price, speed, owner }) => ({ _id, vendor, price, speed, owner }))
+    if (tags && tags.length) {
+        gigs = gigs.filter(gig => {
+            return tags.every(tag => gig.tags.includes(tag));
+        }
+        )
+    }
     return gigs
 }
 
@@ -68,11 +61,11 @@ async function save(gig) {
             daysToMake: gig.daysToMake,
             tags: gig.tags,
             // Later, owner is set by the backend
-            owner: userService.getLoggedinUser(),
-            msgs: []
+            // owner: userService.getLoggedinUser(),
+            // msgs: []
         }
 
-        savedGig = await storageService.post(STORAGE_KEY, getRandomGig(gigToSave))
+        savedGig = await storageService.post(STORAGE_KEY, _getRandomGig(gigToSave))
     }
     return savedGig
 }
@@ -93,7 +86,7 @@ async function addGigMsg(gigId, txt) {
 }
 
 
-function getRandomGig(semiReadyGig = {}) {
+function _getRandomGig(semiReadyGig = {}) {
     const titles = [
         'I will design your logo',
         'I will create a website for you',
@@ -113,11 +106,16 @@ function getRandomGig(semiReadyGig = {}) {
     const locations = ['Ghana', 'USA', 'India', 'Germany', 'Brazil'];
 
     const tags = [
-        ['Arts And Crafts', 'Logo Design'],
-        ['Web Development', 'Programming'],
-        ['Writing', 'Blogging'],
-        ['Video Production', 'Marketing'],
-        ['Digital Marketing', 'SEO']
+        ['graphics', 'lifestyle'],
+        ['video', 'business'],
+        ['writing', 'writing'],
+        ['ai', 'music'],
+        ['digital', 'ai'],
+        ['music', 'digital'],
+        ['programming', 'digital'],
+        ['business', 'digital'],
+        ['lifestyle', 'business']
+
     ]
 
     const users = [
