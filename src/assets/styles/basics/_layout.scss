@@ -1,6 +1,6 @@
 .main-container {
     display: grid;
-    grid-template-columns: 14.75rem 1fr 14.75rem;
+    grid-template-columns: 2rem 1fr 2rem;
 
     >* {
         grid-column: 2;
@@ -9,6 +9,7 @@
             grid-column: 1 / -1;
         }
     }
+    min-height: calc(100vh - 7rem);
 
     // @include for-narrow-layout {
     //     grid-template-columns: 

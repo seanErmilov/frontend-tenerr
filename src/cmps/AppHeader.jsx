@@ -13,30 +13,11 @@ import { logout } from '../store/actions/user.actions'
 // cmps
 import { SearchBar } from '../cmps/SearchBar'
 
-//hooks
-import { useIntersectionObserver } from '../customHooks/useIntersectionObserver'
-
-
 export function AppHeader() {
 	const user = useSelector(storeState => storeState.userModule.user)
 	const navigate = useNavigate()
 	const active = true
-
 	const pathName = '/'
-
-
-
-	// for determemning when component is out of  viewport
-	const ref = useRef();
-	const isVisible = useIntersectionObserver(ref, { threshold: 0.1 });
-
-	useEffect(() => {
-		if (!isVisible) {
-			console.log('Component is out of the viewport');
-		} else {
-			console.log('Component is in the viewport');
-		}
-	}, [isVisible]);
 
 	async function onLogout() {
 		try {
@@ -50,8 +31,6 @@ export function AppHeader() {
 
 	return (
 		<header className="app-header">
-
-			<div className="pages">
 				{/* Logo */}
 				<div className="logo">
 					<Link className="link" to="/">
@@ -61,11 +40,13 @@ export function AppHeader() {
 				</div>
 
 				{/* Search bar */}
-				<SearchBar />
+				<SearchBar
+					trackInViewport={false}
+				/>
 
 				<div className="nav-links">
 					<nav>
-						<ul>
+						<ul className='main-nav'>
 							<li>
 								<NavLink className="nav-link" to="about">About</NavLink>
 							</li>
@@ -83,17 +64,29 @@ export function AppHeader() {
 
 					{user?.isAdmin && <NavLink className="nav-link" to="/admin">Admin</NavLink>}
 
-					{!user && (
-						<>
-							<NavLink className="nav-link" to="about">Become Seller</NavLink>
-							<NavLink className="nav-link login-link" to="signIn">
-								<button>Sign In</button>
-							</NavLink>
-							<NavLink className="nav-link login-link" to="login">
-								<button>Join</button>
-							</NavLink>
-						</>
-					)}
+					{!user &&
+						<ul className='join-bar'>
+							{/* TODO LINK to ABOUT */}
+							<li>
+								<NavLink className="nav-link" to="about">Become Seller</NavLink>
+							</li>
+
+							{/* TODO LINK to ABOUT */}
+							<li>
+								<NavLink className="nav-link login-link" to="signIn">
+									<button>Sign In</button>
+								</NavLink>
+							</li>
+
+							{/* TODO LINK to ABOUT */}
+							<li>
+								<NavLink className="nav-link login-link" to="login">
+									<button>Join</button>
+								</NavLink>
+							</li>
+						</ul>
+					}
+
 					{user && (
 						<div className="user-info">
 							<Link to={`user/${user._id}`}>
@@ -103,7 +96,6 @@ export function AppHeader() {
 						</div>
 					)}
 				</div>
-			</div>
 		</header>
 
 

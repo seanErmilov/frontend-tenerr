@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom'
 // cmp
 import { GigFilter } from '../cmps/GigFilter'
 import { SearchBar } from '../cmps/SearchBar'
-import {PrimeCategoriesSection} from '../cmps/PrimeCategoriesSection'
+import { PrimeCategoriesSection } from '../cmps/PrimeCategoriesSection'
 
 // store - actions
 import { loadGigs, addGig, updateGig, removeGig, addGigMsg } from '../store/actions/gig.actions'
@@ -15,9 +15,6 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { gigService } from '../services/gig'
 import { userService } from '../services/user'
 
-//hooks
-import { useIntersectionObserver } from '../customHooks/useIntersectionObserver'
-
 
 export function HomePage() {
     const [filterBy, setFilterBy] = useState(gigService.getDefaultFilter())
@@ -25,20 +22,70 @@ export function HomePage() {
     return (
         <main className="gig-homepage">
 
-            {/* Hero Picture */}
-            <img src="src/assets/img/hero-xl-x1.webp" alt="" />
+            {/* home page hero */}
+            <div className='hero'>
 
-            {/* Hero inner text */}
-            <h1 className='hero-inner-text'>Find the right
-                <span className='bold'> freelance</span>
-                <br />
-                service, right away</h1>
+                {/* Hero Picture */}
+                <img src="src/assets/img/hero-xl-x1.webp" alt="" />
 
-            {/* Search Bar */}
-            <SearchBar
-            // handleChange={handleChange}
-            // filterToEdit={filterBy} 
-            />
+                {/* Hero inner text */}
+                <h1 className='hero-inner-text'>Find the right
+                    <span className='bold'> freelance</span>
+                    <br />
+                    service, right away</h1>
+
+                {/* Search Bar */}
+                <SearchBar
+                    trackInViewport={true}
+
+                />
+
+            </div>
+
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
 
 
             {/* Company logos */}
