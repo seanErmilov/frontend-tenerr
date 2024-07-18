@@ -41,6 +41,7 @@ async function query(filterBy = { txt: '', price: 0 }) {
 }
 
 function getById(gigId) {
+    
     return storageService.get(STORAGE_KEY, gigId)
 }
 
@@ -97,6 +98,7 @@ function _createGigs() {
 
     const _gigs = [
         {
+            _id:'u101',
             title: 'I will design your logo',
             price: 12.16,
             owner: {
