@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { gigService } from '../services/gig'
+import { SearchBar } from './SearchBar'
 
 export function GigFilter({ filterBy, setFilterBy }) {
     const [filterToEdit, setFilterToEdit] = useState(structuredClone(filterBy))
@@ -52,7 +53,7 @@ export function GigFilter({ filterBy, setFilterBy }) {
         <button className='btn-search'>
             <img src="src/assets/icon/search white.svg" alt="" />
         </button>
-
+        <SearchBar handleChange={handleChange} filterBy={filterBy} />
         <div className='company-logos'>
             <span>Trusted by:</span>
             <ul className='company-logos-img'>
