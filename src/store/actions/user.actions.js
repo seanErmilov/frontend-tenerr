@@ -6,7 +6,6 @@ import { LOADING_DONE, LOADING_START } from '../reducers/system.reducer'
 import { REMOVE_USER, SET_USER, SET_USERS, SET_WATCHED_USER } from '../reducers/user.reducer'
 import { loadGig } from './gig.actions'
 
-service
 export async function loadUsers() {
     try {
         store.dispatch({ type: LOADING_START })
