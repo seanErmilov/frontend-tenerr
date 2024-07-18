@@ -11,6 +11,7 @@ export const gigService = {
     save,
     remove,
     addGigMsg,
+    _createGigs
 }
 window.cs = gigService
 
