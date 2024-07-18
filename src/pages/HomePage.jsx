@@ -1,11 +1,11 @@
 // react tools
 import { useState, useEffect, useRef } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 
 // cmp
 import { GigFilter } from '../cmps/GigFilter'
 import { SearchBar } from '../cmps/SearchBar'
-import { PrimeCategoriesSection } from '../cmps/PrimeCategoriesSection'
 import { PrimeCategoriesSection } from '../cmps/PrimeCategoriesSection'
 
 // store - actions
@@ -19,7 +19,6 @@ import { userService } from '../services/user'
 
 export function HomePage() {
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
-
     function onSetFilter(filterBy) {
         setFilter(filterBy)
     }

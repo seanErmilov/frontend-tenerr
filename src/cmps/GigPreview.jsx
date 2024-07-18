@@ -22,7 +22,6 @@ export function GigPreview({ gig }) {
 
     // console.log(gig)
     return <article className="preview">
-    return <article className="preview">
 
         {/* <div role="tooltip" className="">This freelancer has been vetted for quality and expertise by the Fiverr Pro team.</div> */}
         {/* carousel */}
