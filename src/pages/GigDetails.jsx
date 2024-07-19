@@ -8,6 +8,7 @@ import { gigService } from '../services/gig'
 import { ReviewList } from '../cmps/ReviewList'
 import { MiniuserGig } from '../cmps/MiniUserGig'
 import { AboutGig } from '../cmps/AboutGig'
+import { AboutUserGig } from '../cmps/AbuotUserGig'
 
 export function GigDetails() {
   const [expanded, setExpanded] = useState(false)
@@ -27,15 +28,19 @@ export function GigDetails() {
 
     return (
       <section className="gig-details">
-        <div className='gig-overview'>
-          <h1 className="text-display">{gig.title} </h1>
-          <MiniuserGig user={gig.owner}  />
-          <div className="gig-carousel"><CarouselImg imgUrls={gig.imgUrls} /></div>
-          <SidebarPrice price={gig.price} />
-          <AboutGig description={gig.description} />
-          <div className="gig-reviewList"><ReviewList reviews={gig.reviews} loc={gig.loc} />
-          </div>
+      <div className='gig-overview'>
+        <h1 className="text-display">{gig.title}</h1>
+        <MiniuserGig user={gig.owner} />
+        <div className="gig-carousel">
+          <CarouselImg imgUrls={gig.imgUrls} />
         </div>
-      </section>
+        <SidebarPrice price={gig.price} avgResponseTime={gig.avgResponseTime} onChange={() => {}} />
+        <AboutGig description={gig.description} />
+        <div className="gig-reviewList">
+          <ReviewList reviews={gig.reviews} loc={gig.loc} />
+        </div>
+        <AboutUserGig user={gig.owner} />
+      </div>
+    </section>
     )
 }

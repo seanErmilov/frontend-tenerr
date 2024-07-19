@@ -100,22 +100,56 @@ function _createGigs() {
         {
             "_id": "u101",
             "title": "I will design your logo",
-            "price": 12.16,
+            "price": 150,
             "owner": {
                 "_id": "u101",
                 "fullname": "Dudu Da",
                 "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqUHH63Qqv2vokjtR7pUKv0qd--76KzAuiHw&s",
                 "level": "basic",
-                "rate": 4
+                "rate": 4,
+                'abuotUser': "Obus is part of the Fiverr Pro catalog and has been hand-picked by a dedicated Fiverr Pro team for their skills and expertise.Logo designer specialized in minimalism and simplicity. My passion is to create beautiful pieces that serve both aesthetics and functionality.To keep the creative juices flowing I travel, workout, sketch and never stop learning. Based in Rotterdam, The Netherlands."
             },
             "daysToMake": 3,
-            "description": "While Fiverr suggests this description is my chance to be creative, I believe the true creativity comes to life when I start designing your logo.\n\nMy goal is to leverage my expertise and experience to craft a logo that perfectly represents your business. Creativity is essential, and I’m dedicated to pushing boundaries and exploring new possibilities. I aim to create something unique that sets your brand apart from the competition.\n\nIt seems I've added a touch of creativity to this description after all!",
+            "description": "While Fiverr suggests this description is my chance to be creative, I believe the true creativity comes to life when I start designing your logo.\n\nMy goal is to leverage my expertise and experience to craft a logo that perfectly represents your business. Creativity is essential, and I’m dedicated to pushing boundaries and exploring new possibilities. I aim to create something unique that sets your brand apart from the competition.\n\nIt seems I've added a touch of creativity to this description after all! \n\nI will include:\n\nBlack/white and color versions \n\nFont selection and typography \n\nVector source files\n\n High resolution transparent PNG files",
             "avgResponseTime": 1,
             "loc": "Ghana",
             "imgUrls": ["/img/img1.jpg"],
             "tags": ["Arts And Crafts", "Logo Design"],
             "likedByUsers": ["mini-user"],
             "reviews": [
+                {
+                    "id": "r101",
+                    "txt": "Did an amazing work",
+                    "rate": 4,
+                    "by": {
+                        "_id": "u102",
+                        "loc": "Ghana",
+                        "fullname": "lolo",
+                        "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5_LmCJD3P-8Ey1AoowgI5iG8OM_EiPcU9oQ&s"
+                    }
+                },
+                {
+                    "id": "r101",
+                    "txt": "Goed werk. Communiceert helder en werkt samen naar een goed eind resultaat ",
+                    "rate": 5,
+                    "by": {
+                        "_id": "u102",
+                        "loc": "Ghana",
+                        "fullname": "momo",
+                        "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5_LmCJD3P-8Ey1AoowgI5iG8OM_EiPcU9oQ&s"
+                    }
+                },
+                {
+                    "id": "r101",
+                    "txt": "Did an amazing work",
+                    "rate": 4,
+                    "by": {
+                        "_id": "u102",
+                        "loc": "Ghana",
+                        "fullname": "momo",
+                        "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5_LmCJD3P-8Ey1AoowgI5iG8OM_EiPcU9oQ&s"
+                    }
+                },
                 {
                     "id": "r101",
                     "txt": "Did an amazing work",

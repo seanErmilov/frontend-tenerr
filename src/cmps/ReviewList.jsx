@@ -1,14 +1,17 @@
-import React from 'react'
-import { Carousel } from 'react-responsive-carousel'
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import React, { useState } from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 export function ReviewList({ reviews, loc }) {
-  const fiveStarReviews = reviews.filter(review => review.rate === 5)
+  const [showAll, setShowAll] = useState(false);
+
+  const fiveStarReviews = reviews.filter(review => review.rate === 5);
+  const displayedReviews = showAll ? reviews : reviews.slice(0, 5);
 
   const renderStars = (rate) => {
-    const fullStars = Math.floor(rate)
-    const halfStars = rate % 1 !== 0 ? 1 : 0
-    const emptyStars = 5 - fullStars - halfStars
+    const fullStars = Math.floor(rate);
+    const halfStars = rate % 1 !== 0 ? 1 : 0;
+    const emptyStars = 5 - fullStars - halfStars;
 
     return (
       <>
@@ -16,12 +19,16 @@ export function ReviewList({ reviews, loc }) {
         {halfStars ? <span key="half" className="star half-star">☆</span> : null}
         {Array(emptyStars).fill().map((_, idx) => <span key={`empty-${idx}`} className="star empty-star">☆</span>)}
       </>
-    )
-  }
+    );
+  };
+
+  const toggleShowAll = () => {
+    setShowAll(!showAll);
+  };
 
   return (
     <section>
-        <div className="gig-reviews">
+      <div className="gig-reviews">
         {fiveStarReviews.length > 0 ? (
           <Carousel 
             showArrows={true} 
@@ -46,9 +53,8 @@ export function ReviewList({ reviews, loc }) {
             {fiveStarReviews.map(review => (
               <div key={review.id} className="review-carousell">
                 <div className="reviewer-carousell-img"><img src={review.by.imgUrl} alt={review.by.fullname} /></div>
-                  <div className="reviewer-carousell-name">{review.by.fullname}</div>
-                  <div className="reviewer-carousell-loc">{loc}</div>
-                
+                <div className="reviewer-carousell-name">{review.by.fullname}</div>
+                <div className="reviewer-carousell-loc">{loc}</div>
                 <div className="review-carousell-rate">{renderStars(review.rate)}</div>
                 <div className="review-carousell-txt">{review.txt}</div>
               </div>
@@ -59,8 +65,8 @@ export function ReviewList({ reviews, loc }) {
         )}
 
         <h3>All Reviews</h3>
-        {reviews.length > 0 ? (
-          reviews.map(review => (
+        {displayedReviews.length > 0 ? (
+          displayedReviews.map(review => (
             <div key={review.id} className="review">
               <div className="reviewer-img"><img src={review.by.imgUrl} alt={review.by.fullname} /></div>
               <div className='name-and-loc'>
@@ -74,7 +80,13 @@ export function ReviewList({ reviews, loc }) {
         ) : (
           <p>No reviews found</p>
         )}
+        
+        {reviews.length > 5 && (
+          <button className="show-more-btn" onClick={toggleShowAll}>
+            {showAll ? 'Show Less' : 'Show More'}
+          </button>
+        )}
       </div>
     </section>
-  )
+  );
 }

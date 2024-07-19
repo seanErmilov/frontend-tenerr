@@ -8,17 +8,18 @@
 
   .review {
     margin-left: 5px;
-
+    padding-bottom: 30px;
     display: grid;
     grid-template-columns: auto 55px 250px 1fr;
     grid-template-rows: 40px auto auto;
-    border: 1px solid $clr9;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: start;
-    margin-top: 20px;
+    margin-top: 40px;
+    border-bottom: 1px solid $clr6;
+
 
     .reviewer-img {
       width: 55px;
+
       img {
         margin: 5px 2px;
         border-radius: 50%;
@@ -41,15 +42,16 @@
       }
     }
 
-   
+
     .review-txt {
       grid-column: 2 /span 3;
       grid-row: 3;
       margin-left: 5px;
       font-size: 16px;
     }
-   .review-rate {
-      grid-column: 2 ;
+
+    .review-rate {
+      grid-column: 2;
       margin-left: 5px;
       font-size: 16px;
     }
@@ -104,14 +106,15 @@
     height: 150px;
 
     .reviewer-carousell-img {
-      grid-row: 1 ;
-        height: 47px;
-        width: 49px;
+      grid-row: 1;
+      height: 47px;
+      width: 49px;
+
       img {
         border-radius: 50%;
         margin: 10px 30px;
         height: 46px;
-        grid-column: 1 ;
+        grid-column: 1;
       }
     }
 
@@ -121,25 +124,50 @@
 
       margin-left: 5px;
       font-size: 16px;
+      color: $clr9;
+      opacity: 80%;
     }
 
     .reviewer-carousell-name {
       grid-column: 2;
+      color: $clr9;
+      opacity: 80%;
     }
 
     .reviewer-carousell-loc {
       grid-column: 3;
+      color: $clr9;
+      opacity: 80%;
     }
 
     .review-carousell-txt {
       grid-column: 2 / span 4;
       grid-row: 2;
+      color: $clr9;
+      opacity: 80%;
     }
 
     .review-carousell-rate {
       color: $clr9;
       grid-column: 4;
       font-size: large;
+    }
+  }
+
+  .show-more-btn {
+
+    padding: 10px;
+    background-color: $clr4;
+    border-radius: 5px;
+    color: $clr9;
+    font-size: Macan, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 280px;
+    font-size: 18px;
+    border: 1px solid #222325;
+    margin-top: 30px;
+    &:hover {
+      background-color: #222325;
+      color: $clr4;
     }
   }
 }

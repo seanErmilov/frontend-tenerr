@@ -1,24 +1,41 @@
-import  { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export function AboutGig({ description }) {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(false)
 
   const toggleExpandDescription = () => {
     setExpanded(!expanded)
-  };
+  }
+
+  useEffect(() => {
+    const paragraphs = document.querySelectorAll('.gig-description .paragraph')
+    paragraphs.forEach((paragraph, index) => {
+      paragraph.style.setProperty('--paragraph-index', index)
+    })
+  }, [expanded, description])
 
   const renderDescription = () => {
-    const words = description.split(' ')
-    const wordLimit = 10
+    const paragraphs = description.split('\n')
+    const paragraphLimit = 2
 
-    if (words.length > wordLimit && !expanded) {
-      const truncatedText = words.slice(0, wordLimit).join(' ')
+    if (paragraphs.length > paragraphLimit && !expanded) {
+      const truncatedParagraphs = paragraphs.slice(0, paragraphLimit)
       return (
-        <>{truncatedText}... <span className="read-more" onClick={toggleExpandDescription}>Read More</span></>
+        <>
+          {truncatedParagraphs.map((paragraph, index) => (
+            <p key={index} className="paragraph">{paragraph}</p>
+          ))}
+          <span className="read-more" onClick={toggleExpandDescription}>Read More</span>
+        </>
       )
     } else {
       return (
-        <>{description} {expanded && <span className="read-more" onClick={toggleExpandDescription}>Read Less</span>}</>
+        <>
+          {paragraphs.map((paragraph, index) => (
+            <p key={index} className="paragraph">{paragraph}</p>
+          ))}
+          {expanded && <span className="read-more" onClick={toggleExpandDescription}>Read Less</span>}
+        </>
       )
     }
   }
