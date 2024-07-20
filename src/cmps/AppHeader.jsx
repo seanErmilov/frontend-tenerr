@@ -31,71 +31,63 @@ export function AppHeader() {
 
 	return (
 		<header className="app-header">
-				{/* Logo */}
-				<div className="logo">
-					<Link className="link" to="/">
-						<span className="text">Tenner</span>
-					</Link>
-					<span className="dot">.</span>
-				</div>
+			{/* Logo */}
+			<div className="logo">
+				<Link className="link" to="/">
+					<span className="text">Tenner</span>
+				</Link>
+				<span className="dot">.</span>
+			</div>
 
-				{/* Search bar */}
-				<SearchBar
-					trackInViewport={false}
-				/>
+			{/* Search bar */}
+			<SearchBar
+				trackInViewport={false}
+			/>
 
-				<div className="nav-links">
-					<nav>
-						<ul className='main-nav'>
-							<li>
-								<NavLink className="nav-link" to="about">About</NavLink>
-							</li>
-							<li>
-								<NavLink className="nav-link" to="gig">Gigs</NavLink>
-							</li>
-							<li>
-								<NavLink className="nav-link" to="chat">Chat</NavLink>
-							</li>
-							<li>
-								<NavLink className="nav-link" to="review">Review</NavLink>
-							</li>
-						</ul>
-					</nav>
-
-					{user?.isAdmin && <NavLink className="nav-link" to="/admin">Admin</NavLink>}
-
+			<nav className="nav-links">
+				<ul className='main-nav'>
+					<li>
+						<NavLink className="nav-link" to="about">About</NavLink>
+					</li>
+					<li>
+						<NavLink className="nav-link" to="gig">Gigs</NavLink>
+					</li>
+					<li>
+						<NavLink className="nav-link" to="chat">Chat</NavLink>
+					</li>
+					<li>
+						<NavLink className="nav-link" to="review">Review</NavLink>
+					</li>
 					{!user &&
-						<ul className='join-bar'>
-							{/* TODO LINK to ABOUT */}
+						<>
 							<li>
-								<NavLink className="nav-link" to="about">Become Seller</NavLink>
+								<NavLink className="nav-link" to="about">Become a Seller</NavLink>
 							</li>
 
-							{/* TODO LINK to ABOUT */}
 							<li>
 								<NavLink className="nav-link login-link" to="signIn">
 									<button>Sign In</button>
 								</NavLink>
 							</li>
 
-							{/* TODO LINK to ABOUT */}
 							<li>
 								<NavLink className="nav-link login-link" to="login">
 									<button>Join</button>
 								</NavLink>
 							</li>
-						</ul>
+							{user && (
+								<li>
+									<Link to={`user/${user._id}`}>
+										{user.fullname}
+									</Link>
+									<button onClick={onLogout}>Logout</button>
+								</li>
+							)}
+						</>
 					}
 
-					{user && (
-						<div className="user-info">
-							<Link to={`user/${user._id}`}>
-								{user.fullname}
-							</Link>
-							<button onClick={onLogout}>Logout</button>
-						</div>
-					)}
-				</div>
+				</ul>
+			</nav>
 		</header>
 
 

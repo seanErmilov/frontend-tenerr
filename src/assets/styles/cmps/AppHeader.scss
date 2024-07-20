@@ -1,20 +1,41 @@
 .app-header {
-    z-index: 1;
     position: sticky;
     top: 0;
-    display: grid;
-    grid-auto-flow: column;
-    background-color: aqua;
+    display: flex;
+    height: 80px;
 
-    .search-bar{
+    align-items: center;
+
+    .search-bar {
         transition: opacity 0.2s linear;
+        width: 100%;
     }
 
     .logo {
         font-family: 'logo-font';
     }
 
-    .main-nav, .nav-links, .join-bar {
+    .nav-links {
+        display: flex;
+        align-items: center;
+        border: solid 1px;
+        margin-left: 2rem;
+
+        .nav-link {
+            padding-right: 1.5rem;
+            white-space: nowrap;
+        }
+    }
+
+    .main-nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        column-gap: 1.5rem;
+        width: 100%;
+    }
+
+    .join-bar {
         display: grid;
         grid-auto-flow: column;
     }
