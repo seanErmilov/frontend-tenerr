@@ -14,12 +14,9 @@ import { SHOW_SEARCH_BAR } from '../store/reducers/system.reducer'
 export function SearchBar({ filterToEdit, handleChange, trackInViewport = false }) {
     const showTopSearchBar = useSelector(storeState => storeState.systemModule.showSearchBar)
     const dispatch = useDispatch()
-    //const  [trackVisibilty, setTrackVisibilty] = useState(trackInViewport)
-
     const ref = useRef();
     // Use the useVisibility hook only if trackInViewport is true
     const isVisible = trackInViewport ? useVisibility(ref, { threshold: 0 }) : true;
-
 
     useEffect(() => {
         if (trackInViewport) {
@@ -33,7 +30,7 @@ export function SearchBar({ filterToEdit, handleChange, trackInViewport = false 
 
     return ( 
         <section className={`search-bar pos-relative ${!(trackInViewport || showTopSearchBar) ? 'transparent' : ''}`}  >
-            <div ref={ref} className='out-of-vp-indicator'>check</div>
+            <div ref={ref} className='out-of-vp-indicator'></div>
             <input
                 className='search-input'
                 type="text"
