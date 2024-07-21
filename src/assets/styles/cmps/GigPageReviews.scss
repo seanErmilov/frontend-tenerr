@@ -1,0 +1,75 @@
+.gig-page-reviews {
+    padding: 20px;
+    max-width: 576px;
+    .reviews-summary {
+        margin-bottom: 20px;
+
+        .total-reviews {
+            font-size: 18px;
+            color: #555;
+            p{
+                margin: 0px;
+            }
+        }
+
+        .average-rating {
+            display: flex;
+            align-items: center;
+            color: $clr9;
+justify-content: space-between;
+            .rating-text {
+                font-size: 24px;
+                font-weight: bold;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .brekdown {
+        display: flex;
+        justify-content: start;
+        gap: 150px;
+        list-style-type: none;
+
+        .rating-breakdown {
+            .stars-container{
+                height: 28px;
+            }
+            ul {
+                padding: 0;
+                margin: 0;
+                align-items: center;        
+            }
+        }
+
+        .detailed-breakdown {
+            ul {
+                padding: 0;
+                margin: 0;
+                align-items: center;
+            }
+        }
+    }
+
+    .stars-container {
+        display: inline-flex;
+        align-items: center;
+
+        .star {
+            font-size: 24px;
+            color: #000000;
+
+            &.full-star {
+                color: #000000;
+            }
+
+            &.half-star {
+                color: #000000;
+            }
+
+            &.empty-star {
+                color: #D3D3D3;
+            }
+        }
+    }
+}

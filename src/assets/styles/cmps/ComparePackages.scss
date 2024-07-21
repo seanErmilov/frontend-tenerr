@@ -1,0 +1,72 @@
+$yes: url('https://cdn.icon-icons.com/icons2/1369/PNG/512/-check_90383.png');
+$no: url('https://cdn.icon-icons.com/icons2/1369/PNG/512/-check_90383.png'); 
+
+.compare-packages {
+  color: $clr9;
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    td{
+      color: $clr7;
+
+    }
+    th {
+      background-color: #f4f4f4;
+      color: $clr7;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    button {
+      background-color: $clr9;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $clr7;
+      }
+    }
+
+    td {
+      .yes,
+      .no {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .yes {
+        background-image: $yes;
+      }
+
+      .no {
+        background-image: $no;
+        opacity: 0.4;
+      }
+    }
+  }
+}
