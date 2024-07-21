@@ -82,6 +82,7 @@ async function addGigMsg(gigId, txt) {
 }
 
 function _getRandomGig(semiReadyGig = {}) {
+
     const titles = [
         'I will design your logo',
         'I will create a website for you',
@@ -144,7 +145,7 @@ function _getRandomGig(semiReadyGig = {}) {
                 id: `r${getRandomInt(100, 999)}`,
                 txt: getRandomElement(reviewTexts),
                 rate: getRandomInt(1, 5),
-                by: getRandomElement(users)
+                by: getRandomElement(users)//mini user in development
             })
         }
         return reviews
@@ -179,3 +180,4 @@ function _createGigs() {
     }
     saveToStorage(STORAGE_KEY, gigs)
 }
+

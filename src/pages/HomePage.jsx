@@ -21,7 +21,7 @@ import { useWindowDimensions } from '../customHooks/windowRisze'
 
 
 export function HomePage() {
-    const windowSide = useWindowDimensions()
+    const windowDims = useWindowDimensions()
 
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
 
@@ -35,8 +35,8 @@ export function HomePage() {
         <main className="gig-homepage">
 
             {/* home page hero */}
-            <div className={`hero pos-relative ${windowSide.width < 900 ? 'hero-backgroud-gradient' : ''}`}>
-                {windowSide.width >= 900 &&
+            <div className={`hero pos-relative ${windowDims.width < 900 ? 'hero-backgroud-gradient' : ''}`}>
+                {windowDims.width >= 900 &&
                     <>
                         <img className="jenny pos-absolute" src="src/assets/img/home-page-hero/jenny.png" alt="" />
                         <img className="jordan pos-absolute" src="src/assets/img/home-page-hero/jordan.png" alt="" />
@@ -54,7 +54,7 @@ export function HomePage() {
                     trackInViewport={true} />
 
                 {/* Company logos */}
-                {windowSide.width >= 900 &&
+                {windowDims.width >= 900 &&
                     <div className='company-logos'>
 
                         <ul className='company-logos grid-column'>
@@ -70,8 +70,47 @@ export function HomePage() {
                 }
             </div>
 
+
             <PrimeCategoriesSection filterBy={filterBy} setFilterBy={onSetFilter} />
             <GigFilter filterBy={filterBy} setFilterBy={onSetFilter} />
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
         </main>
     )
 }

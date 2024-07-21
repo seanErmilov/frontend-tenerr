@@ -32,7 +32,7 @@ export function AppHeader() {
 	}
 
 	return (
-		<header className="app-header">
+		<header className="app-header full">
 			{/* Logo */}
 			<div className="logo">
 				<Link className="link" to="/" onClick={() => setFilter(gigService.getDefaultFilter())}>
@@ -49,7 +49,7 @@ export function AppHeader() {
 			<nav className="nav-links">
 				<ul className='main-nav'>
 					<li>
-						<NavLink className="nav-link" to="about">About</NavLink>
+						<NavLink className="nav-link" to="gig/edit">Add gig</NavLink>
 					</li>
 					<li>
 						<NavLink className="nav-link" to="gig">Gigs</NavLink>

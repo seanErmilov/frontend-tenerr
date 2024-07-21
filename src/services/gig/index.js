@@ -7,17 +7,21 @@ import { gigService as remote } from './gig.service.remote'
 
 function getEmptyGig() {
     return {
-        vendor: makeId(),
-        speed: getRandomIntInclusive(80, 240),
-        msgs: [],
+        title: '',
+        price: '',
+        tags: [],
     }
 }
 
 function getDefaultFilter() {
     return {
         title: '',
-        price: null,
+        price: '',
         tags: [],
+        dayToMake: '',
+        imgUrls: [],
+        loc: '',
+        descrption: '',
         // sortDir: '',
     }
 }
