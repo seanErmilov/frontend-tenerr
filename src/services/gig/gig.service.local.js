@@ -36,19 +36,13 @@ function getById(gigId) {
 }
 
 async function remove(gigId) {
-    // throw new Error('Nope')
     await storageService.remove(STORAGE_KEY, gigId)
 }
 
 async function save(gig) {
     var savedGig
     if (gig._id) {
-        const gigToSave = {
-            _id: gig._id,
-            title: gig.title,
-            price: gig.price,
-            tags: gig.tags,
-        }
+        const gigToSave = { ...gig }
         savedGig = await storageService.put(STORAGE_KEY, gigToSave)
     } else {
         const gigToSave = {
@@ -56,9 +50,7 @@ async function save(gig) {
             price: gig.price,
             daysToMake: gig.daysToMake,
             tags: gig.tags,
-            // Later, owner is set by the backend
-            // owner: userService.getLoggedinUser(),
-            // msgs: []
+            owner: userService.getLoggedinUser(),
         }
 
         savedGig = await storageService.post(STORAGE_KEY, _getRandomGig(gigToSave))
@@ -81,7 +73,7 @@ async function addGigMsg(gigId, txt) {
     return msg
 }
 
-function _getRandomGig(semiReadyGig = {}) {
+function _getRandomGig(partialGig = {}) {
 
     const titles = [
         'I will design your logo',
@@ -130,31 +122,10 @@ function _getRandomGig(semiReadyGig = {}) {
         'Creative and unique approach to design. Loved it!'
     ]
 
-    function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min
-    }
-
-    function getRandomElement(arr) {
-        return arr[Math.floor(Math.random() * arr.length)]
-    }
-
-    function generateReviews() {
-        const reviews = []
-        for (let i = 0; i < 6; i++) {
-            reviews.push({
-                id: `r${getRandomInt(100, 999)}`,
-                txt: getRandomElement(reviewTexts),
-                rate: getRandomInt(1, 5),
-                by: getRandomElement(users)//mini user in development
-            })
-        }
-        return reviews
-    }
-
     const gig = {
-        _id: `u${getRandomInt(100, 999)}`,
+        _id: `u${getRandomInt(100, 9999)}`,
         title: getRandomElement(titles),
-        price: parseFloat((Math.random() * 100).toFixed(1)),
+        price: parseFloat((Math.random() * 100).toFixed(0)),
         owner: {
             ...getRandomElement(users),
         },
@@ -165,10 +136,10 @@ function _getRandomGig(semiReadyGig = {}) {
         imgUrls: ['/img/img1.jpg'],
         tags: getRandomElement(tags),
         likedByUsers: ['mini-user'],
-        reviews: generateReviews()
+        reviews: _generateReviews()
     }
 
-    return { ...gig, ...semiReadyGig }
+    return { ...gig, ...partialGig }
 }
 
 function _createGigs() {
@@ -181,3 +152,15 @@ function _createGigs() {
     saveToStorage(STORAGE_KEY, gigs)
 }
 
+function _generateReviews() {
+    const reviews = []
+    for (let i = 0; i < 6; i++) {
+        reviews.push({
+            id: `r${getRandomInt(100, 9999)}`,
+            txt: getRandomElement(reviewTexts),
+            rate: getRandomInt(1, 5),
+            by: getRandomElement(users)//mini user in development
+        })
+    }
+    return reviews
+}
