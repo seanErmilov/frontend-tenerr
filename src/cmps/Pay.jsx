@@ -12,35 +12,35 @@ export function Pay() {
   const [moreFontOptions, setMoreFontOptions] = useState(false)
   const [styleGuide, setStyleGuide] = useState(false)
 
-  const increaseQuantity = () => {
+  function increaseQuantity() {
     setQuantity(prevQuantity => prevQuantity + 1)
   }
 
-  const decreaseQuantity = () => {
+  function decreaseQuantity() {
     setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1))
   }
 
-  const toggleAdditionalRevision = () => {
+  function toggleAdditionalRevision() {
     setAdditionalRevision(!additionalRevision)
   }
 
-  const toggleAdditionalLogo = () => {
+  function toggleAdditionalLogo() {
     setAdditionalLogo(!additionalLogo)
   }
 
-  const toggleSocialMediaKit = () => {
+  function toggleSocialMediaKit() {
     setSocialMediaKit(!socialMediaKit)
   }
 
-  const toggleMoreColorOptions = () => {
+  function toggleMoreColorOptions() {
     setMoreColorOptions(!moreColorOptions)
   }
 
-  const toggleMoreFontOptions = () => {
+  function toggleMoreFontOptions() {
     setMoreFontOptions(!moreFontOptions)
   }
 
-  const toggleStyleGuide = () => {
+  function toggleStyleGuide() {
     setStyleGuide(!styleGuide)
   }
 
@@ -52,11 +52,11 @@ export function Pay() {
   const styleGuideCost = 955.85
   const additionalDays = 1
 
-  const formatPrice = (price) => {
+  function formatPrice(price) {
     return price.toLocaleString('en-US')
   }
 
-  const calculateTotalPrice = () => {
+  function calculateTotalPrice() {
     const packageTotal = packageDetails.price * quantity
     const revisionTotal = additionalRevision ? additionalRevisionCost : 0
     const logoTotal = additionalLogo ? additionalLogoCost : 0
@@ -67,7 +67,7 @@ export function Pay() {
     return packageTotal + revisionTotal + logoTotal + socialMediaKitTotal + moreColorOptionsTotal + moreFontOptionsTotal + styleGuideTotal
   }
 
-  const calculateTotalWaitingTime = () => {
+  function calculateTotalWaitingTime() {
     let totalDays = packageDetails.avgResponseTime
     if (additionalRevision) totalDays += additionalDays
     if (additionalLogo) totalDays += additionalDays
@@ -78,7 +78,7 @@ export function Pay() {
     return totalDays
   }
 
-  const handleContinue = () => {
+  function handleContinue() {
     history.push('/confirmation', {
       packageDetails,
       quantity,

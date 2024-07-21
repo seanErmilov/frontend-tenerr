@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-export function SidebarPrice({ price, avgResponseTime, onChange }) {
+export function SidebarPrice({ price, avgResponseTime }) {
     const [selectedPackage, setSelectedPackage] = useState('normal')
     const [isCollapsed, setIsCollapsed] = useState(true)
 
@@ -59,21 +59,21 @@ export function SidebarPrice({ price, avgResponseTime, onChange }) {
         },
     }
 
-    const handlePackageChange = (packageType) => {
+    function handlePackageChange(packageType) {
         setSelectedPackage(packageType)
         navigate('/pay', { state: { packageDetails, quantity: 1 } })
     }
 
-    const toggleCollapse = () => {
+    function toggleCollapse() {
         setIsCollapsed(!isCollapsed)
     }
 
-    const handleButtonClick = () => {
+    function handleButtonClick() {
         const packageDetails = packages[selectedPackage]
         navigate('/pay', { state: { packageDetails } })
     }
     const down = 'https://cdn-icons-png.flaticon.com/128/8287/8287014.png'
-    const up = 'https://cdn-icons-png.flaticon.com/128/2722/2722987.png';
+    const up = 'https://cdn-icons-png.flaticon.com/128/2722/2722987.png'
 
     return (
         <div className="sidebar">
@@ -114,9 +114,9 @@ export function SidebarPrice({ price, avgResponseTime, onChange }) {
                                         listStyleType: 'none',
                                         display: 'flex',
                                         alignItems: 'center'
-                                    }}>
-                                    <img
-                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxMSA5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9ImN1cnJlbnRGaWxsIj48cGF0aCBkPSJNMy42NDUgOC4xMDIuMTU4IDQuNjE1YS41MzYuNTM2IDAgMCAxIDAtLjc1OWwuNzU5LS43NThjLjIxLS4yMS41NDktLjIxLjc1OCAwbDIuMzUgMi4zNDlMOS4wNTQuNDE2Yy4yMS0uMjEuNTUtLjIxLjc1OSAwbC43NTguNzU4Yy4yMS4yMS4yMS41NSAwIC43NTlMNC40MDMgOC4xMDJjLS4yMDkuMjEtLjU0OS4yMS0uNzU4IDBaIi8+PC9zdmc+" />
+                                    }}
+                                    >
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxMSA5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9ImN1cnJlbnRGaWxsIj48cGF0aCBkPSJNMy42NDUgOC4xMDIuMTU4IDQuNjE1YS41MzYuNTM2IDAgMCAxIDAtLjc1OWwuNzU5LS43NThjLjIxLS4yMS41NDktLjIxLjc1OCAwbDIuMzUgMi4zNDlMOS4wNTQuNDE2Yy4yMS0uMjEuNTUtLjIxLjc1OSAwbC43NTguNzU4Yy4yMS4yMS4yMS41NSAwIC43NTlMNC40MDMgOC4xMDJjLS4yMDkuMjEtLjU0OS4yMS0uNzU4IDBaIi8+PC9zdmc+" />
                                     {feature.name}
                                 </li>
                             ))}
