@@ -36,31 +36,17 @@ function getById(gigId) {
 }
 
 async function remove(gigId) {
-    // throw new Error('Nope')
     await storageService.remove(STORAGE_KEY, gigId)
 }
 
 async function save(gig) {
     var savedGig
     if (gig._id) {
-        const gigToSave = {
-            _id: gig._id,
-            title: gig.title,
-            price: gig.price,
-            tags: gig.tags,
-        }
+        const gigToSave = { ...gig }
         savedGig = await storageService.put(STORAGE_KEY, gigToSave)
     } else {
-        const gigToSave = {
-            title: gig.title,
-            price: gig.price,
-            daysToMake: gig.daysToMake,
-            tags: gig.tags,
-            // Later, owner is set by the backend
-            // owner: userService.getLoggedinUser(),
-            // msgs: []
-        }
-
+        const gigToSave = { ...gig }
+        gigToSave.owner = userService.getLoggedinUser()
         savedGig = await storageService.post(STORAGE_KEY, _getRandomGig(gigToSave))
     }
     return savedGig
@@ -81,8 +67,7 @@ async function addGigMsg(gigId, txt) {
     return msg
 }
 
-function _getRandomGig(semiReadyGig = {}) {
-
+function _getRandomGig(partialGig = {}) {
     const titles = [
         'I will design your logo',
         'I will create a website for you',
@@ -118,43 +103,18 @@ function _getRandomGig(semiReadyGig = {}) {
         { _id: 'u103', fullname: 'John Smith', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaXrFMnQrS3cdGFTB-UpG-5qMGMQyybPu7xg&s', level: 'basic', rate: 3, description: 'A skilled writer with a knack for crafting engaging and informative articles.' }
     ]
 
-    const reviewTexts = [
-        'Did an amazing work',
-        'Goed werk. Communiceert helder en werkt samen naar een goed eind resultaat',
-        'Stefan followed directions beautifully. Despite people weighing in on the logo and making too many comments, Stefan kept at it, and seemed to please everyone. Way to go!',
-        'Stefan is a pleasure to work with. Well consider using him again for future projects! He took our directions and presented a report that will be used for the coming years to communicate our plans effectively.',
-        'Excellent service',
-        'Very professional and timely. Highly recommended!',
-        'The final product exceeded my expectations. Great job!',
-        'Superb communication and outstanding results!',
-        'Creative and unique approach to design. Loved it!'
+    const imgUrls = [
+        "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/c138cfdf4859bb497ff904beeb4be5f8-1717583961/Creative_self_new/design-unique-cover-art.jpg",
+        "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/415283989e317d946dad85b8efed8f7b-1717284806/Halloween_leaves_moon/design-unique-cover-art.jpg",
+        "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/18f0ed6d24c12557a40244aadbe6c572-1720003890/Lost_love_final/design-unique-cover-art.jpg",
+        "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/207529273/original/dc28efc7d364e1ecf281be7580c666829dc8279f/design-unique-cover-art.png",
+        "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/207529273/original/784113fba7abe525b05a0f1a3889e09716bb39e5/design-unique-cover-art.png"
     ]
 
-    function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min
-    }
-
-    function getRandomElement(arr) {
-        return arr[Math.floor(Math.random() * arr.length)]
-    }
-
-    function generateReviews() {
-        const reviews = []
-        for (let i = 0; i < 6; i++) {
-            reviews.push({
-                id: `r${getRandomInt(100, 999)}`,
-                txt: getRandomElement(reviewTexts),
-                rate: getRandomInt(1, 5),
-                by: getRandomElement(users)//mini user in development
-            })
-        }
-        return reviews
-    }
-
     const gig = {
-        _id: `u${getRandomInt(100, 999)}`,
+        _id: `u${getRandomInt(100, 9999)}`,
         title: getRandomElement(titles),
-        price: parseFloat((Math.random() * 100).toFixed(1)),
+        price: parseFloat((Math.random() * 100).toFixed(0)),
         owner: {
             ...getRandomElement(users),
         },
@@ -162,13 +122,12 @@ function _getRandomGig(semiReadyGig = {}) {
         description: getRandomElement(descriptions),
         avgResponseTime: getRandomInt(1, 24),
         loc: getRandomElement(locations),
-        imgUrls: ['/img/img1.jpg'],
+        imgUrls: imgUrls,
         tags: getRandomElement(tags),
         likedByUsers: ['mini-user'],
-        reviews: generateReviews()
+        reviews: _generateReviews(users)
     }
-
-    return { ...gig, ...semiReadyGig }
+    return { ...gig, ...partialGig }
 }
 
 function _createGigs() {
@@ -181,3 +140,27 @@ function _createGigs() {
     saveToStorage(STORAGE_KEY, gigs)
 }
 
+function _generateReviews(users) {
+    const reviews = []
+
+    const reviewTexts = [
+        'Did an amazing work',
+        'Goed werk. Communiceert helder en werkt samen naar een goed eind resultaat',
+        'Stefan followed directions beautifully. Despite people weighing in on the logo and making too many comments, Stefan kept at it, and seemed to please everyone. Way to go!',
+        'Stefan is a pleasure to work with. Well consider using him again for future projects! He took our directions and presented a report that will be used for the coming years to communicate our plans effectively.',
+        'Excellent service',
+        'Very professional and timely. Highly recommended!',
+        'The final product exceeded my expectations. Great job!',
+        'Superb communication and outstanding results!',
+        'Creative and unique approach to design. Loved it!'
+    ]
+    for (let i = 0; i < 6; i++) {
+        reviews.push({
+            id: `r${getRandomInt(100, 9999)}`,
+            txt: getRandomElement(reviewTexts),
+            rate: getRandomInt(1, 5),
+            by: getRandomElement(users)//mini user in development
+        })
+    }
+    return reviews
+}

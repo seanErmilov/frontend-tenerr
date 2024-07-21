@@ -9,7 +9,11 @@ function getEmptyGig() {
     return {
         title: '',
         price: '',
+        daysToMake: '',
+        loc: '',
+        description: '',
         tags: [],
+        imgUrls: [],
     }
 }
 

@@ -11,10 +11,11 @@ export function GigPreview({ gig }) {
     const navigate = useNavigate()
 
     function calcAverageRating() {
-        return gig.reviews.reduce((acc, review) => {
+        const rating = gig.reviews.reduce((acc, review) => {
             acc += review.rate
             return acc
         }, 0) / gig.reviews.length
+        return rating.toFixed(1)
     }
 
     return <article className="preview">
@@ -22,7 +23,7 @@ export function GigPreview({ gig }) {
         {/* Tooltip in dev */}
         {/* <div role="tooltip" className="">This freelancer has been vetted for quality and expertise by the Fiverr Pro team.</div> */}
         <CarouselImg
-            imgsSrcs={null} />
+            imgUrls={gig.imgUrls} />
 
 
         <div className='preview-header'>
