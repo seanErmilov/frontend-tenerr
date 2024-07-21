@@ -1,13 +1,13 @@
 
-import { useState } from 'react';
+import { useState } from 'react'
 
 export function ReviewFilter({ onFilterChange }) {
-  const [filterText, setFilterText] = useState('');
+  const [filterText, setFilterText] = useState('')
 
-  const handleChange = (event) => {
-    setFilterText(event.target.value);
-    onFilterChange(event.target.value);
-  };
+  function handleChange(event) {
+    setFilterText(event.target.value)
+    onFilterChange(event.target.value)
+  }
 
   return (
     <div className="review-filter">
@@ -18,5 +18,5 @@ export function ReviewFilter({ onFilterChange }) {
         onChange={handleChange}
       />
     </div>
-  );
+  )
 }
