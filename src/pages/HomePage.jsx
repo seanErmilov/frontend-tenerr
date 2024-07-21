@@ -42,11 +42,9 @@ export function HomePage() {
                     </>
                 }
                 {/* Hero inner text */}
-                <h1 className='hero-inner-text'>"Find the right
-                    <em className='freelance'>freelance</em>
-                    <br />
-                    service, right away</h1>
-
+                <h1 className='hero-inner-text'>Find the right
+                    <em className='freelance'>freelance </em>
+                    <br />service, right away</h1>
                 {/* Search Bar */}
                 <SearchBar
                     trackInViewport={true} />

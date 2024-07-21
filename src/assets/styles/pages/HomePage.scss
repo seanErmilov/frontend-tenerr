@@ -41,11 +41,13 @@
         }
 
         .hero-inner-text {
+            z-index: 1;
             font-size: 3.5rem;
             font-weight: 400;
             color: #fff;
             margin-top: 7rem;
             margin-bottom: 3.375rem;
+            white-space: pre-line;
 
             .freelance {
                 word-spacing: 0.4rem;
@@ -89,15 +91,28 @@
             }
 
             li {
-                padding: 1rem 0.75rem;
+                Link{
+                    background-color: blue;
+                }
+
                 box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.16);
                 width: 7.375rem;
                 height: 7.375rem;
                 border-radius: 1rem;
 
-                img {
-                    width: 1.5rem;
-                    height: 1.5rem;
+                .link{
+                    background-color: #003912;
+ 
+
+                    img {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                    }
+                    p {
+                        // background-color: #19aa64;
+
+                    }
+
                 }
 
                 &:hover {
