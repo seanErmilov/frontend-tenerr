@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 export function AboutGig({ description }) {
   const [expanded, setExpanded] = useState(false)
 
-  const toggleExpandDescription = () => {
+  function toggleExpandDescription() {
     setExpanded(!expanded)
   }
 
@@ -14,7 +14,7 @@ export function AboutGig({ description }) {
     })
   }, [expanded, description])
 
-  const renderDescription = () => {
+  function renderDescription() {
     const paragraphs = description.split('\n')
     const paragraphLimit = 2
 
