@@ -22,10 +22,14 @@ import { useWindowDimensions } from '../customHooks/windowRisze'
 
 export function HomePage() {
     const windowSide = useWindowDimensions()
+
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
+
     function onSetFilter(filterBy) {
         setFilter(filterBy)
     }
+
+
 
     return (
         <main className="gig-homepage">
@@ -48,6 +52,7 @@ export function HomePage() {
                 {/* Search Bar */}
                 <SearchBar
                     trackInViewport={true} />
+
                 {/* Company logos */}
                 {windowSide.width >= 900 &&
                     <div className='company-logos'>

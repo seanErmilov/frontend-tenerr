@@ -16,12 +16,12 @@ window.cs = gigService
 
 _createGigs()
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = { title: '', price: 0 }) {
     var gigs = await storageService.query(STORAGE_KEY)
-    const { txt, tags } = filterBy
+    const { title, tags } = filterBy
 
-    if (txt) {
-        const regex = new RegExp(filterBy.txt, 'i')
+    if (title) {
+        const regex = new RegExp(filterBy.title, 'i')
         gigs = gigs.filter(gig => regex.test(gig.vendor) || regex.test(gig.description))
     }
     if (tags && tags.length) {
@@ -164,7 +164,7 @@ function _createGigs() {
                 "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqUHH63Qqv2vokjtR7pUKv0qd--76KzAuiHw&s",
                 "level": "basic",
                 "rate": 4,
-                "description":"Business Logo Design that speaks LOUDER than words!!!",
+                "description": "Business Logo Design that speaks LOUDER than words!!!",
                 'abuotUser': "A Versatile logo designer who can create a brand identity that truly sets your business apart! Look no further! Our team of designers are master at crafting unique and eye-catching logos that capture the essence of your brand and leave a lasting impression on your customers.ORDER NOW OR INBOX FOR ANY INQUIRY FOR SOME REAL CREATIVE ART!!"
             },
             "daysToMake": 3,
