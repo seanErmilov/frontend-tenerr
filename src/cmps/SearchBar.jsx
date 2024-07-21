@@ -15,7 +15,7 @@ export function SearchBar({ trackInViewport = false }) {
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
 
     const dispatch = useDispatch()
-    const ref = useRef();
+    const ref = useRef()
     const navigate = useNavigate()
 
 
@@ -53,13 +53,13 @@ export function SearchBar({ trackInViewport = false }) {
     return (
         <section className={`search-bar pos-relative ${!(trackInViewport || showTopSearchBar) ? 'transparent' : ''}`}  >
             <div ref={ref} className='out-of-vp-indicator'></div>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit} className='grid-column fffff'>
                 <input
                     className='search-input'
                     type="text"
                     name="title"
                     value={filterBy.title}
-                    placeholder="Search for any service..."
+                    placeholder="What service are you looking for today?"
                     onChange={handleChange}
                     required
                 />

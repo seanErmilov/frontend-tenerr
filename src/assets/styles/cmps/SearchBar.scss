@@ -1,0 +1,9 @@
+.search-bar {
+    form {
+        grid-template-columns: 1fr auto;
+
+        .search-input{
+            background-color: green($color: #000000);
+        }
+    }
+}

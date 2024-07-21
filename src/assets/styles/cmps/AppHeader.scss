@@ -1,52 +1,81 @@
 .app-header {
+    color: #74767e;
+
     background-color: #ffffff;
     border-bottom: 1px solid #e4e5e7;
     margin-bottom: 42px;
     z-index: 4;
     position: sticky;
     top: 0;
-    letter-spacing: -.10rem;
-    height: 80px;
+
+    grid-template-columns: auto 1fr auto;
+    gap: 32px;
+
+    height: 5em;
     align-items: center;
+
+    .logo {
+        display: flex;
+        width: 89px;
+        height: 27px;
+        align-items: center;
+
+    }
 
     .search-bar {
         transition: opacity 0.2s linear;
         width: 100%;
     }
 
-    .logo {
-        background-color: aqua;
-        color: chocolate;
-        // font-family: 'logo-font';
-        .text{
-        color: chocolate;
-
-        }
+    .nav-links,
+    .user-nav {
+        gap: 1.5em;
+        align-items: center;
     }
 
     .nav-links {
-        display: flex;
-        align-items: center;
-        border: solid 1px;
-        margin-left: 2rem;
+        .user-nav {
 
-        .nav-link {
-            padding-right: 1.5rem;
-            white-space: nowrap;
+            li:hover {
+                color: #1dbf73;
+            }
+
+            .header-link {
+                white-space: nowrap;
+            }
+
+            .header-btn-style {
+                color: #1dbf73;
+                border: 1px solid;
+
+                &:hover {
+                    background-color: #1dbf73;
+                    color: #ffffff;
+                }
+            }
         }
-    }
 
-    .main-nav {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        column-gap: 1.5rem;
-        width: 100%;
+        .header-btn-style {
+            padding: 0.625em 1em;
+            border-radius: 0.25em;
+            align-items: center;
+            gap: 0.5em;
+
+            &:hover {
+                background-color: #fafafa
+            }
+
+            .arrow {
+                height: 0.75em;
+                width: 0.75em;
+                transition: transform 0.2s;
+            }
+
+        }
     }
 
     .join-bar {
         display: grid;
         grid-auto-flow: column;
     }
-
 }
