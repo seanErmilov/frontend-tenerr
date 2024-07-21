@@ -1,35 +1,24 @@
 // react tools
-import { useState, useEffect, useRef } from 'react'
-import { Link, NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 // cmp
 import { GigFilter } from '../cmps/GigFilter'
 import { SearchBar } from '../cmps/SearchBar'
-import { PrimeCategoriesSection } from '../cmps/PrimeCategoriesSection'
+import { FilterPrimeCategories } from '../cmps/FilterPrimeCategories'
 
 // store - actions
-import { loadGigs, addGig, updateGig, removeGig, addGigMsg, setFilter } from '../store/actions/gig.actions'
-
-// services
-import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
-import { gigService } from '../services/gig'
-import { userService } from '../services/user'
+import { setFilter } from '../store/actions/gig.actions'
 
 // costumhooks
 import { useWindowDimensions } from '../customHooks/windowRisze'
 
-
 export function HomePage() {
     const windowDims = useWindowDimensions()
-
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
 
     function onSetFilter(filterBy) {
         setFilter(filterBy)
     }
-
-
 
     return (
         <main className="gig-homepage">
@@ -71,9 +60,10 @@ export function HomePage() {
             </div>
 
 
-            <PrimeCategoriesSection filterBy={filterBy} setFilterBy={onSetFilter} />
+            <FilterPrimeCategories filterBy={filterBy} setFilterBy={onSetFilter} />
             <GigFilter filterBy={filterBy} setFilterBy={onSetFilter} />
 
+            {/* for search bar dev */}
             <br />
             <br />
             <br />

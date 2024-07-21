@@ -8,8 +8,6 @@
 @import "basics/helpers";
 @import "basics/layout";
 @import "basics/base";
-@import "basics/links";
-@import "basics/forms";
 
 
 // pages
@@ -29,7 +27,6 @@
 @import "cmps/preview";
 
 @import "cmps/AppHeader";
-@import "cmps/navbar";
 @import "cmps/AppFooter";
 @import "cmps/UserMsg";
 
@@ -41,7 +38,7 @@
 @import "cmps/CarouselImg";
 @import "cmps/SidebarPrice";
 @import "cmps/MiniUserGig";
-@import "cmps/Pay";
+@import "cmps/CheckOut";
 @import "cmps/AboutUserGig.scss";
 @import "cmps/ComparePackages.scss";
 @import "cmps/ReviewCarousell.scss";

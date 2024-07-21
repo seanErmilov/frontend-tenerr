@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
@@ -9,7 +8,7 @@ export function ReviewCarousel({ reviews, loc, renderStars }) {
     <div className="gig-reviews-carousel">
       <h1>What people loved about this freelancer</h1>
 
-      {fiveStarReviews.length > 0 ? (
+      {fiveStarReviews.length > 0 && (
         <Carousel
           showArrows={true}
           infiniteLoop={true}
@@ -32,16 +31,14 @@ export function ReviewCarousel({ reviews, loc, renderStars }) {
         >
           {fiveStarReviews.map(review => (
             <div key={review.id} className="review-carousell">
-              <div className="reviewer-carousell-img"><img src={review.by.imgUrl} alt="reviewer" /></div>
+              <div className="reviewer-carousell-img"><img src={review.by.imgUrl} /></div>
               <div className="reviewer-carousell-name">{review.by.fullname}</div>
-              <div className="reviewer-carousell-loc">{loc}</div>
+              <div className="reviewer-carousell-loc">{loc} <span>|</span></div>
               <div className="review-carousell-rate">{renderStars(review.rate)}</div>
               <div className="review-carousell-txt">{review.txt}</div>
             </div>
           ))}
         </Carousel>
-      ) : (
-        <p>No reviews with 5-star rating found</p>
       )}
     </div>
 

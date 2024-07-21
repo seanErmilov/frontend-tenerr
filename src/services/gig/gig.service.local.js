@@ -1,4 +1,3 @@
-
 import { storageService } from '../async-storage.service'
 import { getRandomElement, getRandomInt, loadFromStorage, makeId, saveToStorage } from '../util.service'
 import { userService } from '../user'
@@ -27,14 +26,12 @@ async function query(filterBy = { title: '', price: 0 }) {
     if (tags && tags.length) {
         gigs = gigs.filter(gig => {
             return tags.every(tag => gig.tags.includes(tag))
-        }
-        )
+        })
     }
     return gigs
 }
 
 function getById(gigId) {
-
     return storageService.get(STORAGE_KEY, gigId)
 }
 
@@ -53,7 +50,6 @@ async function save(gig) {
             tags: gig.tags,
         }
         savedGig = await storageService.put(STORAGE_KEY, gigToSave)
-
     } else {
         const gigToSave = {
             title: gig.title,
@@ -117,9 +113,9 @@ function _getRandomGig(semiReadyGig = {}) {
     ]
 
     const users = [
-        { _id: 'u101', fullname: 'Dudu Da', imgUrl: 'url', level: 'standard', rate: 4 },
-        { _id: 'u102', fullname: 'Jane Doe', imgUrl: 'url', level: 'premium', rate: 5 },
-        { _id: 'u103', fullname: 'John Smith', imgUrl: 'url', level: 'basic', rate: 3 }
+        { _id: 'u101', fullname: 'Dudu Da', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3afO247RTO80vqElpg1Iyapzzg-d-bfeRxQ&s', level: 'standard', rate: 4, description: 'An experienced logo designer with a passion for creating unique brand identities.' },
+        { _id: 'u102', fullname: 'Jane Doe', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU7_D7oHLUDST-89GtjX2R4i3OPZSkCEICQw&s', level: 'premium', rate: 5, description: 'A seasoned web developer specializing in building responsive and user-friendly websites.' },
+        { _id: 'u103', fullname: 'John Smith', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaXrFMnQrS3cdGFTB-UpG-5qMGMQyybPu7xg&s', level: 'basic', rate: 3, description: 'A skilled writer with a knack for crafting engaging and informative articles.' }
     ]
 
     const reviewTexts = [
@@ -144,7 +140,7 @@ function _getRandomGig(semiReadyGig = {}) {
 
     function generateReviews() {
         const reviews = []
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 6; i++) {
             reviews.push({
                 id: `r${getRandomInt(100, 999)}`,
                 txt: getRandomElement(reviewTexts),
@@ -158,7 +154,7 @@ function _getRandomGig(semiReadyGig = {}) {
     const gig = {
         _id: `u${getRandomInt(100, 999)}`,
         title: getRandomElement(titles),
-        price: parseFloat((Math.random() * 100).toFixed(0)),
+        price: parseFloat((Math.random() * 100).toFixed(1)),
         owner: {
             ...getRandomElement(users),
         },
@@ -173,7 +169,6 @@ function _getRandomGig(semiReadyGig = {}) {
     }
 
     return { ...gig, ...semiReadyGig }
-
 }
 
 function _createGigs() {
@@ -183,6 +178,6 @@ function _createGigs() {
     for (let i = 0; i < 35; i++) {
         gigs.push(_getRandomGig())
     }
-
     saveToStorage(STORAGE_KEY, gigs)
 }
+

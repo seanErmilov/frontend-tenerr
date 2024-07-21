@@ -2,9 +2,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-// services
-import { gigService } from '../services/gig'
-
 //hooks
 import { useVisibility } from '../customHooks/useVisibility'
 

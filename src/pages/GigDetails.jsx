@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-
 import { CarouselImg } from '../cmps/CarouselImg'
 import { SidebarPrice } from '../cmps/SidebarPrice'
 import { gigService } from '../services/gig'

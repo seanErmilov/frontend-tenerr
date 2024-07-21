@@ -1,7 +1,7 @@
 
 export function GigPageReviews({ reviews }) {
-    const totalReviews = reviews.length
-    const avgRating = (reviews.reduce((sum, review) => sum + review.rate, 0) / totalReviews).toFixed(1)
+    const reviewsLen = reviews.length
+    const avgRating = (reviews.reduce((sum, review) => sum + review.rate, 0) / reviewsLen).toFixed(1)
     const starCounts = [1, 2, 3, 4, 5].map(star => reviews.filter(review => review.rate === star).length)
 
     function renderStars(rate) {
@@ -25,41 +25,41 @@ export function GigPageReviews({ reviews }) {
 
     return (
         <section className="gig-page-reviews">
-        <div className="reviews-summary">
-            <h2>Reviews</h2>
-                <div className="total-reviews">{totalReviews.toLocaleString()} reviews for this Gig</div>
-            <div className="average-rating">
-                {renderStars(avgRating)}
+            <div className="reviews-summary">
+                <h2>Reviews</h2>
+                <div className="total-reviews">{reviewsLen.toLocaleString()} reviews for this Gig</div>
+                <div className="average-rating">
+                    {renderStars(avgRating)}
+                </div>
             </div>
-        </div>
-        <div className="breakdown">
-            <div className="rating-breakdown">
-                <ul>
-                    {starCounts.map((count, idx) => (
-                        <li key={idx}>
-                            <div className="rating-row">
-                                {renderStars(5 - idx)}
-                                <div className="progress-bar-container">
-                                    <div
-                                        className="progress-bar"
-                                        style={{ width: `${(count / totalReviews) * 100}%` }}
-                                    />
+            <div className="breakdown">
+                <div className="rating-breakdown">
+                    <ul>
+                        {starCounts.map((count, idx) => (
+                            <li key={idx}>
+                                <div className="rating-row">
+                                    {renderStars(5 - idx)}
+                                    <div className="progress-bar-container">
+                                        <div
+                                            className="progress-bar"
+                                            style={{ width: `${(count / reviewsLen) * 100}%` }}
+                                        />
+                                    </div>
+                                    <span>({count})</span>
                                 </div>
-                                <span>({count})</span>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div className="detailed-breakdown">
+                    <p>Rating Breakdown</p>
+                    <ul>
+                        <li>Seller communication level <span>{'★' + avgRating}</span> </li>
+                        <li>Recommend to a friend <span>{'★' + avgRating}</span></li>
+                        <li>Service as described <span>{'★' + avgRating}</span></li>
+                    </ul>
+                </div>
             </div>
-            <div className="detailed-breakdown">
-                <p>Rating Breakdown</p>
-                <ul>
-                    <li>Seller communication level <span>{'★'+avgRating}</span> </li>
-                    <li>Recommend to a friend <span>{'★'+avgRating}</span></li>
-                    <li>Service as described <span>{'★'+avgRating}</span></li>
-                </ul>
-            </div>
-        </div>
-    </section>
+        </section>
     )
 }
