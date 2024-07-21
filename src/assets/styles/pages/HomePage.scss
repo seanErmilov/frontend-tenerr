@@ -80,39 +80,73 @@
     }
 
     .prime-categories-section {
+        .right-arrow,
+        .left-arrow {
+            cursor: pointer;
+            z-index: 2;
+
+            top: 50%;
+            margin-top: -24px;
+            height: 48px;
+            width: 48px;
+
+            color: #62646a;
+            background-color: #ffffff;
+
+            border-radius: 50%;
+            filter: drop-shadow(0px 9px 5px #d3d3d38f);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right-arrow {
+            right: 0;
+            transform: translateX(50%);
+
+        }
+
+        .left-arrow {
+            left: 0;
+            transform: translateX(-50%);
+        }
+
         ul {
             width: 100%;
             overflow-x: scroll;
             gap: 0.75rem;
             padding: 0.375rem;
+            justify-items: center;
 
             &::-webkit-scrollbar {
                 display: none;
             }
 
             li {
-                Link{
-                    background-color: blue;
-                }
-
+                font-size: 0.875rem;
+                font-weight: 400;
+                cursor: pointer;
                 box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.16);
-                width: 7.375rem;
-                height: 7.375rem;
+                width: 8.0625rem;
+                height: 8.0625rem;
                 border-radius: 1rem;
+                padding-inline-start: 0.75rem;
 
-                .link{
-                    background-color: #003912;
- 
+                div {
+                    margin-top: 1rem;
+
+                    margin-bottom: 1.81rem;
 
                     img {
-                        width: 1.5rem;
                         height: 1.5rem;
+                        width: 1.5rem;
                     }
-                    p {
-                        // background-color: #19aa64;
+                }
 
-                    }
-
+                p {
+                    padding: 0;
+                    margin: 0;
                 }
 
                 &:hover {

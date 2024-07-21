@@ -32,7 +32,7 @@ export function AppHeader() {
 	}
 
 	return (
-		<header className="app-header">
+		<header className="app-header full">
 			{/* Logo */}
 			<div className="logo">
 				<Link className="link" to="/" onClick={() => setFilter(gigService.getDefaultFilter())}>
