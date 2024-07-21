@@ -3,9 +3,8 @@ import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 export function ReviewList({ reviews, loc }) {
-  
+
   const [showAll, setShowAll] = useState(false)
-  const fiveStarReviews = reviews.filter(review => review.rate === 5)
   const displayedReviews = showAll ? reviews : reviews.slice(0, 5)
 
   function renderStars(rate) {
@@ -30,26 +29,26 @@ export function ReviewList({ reviews, loc }) {
   return (
     <section>
       <div className="gig-reviews">
-      
+
 
         <h3>All Reviews</h3>
         {displayedReviews.length > 0 ? (
           displayedReviews.map(review => (
             <div key={review.id} className="review">
-              <div className="reviewer-img"><img src={review.by.imgUrl}/></div>
+              <div className="reviewer-img"><img src={review.by.imgUrl} /></div>
               <div className='name-and-loc'>
                 <div className="reviewer-name">{review.by.fullname}</div>
                 <div className="reviewer-loc">{loc}</div>
               </div>
               <div className="review-rate">{renderStars(review.rate)}</div>
-              
+
               <div className="review-txt">{review.txt}</div>
             </div>
           ))
         ) : (
           <p>No reviews found</p>
         )}
-        
+
         {reviews.length > 5 && (
           <button className="show-more-btn" onClick={toggleShowAll}>
             {showAll ? 'Show Less' : 'Show More'}

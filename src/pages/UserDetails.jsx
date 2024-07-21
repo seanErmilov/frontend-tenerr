@@ -7,6 +7,7 @@ import { store } from '../store/store'
 import { showSuccessMsg } from '../services/event-bus.service'
 
 export function UserDetails() {
+  //in dev
 
   const params = useParams()
   const user = useSelector(storeState => storeState.userModule.watchedUser)
@@ -18,11 +19,6 @@ export function UserDetails() {
 
 
   }, [params.id])
-
-  function onUserUpdate(user) {
-    showSuccessMsg(`This user ${user.fullname} just got updated from socket, new score: ${user.score}`)
-    store.dispatch({ type: 'SET_WATCHED_USER', user })
-  }
 
   return (
     <section className="user-details">

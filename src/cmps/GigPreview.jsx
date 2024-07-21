@@ -3,12 +3,9 @@ import { CarouselImg } from './CarouselImg'
 
 // temporary
 const demoProfilePic = "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/9e8702d529c8f21bb17f512459008a37-1677794942899/0970a995-f617-40ac-b337-46afa40c339b.png"
-const d = "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_original/v1/attachments/profile/photo/301b9669da5ac1a5363a4d9a79693646-1633947435052/648c5f7b-b9f7-4758-a20b-0ebceaca7ca7.jpeg"
 
 // react tools
-import { useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom'
 
 export function GigPreview({ gig }) {
     const navigate = useNavigate()
@@ -22,6 +19,7 @@ export function GigPreview({ gig }) {
 
     return <article className="preview">
 
+        {/* Tooltip in dev */}
         {/* <div role="tooltip" className="">This freelancer has been vetted for quality and expertise by the Fiverr Pro team.</div> */}
         <CarouselImg
             imgsSrcs={null} />
@@ -34,7 +32,7 @@ export function GigPreview({ gig }) {
                 Ad by &nbsp;<span className='owner-name bold'>{gig.owner.fullname}</span>
             </div>
 
-            {/* is pro */}
+            {/* is pro in dev*/}
             {/* <div className="is-pro">
                 <svg width="12" height="12" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                     <path fillRule="evenodd" clipRule="evenodd" d="M8.203.432a1.891 1.891 0 0 0-2.406 0l-1.113.912a1.904 1.904 0 0 1-.783.384l-1.395.318c-.88.2-1.503.997-1.5 1.915l.007 1.456c0 .299-.065.594-.194.863L.194 7.59a1.978 1.978 0 0 0 .535 2.388l1.12.903c.231.185.417.422.543.692l.615 1.314a1.908 1.908 0 0 0 2.166 1.063l1.392-.33c.286-.068.584-.068.87 0l1.392.33a1.908 1.908 0 0 0 2.166-1.063l.615-1.314c.126-.27.312-.507.542-.692l1.121-.903c.707-.57.93-1.563.535-2.388l-.625-1.309a1.983 1.983 0 0 1-.194-.863l.006-1.456a1.947 1.947 0 0 0-1.5-1.915L10.1 1.728a1.904 1.904 0 0 1-.784-.384L8.203.432Zm2.184 5.883a.742.742 0 0 0 0-1.036.71.71 0 0 0-1.018 0L6.565 8.135 5.095 6.73a.71.71 0 0 0-1.018.032.742.742 0 0 0 .032 1.036L6.088 9.69a.71.71 0 0 0 1.001-.016l3.297-3.359Z"></path>
