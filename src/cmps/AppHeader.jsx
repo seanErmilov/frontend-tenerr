@@ -32,11 +32,11 @@ export function AppHeader() {
 	}
 
 	return (
-		<header className="app-header full">
+		<header className="app-header grid-column">
 			{/* Logo */}
 			<div className="logo">
 				<Link className="link" to="/" onClick={() => setFilter(gigService.getDefaultFilter())}>
-					<span className="text">Tenner</span>
+					<span className="text">tennerr</span>
 				</Link>
 				<span className="dot">.</span>
 			</div>
