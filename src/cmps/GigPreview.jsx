@@ -23,7 +23,7 @@ export function GigPreview({ gig }) {
         {/* Tooltip in dev */}
         {/* <div role="tooltip" className="">This freelancer has been vetted for quality and expertise by the Fiverr Pro team.</div> */}
         <CarouselImg
-            imgsSrcs={null} />
+            imgUrls={gig.imgUrls} />
 
 
         <div className='preview-header'>

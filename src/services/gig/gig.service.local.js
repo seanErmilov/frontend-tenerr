@@ -40,7 +40,6 @@ async function remove(gigId) {
 }
 
 async function save(gig) {
-    console.log('gig :', gig)
     var savedGig
     if (gig._id) {
         const gigToSave = { ...gig }
@@ -48,9 +47,7 @@ async function save(gig) {
     } else {
         const gigToSave = { ...gig }
         gigToSave.owner = userService.getLoggedinUser()
-        console.log('gigToSave :', gigToSave)
         savedGig = await storageService.post(STORAGE_KEY, _getRandomGig(gigToSave))
-        console.log('savedGig :', savedGig)
     }
     return savedGig
 }
@@ -71,7 +68,6 @@ async function addGigMsg(gigId, txt) {
 }
 
 function _getRandomGig(partialGig = {}) {
-    console.log('partialGig :', partialGig)
     const titles = [
         'I will design your logo',
         'I will create a website for you',
@@ -107,6 +103,13 @@ function _getRandomGig(partialGig = {}) {
         { _id: 'u103', fullname: 'John Smith', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaXrFMnQrS3cdGFTB-UpG-5qMGMQyybPu7xg&s', level: 'basic', rate: 3, description: 'A skilled writer with a knack for crafting engaging and informative articles.' }
     ]
 
+    const imgUrls = [
+        "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/c138cfdf4859bb497ff904beeb4be5f8-1717583961/Creative_self_new/design-unique-cover-art.jpg",
+        "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/415283989e317d946dad85b8efed8f7b-1717284806/Halloween_leaves_moon/design-unique-cover-art.jpg",
+        "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/18f0ed6d24c12557a40244aadbe6c572-1720003890/Lost_love_final/design-unique-cover-art.jpg",
+        "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/207529273/original/dc28efc7d364e1ecf281be7580c666829dc8279f/design-unique-cover-art.png",
+        "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/207529273/original/784113fba7abe525b05a0f1a3889e09716bb39e5/design-unique-cover-art.png"
+    ]
 
     const gig = {
         _id: `u${getRandomInt(100, 9999)}`,
@@ -119,13 +122,11 @@ function _getRandomGig(partialGig = {}) {
         description: getRandomElement(descriptions),
         avgResponseTime: getRandomInt(1, 24),
         loc: getRandomElement(locations),
-        imgUrls: ['/img/img1.jpg'],
+        imgUrls: imgUrls,
         tags: getRandomElement(tags),
         likedByUsers: ['mini-user'],
         reviews: _generateReviews(users)
     }
-    console.log('gigin service :', gig)
-    console.log('{ ...gig, ...partialGig } :', { ...gig, ...partialGig })
     return { ...gig, ...partialGig }
 }
 
