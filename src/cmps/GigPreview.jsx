@@ -11,10 +11,11 @@ export function GigPreview({ gig }) {
     const navigate = useNavigate()
 
     function calcAverageRating() {
-        return gig.reviews.reduce((acc, review) => {
+        const rating = gig.reviews.reduce((acc, review) => {
             acc += review.rate
             return acc
         }, 0) / gig.reviews.length
+        return rating.toFixed(1)
     }
 
     return <article className="preview">

@@ -20,6 +20,7 @@ function get(entityType, entityId) {
 }
 
 function post(entityType, newEntity) {
+    console.log('entityType :', entityType)
     newEntity._id = _makeId()
     return query(entityType).then(entities => {
         entities.unshift(newEntity)

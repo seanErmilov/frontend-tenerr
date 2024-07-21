@@ -40,20 +40,17 @@ async function remove(gigId) {
 }
 
 async function save(gig) {
+    console.log('gig :', gig)
     var savedGig
     if (gig._id) {
         const gigToSave = { ...gig }
         savedGig = await storageService.put(STORAGE_KEY, gigToSave)
     } else {
-        const gigToSave = {
-            title: gig.title,
-            price: gig.price,
-            daysToMake: gig.daysToMake,
-            tags: gig.tags,
-            owner: userService.getLoggedinUser(),
-        }
-
+        const gigToSave = { ...gig }
+        gigToSave.owner = userService.getLoggedinUser()
+        console.log('gigToSave :', gigToSave)
         savedGig = await storageService.post(STORAGE_KEY, _getRandomGig(gigToSave))
+        console.log('savedGig :', savedGig)
     }
     return savedGig
 }
@@ -74,7 +71,7 @@ async function addGigMsg(gigId, txt) {
 }
 
 function _getRandomGig(partialGig = {}) {
-
+    console.log('partialGig :', partialGig)
     const titles = [
         'I will design your logo',
         'I will create a website for you',
@@ -110,17 +107,6 @@ function _getRandomGig(partialGig = {}) {
         { _id: 'u103', fullname: 'John Smith', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaXrFMnQrS3cdGFTB-UpG-5qMGMQyybPu7xg&s', level: 'basic', rate: 3, description: 'A skilled writer with a knack for crafting engaging and informative articles.' }
     ]
 
-    const reviewTexts = [
-        'Did an amazing work',
-        'Goed werk. Communiceert helder en werkt samen naar een goed eind resultaat',
-        'Stefan followed directions beautifully. Despite people weighing in on the logo and making too many comments, Stefan kept at it, and seemed to please everyone. Way to go!',
-        'Stefan is a pleasure to work with. Well consider using him again for future projects! He took our directions and presented a report that will be used for the coming years to communicate our plans effectively.',
-        'Excellent service',
-        'Very professional and timely. Highly recommended!',
-        'The final product exceeded my expectations. Great job!',
-        'Superb communication and outstanding results!',
-        'Creative and unique approach to design. Loved it!'
-    ]
 
     const gig = {
         _id: `u${getRandomInt(100, 9999)}`,
@@ -136,9 +122,10 @@ function _getRandomGig(partialGig = {}) {
         imgUrls: ['/img/img1.jpg'],
         tags: getRandomElement(tags),
         likedByUsers: ['mini-user'],
-        reviews: _generateReviews()
+        reviews: _generateReviews(users)
     }
-
+    console.log('gigin service :', gig)
+    console.log('{ ...gig, ...partialGig } :', { ...gig, ...partialGig })
     return { ...gig, ...partialGig }
 }
 
@@ -152,8 +139,20 @@ function _createGigs() {
     saveToStorage(STORAGE_KEY, gigs)
 }
 
-function _generateReviews() {
+function _generateReviews(users) {
     const reviews = []
+
+    const reviewTexts = [
+        'Did an amazing work',
+        'Goed werk. Communiceert helder en werkt samen naar een goed eind resultaat',
+        'Stefan followed directions beautifully. Despite people weighing in on the logo and making too many comments, Stefan kept at it, and seemed to please everyone. Way to go!',
+        'Stefan is a pleasure to work with. Well consider using him again for future projects! He took our directions and presented a report that will be used for the coming years to communicate our plans effectively.',
+        'Excellent service',
+        'Very professional and timely. Highly recommended!',
+        'The final product exceeded my expectations. Great job!',
+        'Superb communication and outstanding results!',
+        'Creative and unique approach to design. Loved it!'
+    ]
     for (let i = 0; i < 6; i++) {
         reviews.push({
             id: `r${getRandomInt(100, 9999)}`,
