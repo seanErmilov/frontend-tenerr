@@ -1,3 +1,61 @@
 .preview {
     display: grid;
+
+    .preview-header {
+        margin-block-start: 0.75rem;
+
+        font-size: 0.875rem;
+        align-items: center;
+        justify-content: space-between;
+
+        &,
+        .ad-by {
+            display: grid;
+            grid-auto-flow: column;
+            align-items: center;
+        }
+
+        img {
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 2rem;
+            margin-inline-end: 0.5rem
+        }
+    }
+
+    .is-pro {
+        // width: fit-content;
+        display: grid;
+        align-items: center;
+
+        grid-template-columns: max-content max-content;
+        color: rgb(255, 255, 255);
+        background-color: rgb(46, 37, 173);
+    }
+
+    .description {
+        line-height: 1.5;
+        color: #404145;
+
+        :hover{
+            text-decoration: underline;
+        }
+    }
+
+    .description:hover{
+            text-decoration: underline;
+        }
+
+    .rating::after, .star::after{
+        content: ' ';
+    }
+
+    .from-price, .average-rating {
+        margin-block-start: 0.5rem;
+        line-height: 1.5;
+    }
+
+    &:hover {
+        
+    }
 }

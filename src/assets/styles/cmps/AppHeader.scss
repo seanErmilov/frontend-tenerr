@@ -1,129 +1,43 @@
 .app-header {
+    position: sticky;
+    top: 0;
     display: flex;
-    flex-direction: column;
-    background-color: $clr4;
+    height: 80px;
 
-    border-bottom: 1px solid #e4e5e7;
+    align-items: center;
 
-    hr {
-        border: none;
-        border-bottom: 1px solid #e4e5e7;
-        /* Add a 1px solid bottom border */
-        /* Optional: Adjust margin for spacing */
-    }
-
-    nav {
-        display: flex;
-        flex-direction: column;
+    .search-bar {
+        transition: opacity 0.2s linear;
         width: 100%;
+    }
 
-        .pages {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            padding: 1em 0;
-            background-color: $clr4;
-            border-bottom: 1px solid #e4e5e7;
+    .logo {
+        font-family: 'logo-font';
+    }
 
-            .logo {
-                display: flex;
-                align-items: center;
-                font-size: 1.4em;
-                font-weight: bold;
-            }
+    .nav-links {
+        display: flex;
+        align-items: center;
+        border: solid 1px;
+        margin-left: 2rem;
 
-
-            .nav-links {
-                display: flex;
-                align-items: center;
-                margin-left: auto;
-                /* Pushes nav-links to the right */
-
-                .nav-link {
-                    padding: 8px 10px;
-                    /* 8px top/bottom, 10px left/right */
-                    margin: 0 5px;
-                    /* Margin between links */
-                    text-decoration: none;
-                    color: inherit;
-                    white-space: nowrap;
-                    /* Prevents text wrapping */
-                    overflow: hidden;
-                    /* Hides overflowing text */
-                    text-overflow: ellipsis;
-                    /* Displays ... for overflowed text */
-                }
-
-                .login-link {
-                    margin-left: 1em;
-                }
-
-
-                button {
-                    color: $clr1;
-                    padding: 10px 20px;
-                    border-radius: 5px;
-                    border: 1px solid $clr1;
-                    background-color: transparent;
-                    cursor: pointer;
-
-                    &:hover {
-                        background-color: $clr1;
-                        border-color: $clr1;
-                    }
-                }
-            }
-
-            .user-info {
-                display: flex;
-                align-items: center;
-                color: $clr1;
-                margin-left: 24px;
-
-                .score {
-                    padding: 8px;
-                    background-color: $clr2;
-                    border-radius: 50%;
-                    margin: 10px;
-                    color: $clr6;
-                }
-
-                img {
-                    width: 32px;
-                    aspect-ratio: 1;
-                    border-radius: 50%;
-                }
-
-                .btn-link {
-                    color: $clr2;
-                }
-            }
-        }
-
-        .menu {
-            display: flex;
-            flex-wrap: wrap;
-            /* Allows items to wrap */
-            padding: 10px 0;
-            color: gray;
-            font-weight: 300;
-            font-family: "Montserrat", sans-serif;
-
-            .menuLink {
-                padding: 8px 10px;
-                /* 8px top/bottom, 10px left/right */
-                margin: 0 5px;
-                /* Margin between links */
-                text-decoration: none;
-                color: inherit;
-                white-space: nowrap;
-                /* Prevents text wrapping */
-                overflow: hidden;
-                /* Hides overflowing text */
-                text-overflow: ellipsis;
-                /* Displays ... for overflowed text */
-            }
+        .nav-link {
+            padding-right: 1.5rem;
+            white-space: nowrap;
         }
     }
+
+    .main-nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        column-gap: 1.5rem;
+        width: 100%;
+    }
+
+    .join-bar {
+        display: grid;
+        grid-auto-flow: column;
+    }
+
 }

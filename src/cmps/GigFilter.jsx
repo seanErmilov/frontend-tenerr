@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { gigService } from '../services/gig'
+import { SearchBar } from './SearchBar'
 
 export function GigFilter({ filterBy, setFilterBy }) {
     const [filterToEdit, setFilterToEdit] = useState(structuredClone(filterBy))
@@ -36,11 +37,7 @@ export function GigFilter({ filterBy, setFilterBy }) {
     }
 
     return <section className="gig-filter">
-        <img src="src/assets/img/hero-xl-x1.webp" alt="" />
-        <h1 className='filter-h1'>Find the right
-            <strong> freelance</strong>
-            <br />
-            service, right away</h1>
+
         <input className='search-input'
             type="text"
             name="txt"
@@ -52,18 +49,6 @@ export function GigFilter({ filterBy, setFilterBy }) {
         <button className='btn-search'>
             <img src="src/assets/icon/search white.svg" alt="" />
         </button>
-
-        <div className='company-logos'>
-            <span>Trusted by:</span>
-            <ul className='company-logos-img'>
-                <li><img src="src/assets/img/meta.svg" /></li>
-                <li><img src="src/assets/img/google.svg" /></li>
-                <li><img src="src/assets/img/netflix.svg" /></li>
-                <li><img src="src/assets/img/pg.svg" /></li>
-                <li><img src="src/assets/img/paypal.svg" /></li>
-                <li><img src="src/assets/img/payoneer.svg" alt="payonner" />sdsds</li>
-            </ul>
-        </div>
 
         {/* <input
         

@@ -1,6 +1,6 @@
 
 import { storageService } from '../async-storage.service'
-import { loadFromStorage, makeId, saveToStorage } from '../util.service'
+import { getRandomElement, getRandomInt, loadFromStorage, makeId, saveToStorage } from '../util.service'
 import { userService } from '../user'
 const STORAGE_KEY = 'gigDb'
 
@@ -18,30 +18,23 @@ _createGigs()
 
 async function query(filterBy = { txt: '', price: 0 }) {
     var gigs = await storageService.query(STORAGE_KEY)
-    const { txt } = filterBy
+    const { txt, tags } = filterBy
 
     if (txt) {
         const regex = new RegExp(filterBy.txt, 'i')
         gigs = gigs.filter(gig => regex.test(gig.vendor) || regex.test(gig.description))
     }
-    // if (minSpeed) {
-    //     gigs = gigs.filter(gig => gig.speed >= minSpeed)
-    // }
-    // if (sortField === 'vendor' || sortField === 'owner') {
-    //     gigs.sort((gig1, gig2) =>
-    //         gig1[sortField].localeCompare(gig2[sortField]) * +sortDir)
-    // }
-    // if (sortField === 'price' || sortField === 'speed') {
-    //     gigs.sort((gig1, gig2) =>
-    //         (gig1[sortField] - gig2[sortField]) * +sortDir)
-    // }
-
-    // gigs = gigs.map(({ _id, vendor, price, speed, owner }) => ({ _id, vendor, price, speed, owner }))
+    if (tags && tags.length) {
+        gigs = gigs.filter(gig => {
+            return tags.every(tag => gig.tags.includes(tag));
+        }
+        )
+    }
     return gigs
 }
 
 function getById(gigId) {
-    
+
     return storageService.get(STORAGE_KEY, gigId)
 }
 
@@ -65,12 +58,14 @@ async function save(gig) {
         const gigToSave = {
             title: gig.title,
             price: gig.price,
+            daysToMake: gig.daysToMake,
             tags: gig.tags,
             // Later, owner is set by the backend
-            owner: userService.getLoggedinUser(),
-            msgs: []
+            // owner: userService.getLoggedinUser(),
+            // msgs: []
         }
-        savedGig = await storageService.post(STORAGE_KEY, gigToSave)
+
+        savedGig = await storageService.post(STORAGE_KEY, _getRandomGig(gigToSave))
     }
     return savedGig
 }
@@ -91,6 +86,68 @@ async function addGigMsg(gigId, txt) {
 }
 
 
+function _getRandomGig(semiReadyGig = {}) {
+    const titles = [
+        'I will design your logo',
+        'I will create a website for you',
+        'I will write an article for you',
+        'I will make a promotional video',
+        'I will provide SEO services'
+    ]
+
+    const descriptions = [
+        'Make unique logo...',
+        'Build a responsive website...',
+        'Write a compelling article...',
+        'Create an engaging video...',
+        'Optimize your website for SEO...'
+    ]
+
+    const locations = ['Ghana', 'USA', 'India', 'Germany', 'Brazil'];
+
+    const tags = [
+        ['graphics', 'lifestyle'],
+        ['video', 'business'],
+        ['writing', 'writing'],
+        ['ai', 'music'],
+        ['digital', 'ai'],
+        ['music', 'digital'],
+        ['programming', 'digital'],
+        ['business', 'digital'],
+        ['lifestyle', 'business']
+
+    ]
+
+    const users = [
+        { _id: 'u101', fullname: 'Dudu Da', imgUrl: 'url' },
+        { _id: 'u102', fullname: 'Jane Doe', imgUrl: 'url' },
+        { _id: 'u103', fullname: 'John Smith', imgUrl: 'url' }
+    ]
+
+    const gig = {
+        _id: `u${getRandomInt(100, 999)}`,
+        title: getRandomElement(titles),
+        price: parseFloat((Math.random() * 100).toFixed(2)),
+        owner: getRandomElement(users),
+        daysToMake: getRandomInt(1, 14),
+        description: getRandomElement(descriptions),
+        avgResponseTime: getRandomInt(1, 24),
+        loc: getRandomElement(locations),
+        imgUrls: ['/img/img1.jpg'],
+        tags: getRandomElement(tags),
+        likedByUsers: ['mini-user'],
+        reviews: [
+            {
+                id: `r${getRandomInt(100, 999)}`,
+                txt: 'Did an amazing work',
+                rate: getRandomInt(1, 5),
+                by: getRandomElement(users)
+            }
+        ]
+    }
+
+    return { ...gig, ...semiReadyGig };
+}
 
 function _createGigs() {
     const gigs = loadFromStorage(STORAGE_KEY) || []
