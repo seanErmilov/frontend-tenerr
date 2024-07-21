@@ -22,8 +22,8 @@ export function CarouselImg({ imgsSrcs }) {
 
     return (
         <>
-        {/* <svg width="16" height="16" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="m7.228.69.619.62a.375.375 0 0 1 0 .53L2.2 7.5l5.647 5.66a.375.375 0 0 1 0 .53l-.62.62a.375.375 0 0 1-.53 0L.154 7.764a.375.375 0 0 1 0-.53L6.698.69a.375.375 0 0 1 .53 0Z"></path></svg> */}
-        {/* <svg width="16" height="16" viewBox="0 0 8 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="m.772 1.19-.619.62a.375.375 0 0 0 0 .53L5.8 8 .153 13.66a.375.375 0 0 0 0 .53l.62.62a.375.375 0 0 0 .53 0l6.544-6.545a.375.375 0 0 0 0-.53L1.302 1.19a.375.375 0 0 0-.53 0Z"></path></svg> */}
+            {/* <svg width="16" height="16" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="m7.228.69.619.62a.375.375 0 0 1 0 .53L2.2 7.5l5.647 5.66a.375.375 0 0 1 0 .53l-.62.62a.375.375 0 0 1-.53 0L.154 7.764a.375.375 0 0 1 0-.53L6.698.69a.375.375 0 0 1 .53 0Z"></path></svg> */}
+            {/* <svg width="16" height="16" viewBox="0 0 8 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="m.772 1.19-.619.62a.375.375 0 0 0 0 .53L5.8 8 .153 13.66a.375.375 0 0 0 0 .53l.62.62a.375.375 0 0 0 .53 0l6.544-6.545a.375.375 0 0 0 0-.53L1.302 1.19a.375.375 0 0 0-.53 0Z"></path></svg> */}
             <div className='carousel-img'>
                 {
                     srcs.map((src, ind) =>

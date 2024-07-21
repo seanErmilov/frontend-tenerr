@@ -7,11 +7,11 @@ const d = "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profil
 
 // react tools
 import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
-////////////////////////////////////////////////////////////////////////
 export function GigPreview({ gig }) {
+    const navigate = useNavigate()
 
     function calcAverageRating() {
         return gig.reviews.reduce((acc, review) => {
@@ -19,6 +19,7 @@ export function GigPreview({ gig }) {
             return acc
         }, 0) / gig.reviews.length
     }
+
     return <article className="preview">
 
         {/* <div role="tooltip" className="">This freelancer has been vetted for quality and expertise by the Fiverr Pro team.</div> */}
@@ -45,9 +46,9 @@ export function GigPreview({ gig }) {
             </div>
         </div>
 
-        {/* description */}
-        <div className='description'>
-            {gig.description}
+        {/* title */}
+        <div className='title' onClick={() => { navigate(`${gig._id}`) }}>
+            {gig.title}
         </div>
 
         {/* rating */}
@@ -62,7 +63,7 @@ export function GigPreview({ gig }) {
         </div>
 
         {/* from price */}
-        <span className='from-price bold'>From ${gig.price}</span>
+        <span className='from-price bold' onClick={() => { navigate(`${gig._id}`) }}>From ${gig.price}</span>
     </article>
 }
 

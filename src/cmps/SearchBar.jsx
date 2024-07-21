@@ -37,7 +37,6 @@ export function SearchBar({ trackInViewport = false }) {
 
 
     function onSetFilter(filterBy) {
-        console.log('filterBy :', filterBy)
         setFilter(filterBy)
     }
 
