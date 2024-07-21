@@ -51,7 +51,7 @@ export function ComparePackages({ price, avgResponseTime }) {
     }
   ]
 
-  const handlePackageSelection = (pkg) => {
+  function handlePackageSelection(pkg) {
     navigate('/pay', { state: { packageDetails: pkg, quantity: 1 } })
   }
 

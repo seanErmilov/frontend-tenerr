@@ -3,7 +3,7 @@ export function AboutUserGig({ user, loc }) {
 
     return (
         <div className="about-user-gig">
-            <h2>About User Gig</h2>
+            <h2>Get to know {user.fullname} </h2>
             <div className="about-user-info">
                 <div className="about-user-img">
                     <img src={user.imgUrl} />
