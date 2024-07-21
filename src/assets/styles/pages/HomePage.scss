@@ -48,8 +48,15 @@
             margin-bottom: 3.375rem;
 
             .freelance {
+                word-spacing: 0.4rem;
+
                 color: #1dbf73;
                 font-family: 'Domaine Display', sans-serif;
+                font-style: normal;
+
+                &::before {
+                    content: ' ';
+                }
             }
         }
 
