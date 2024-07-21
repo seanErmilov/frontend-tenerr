@@ -12,6 +12,8 @@ import { logout } from '../store/actions/user.actions'
 
 // cmps
 import { SearchBar } from '../cmps/SearchBar'
+import { setFilter } from '../store/actions/gig.actions'
+import { gigService } from '../services/gig'
 
 export function AppHeader() {
 	const user = useSelector(storeState => storeState.userModule.user)
@@ -33,7 +35,7 @@ export function AppHeader() {
 		<header className="app-header">
 			{/* Logo */}
 			<div className="logo">
-				<Link className="link" to="/">
+				<Link className="link" to="/" onClick={() => setFilter(gigService.getDefaultFilter())}>
 					<span className="text">Tenner</span>
 				</Link>
 				<span className="dot">.</span>
