@@ -1,162 +1,174 @@
 .gig-reviews-carousel {
-    width: 100%;
-  
-    h3 {
-      margin-bottom: 15px;
-      font-size: 22px;
-    }
-  
-    .review {
-      margin-left: 5px;
-      padding-bottom: 30px;
-      display: grid;
-      grid-template-columns: auto 55px 250px 1fr;
-      grid-template-rows: 40px auto auto;
-      text-align: start;
-      margin-top: 40px;
-      border-bottom: 1px solid $clr6;
-  
-  
-      .reviewer-img {
-        width: 55px;
-  
-        img {
-          margin: 5px 2px;
-          border-radius: 50%;
-          height: 44px;
-          width: 47px;
-          grid-column: 2;
-  
-        }
-      }
-  
-      .name-and-loc {
-        line-height: 1.2;
-        grid-column: 2;
-        grid-row: 1;
-  
-        .reviewer-name,
-        .reviewer-loc {
-          font-size: 16px;
-          margin-left: 5px;
-        }
-      }
-  
-  
-      .review-txt {
-        grid-column: 2 /span 3;
-        grid-row: 3;
-        margin-left: 5px;
-        font-size: 16px;
-      }
-  
-      .review-rate {
-        grid-column: 2;
-        margin-left: 5px;
-        font-size: 16px;
-      }
-  
-      .review-rate {
-        color: $clr9;
-        font-size: large;
-      }
-    }
-  
-    .stars-container {
-      display: flex;
-    }
-  
-    .carousel-arrow {
-      font-size: 16px;
-      align-items: center;
-      position: absolute;
-      top: 57%;
-      transform: translateY(-50%);
-      border: none;
-      cursor: pointer;
-      border-radius: 50%;
-      width: 38px;
-      height: 38px;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  
-      span {
-        display: inline-block;
-      }
-  
-      &.prev {
-        left: -12px;
-        z-index: 1;
-      }
-  
-      &.next {
-        right: -15px;
-        z-index: 1;
-  
-      }
-    }
-  
-    .review-carousell {
-      margin-left: 5px;
-      // padding: 26px;
-      display: grid;
-      grid-template-columns: 80px 60px 60px 1fr;
-      grid-template-rows: 40px auto;
-      border: 1px solid $clr9;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      text-align: start;
-      align-items: center;
-      margin-top: 20px;
-      height: 150px;
-  
-      .reviewer-carousell-img {
-        grid-row: 1;
-        height: 47px;
-        width: 49px;
-  
-        img {
-          border-radius: 50%;
-          margin: 10px 30px;
-          height: 46px;
-          grid-column: 1;
-        }
-      }
-  
-      .reviewer-carousell-name,
-      .reviewer-carousell-loc,
-      .review-carousell-rate {
-  
-        margin-left: 5px;
-        font-size: 16px;
-        color: $clr9;
-        opacity: 80%;
-      }
-  
-      .reviewer-carousell-name {
-        grid-column: 2;
-        color: $clr9;
-        opacity: 80%;
-      }
-  
-      .reviewer-carousell-loc {
-        grid-column: 3;
-        color: $clr9;
-        opacity: 80%;
-      }
-  
-      .review-carousell-txt {
-        grid-column: 2 / span 4;
-        grid-row: 2;
-        color: $clr9;
-        opacity: 80%;
-      }
-  
-      .review-carousell-rate {
-        color: $clr9;
-        grid-column: 4;
-        font-size: large;
-      }
-    }
-  
+  width: 100%;
+
+  h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
   }
-  
+
+  .review {
+    margin-left: 5px;
+    padding-bottom: 30px;
+    display: grid;
+    grid-template-columns: auto 55px 250px 1fr;
+    grid-template-rows: 40px auto auto;
+    text-align: start;
+    margin-top: 40px;
+    border-bottom: 1px solid $clr6;
+
+
+    .reviewer-img {
+      width: 55px;
+
+      img {
+        margin: 5px 2px;
+        border-radius: 50%;
+        height: 44px;
+        width: 47px;
+        grid-column: 2;
+
+      }
+    }
+
+    .name-and-loc {
+      line-height: 1.2;
+      grid-column: 2;
+      grid-row: 1;
+
+      .reviewer-name,
+      .reviewer-loc {
+        font-size: 16px;
+        margin-left: 5px;
+      }
+    }
+
+
+    .review-txt {
+      grid-column: 2 /span 3;
+      grid-row: 3;
+      margin-left: 5px;
+      font-size: 16px;
+    }
+
+    .review-rate {
+      grid-column: 2;
+      margin-left: 5px;
+      font-size: 16px;
+    }
+
+    .review-rate {
+      color: $clr9;
+      font-size: large;
+    }
+  }
+
+  .stars-container {
+    display: flex;
+
+    .full-star {
+      font-weight: 600;
+    }
+
+    span {
+      align-items: center;
+    }
+  }
+
+  .carousel-arrow {
+    font-size: 16px;
+    align-items: center;
+    position: absolute;
+    top: 57%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    span {
+      display: inline-block;
+    }
+
+    &.prev {
+      left: -12px;
+      z-index: 1;
+    }
+
+    &.next {
+      right: -15px;
+      z-index: 1;
+
+    }
+  }
+
+  .review-carousell {
+    margin-left: 5px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 90px 90px 110px 1fr;
+    grid-template-rows: 40px auto;
+    border: 1px solid $clr9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: start;
+    align-items: center;
+    margin-top: 20px;
+    height: 150px;
+
+    .reviewer-carousell-img {
+      grid-row: 1;
+      height: 47px;
+      width: 49px;
+
+      img {
+        border-radius: 50%;
+        margin: 10px 30px;
+        height: 46px;
+        grid-column: 1;
+      }
+    }
+
+    .reviewer-carousell-name,
+    .reviewer-carousell-loc,
+    .review-carousell-rate {
+
+      margin-left: 5px;
+      font-size: 16px;
+      color: $clr9;
+      opacity: 80%;
+    }
+
+    .reviewer-carousell-name {
+      grid-column: 2;
+      color: $clr9;
+      opacity: 80%;
+    }
+
+    .reviewer-carousell-loc {
+      grid-column: 3;
+      color: $clr9;
+      opacity: 80%;
+
+      span {
+        margin-left: 10px;
+        color: $clr6;
+      }
+    }
+
+    .review-carousell-txt {
+      grid-column: 2 / span 4;
+      grid-row: 2;
+      color: $clr9;
+      opacity: 80%;
+    }
+
+    .review-carousell-rate {
+      color: $clr9;
+      grid-column: 4;
+      font-size: large;
+    }
+  }
+
+}

@@ -1,6 +1,5 @@
 .gig-reviews {
   width: 90%;
-
   h3 {
     margin-bottom: 15px;
     font-size: 22px;
@@ -10,7 +9,7 @@
     margin-left: 5px;
     padding-bottom: 30px;
     display: grid;
-    grid-template-columns: auto 55px 250px 1fr;
+    grid-template-columns: auto 125px 250px 1fr;
     grid-template-rows: 40px auto auto;
     text-align: start;
     margin-top: 40px;
@@ -37,6 +36,7 @@
 
       .reviewer-name,
       .reviewer-loc {
+        margin-top: 3px;
         font-size: 16px;
         margin-left: 5px;
       }
@@ -98,7 +98,6 @@
 
   .review-carousell {
     margin-left: 5px;
-    // padding: 26px;
     display: grid;
     grid-template-columns: 80px 60px 60px 1fr;
     grid-template-rows: 40px auto;
@@ -159,12 +158,11 @@
   }
 
   .show-more-btn {
-
+  
     padding: 10px;
     background-color: $clr4;
     border-radius: 5px;
     color: $clr9;
-    font-size: Macan, "Helvetica Neue", Helvetica, Arial, sans-serif;
     width: 280px;
     font-size: 18px;
     border: 1px solid #222325;

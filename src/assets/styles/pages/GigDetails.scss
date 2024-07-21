@@ -8,74 +8,74 @@
     .gig-overview {
         display: grid;
         grid-template-columns: 900px 276.5px;
+        gap: 20px;
 
-        .gig-mini-user-gig {
-            grid-column: 1;
-        }
-
-        .gig-reviewList {
-            grid-column: 1;
-        }
-
-        .gig-reviewList {
-            grid-column: 1;
-        }
-        .gig-reviews-carousel {
-            grid-column: 1;
-        }
-
-        .about-gig {
-            grid-column: 1;
-        }
-        .gig-page-reviews {
-            grid-column: 1;
-
-        }
-        .review-filter {
-            grid-column: 1;
-        }
-        .compare-packages {
+        .gig-mini-user-gig, .gig-reviewList, .gig-reviews-carousel, .about-gig, .gig-page-reviews, .review-filter, .compare-packages, .text-display, .gig-carousel, .gig-description, .about-user-gig {
             grid-column: 1;
         }
 
         .text-display {
-            grid-column: 1;
-
             font-size: 28px;
             margin-bottom: 20px;
             text-align: start;
             letter-spacing: normal;
             color: #404145;
             line-height: 36.4px;
-            font-family: Macan, "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
-
-        .gig-carousel {
+        .gig-carousel, .gig-description {
             margin-bottom: 20px;
-            // width: 1000px;
-            grid-column: 1;
-
-        }
-
-        .gig-description {
-            margin-bottom: 20px;
-            font-size: 18px;
-            grid-column: 1;
-
         }
     }
+
     .read-more {
         color: #cecece;
         cursor: pointer;
         font-weight: bold;
-      }
-      
-      .read-more:hover {
-        text-decoration: underline;
-      }
-      .about-user-gig{
-        grid-column: 1;
+    }
 
-      }
+    .read-more:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 1200px) {
+        .gig-overview {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        h2 {
+            font-size: 20px;
+        }
+
+        .gig-overview {
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .text-display {
+            font-size: 24px;
+            line-height: 32px;
+        }
+
+        .gig-description {
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h2 {
+            font-size: 18px;
+        }
+
+        .text-display {
+            font-size: 20px;
+            line-height: 28px;
+        }
+
+        .gig-description {
+            font-size: 14px;
+        }
+    }
 }
