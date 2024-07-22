@@ -11,8 +11,9 @@ import { GigPageReviews } from '../cmps/GigPageReviews'
 import { ReviewFilter } from '../cmps/ReviewFilter'
 import { ComparePackages } from '../cmps/ComparePackages'
 import { ReviewCarousel } from '../cmps/ReviewCarousel'
-import { addOrder } from '../store/actions/order.actions'
+import { setOrderToStore } from '../store/actions/order.actions'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { orderService } from '../services/order'
 
 
 const renderStars = (rate) => {
@@ -47,24 +48,11 @@ export function GigDetails() {
   }
 
   function handelcheckout() {
-    const order = {
-      seller: {
-        _id: gig.owner._id,
-        fullname: gig.owner.fullname,
-        imgUrl: gig.owner.imgUrl
-      },
-      gig: {
-        _id: gig._id,
-        name: gig.title,
-        imgUrl: gig.imgUrls[0],
-        price: gig.price
-      },
-      status: 'pending',
-    }
-    addOrder(order)
+    const order = orderService.getOrder(gig)
+    setOrderToStore(order)
       .then(() => {
-        showSuccessMsg('Order saved successfully')
-        navigate('/gig')
+        // showSuccessMsg('Order saved successfully')
+        navigate(`/checkout/${gig._id}`)
       })
       .catch(err => {
         showErrorMsg('Cannot save gig')

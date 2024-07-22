@@ -24,8 +24,26 @@ function getDefaultFilter() {
     }
 }
 
+function getOrder(gig) {
+    const order = {
+        seller: {
+            _id: gig.owner._id,
+            fullname: gig.owner.fullname,
+            imgUrl: gig.owner.imgUrl
+        },
+        gig: {
+            _id: gig._id,
+            name: gig.title,
+            imgUrl: gig.imgUrls[0],
+            price: gig.price
+        },
+        status: 'pending',
+    }
+    return order
+}
+
 const service = VITE_LOCAL === 'true' ? local : remote
-export const orderService = { getEmptyOrder, getDefaultFilter, ...service }
+export const orderService = { getEmptyOrder, getDefaultFilter, getOrder, ...service }
 
 
 

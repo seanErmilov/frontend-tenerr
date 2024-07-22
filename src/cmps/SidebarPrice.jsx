@@ -73,7 +73,6 @@ export function SidebarPrice({ handelcheckout, price, avgResponseTime }) {
         //todo add oreder
         handelcheckout()
         // const packageDetails = packages[selectedPackage]
-        // navigate('/pay', { state: { packageDetails } })
     }
     const down = 'https://cdn-icons-png.flaticon.com/128/8287/8287014.png'
     const up = 'https://cdn-icons-png.flaticon.com/128/2722/2722987.png'
