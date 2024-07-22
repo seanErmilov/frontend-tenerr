@@ -52,7 +52,6 @@ export function Checkout() {
                 <section className="order-details-container">
                     <header className="order-details-header">
                         <span className="img-container">
-                            {console.log('order :', order)}
                             <img src={order.gig.imgUrl} alt="" />
                         </span>
                         <div>{order.gig.name}</div>
