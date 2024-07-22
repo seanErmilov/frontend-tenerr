@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { CarouselImg } from '../cmps/CarouselImg'
 import { SidebarPrice } from '../cmps/SidebarPrice'
 import { gigService } from '../services/gig'
@@ -11,6 +11,11 @@ import { GigPageReviews } from '../cmps/GigPageReviews'
 import { ReviewFilter } from '../cmps/ReviewFilter'
 import { ComparePackages } from '../cmps/ComparePackages'
 import { ReviewCarousel } from '../cmps/ReviewCarousel'
+import { setOrderToStore } from '../store/actions/order.actions'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { orderService } from '../services/order'
+import { CheckoutModal } from '../cmps/CheckoutModal'
+
 
 const renderStars = (rate) => {
   const fullStars = Math.floor(rate)
@@ -31,6 +36,11 @@ export function GigDetails() {
   const [gig, setGig] = useState(null)
   const [filteredReviews, setFilteredReviews] = useState([])
   const { gigId } = useParams()
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     loadGig(gigId)
@@ -42,6 +52,20 @@ export function GigDetails() {
     setFilteredReviews(fetchedGig.reviews)
   }
 
+  function handelcheckout() {
+    const order = orderService.getOrder(gig)
+    setOrderToStore(order)
+      .then(() => {
+        // showSuccessMsg('Order saved successfully')
+        navigate(`/checkout/${gig._id}`)
+      })
+      .catch(err => {
+        showErrorMsg('Cannot save gig')
+        console.log('err :', err)
+      })
+
+  }
+
   if (!gig) return null
 
   return (
@@ -50,7 +74,7 @@ export function GigDetails() {
         <h1 className="text-display">{gig.title}</h1>
         <MiniuserGig user={gig.owner} />
         <div className="gig-carousel"><CarouselImg imgUrls={gig.imgUrls} /></div>
-        <SidebarPrice price={gig.price} avgResponseTime={gig.avgResponseTime} onChange={() => { }} />
+        <SidebarPrice handleOpen={handleOpen} handelcheckout={handelcheckout} price={gig.price} avgResponseTime={gig.avgResponseTime} onChange={() => { }} />
         <ReviewCarousel reviews={gig.reviews} loc={gig.loc} renderStars={renderStars} />
         <AboutGig description={gig.description} />
         <AboutUserGig user={gig.owner} loc={gig.loc} />
@@ -58,6 +82,7 @@ export function GigDetails() {
         <GigPageReviews reviews={gig.reviews} />
         <ReviewFilter reviews={filteredReviews} />
         <div className="gig-reviewList"><ReviewList reviews={gig.reviews} loc={gig.loc} /></div>
+        <CheckoutModal open={open} handleClose={handleClose} />
       </div>
     </section>
   )

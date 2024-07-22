@@ -23,6 +23,13 @@
         }
     }
 
+    .title {
+        &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+
     .is-pro {
         // width: fit-content;
         display: grid;
@@ -37,25 +44,31 @@
         line-height: 1.5;
         color: #404145;
 
-        :hover{
+        :hover {
             text-decoration: underline;
         }
     }
 
-    .description:hover{
-            text-decoration: underline;
-        }
+    .description:hover {
+        text-decoration: underline;
+    }
 
-    .rating::after, .star::after{
+    .rating::after,
+    .star::after {
         content: ' ';
     }
 
-    .from-price, .average-rating {
+    .from-price {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .from-price,
+    .average-rating {
         margin-block-start: 0.5rem;
         line-height: 1.5;
     }
 
-    &:hover {
-        
-    }
+    &:hover {}
 }

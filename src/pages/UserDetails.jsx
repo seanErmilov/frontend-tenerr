@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
 import { loadUser } from '../store/actions/user.actions'
-import { store } from '../store/store'
-import { showSuccessMsg } from '../services/event-bus.service'
 
 export function UserDetails() {
   //in dev
@@ -14,10 +12,6 @@ export function UserDetails() {
 
   useEffect(() => {
     loadUser(params.id)
-
-
-
-
   }, [params.id])
 
   return (
