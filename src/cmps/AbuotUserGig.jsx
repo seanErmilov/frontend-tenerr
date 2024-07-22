@@ -1,5 +1,5 @@
 export function AboutUserGig({ user, loc }) {
-    const languages = Array.isArray(user.languages) ? user.languages.join(', ') : 'Not specified';
+    const languages = Array.isArray(user.languages) ? user.languages.join(', ') : 'Not specified'
 
     return (
         <div className="about-user-gig">

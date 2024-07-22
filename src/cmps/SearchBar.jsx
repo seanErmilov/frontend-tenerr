@@ -1,5 +1,5 @@
 // react tools
-import { useEffect, useRef} from 'react'
+import { useEffect, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 //hooks
@@ -20,7 +20,7 @@ export function SearchBar({ trackInViewport = false }) {
 
 
     // Use the useVisibility hook only if trackInViewport is true
-    const isVisible = trackInViewport ? useVisibility(ref, { threshold: 0 }) : true;
+    const isVisible = trackInViewport ? useVisibility(ref, { threshold: 0 }) : true
 
     useEffect(() => {
         if (trackInViewport) {
@@ -68,5 +68,5 @@ export function SearchBar({ trackInViewport = false }) {
                 </button>
             </form>
         </section>
-    );
+    )
 }

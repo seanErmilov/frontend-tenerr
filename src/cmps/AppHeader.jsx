@@ -17,8 +17,8 @@ import { SearchBar } from '../cmps/SearchBar'
 import { MainNav } from '../cmps/MainNav.jsx'
 
 // imgs
-import tennerLogo from '../assets/img/logos/tenner-loggo.png'; // Import the image
-import arrow from '../assets/img/svg/explore-arrow.svg'; // Import the image
+import tennerLogo from '../assets/img/logos/tenner-loggo.png' // Import the image
+import arrow from '../assets/img/svg/explore-arrow.svg' // Import the image
 
 export function AppHeader() {
 
