@@ -15,6 +15,7 @@ import * as Yup from 'yup'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { gigService } from '../services/gig'
 import { ImgUploader } from '../cmps/ImgUploader'
+import { addGig } from '../store/actions/gig.actions'
 
 export function GigEdit() {
     const [gigToEdit, setGigToEdit] = useState(gigService.getEmptyGig())
@@ -59,7 +60,7 @@ export function GigEdit() {
     })
 
     function onSaveGig(values, { setSubmitting }) {
-        gigService.save(values)
+        addGig(values)
             .then(() => {
                 showSuccessMsg('Gig saved successfully')
                 navigate('/gig')
