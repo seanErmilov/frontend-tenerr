@@ -67,6 +67,8 @@ async function addGigMsg(gigId, txt) {
     return msg
 }
 
+
+
 function _getRandomGig(partialGig = {}) {
     const titles = [
         'I will design your logo',

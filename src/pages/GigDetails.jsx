@@ -48,7 +48,11 @@ export function GigDetails() {
 
   function handelcheckout() {
     const order = {
-      seller: gig.owner,
+      seller: {
+        _id: gig.owner._id,
+        fullname: gig.owner.fullname,
+        imgUrl: gig.owner.imgUrl
+      },
       gig: {
         _id: gig._id,
         name: gig.title,

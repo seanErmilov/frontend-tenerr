@@ -1,5 +1,5 @@
 // react tools
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector} from 'react-redux'
 
 // cmp
 import { GigFilter } from '../cmps/GigFilter'
