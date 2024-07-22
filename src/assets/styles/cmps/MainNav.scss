@@ -1,0 +1,23 @@
+.main-nav {
+    top: calc(100% + 0.5em);
+    left: 0;
+
+    background-color: #ffffff;
+    border-radius: 0.5em;
+    border: 1px solid #e4e5e7;
+    color: #000000;
+    padding-block: 0.5em;
+
+    display: grid;
+    width: max-content;
+    justify-items: start;
+
+
+
+    li {
+        padding: 0.5em 1em;
+
+        
+    }
+
+}

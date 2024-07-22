@@ -5,7 +5,6 @@
 @import "setup/typography";
 
 // Basics
-@import "basics/helpers";
 @import "basics/layout";
 @import "basics/base";
 
@@ -25,11 +24,9 @@
 // Components
 @import "cmps/GigList";
 @import "cmps/preview";
-
 @import "cmps/AppHeader";
 @import "cmps/AppFooter";
 @import "cmps/UserMsg";
-
 @import "cmps/GigFilter";
 @import "cmps/ReviewEdit";
 @import "cmps/ReviewList";
@@ -42,6 +39,14 @@
 @import "cmps/AboutUserGig.scss";
 @import "cmps/ComparePackages.scss";
 @import "cmps/ReviewCarousell.scss";
+@import "cmps/MainNav.scss";
+@import "cmps/SearchBar.scss";
+
+
+
+
+// Basics -helpers for overrunning other settings
+@import "basics/helpers";
 
 // @import "cmps/GigList";
 // @import "cmps/GigPreview";
