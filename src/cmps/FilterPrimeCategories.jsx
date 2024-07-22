@@ -5,6 +5,23 @@ import { useState, useRef, useLayoutEffect } from 'react'
 // costumhooks
 import { useWindowDimensions } from '../customHooks/windowRisze'
 
+// services
+import { gigService } from '../services/gig'
+
+// imgs
+import ai from '../assets/img/svg/primeCategories/ai.svg' // Import the image
+import business from '../assets/img/svg/primeCategories/business.svg'// Import the image
+import consulting from '../assets/img/svg/primeCategories/consulting.svg' // Import the image
+import digital from '../assets/img/svg/primeCategories/digital.svg' // Import the image
+import graphics from '../assets/img/svg/primeCategories/graphics.svg' // Import the image
+import music from '../assets/img/svg/primeCategories/music.svg' // Import the image
+import programming from '../assets/img/svg/primeCategories/programming.svg' // Import the image
+import video from '../assets/img/svg/primeCategories/video.svg' // Import the image
+import writing from '../assets/img/svg/primeCategories/writing.svg' // Import the image
+import rightArrow from '../assets/img/svg/primeCategories/rightArrow.svg' // Import the image
+import leftArrow from '../assets/img/svg/primeCategories/leftArrow.svg' // Import the image
+
+
 export function FilterPrimeCategories({ filterBy, setFilterBy }) {
     // hooks
     const windowDims = useWindowDimensions()
@@ -13,6 +30,8 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
     const rightEdge = useRef()
     const leftEdge = useRef()
 
+    //consts
+    const primeCategories = gigService.getPrimeCategories()
 
     // funcs
     function onClickTag(category) {
@@ -34,25 +53,19 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
         <div className="prime-categories-section  pos-relative">
 
             {windowDims.width > 900 && windowDims.width < 1250 && (
-
                 <>
                     {/* right arrow */}
-
                     <div
                         className={`right-arrow pos-absolute hidden`}
                         onClick={() => onScrollTo(rightEdge)}>
-                        <svg width="16" height="16" viewBox="0 0 8 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-                            <path d="m.772 1.19-.619.62a.375.375 0 0 0 0 .53L5.8 8 .153 13.66a.375.375 0 0 0 0 .53l.62.62a.375.375 0 0 0 .53 0l6.544-6.545a.375.375 0 0 0 0-.53L1.302 1.19a.375.375 0 0 0-.53 0Z"></path>
-                        </svg>
+                        <img src={rightArrow} alt="" />
                     </div>
 
                     {/* left arrow */}
                     <div
                         className={`left-arrow pos-absolute`}
                         onClick={() => onScrollTo(leftEdge)}>
-                        <svg width="16" height="16" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-                            <path d="m7.228.69.619.62a.375.375 0 0 1 0 .53L2.2 7.5l5.647 5.66a.375.375 0 0 1 0 .53l-.62.62a.375.375 0 0 1-.53 0L.154 7.764a.375.375 0 0 1 0-.53L6.698.69a.375.375 0 0 1 .53 0Z"></path>
-                        </svg>
+                        <img src={leftArrow} alt="" />
                     </div>
                 </>
             )}
@@ -61,7 +74,7 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
                 {/* Programming & Tech */}
                 <li onClick={() => onClickTag('programming')} ref={leftEdge} id="left">
                     <div>
-                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/programming-tech.49dbf0d.svg" alt="programming_tech" loading="lazy" />
+                        <img src={programming} alt="" />
                     </div>
                     <p>Programming & Tech</p>
                 </li>
@@ -69,7 +82,7 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
                 {/* Graphics & Design */}
                 <li onClick={() => onClickTag('graphics')}>
                     <div>
-                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/graphics-design.3272c08.svg" alt="graphics_design" loading="lazy" />
+                        <img src={graphics} alt="graphics_design" loading="lazy" />
                     </div>
                     <p>Graphics & Design</p>
                 </li>
@@ -77,7 +90,7 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
                 {/* Digital Marketing */}
                 <li onClick={() => onClickTag('digital')}>
                     <div>
-                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/digital-marketing.85e8846.svg" alt="digital_marketing" loading="lazy" />
+                        <img src={digital} alt="digital_marketing" loading="lazy" />
                     </div>
                     <p>Digital Marketing</p>
                 </li>
@@ -85,7 +98,7 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
                 {/* Writing & Translation */}
                 <li onClick={() => onClickTag('writing')}>
                     <div>
-                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/writing-translation.dc66eb8.svg" alt="writing_translation" loading="lazy" />
+                        <img src={writing} alt="writing_translation" loading="lazy" />
                     </div>
                     <p>Writing & Translation</p>
                 </li>
@@ -93,7 +106,7 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
                 {/* Video & Animation */}
                 <li onClick={() => onClickTag('video')}>
                     <div>
-                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/video-animation.21fb1d6.svg" alt="video_animation" loading="lazy" />
+                        <img src={video} alt="video_animation" loading="lazy" />
                     </div>
                     <p>Video & Animation</p>
                 </li>
@@ -101,7 +114,7 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
                 {/* AI Services */}
                 <li onClick={() => onClickTag('ai')}>
                     <div>
-                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/ai-services.40511da.svg" alt="ai_services" loading="lazy" />
+                        <img src={ai} alt="ai_services" loading="lazy" />
                     </div>
                     <p>AI Services</p>
                 </li>
@@ -109,7 +122,7 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
                 {/* Music & Audio */}
                 <li onClick={() => onClickTag('music')}>
                     <div>
-                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/music-audio.6a411f2.svg" alt="music_audio" loading="lazy" />
+                        <img src={music} alt="music_audio" loading="lazy" />
                     </div>
                     <p>Music & Audio</p>
                 </li>
@@ -117,7 +130,7 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
                 {/* Business */}
                 <li onClick={() => onClickTag('business')}>
                     <div>
-                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/business.772c3c9.svg" alt="business" loading="lazy" />
+                        <img src={business} alt="business" loading="lazy" />
                     </div>
                     <p>Business</p>
                 </li>
@@ -125,14 +138,10 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
                 {/* Lifestyle */}
                 <li onClick={() => onClickTag('consulting')} ref={rightEdge}>
                     <div>
-                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/consulting.93989a4.svg" alt="consulting" loading="lazy" />
+                        <img src={consulting} alt="consulting" loading="lazy" />
                     </div>
                     <p>Consulting</p>
                 </li>
-
-
-
-
             </ul >
         </div >
     )

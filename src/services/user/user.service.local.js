@@ -62,7 +62,7 @@ async function logout() {
 }
 
 function getLoggedinUser() {
-    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)) || { _id: 'u101', fullname: 'Dudu Da', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3afO247RTO80vqElpg1Iyapzzg-d-bfeRxQ&s', level: 'standard', rate: 4, description: 'An experienced logo designer with a passion for creating unique brand identities.' }
 }
 
 function saveLoggedinUser(user) {

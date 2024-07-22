@@ -14,6 +14,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import * as Yup from 'yup'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { gigService } from '../services/gig'
+import { ImgUploader } from '../cmps/ImgUploader'
+import { addGig } from '../store/actions/gig.actions'
 
 export function GigEdit() {
     const [gigToEdit, setGigToEdit] = useState(gigService.getEmptyGig())
@@ -58,7 +60,7 @@ export function GigEdit() {
     })
 
     function onSaveGig(values, { setSubmitting }) {
-        gigService.save(values)
+        addGig(values)
             .then(() => {
                 showSuccessMsg('Gig saved successfully')
                 navigate('/gig')
@@ -113,16 +115,16 @@ export function GigEdit() {
 
                         <Field
                             as={TextField}
-                            label="DayToMake"
+                            label="Day To complete"
                             variant="outlined"
                             type="number"
-                            name="daytomake"
+                            name="daysToMake"
                             margin="normal"
                             inputProps={{ min: 1 }}
-                            error={touched.daytomake && !!errors.daytomake}
-                            helperText={touched.daytomake && errors.daytomake}
+                            error={touched.daysToMake && !!errors.daysToMake}
+                            helperText={touched.daysToMake && errors.daysToMake}
                             onChange={handleChange}
-                            value={values.daytomake}
+                            value={values.daysToMake}
                         />
 
                         <Field
@@ -148,6 +150,7 @@ export function GigEdit() {
                             onChange={handleChange}
                             value={values.loc}
                         />
+                        <ImgUploader onUploaded={(url) => { values.imgUrls.unshift(url) }} />
 
                         <FormControl margin="normal">
                             <InputLabel id="tags-tag">Tags</InputLabel>
