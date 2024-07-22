@@ -34,13 +34,15 @@ export function HomePage() {
                         <img className="collin pos-absolute" src="src/assets/img/home-page-hero/collin.png" alt="" />
                     </>
                 }
-                {/* Hero inner text */}
-                <h1 className='hero-inner-text'>Find the right
-                    <em className='freelance'>freelance </em>
-                    <br />service, right away</h1>
-                {/* Search Bar */}
-                <SearchBar
-                    trackInViewport={true} />
+                <div className='hero-center'>
+                    {/* Hero inner text */}
+                    <h1 className='hero-inner-text'>Find the right
+                        <em className='freelance'>freelance </em>
+                        <br />service, right away</h1>
+                    {/* Search Bar */}
+                    <SearchBar
+                        trackInViewport={true} />
+                </div>
 
                 {/* Company logos */}
                 {windowDims.width >= 900 &&
@@ -76,30 +78,7 @@ export function HomePage() {
             <br />
             <br />
             <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+
             {/* <video className="c4Ic0RB" autoPlay="" controls="" poster="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/ef51b45f79342925d5268e0b2377eae8-1704717764992/thumbnail.png" preload="auto" crossOrigin="anonymous" role="video" width="100%" playsInline=""><source role="source" src="https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/v1/video-attachments/generic_asset/asset/e0f330e4c8d6e3bf843a3bd3164fa275-1706087048062/How%20Fiverr%20Works%20EN%20Subs%2016x9" type="video/mp4"/></video> */}
 
 

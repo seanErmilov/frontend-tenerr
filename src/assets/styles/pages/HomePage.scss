@@ -8,6 +8,12 @@
         background-color: #003811;
         overflow: hidden;
         border-radius: 1rem;
+        justify-items: center;
+
+        .hero-center {
+            display: grid;
+            width: max-content;
+        }
 
         .jenny {
             left: 7.865%;
@@ -80,6 +86,7 @@
     }
 
     .prime-categories-section {
+
         .right-arrow,
         .left-arrow {
             cursor: pointer;
