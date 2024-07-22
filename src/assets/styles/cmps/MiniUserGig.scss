@@ -1,26 +1,28 @@
 .gig-owner-details {
   display: grid;
-  grid-template-columns: 70px 100px 5px 100px;
-  grid-template-rows: 30px auto;
+  grid-template-columns: 100px 80px 100px;
+  grid-template-rows: 50px 30px 70px auto;
   grid-column: 1;
-  margin-bottom: 20px;
-  border-bottom: 1px solid $clr5;
-padding-bottom: 25px;
-  .gig-owner-img {
-    width: max-content;
 
+  .gig-owner-img {
+    padding-right: 10px;
     img {
       grid-column: 1;
       border-radius: 50%;
-      width: 50px;
-      height: 50px;
+      margin: 7px 0px;
+      height: 85px;
     }
   }
 
   .gig-owner-name,
   .gig-owner-rate {
     grid-column: 2;
-    font-size: 16px;
+    font-size: 20px;
+  }
+
+  .gig-owner-level,
+  .gig-owner-name {
+    margin-top: 20px;
 
   }
 
@@ -32,8 +34,9 @@ padding-bottom: 25px;
 
   .gig-owner-level,
   .gig-owner-loc {
-    grid-column: 4;
-    font-size: 16px;
+    grid-column: 3;
+    grid-row: 1;
+    font-size: 20px;
     margin-left: 20px;
   }
 }
