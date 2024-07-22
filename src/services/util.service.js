@@ -26,11 +26,11 @@ export function getRandomIntInclusive(min, max) {
 }
 
 export function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 export function getRandomElement(arr) {
-    return arr[getRandomInt(0, arr.length - 1)];
+    return arr[getRandomInt(0, arr.length - 1)]
 }
 
 export function randomPastTime() {

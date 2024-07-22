@@ -9,17 +9,17 @@ import { useWindowDimensions } from '../customHooks/windowRisze'
 import { gigService } from '../services/gig'
 
 // imgs
-import ai from '../assets/img/svg/primeCategories/ai.svg'; // Import the image
-import business from '../assets/img/svg/primeCategories/business.svg'; // Import the image
-import consulting from '../assets/img/svg/primeCategories/consulting.svg'; // Import the image
-import digital from '../assets/img/svg/primeCategories/digital.svg'; // Import the image
-import graphics from '../assets/img/svg/primeCategories/graphics.svg'; // Import the image
-import music from '../assets/img/svg/primeCategories/music.svg'; // Import the image
-import programming from '../assets/img/svg/primeCategories/programming.svg'; // Import the image
-import video from '../assets/img/svg/primeCategories/video.svg'; // Import the image
-import writing from '../assets/img/svg/primeCategories/writing.svg'; // Import the image
-import rightArrow from '../assets/img/svg/primeCategories/rightArrow.svg'; // Import the image
-import leftArrow from '../assets/img/svg/primeCategories/leftArrow.svg'; // Import the image
+import ai from '../assets/img/svg/primeCategories/ai.svg' // Import the image
+import business from '../assets/img/svg/primeCategories/business.svg'// Import the image
+import consulting from '../assets/img/svg/primeCategories/consulting.svg' // Import the image
+import digital from '../assets/img/svg/primeCategories/digital.svg' // Import the image
+import graphics from '../assets/img/svg/primeCategories/graphics.svg' // Import the image
+import music from '../assets/img/svg/primeCategories/music.svg' // Import the image
+import programming from '../assets/img/svg/primeCategories/programming.svg' // Import the image
+import video from '../assets/img/svg/primeCategories/video.svg' // Import the image
+import writing from '../assets/img/svg/primeCategories/writing.svg' // Import the image
+import rightArrow from '../assets/img/svg/primeCategories/rightArrow.svg' // Import the image
+import leftArrow from '../assets/img/svg/primeCategories/leftArrow.svg' // Import the image
 
 
 export function FilterPrimeCategories({ filterBy, setFilterBy }) {
@@ -69,7 +69,7 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
                     </div>
                 </>
             )}
-            
+
             <ul className='grid-column'>
                 {/* Programming & Tech */}
                 <li onClick={() => onClickTag('programming')} ref={leftEdge} id="left">

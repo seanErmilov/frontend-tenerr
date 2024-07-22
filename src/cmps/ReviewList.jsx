@@ -29,8 +29,6 @@ export function ReviewList({ reviews, loc }) {
   return (
     <section>
       <div className="gig-reviews">
-
-
         <h3>All Reviews</h3>
         {displayedReviews.length > 0 ? (
           displayedReviews.map(review => (
