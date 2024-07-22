@@ -1,0 +1,58 @@
+.link-icons {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    position: sticky;
+    top: 120px;
+  }
+  
+  .link-icon-menu,
+  .link-icon-sharing,
+  .link-icon-more,
+  .link-icon-heart,
+  .icon-count {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: 8px; 
+  }
+  .icon-count {
+    margin-right: 8px; 
+    border: 1px solid $clr6;
+    border-radius: 5px;
+    padding: 6px;
+  }
+  .link-icon-menu {
+    margin-right: 8px; 
+    opacity: 0.4;
+    width: 18px; 
+
+  }
+  .link-icon-sharing {
+    margin-right: 8px; 
+    border: 1px solid $clr6;
+    border-radius: 5px;
+    padding: 6px;
+  }
+  .link-icon-more {
+    margin-right: 8px; 
+    border: 1px solid $clr6;
+    border-radius: 5px;
+    padding: 6px;
+  }
+  .link-icon-heart {
+    margin-right: 8px; 
+    opacity: 0.3;
+    width: 18px; 
+
+  }
+  
+  .icon-image {
+    width: 20px; 
+    height: auto;
+  }
+  
+  .icon-count {
+    margin: 0 8px; 
+  }
+  

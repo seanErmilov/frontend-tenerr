@@ -1,6 +1,7 @@
 .gig-details {
     width: 1304px;
     margin: auto;
+
     h2 {
         margin-bottom: 20px;
         font-size: 24px;
@@ -9,9 +10,22 @@
 
     .gig-overview {
         display: grid;
-        grid-template-columns: 834px 276.5px;
-        grid-template-rows: 20px 100px;
+        grid-template-columns: 834px 1fr;
+        grid-template-rows: 20px 40px;
         gap: 20px;
+
+        .navigate {
+            width: 135px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            span {
+                color: $clr5;
+                opacity: 0.5;
+                // padding-left: 1px;
+            }
+        }
 
         .gig-mini-user-gig,
         .gig-reviewList,
@@ -24,26 +38,42 @@
         .gig-carousel,
         .gig-description,
         .about-user-gig,
-         .react-multi-carousel-list{
+        .react-multi-carousel-list {
             grid-column: 1;
         }
+.sidebar{
+    grid-column: 2;
+    grid-row: 2;
 
-        .about-gig{
-            h2{
-                font-size:35px;
+}
+        .about-gig {
+            padding: 16px;
+            font-family: 'Macan', Helvetica Neue, Helvetica, Arial, sans-serif;
+
+            h2 {
+                font-size: 35px;
             }
-            p{
+
+            p {
                 font-size: 22px;
             }
+
+            .gig-description p {
+                margin-bottom: 1em;
+                line-height: 1.6;
+                font-size: 18px;
+            }
+
         }
 
 
         .text-display {
             font-size: 38px;
             text-align: start;
-            letter-spacing: normal;
+            margin: 0;
+            // letter-spacing: normal;
             color: #404145;
-            line-height: 0px;
+            // line-height: 0px;
 
         }
 
@@ -109,16 +139,15 @@
     //     }
     // }
 }
-    .item1{
-        margin-left: 76px;
-        transition: transform 0.3s; 
-        width: 800px;
-        &:hover{
-            transform: scale(1.05);
-            
-        }
-       
-    }
-  
 
-  
+.item1 {
+    margin-left: 76px;
+    transition: transform 0.3s;
+    width: 800px;
+
+    &:hover {
+        transform: scale(1.05);
+
+    }
+
+}

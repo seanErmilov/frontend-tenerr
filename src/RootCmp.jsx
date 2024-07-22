@@ -14,7 +14,6 @@ import { LoginSignup } from './cmps/LoginSignup.jsx'
 import { Login } from './cmps/Login.jsx'
 import { Signup } from './cmps/Signup.jsx'
 import { GigEdit } from './pages/GigEdit.jsx'
-import { Pay } from './cmps/Pay.jsx'
 import { Checkout } from './pages/Checkout.jsx'
 
 export function RootCmp() {
@@ -25,7 +24,6 @@ export function RootCmp() {
             <main>
                 <Routes>
                     <Route path="" element={<HomePage />} />
-                    {/* <Route path="/pay" element={<Pay />} /> */}
                     <Route path="gig" element={<GigIndex />} />
                     <Route path="gig/edit" element={<GigEdit />} />
                     <Route path="gig/:gigId" element={<GigDetails />} />
