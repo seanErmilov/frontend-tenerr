@@ -10,9 +10,9 @@
         border-radius: 1rem;
         justify-items: center;
 
-        .hero-center {
+        .hero-center{
             display: grid;
-            width: max-content;
+            width: auto;
         }
 
         .jenny {
@@ -47,13 +47,13 @@
         }
 
         .hero-inner-text {
+            text-wrap: wrap;
             z-index: 1;
             font-size: 3.5rem;
             font-weight: 400;
             color: #fff;
             margin-top: 7rem;
             margin-bottom: 3.375rem;
-            white-space: pre-line;
 
             .freelance {
                 word-spacing: 0.4rem;
