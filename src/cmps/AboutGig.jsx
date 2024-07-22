@@ -1,30 +1,21 @@
-import { useEffect } from 'react'
+import React from 'react';
 
 export function AboutGig({ description }) {
-
-  useEffect(() => {
-    const paragraphs = document.querySelectorAll('.gig-description .paragraph')
-    paragraphs.forEach((paragraph, index) => {
-      paragraph.style.setProperty('--paragraph-index', index)
-    })
-  }, [description])
-
-  function renderDescription() {
-    const paragraphs = description.split('\n')
-
-    return (
-      <>
-        {paragraphs.map((paragraph, index) => (
-          <p key={index} className="paragraph">{paragraph}</p>
-        ))}
-      </>
-    )
-  }
+  
+  const paragraphs = description
+    .split(/\n\s*\n/) 
+    .map(para => para.split(/(?=\b[A-Z][A-Z]+\b)/)) 
+    .flat() 
+    .filter(para => para.trim() !== '')
 
   return (
     <div className='about-gig'>
       <h2>About this gig</h2>
-      <div className="gig-description">{renderDescription()}</div>
+      <div className="gig-description">
+        {paragraphs.map((para, index) => (
+          <p key={index}>{para}</p>
+        ))}
+      </div>
     </div>
-  )
+  );
 }

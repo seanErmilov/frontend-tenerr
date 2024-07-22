@@ -17,6 +17,8 @@ import { orderService } from '../services/order'
 import { CheckoutModal } from '../cmps/CheckoutModal'
 
 import { DetailsCarousel } from '../cmps/DetailsCarousel'
+import { Inside } from '../cmps/Inside'
+import { LinkIcon } from '../cmps/LinkIcons'
 
 const renderStars = (rate) => {
   const fullStars = Math.floor(rate)
@@ -72,9 +74,10 @@ export function GigDetails() {
   return (
     <section className="gig-details">
       <div className='gig-overview'>
+      <Inside />
+      <LinkIcon />
         <h1 className="text-display">{gig.title}</h1>
         <MiniuserGig user={gig.owner} />
-        {/* <div className="gig-carousel"><CarouselImg imgUrls={gig.imgUrls} /></div> */}
         <DetailsCarousel deviceType="desktop" />
         <SidebarPrice handleOpen={handleOpen} handelcheckout={handelcheckout} price={gig.price} avgResponseTime={gig.avgResponseTime} onChange={() => { }} />
         <ReviewCarousel reviews={gig.reviews} loc={gig.loc} renderStars={renderStars} />
