@@ -11,6 +11,7 @@ import { GigPageReviews } from '../cmps/GigPageReviews'
 import { ReviewFilter } from '../cmps/ReviewFilter'
 import { ComparePackages } from '../cmps/ComparePackages'
 import { ReviewCarousel } from '../cmps/ReviewCarousel'
+import { CheckoutModal } from '../cmps/CheckoutModal'
 import { addOrder } from '../store/actions/order.actions'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 
@@ -34,6 +35,10 @@ export function GigDetails() {
   const [gig, setGig] = useState(null)
   const [filteredReviews, setFilteredReviews] = useState([])
   const { gigId } = useParams()
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -81,7 +86,7 @@ export function GigDetails() {
         <h1 className="text-display">{gig.title}</h1>
         <MiniuserGig user={gig.owner} />
         <div className="gig-carousel"><CarouselImg imgUrls={gig.imgUrls} /></div>
-        <SidebarPrice handelcheckout={handelcheckout} price={gig.price} avgResponseTime={gig.avgResponseTime} onChange={() => { }} />
+        <SidebarPrice handleOpen={handleOpen} handelcheckout={handelcheckout} price={gig.price} avgResponseTime={gig.avgResponseTime} onChange={() => { }} />
         <ReviewCarousel reviews={gig.reviews} loc={gig.loc} renderStars={renderStars} />
         <AboutGig description={gig.description} />
         <AboutUserGig user={gig.owner} loc={gig.loc} />
@@ -89,6 +94,7 @@ export function GigDetails() {
         <GigPageReviews reviews={gig.reviews} />
         <ReviewFilter reviews={filteredReviews} />
         <div className="gig-reviewList"><ReviewList reviews={gig.reviews} loc={gig.loc} /></div>
+        <CheckoutModal open={open} handleClose={handleClose} />
       </div>
     </section>
   )
