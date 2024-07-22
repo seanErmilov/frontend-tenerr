@@ -114,7 +114,7 @@ function _getRandomGig(semiReadyGig = {}) {
 
     const users = [
         { _id: 'u101', fullname: 'Dudu Da', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3afO247RTO80vqElpg1Iyapzzg-d-bfeRxQ&s', level: 'standard', rate: 4, description: 'An experienced logo designer with a passion for creating unique brand identities.' },
-        { _id: 'u102', fullname: 'Jane Doe', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU7_D7oHLUDST-89GtjX2R4i3OPZSkCEICQw&s', level: 'premium', rate: 5, description: 'A seasoned web developer specializing in building responsive and user-friendly websites.' },
+        { _id: 'u102', fullname: 'Jane Doe', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU7_D7oHLUDST-89GtjX2R4i3OPZSkCEICQw&s', level: 'premium', rate: 5, description: 'specializing in building responsive and user-friendly websites..' },
         { _id: 'u103', fullname: 'John Smith', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaXrFMnQrS3cdGFTB-UpG-5qMGMQyybPu7xg&s', level: 'basic', rate: 3, description: 'A skilled writer with a knack for crafting engaging and informative articles.' }
     ]
 

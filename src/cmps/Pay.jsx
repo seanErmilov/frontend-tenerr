@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { useLocation } from 'react-router-dom'
 
 export function Pay() {
   const { state } = useLocation()
-  const { packageDetails } = state || {}
-  const [quantity, setQuantity] = useState(state?.quantity || 1)
+  const { packageDetails, quantity: initialQuantity } = state || {}
+  const [quantity, setQuantity] = useState(initialQuantity || 1)
   const [additionalRevision, setAdditionalRevision] = useState(false)
   const [additionalLogo, setAdditionalLogo] = useState(false)
   const [socialMediaKit, setSocialMediaKit] = useState(false)
@@ -12,37 +12,37 @@ export function Pay() {
   const [moreFontOptions, setMoreFontOptions] = useState(false)
   const [styleGuide, setStyleGuide] = useState(false)
 
-  function increaseQuantity() {
+  const increaseQuantity = useCallback(() => {
     setQuantity(prevQuantity => prevQuantity + 1)
-  }
+  }, [])
 
-  function decreaseQuantity() {
+  const decreaseQuantity = useCallback(() => {
     setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1))
-  }
+  }, [])
 
-  function toggleAdditionalRevision() {
-    setAdditionalRevision(!additionalRevision)
-  }
+  const toggleAdditionalRevision = useCallback(() => {
+    setAdditionalRevision(prev => !prev)
+  }, [])
 
-  function toggleAdditionalLogo() {
-    setAdditionalLogo(!additionalLogo)
-  }
+  const toggleAdditionalLogo = useCallback(() => {
+    setAdditionalLogo(prev => !prev)
+  }, [])
 
-  function toggleSocialMediaKit() {
-    setSocialMediaKit(!socialMediaKit)
-  }
+  const toggleSocialMediaKit = useCallback(() => {
+    setSocialMediaKit(prev => !prev)
+  }, [])
 
-  function toggleMoreColorOptions() {
-    setMoreColorOptions(!moreColorOptions)
-  }
+  const toggleMoreColorOptions = useCallback(() => {
+    setMoreColorOptions(prev => !prev)
+  }, [])
 
-  function toggleMoreFontOptions() {
-    setMoreFontOptions(!moreFontOptions)
-  }
+  const toggleMoreFontOptions = useCallback(() => {
+    setMoreFontOptions(prev => !prev)
+  }, [])
 
-  function toggleStyleGuide() {
-    setStyleGuide(!styleGuide)
-  }
+  const toggleStyleGuide = useCallback(() => {
+    setStyleGuide(prev => !prev)
+  }, [])
 
   const additionalRevisionCost = 382.34
   const additionalLogoCost = 955.85
@@ -53,7 +53,7 @@ export function Pay() {
   const additionalDays = 1
 
   function formatPrice(price) {
-    return price.toLocaleString('en-US')
+    return price.toLocaleString('en-US', { style: 'currency', currency: 'ILS' })
   }
 
   function calculateTotalPrice() {
@@ -95,6 +95,8 @@ export function Pay() {
     })
   }
 
+  if (!packageDetails) return <div>Package details not found</div>
+
   return (
     <div>
       <div className="pay-details">
@@ -114,101 +116,65 @@ export function Pay() {
       </div>
       <p>Upgrade your order with extras</p>
 
-      <div className="additional">
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <input
-            type="checkbox"
-            id="additionalRevision"
-            checked={additionalRevision}
-            onChange={toggleAdditionalRevision}
-          />
-          <label htmlFor="additionalRevision">
-            <h3>Additional Revision (+1 day)</h3>
-            <p>Add an additional revision your seller will provide after the delivery.</p>
-            <p>₪{formatPrice(additionalRevisionCost)}</p>
-          </label>
+      {[{
+        id: 'additionalRevision',
+        label: 'Additional Revision (+1 day)',
+        description: 'Add an additional revision your seller will provide after the delivery.',
+        cost: additionalRevisionCost,
+        state: additionalRevision,
+        toggle: toggleAdditionalRevision
+      }, {
+        id: 'additionalLogo',
+        label: 'Additional Logo (+1 day)',
+        description: 'Add another (1) logo concept.',
+        cost: additionalLogoCost,
+        state: additionalLogo,
+        toggle: toggleAdditionalLogo
+      }, {
+        id: 'socialMediaKit',
+        label: 'Include Social Media Kit (+1 day)',
+        description: 'You\'ll get graphics showing your logo that you can use on social media platforms. Ex. Facebook and Instagram.',
+        cost: socialMediaKitCost,
+        state: socialMediaKit,
+        toggle: toggleSocialMediaKit
+      }, {
+        id: 'moreColorOptions',
+        label: 'More Color Options (+1 day)',
+        description: 'I will include three additional color combinations for your logo design.',
+        cost: moreColorOptionsCost,
+        state: moreColorOptions,
+        toggle: toggleMoreColorOptions
+      }, {
+        id: 'moreFontOptions',
+        label: 'More Font Options (+1 day)',
+        description: 'I will include three different font alternatives for the brand name.',
+        cost: moreFontOptionsCost,
+        state: moreFontOptions,
+        toggle: toggleMoreFontOptions
+      }, {
+        id: 'styleGuide',
+        label: 'Style Guide (+1 day)',
+        description: 'I will include a custom style guide / brand book.',
+        cost: styleGuideCost,
+        state: styleGuide,
+        toggle: toggleStyleGuide
+      }].map(({ id, label, description, cost, state, toggle }) => (
+        <div className="additional" key={id}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <input
+              type="checkbox"
+              id={id}
+              checked={state}
+              onChange={toggle}
+            />
+            <label htmlFor={id}>
+              <h3>{label}</h3>
+              <p>{description}</p>
+              <p>₪{formatPrice(cost)}</p>
+            </label>
+          </div>
         </div>
-      </div>
-
-      <div className="additional">
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <input
-            type="checkbox"
-            id="additionalLogo"
-            checked={additionalLogo}
-            onChange={toggleAdditionalLogo}
-          />
-          <label htmlFor="additionalLogo">
-            <h3>Additional Logo (+1 day)</h3>
-            <p>Add another (1) logo concept.</p>
-            <p>₪{formatPrice(additionalLogoCost)}</p>
-          </label>
-        </div>
-      </div>
-
-      <div className="additional">
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <input
-            type="checkbox"
-            id="socialMediaKit"
-            checked={socialMediaKit}
-            onChange={toggleSocialMediaKit}
-          />
-          <label htmlFor="socialMediaKit">
-            <h3>Include Social Media Kit (+1 day)</h3>
-            <p>You'll get graphics showing your logo that you can use on social media platforms. Ex. Facebook and Instagram.</p>
-            <p>₪{formatPrice(socialMediaKitCost)}</p>
-          </label>
-        </div>
-      </div>
-
-      <div className="additional">
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <input
-            type="checkbox"
-            id="moreColorOptions"
-            checked={moreColorOptions}
-            onChange={toggleMoreColorOptions}
-          />
-          <label htmlFor="moreColorOptions">
-            <h3>More Color Options (+1 day)</h3>
-            <p>I will include three additional color combinations for your logo design.</p>
-            <p>₪{formatPrice(moreColorOptionsCost)}</p>
-          </label>
-        </div>
-      </div>
-
-      <div className="additional">
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <input
-            type="checkbox"
-            id="moreFontOptions"
-            checked={moreFontOptions}
-            onChange={toggleMoreFontOptions}
-          />
-          <label htmlFor="moreFontOptions">
-            <h3>More Font Options (+1 day)</h3>
-            <p>I will include three different font alternatives for the brand name.</p>
-            <p>₪{formatPrice(moreFontOptionsCost)}</p>
-          </label>
-        </div>
-      </div>
-
-      <div className="additional">
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <input
-            type="checkbox"
-            id="styleGuide"
-            checked={styleGuide}
-            onChange={toggleStyleGuide}
-          />
-          <label htmlFor="styleGuide">
-            <h3>Style Guide (+1 day)</h3>
-            <p>I will include a custom style guide / brand book.</p>
-            <p>₪{formatPrice(styleGuideCost)}</p>
-          </label>
-        </div>
-      </div>
+      ))}
 
       {(additionalRevision || additionalLogo || socialMediaKit || moreColorOptions || moreFontOptions || styleGuide) && (
         <div className='order-summary'>

@@ -8,11 +8,24 @@
     .gig-overview {
         display: grid;
         grid-template-columns: 900px 276.5px;
+        grid-template-rows: 20px 100px;
         gap: 20px;
 
-        .gig-mini-user-gig, .gig-reviewList, .gig-reviews-carousel, .about-gig, .gig-page-reviews, .review-filter, .compare-packages, .text-display, .gig-carousel, .gig-description, .about-user-gig {
+        .gig-mini-user-gig,
+        .gig-reviewList,
+        .gig-reviews-carousel,
+        .about-gig,
+        .gig-page-reviews,
+        .review-filter,
+        .compare-packages,
+        .text-display,
+        .gig-carousel,
+        .gig-description,
+        .about-user-gig {
             grid-column: 1;
         }
+
+
 
         .text-display {
             font-size: 28px;
@@ -23,7 +36,8 @@
             line-height: 36.4px;
         }
 
-        .gig-carousel, .gig-description {
+        .gig-carousel,
+        .gig-description {
             margin-bottom: 20px;
         }
     }
@@ -40,42 +54,47 @@
 
     @media (max-width: 1200px) {
         .gig-overview {
-            grid-template-columns: 1fr;
+            grid-template-columns: 800px;
         }
     }
 
-    @media (max-width: 768px) {
+    // @media (max-width: 768px) {
+    //     h2 {
+    //         font-size: 20px;
+    //     }
+
+    //     .gig-overview {
+    //         grid-template-columns: 1fr;
+    //         gap: 10px;
+    //     }
+
+    //     .text-display {
+    //         font-size: 24px;
+    //         line-height: 32px;
+    //     }
+
+    //     .gig-description {
+    //         font-size: 16px;
+    //     }
+    // }
+
+    @media (max-width: 480px) {
         h2 {
-            font-size: 20px;
+            font-size: 19px;
+            padding: 5px;
         }
-
-        .gig-overview {
-            grid-template-columns: 1fr;
-            gap: 10px;
+        .gig-overview{
+            gap: 0;
         }
-
         .text-display {
-            font-size: 24px;
-            line-height: 32px;
+            font-size: 20px;
+            line-height: 28px;
+
         }
 
         .gig-description {
             font-size: 16px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        h2 {
-            font-size: 18px;
-        }
-
-        .text-display {
-            font-size: 20px;
-            line-height: 28px;
-        }
-
-        .gig-description {
-            font-size: 14px;
+            max-width: 360px;
         }
     }
 }

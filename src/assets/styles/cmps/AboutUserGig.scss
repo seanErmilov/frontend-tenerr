@@ -34,9 +34,8 @@
         }
 
         .about-user-description {
-            grid-column: span 2;
             font-size: 16px;
-            color: #444;
+            color: #474747;
             line-height: 1.6;
             grid-column: 2;
             margin-top: 10px;
@@ -137,7 +136,8 @@
 
         .about-user-abuotUser {
             color: $clr7;
-            padding: 20px;
+            // background-color: aqua;
+            padding: 14px;
         }
     }
 
@@ -208,44 +208,72 @@
         }
 
         .about-user-info {
-            grid-template-columns:100px  100px 100px;
-            grid-template-rows: auto auto auto;
-            max-width: max-content;
+            grid-template-columns: 70px 190px 70px;
+            grid-template-rows: auto;
+            // max-width: max-content;
+            gap: 5px;
 
             .about-user-img {
                 font-size: 16px;
-                grid-row: 1 ;
-                grid-column: 2 ;
+                grid-row: 1;
+                grid-column: 2;
+                margin: auto;
             }
+
             .about-user-name {
                 font-size: 16px;
                 grid-row: 2;
-                grid-column: 2 ;
+                grid-column: 2;
+                text-align: center;
 
             }
 
             .about-user-description {
-                font-size: 22px;
-                grid-column: 1 /3 ;
+                font-size: 12px;
+                grid-column: 1 /4;
+                text-align: center;
 
             }
 
-            // .about-user-contact {
-            //     width: 100%;
-            //     font-size: 12px;
-            //     padding: 6px;
-            // }
+            .about-user-contact {
+                width: 100%;
+                font-size: 12px;
+                padding: 6px;
+                grid-row: 5;
+                grid-column: 1;
 
-            // .about-user-rate,
-            // .about-user-level {
-            //     grid-column: 1;
-            //     margin-left: 0;
-            // }
+            }
+
+            .about-user-rate {
+                grid-column: 2;
+                grid-row: 4;
+                margin-left: 0;
+                text-align: start;
+                margin-left: 35px;
+
+                span {
+                    padding-left: 20px;
+                }
+            }
+
+            .about-user-level {
+                grid-column: 2;
+                grid-row: 4;
+                margin-left: 0;
+                text-align: end;
+                margin-right: 25px;
+            }
+
         }
-
-        .abuot-user-gig-info .user-info {
-            grid-template-columns: 1fr;
-            gap: 5px;
+        .abuot-user-gig-info{
+            width: max-content;
+        
+         .user-info {
+            display: flex;
+            flex-direction: column;
+            width: 290px;
         }
     }
+    }
+
 }
