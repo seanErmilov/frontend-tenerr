@@ -7,11 +7,11 @@
   .gig-owner-img {
     padding-right: 10px;
     img {
-      grid-column: 1;
       border-radius: 50%;
-      margin: 7px 0px;
-      height: 85px;
-    }
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+  }
   }
 
   .gig-owner-name,

@@ -11,6 +11,7 @@ import { GigPageReviews } from '../cmps/GigPageReviews'
 import { ReviewFilter } from '../cmps/ReviewFilter'
 import { ComparePackages } from '../cmps/ComparePackages'
 import { ReviewCarousel } from '../cmps/ReviewCarousel'
+import { DetailsCarousel } from '../cmps/DetailsCarousel'
 
 const renderStars = (rate) => {
   const fullStars = Math.floor(rate)
@@ -49,7 +50,8 @@ export function GigDetails() {
       <div className='gig-overview'>
         <h1 className="text-display">{gig.title}</h1>
         <MiniuserGig user={gig.owner} />
-        <div className="gig-carousel"><CarouselImg imgUrls={gig.imgUrls} /></div>
+        {/* <div className="gig-carousel"><CarouselImg imgUrls={gig.imgUrls} /></div> */}
+        <DetailsCarousel deviceType="desktop" />
         <SidebarPrice price={gig.price} avgResponseTime={gig.avgResponseTime} onChange={() => { }} />
         <ReviewCarousel reviews={gig.reviews} loc={gig.loc} renderStars={renderStars} />
         <AboutGig description={gig.description} />

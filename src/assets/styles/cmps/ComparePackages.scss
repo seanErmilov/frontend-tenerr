@@ -2,6 +2,7 @@ $yes: url('https://cdn.icon-icons.com/icons2/1369/PNG/512/-check_90383.png');
 $no: url('https://cdn.icon-icons.com/icons2/1369/PNG/512/-check_90383.png'); 
 
 .compare-packages {
+  
   color: $clr9;
   h2 {
     margin-bottom: 20px;
@@ -15,14 +16,16 @@ $no: url('https://cdn.icon-icons.com/icons2/1369/PNG/512/-check_90383.png');
       border: 1px solid #ddd;
       padding: 8px;
       text-align: center;
+      font-size: 20px;
     }
     td{
       color: $clr7;
-
     }
     th {
       background-color: #f4f4f4;
       color: $clr7;
+      font-size: 24px;
+
     }
 
     tr:nth-child(even) {
@@ -37,7 +40,7 @@ $no: url('https://cdn.icon-icons.com/icons2/1369/PNG/512/-check_90383.png');
       text-align: center;
       text-decoration: none;
       display: inline-block;
-      font-size: 14px;
+      font-size: 20px;
       margin: 4px 2px;
       cursor: pointer;
       border-radius: 4px;
@@ -49,17 +52,21 @@ $no: url('https://cdn.icon-icons.com/icons2/1369/PNG/512/-check_90383.png');
     }
 
     td {
+      font-size: 22px;
+
       .yes,
       .no {
         display: inline-block;
-        width: 16px;
-        height: 16px;
+        width: 25px;
+        height: 25px;
         background-size: cover;
         background-repeat: no-repeat;
+
       }
 
       .yes {
         background-image: $yes;
+        
       }
 
       .no {

@@ -16,7 +16,9 @@ export function ReviewFilter({ onFilterChange }) {
         placeholder="Filter reviews by text..."
         value={filterText}
         onChange={handleChange}
+        
       />
+      <button className='btn-filter-review'><img src=""/></button>
     </div>
   )
 }

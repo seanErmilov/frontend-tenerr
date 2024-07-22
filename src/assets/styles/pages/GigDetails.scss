@@ -1,4 +1,6 @@
 .gig-details {
+    width: 1304px;
+    margin: auto;
     h2 {
         margin-bottom: 20px;
         font-size: 24px;
@@ -7,7 +9,7 @@
 
     .gig-overview {
         display: grid;
-        grid-template-columns: 900px 276.5px;
+        grid-template-columns: 834px 276.5px;
         grid-template-rows: 20px 100px;
         gap: 20px;
 
@@ -21,10 +23,19 @@
         .text-display,
         .gig-carousel,
         .gig-description,
-        .about-user-gig {
+        .about-user-gig,
+         .react-multi-carousel-list{
             grid-column: 1;
         }
 
+        .about-gig{
+            h2{
+                font-size:35px;
+            }
+            p{
+                font-size: 22px;
+            }
+        }
 
 
         .text-display {
@@ -98,3 +109,16 @@
     //     }
     // }
 }
+    .item1{
+        margin-left: 76px;
+        transition: transform 0.3s; 
+        width: 800px;
+        &:hover{
+            transform: scale(1.05);
+            
+        }
+       
+    }
+  
+
+  
