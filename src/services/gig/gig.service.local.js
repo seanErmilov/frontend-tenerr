@@ -122,12 +122,15 @@ function _getRandomGig(partialGig = {}) {
         "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/d6234c03522f05c4e835918a663db0b4-1689160324/mooifutnou%20nl-A1%20Live%20Moc/design-minimalist-logo-design.jpg",
         "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/23197467/original/d4f9121d0d962301e3ef52c1a5217bf003889e2a/design-an-impressive-logo.jpg",
         "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/23197467/original/c16ce5a0377572be80eee0bfda3c95c6361b04bd/design-an-impressive-logo.jpg",
+        "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/263804107/original/ae4e4fc77fa5100fe035d9d167b1cc28e0d78e0b/build-your-wordpress-website-with-oxygen-builder.png",
+        "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/27cf03bd71a2545f9671f1e9d32b5980-1720730662/SAVE_20240711_224328/build-your-wordpress-website-with-oxygen-builder.jpg",
+        "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/6d0e10f04e7584ad639b37cbca8d5055-1720537917/SAVE_20240709_163640/build-your-wordpress-website-with-oxygen-builder.jpg",
     ]
 
     const gig = {
         _id: `u${getRandomInt(100, 9999)}`,
         title: getRandomElement(titles),
-        price: parseFloat((Math.random() * 100).toFixed(0)),
+        price: parseFloat((Math.random() * 70 + 40).toFixed(0)),
         owner: getRandomElement(users),
         daysToMake: getRandomInt(1, 14),
         description: getRandomElement(descriptions),
@@ -147,7 +150,7 @@ function _createGigs() {
     const gigs = loadFromStorage(STORAGE_KEY) || []
     if (gigs.length) return
 
-    for (let i = 0; i < 35; i++) {
+    for (let i = 0; i < 55; i++) {
         gigs.push(_getRandomGig())
     }
     saveToStorage(STORAGE_KEY, gigs)
@@ -168,11 +171,11 @@ function _generateReviews(users) {
         'Creative and unique approach to design. Loved it!'
     ]
 
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 12; i++) {
         reviews.push({
             id: `r${getRandomInt(100, 9999)}`,
             txt: getRandomElement(reviewTexts),
-            rate: getRandomInt(1, 5),
+            rate: getRandomInt(3, 5),
             by: getRandomElement(users)
         })
     }
