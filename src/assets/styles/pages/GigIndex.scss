@@ -1,18 +1,13 @@
 .gig-index {
-
-    header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        // padding-block: .3em;
-    }
-
-    h2 {
+    h1 {
         margin: 0;
-        font-size: 1.3em;
+        font-size: 2em;
     }
 
-    button {
-        margin-inline-end: 0;
+    h4 {
+        margin-top: 10px;
+        color: $clr7;
+        opacity: 0.8;
+        font-weight: 100;
     }
 }

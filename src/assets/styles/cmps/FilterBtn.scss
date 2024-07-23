@@ -1,0 +1,21 @@
+.filter-btn-container{
+    border-bottom: 1px solid $clr6;
+    padding-bottom: 30px;
+    h2{
+        font-size: 18px;
+    }
+
+    .filter-btn {
+        padding: 0.625em 1em;
+        border-radius: 0.25em;
+        align-items: center;
+        margin-right: 15px;
+        border: 1px solid $clr6;
+    
+        span {
+            font-weight: 700;
+            color: $clr9;
+            opacity: 0.9;
+        }
+    }
+}

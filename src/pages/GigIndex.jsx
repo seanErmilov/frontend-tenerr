@@ -6,6 +6,7 @@ import { loadGigs, setFilter } from '../store/actions/gig.actions'
 
 import { GigList } from '../cmps/GigList'
 import { GigFilter } from '../cmps/GigFilter'
+import { FilterBtn } from '../cmps/FilterBtn'
 
 export function GigIndex() {
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
@@ -22,8 +23,10 @@ export function GigIndex() {
     return (
         <main className="gig-index">
             <header>
-                <h2>Gigs</h2>
             </header>
+            <h1>Logo Design</h1>
+            <h4>Stand out from the crowd with a logo that fits your brand personality</h4>
+            <FilterBtn />
             <GigFilter filterBy={filterBy} setFilterBy={onSetFilterBy} />
             <GigList
                 gigs={gigs}
