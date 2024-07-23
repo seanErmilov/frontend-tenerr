@@ -2,10 +2,6 @@
 import { useEffect, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-//////////////////////////////////////////
-import { useSearchParams } from 'react-router-dom'
-////////////////////////////////////////////////////
-
 //hooks
 import { useVisibility } from '../customHooks/useVisibility'
 
@@ -19,16 +15,13 @@ import magnifyingGlass from '../assets/img/svg/searchBar/magnifyingGlass.svg'
 
 
 export function SearchBar({ trackInViewport = false }) {
-    /////////////////////////////////////
-    const [searchParams, setSearchParams] = useSearchParams()
-    ///////////////////////////////
+
     const showTopSearchBar = useSelector(storeState => storeState.systemModule.showSearchBar)
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
 
     const dispatch = useDispatch()
     const ref = useRef()
     const navigate = useNavigate()
-
 
     // Use the useVisibility hook only if trackInViewport is true
     const isVisible = trackInViewport ? useVisibility(ref, { threshold: 0 }) : true
@@ -42,7 +35,6 @@ export function SearchBar({ trackInViewport = false }) {
             dispatch(action)
         }
     }, [isVisible])
-
 
     function onSetFilter(filterBy) {
         setFilter(filterBy)

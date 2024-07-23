@@ -1,12 +1,19 @@
 // react tools
 import { useNavigate } from 'react-router-dom'
-import { useState, useRef, useLayoutEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 // costumhooks
 import { useWindowDimensions } from '../customHooks/windowRisze'
 
 // services
 import { gigService } from '../services/gig'
+
+//hooks
+import { useVisibility } from '../customHooks/useVisibility'
+
+// store/reducers
+import { SHOW_CATEGORIES_BAR } from '../store/reducers/system.reducer'
 
 // imgs
 import ai from '../assets/img/svg/primeCategories/ai.svg'; // Import the image
@@ -22,7 +29,30 @@ import rightArrow from '../assets/img/svg/primeCategories/rightArrow.svg'; // Im
 import leftArrow from '../assets/img/svg/primeCategories/leftArrow.svg'; // Import the image
 
 
-export function FilterPrimeCategories({ filterBy, setFilterBy }) {
+
+// case SHOW_CATEGORIES_BAR:
+//     return { ...state, showCategoriesBar: action.showCategoriesBar }
+
+export function FilterPrimeCategories({ filterBy, setFilterBy, trackInViewport = false }) {
+
+    const showCatBar = useSelector(storeState => storeState.systemModule.showCategoriesBar)
+    const dispatch = useDispatch()
+    const dref = useRef()
+
+    // Use the useVisibility hook only if trackInViewport is true
+    const isVisible = trackInViewport ? useVisibility(dref, { threshold: 0 }) : true
+
+    useEffect(() => {
+        if (trackInViewport) {
+            const action = {
+                type: SHOW_CATEGORIES_BAR,
+                showCategoriesBar: !isVisible,
+            }
+            dispatch(action)
+        }
+    }, [isVisible])
+
+
     // hooks
     const windowDims = useWindowDimensions()
     const navigate = useNavigate()
@@ -48,9 +78,9 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
         setHiddenArrow(edge.id)
     }
 
-    // .pos-absolute
     return (
-        <div className="prime-categories-section  pos-relative">
+        <div className={`prime-categories-section  pos-relative ${!(trackInViewport || showCatBar) ? 'transparent' : ''}`}>
+            <div ref={dref} className='out-of-vp-indicator'></div>
 
             {windowDims.width > 900 && windowDims.width < 1250 && (
                 <>
@@ -58,14 +88,14 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
                     <div
                         className={`right-arrow pos-absolute hidden`}
                         onClick={() => onScrollTo(rightEdge)}>
-                        <img src={rightArrow} alt="" />
+                        <img className="img-right-arrow" src={rightArrow} alt="" />
                     </div>
 
                     {/* left arrow */}
                     <div
                         className={`left-arrow pos-absolute`}
                         onClick={() => onScrollTo(leftEdge)}>
-                        <img src={leftArrow} alt="" />
+                        <img className="img-left-arrow" src={leftArrow} alt="" />
                     </div>
                 </>
             )}
