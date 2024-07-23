@@ -2,7 +2,7 @@ import  { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export function ComparePackages({ price, avgResponseTime }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const packages = useMemo(() => [
     {
@@ -53,9 +53,9 @@ export function ComparePackages({ price, avgResponseTime }) {
         "Stationery Designs": "Yes",
       }
     }
-  ], [price, avgResponseTime])
+  ], [price, avgResponseTime]);
 
-  const handlePackageSelection = (pkg) => {
+  function handlePackageSelection(pkg) {
     navigate('/pay', { state: { packageDetails: pkg, quantity: 1 } })
   }
 
@@ -119,5 +119,5 @@ export function ComparePackages({ price, avgResponseTime }) {
         </tbody>
       </table>
     </div>
-  )
+  );
 }
