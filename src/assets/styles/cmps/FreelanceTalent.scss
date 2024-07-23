@@ -3,6 +3,7 @@
     h1,
     h2 {
         font-weight: 400;
+        margin: 0;
     }
 
     h1 {
@@ -16,15 +17,19 @@
     }
 
     .container {
+        width: 100%;
         display: grid;
-        grid-template-columns: repeat(4, minmax(auto, 270px));
-        gap: 2.8em;
+        grid-template-columns: repeat(4, minmax(auto, 260px));
+        justify-content: space-between;
+
 
         .card {
             display: grid;
 
-            h2{
-                margin-bottom: 2em;
+            grid-template-rows: 3em 5em 6em;
+
+            img{
+                margin: 0;
             }
 
             p {
