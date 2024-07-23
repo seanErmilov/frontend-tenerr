@@ -21,15 +21,17 @@
             align-items: center;
             font-size: 15px;
             color: $clr7;
-            &:hover{
+
+            &:hover {
                 text-decoration: underline;
             }
+
             span {
                 color: $clr5;
                 opacity: 0.5;
 
             }
-            
+
         }
 
         .gig-mini-user-gig,
@@ -56,9 +58,10 @@
         .about-gig {
             width: 42.5rem;
             color: #404145;
+
             h2 {
                 font-size: 24px;
-                
+
             }
 
             .gig-description {
