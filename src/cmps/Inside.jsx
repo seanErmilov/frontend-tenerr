@@ -4,7 +4,7 @@ export function Inside() {
     const navigate = useNavigate()
 
     function goToHome() {
-        navigate('/')
+        navigate ('/')
     }
 
     function goToGig() {

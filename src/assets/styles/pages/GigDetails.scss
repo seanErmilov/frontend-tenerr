@@ -21,12 +21,15 @@
             align-items: center;
             font-size: 15px;
             color: $clr7;
-
+            &:hover{
+                text-decoration: underline;
+            }
             span {
                 color: $clr5;
                 opacity: 0.5;
-                // padding-left: 1px;
+
             }
+            
         }
 
         .gig-mini-user-gig,
