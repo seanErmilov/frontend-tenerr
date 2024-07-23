@@ -20,6 +20,8 @@ import { MainNav } from '../cmps/MainNav.jsx'
 import tennerLogo from '../assets/img/logos/tenner-loggo.png' // Import the image
 import arrow from '../assets/img/svg/explore-arrow.svg' // Import the image
 import hamburger from '../assets/img/svg/hamburger.svg' // Import the image
+import { SignupLoginModal } from './SignupLoginModal.jsx'
+import { ProfileNav } from './profileNav.jsx'
 
 export function AppHeader() {
 	// hooks
@@ -28,7 +30,12 @@ export function AppHeader() {
 	const active = true
 	const pathName = '/'
 	const mainNavRef = useRef()
+	const profileNavRef = useRef()
 	const [arrowTurnDeg, setarrowTurnDeg] = useState(0)
+	const [open, setOpen] = useState(false)
+	const handleOpen = () => setOpen(true)
+	const handleClose = () => setOpen(false)
+
 
 	// functions
 	async function onLogout() {
@@ -44,6 +51,10 @@ export function AppHeader() {
 	function toggleExplore({ current }) {
 		current.classList.toggle("hidden")
 		setarrowTurnDeg(prev => (prev + 0.5) % 1)
+	}
+
+	function toggleProfileNav({ current }) {
+		current.classList.toggle("hidden")
 	}
 
 	return (
@@ -85,11 +96,11 @@ export function AppHeader() {
 									</li>
 
 									<li>
-										<NavLink className="header-link sign-in-link" to="signIn">Sign In</NavLink>
+										<button className='hheader-link sign-in-l÷ink' onClick={handleOpen}>Sign In</button>
 									</li>
 
 									<li>
-										<NavLink className="header-link header-btn-style login-link" to="login">Join</NavLink>
+										<button className='header-link header-btn-style login-link' onClick={handleOpen}>Join</button>
 									</li>
 								</>
 							}
@@ -97,12 +108,14 @@ export function AppHeader() {
 							{user && (
 								<>
 									<li>
-										<Link to={`user/${user._id}`}>
-											{user.fullname}
-										</Link>
+										<button className="header-btn-style grid-column pos-relative" onClick={() => toggleProfileNav(profileNavRef)}>
+											<img className='img-user' src={user.imgUrl} alt="" />
+											<ProfileNav
+												profileNavRef={profileNavRef} onLogout={onLogout} />
+										</button>
 									</li>
 
-									<li>
+									<li className='hheader-link sign-in-l÷ink'>
 										<button onClick={onLogout}>Logout</button>
 									</li>
 								</>
@@ -111,6 +124,7 @@ export function AppHeader() {
 					</li>
 				</ul>
 			</nav>
+			<SignupLoginModal open={open} handleClose={handleClose} />
 		</header>
 	)
 }

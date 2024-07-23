@@ -6,7 +6,7 @@ import { signup } from '../store/actions/user.actions'
 import { ImgUploader } from './ImgUploader'
 import { userService } from '../services/user'
 
-export function Signup() {
+export function Signup({ handleClose }) {
     const [credentials, setCredentials] = useState(userService.getEmptyUser())
     const navigate = useNavigate()
 
@@ -28,6 +28,7 @@ export function Signup() {
         if (!credentials.username || !credentials.password || !credentials.fullname) return
         await signup(credentials)
         clearState()
+        handleClose()
         navigate('/')
     }
 

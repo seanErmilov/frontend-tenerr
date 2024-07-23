@@ -11,7 +11,7 @@ import { setFilter } from '../store/actions/gig.actions'
 import { useNavigate } from 'react-router'
 
 // imgs
-import magnifyingGlass from '../assets/img/svg/searchBar/magnifyingGlass.svg' 
+import magnifyingGlass from '../assets/img/svg/searchBar/magnifyingGlass.svg'
 
 
 export function SearchBar({ trackInViewport = false }) {
