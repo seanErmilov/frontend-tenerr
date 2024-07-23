@@ -1,0 +1,118 @@
+.react-multi-carousel-list {
+    position: relative;
+    left: -4.75rem; 
+    margin-top: 3.125rem; 
+  }
+  
+  .react-multiple-carousel__arrow--right {
+    right: calc(5% + 0.875rem); 
+  }
+  
+  .react-multiple-carousel__arrow--left {
+    left: calc(5% + 0.625rem); 
+  }
+  
+  .react-multiple-carousel__arrow {
+    background-color: $clr4;
+  
+    &:hover {
+      background-color: $clr4;
+    }
+  }
+  
+  .react-multiple-carousel__arrow::before {
+    color: $clr9;
+  }
+  
+  @media (max-width: 1200px) {
+    .react-multi-carousel-list {
+      width: 44rem;
+  
+      img {
+        width: 38rem;
+        object-fit: cover;
+      }
+    }
+  
+    .react-multiple-carousel__arrow--right {
+      right: calc(2% - 1rem);
+    }
+  
+    .react-multiple-carousel__arrow--left {
+      left: calc(5% + 0.625rem); 
+    }
+  }
+  @media (max-width: 1100px) {
+    .react-multi-carousel-list {
+      width: 42rem;
+  
+      img {
+        width: 36rem;
+        object-fit: cover;
+      }
+    }
+  
+    .react-multiple-carousel__arrow--right {
+      right: calc(2% - 1rem); 
+    }
+  
+    .react-multiple-carousel__arrow--left {
+      left: calc(5% + 1rem); 
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .react-multi-carousel-list {
+        width: 41rem;
+    
+        img {
+          width: 34rem;
+          object-fit: cover;
+        }
+      }
+    
+      .react-multiple-carousel__arrow--right {
+        right: calc(2% - 0rem); 
+      }
+    
+      .react-multiple-carousel__arrow--left {
+        left: calc(5% + 1rem); 
+      }
+  }
+  @media (max-width: 960px) {
+    .react-multi-carousel-list {
+        width: 41rem;
+    
+        img {
+          width: 30rem;
+          object-fit: cover;
+        }
+      }
+    
+      .react-multiple-carousel__arrow--right {
+        right: calc(2% - -4rem); 
+      }
+    
+      .react-multiple-carousel__arrow--left {
+        left: calc(5% + 1.1rem); 
+      }
+  }
+  @media (max-width: 890px) {
+    .react-multi-carousel-list {
+        width: 41rem;
+    
+        img {
+          width: 26rem;
+          object-fit: cover;
+        }
+      }
+    
+      .react-multiple-carousel__arrow--right {
+        right: calc(2% - -8rem); 
+      }
+    
+      .react-multiple-carousel__arrow--left {
+        left: calc(5% + 1.1rem); 
+      }
+  }
+  
