@@ -83,7 +83,7 @@ export function GigDetails() {
         <ReviewCarousel reviews={gig.reviews} loc={gig.loc} renderStars={renderStars} />
         <AboutGig description={gig.description} />
         <AboutUserGig user={gig.owner} loc={gig.loc} />
-        <ComparePackages price={gig.price} avgResponseTime={gig.avgResponseTime} />
+        {/* <ComparePackages price={gig.price} avgResponseTime={gig.avgResponseTime} /> */}
         <GigPageReviews reviews={gig.reviews} />
         <ReviewFilter reviews={filteredReviews} />
         <div className="gig-reviewList"><ReviewList reviews={gig.reviews} loc={gig.loc} /></div>

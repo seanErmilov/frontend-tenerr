@@ -1,8 +1,8 @@
 .gig-reviews {
   width: 90%;
+  margin-top: 20px;
 
   h3 {
-    margin-bottom: 15px;
     font-size: 22px;
   }
 
@@ -10,8 +10,8 @@
     margin-left: 5px;
     padding-bottom: 30px;
     display: grid;
-    grid-template-columns: 90px 125px 250px 1fr;
-    grid-template-rows:55px auto auto;
+    grid-template-columns: 65px 125px 250px 1fr;
+    grid-template-rows: 55px auto auto;
     text-align: start;
     margin-top: 40px;
     border-bottom: 1px solid $clr6;
@@ -22,9 +22,10 @@
       img {
         margin: 5px 2px;
         border-radius: 50%;
-        height: 60px;
-        width: 60px;
+        height: 50px;
+        width: 50px;
         grid-column: 2;
+        object-fit: cover;
       }
     }
 
@@ -35,13 +36,17 @@
 
       .reviewer-name,
       .reviewer-loc {
-        margin-top: 3px;
-        font-size: 18px;
+        margin-top: 6px;
+        font-size: 16px;
         margin-left: 5px;
+      }
+      .reviewer-loc {
+        color: $clr5;
       }
     }
 
     .review-txt {
+      padding-top: 10px;
       grid-column: 2 / span 3;
       grid-row: 3;
       margin-left: 5px;
@@ -51,13 +56,22 @@
     .review-rate {
       grid-column: 2;
       margin-left: 5px;
-      font: size 18px;
+      font-size: 17px;
       color: $clr9;
+      padding-top: 7px;
     }
   }
 
   .stars-container {
     display: flex;
+    font-weight: bold;
+
+    .namber-rate {
+      margin-top: 3px;
+      margin-left: 5px;
+      font-size: 15px;
+    }
+
   }
 
   .carousel-arrow {
@@ -76,6 +90,7 @@
 
     span {
       display: inline-block;
+      color: red;
     }
 
     &.prev {
@@ -161,18 +176,6 @@
     }
   }
 
-  .review-filter {
-    margin-bottom: 20px;
-
-    input {
-      width: 50%;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-  }
 
   // Responsive styles
   @media (max-width: 1200px) {
@@ -339,7 +342,7 @@
 
       .review-txt {
         foh: 24px;
-      heighnt-size: 12px;
+        heighnt-size: 12px;
       }
 
       .review-rate {
@@ -394,16 +397,31 @@
     }
   }
 }
-.react-multiple-carousel__arrow--right{
-  right: calc(5% + 15px);
+
+.react-multi-carousel-list {
+  position: relative;
+  left: -76px;
+  margin-top: 50px;
 }
-.react-multiple-carousel__arrow{
+
+.react-multiple-carousel__arrow--right {
+  right: calc(5% + 14px);
+}
+
+.react-multiple-carousel__arrow--left {
+  left: calc(5% + 10px);
+
+}
+
+.react-multiple-carousel__arrow {
   background-color: $clr4;
-  &:hover{
+
+  &:hover {
     background-color: $clr4;
 
   }
 }
-.react-multiple-carousel__arrow::before{
+
+.react-multiple-carousel__arrow::before {
   color: $clr9;
 }

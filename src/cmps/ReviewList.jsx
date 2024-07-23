@@ -17,7 +17,7 @@ export function ReviewList({ reviews, loc }) {
         {Array(fullStars).fill().map((_, idx) => <span key={`full-${idx}`} className="star full-star">★</span>)}
         {halfStars ? <span key="half" className="star half-star">☆</span> : null}
         {Array(emptyStars).fill().map((_, idx) => <span key={`empty-${idx}`} className="star empty-star">☆</span>)}
-        <span style={{ marginLeft: '6px' }}>{rate}</span>
+        <span className='namber-rate'>{rate}</span>
       </div>
     )
   }

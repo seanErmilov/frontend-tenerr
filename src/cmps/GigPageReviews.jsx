@@ -11,14 +11,14 @@ export function GigPageReviews({ reviews }) {
 
         return (
             <div className="stars-container">
-                {Array(fullStars).fill().map((_, idx) => (
+                {/* {Array(fullStars).fill().map((_, idx) => (
                     <span key={`full-${idx}`} className="star full-star">★</span>
                 ))}
                 {halfStars ? <span key="half" className="star half-star">☆</span> : null}
                 {Array(emptyStars).fill().map((_, idx) => (
                     <span key={`empty-${idx}`} className="star empty-star">☆</span>
-                ))}
-                <span>{rate}</span>
+                ))} */}
+                <span>{rate}<p>stars</p></span>
             </div>
         )
     }
@@ -28,9 +28,9 @@ export function GigPageReviews({ reviews }) {
             <div className="reviews-summary">
                 <h2>Reviews</h2>
                 <div className="total-reviews">{reviewsLen.toLocaleString()} reviews for this Gig</div>
-                <div className="average-rating">
+                {/* <div className="average-rating">
                     {renderStars(avgRating)}
-                </div>
+                </div> */}
             </div>
             <div className="breakdown">
                 <div className="rating-breakdown">

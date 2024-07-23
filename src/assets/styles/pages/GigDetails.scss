@@ -19,6 +19,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-size: 15px;
+            color: $clr7;
 
             span {
                 color: $clr5;
@@ -41,39 +43,42 @@
         .react-multi-carousel-list {
             grid-column: 1;
         }
-.sidebar{
-    grid-column: 2;
-    grid-row: 2;
 
-}
+        .sidebar {
+            grid-column: 2;
+            grid-row: 2;
+
+        }
+
         .about-gig {
-            padding: 16px;
-            font-family: 'Macan', Helvetica Neue, Helvetica, Arial, sans-serif;
-
+            width: 42.5rem;
+            color: #404145;
             h2 {
-                font-size: 35px;
+                font-size: 24px;
+                
             }
 
-            p {
-                font-size: 22px;
-            }
-
-            .gig-description p {
+            .gig-description {
                 margin-bottom: 1em;
                 line-height: 1.6;
-                font-size: 18px;
+                font-size: 17px;
+                color: $clr7;
+
+                p {
+                    margin-left: 0;
+                }
             }
 
         }
 
 
         .text-display {
-            font-size: 38px;
+            font-size: 28px;
             text-align: start;
             margin: 0;
             // letter-spacing: normal;
             color: #404145;
-            // line-height: 0px;
+            line-height: 65px;
 
         }
 

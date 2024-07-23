@@ -4,10 +4,13 @@
         display: grid;
         grid-template-columns: 530px auto;
         grid-template-rows: auto auto;
-        gap: 20px;
+
+        h2 {
+            font-size: 22px;
+        }
 
         .total-reviews {
-            font-size: 22px;
+            font-size: 18px;
             color: #555;
             grid-column: 1;
             grid-row: 2;
@@ -25,11 +28,6 @@
             display: flex;
             justify-content: end;
 
-            .rating-text {
-                font-size: 24px;
-                font-weight: bold;
-                margin-left: 10px;
-            }
         }
     }
 
@@ -37,11 +35,22 @@
         display: grid;
         grid-template-columns: auto auto;
         gap: 20px;
-        font-size: 22px;
+        font-size: 18px;
 
         .rating-breakdown {
             .stars-container {
                 height: 28px;
+
+                span {
+                    display: flex;
+                    gap: 0.5rem;
+                    font-size: 17px;
+                    font-weight: bold;
+
+                    p{
+                        margin: 0;
+                    }
+                }
             }
 
             ul {
@@ -223,6 +232,7 @@
 
                 .stars-container {
                     height: 20px;
+
                 }
 
                 .rating-row {
@@ -252,22 +262,26 @@
 
 .review-filter {
     margin-top: 20px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid $clr6;
 
     input {
-        width: 300px;
-        padding: 12px;
+        width: 330px;
+        padding: 10px;
         border-radius: 5px;
-        font-size: 20px;
+        font-size: 16px;
+        border: 1px solid $clr6;
     }
 
     .btn-filter-review {
         padding: 14px;
         position: relative;
-        right: 50px;
-        top: 0.14cm;
-border-top-right-radius: 5px;
-border-bottom-right-radius: 5px;
+        right: 45px;
+        top: 0.05cm;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
         background-color: $clr9;
-      
+        height: 89%;
+        opacity: 0.8;
     }
 }

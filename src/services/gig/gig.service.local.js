@@ -1,5 +1,5 @@
 import { storageService } from '../async-storage.service'
-import { getRandomElement, getRandomElements, getRandomInt, loadFromStorage, makeId, saveToStorage } from '../util.service'
+import { getRandomElement, getRandomInt, loadFromStorage, makeId, saveToStorage } from '../util.service'
 import { userService } from '../user'
 
 const STORAGE_KEY = 'gigDb'
@@ -101,13 +101,12 @@ function _getRandomGig(partialGig = {}) {
         ['lifestyle', 'business']
     ]
 
-    const aboutUser = 'I am a graphic designer. I use Adobe Illustrator and Adobe Photoshop. My requirement is to use my capabilities to provide the very best service you need. My vision is to respect customers\' ideas and use my creativity to provide the best service you need.'
 
     const users = [
-        { _id: 'u101', fullname: 'Dudu Da', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3afO247RTO80vqElpg1Iyapzzg-d-bfeRxQ&s', level: 2, diamonds: 2, rate: 4, description: 'An experienced logo designer with a passion for creating unique brand identities.' },
+        { _id: 'u101', fullname: 'Dudu Da', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3afO247RTO80vqElpg1Iyapzzg-d-bfeRxQ&s', level: 2, diamonds: 2, rate: 4, description: 'An experienced logo designer with a passion for creating unique.' },
         { _id: 'u102', fullname: 'Jane Doe', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU7_D7oHLUDST-89GtjX2R4i3OPZSkCEICQw&s', level: 3, diamonds: 3, rate: 5, description: 'Specializing in building responsive and user-friendly websites.' },
         { _id: 'u103', fullname: 'John Smith', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaXrFMnQrS3cdGFTB-UpG-5qMGMQyybPu7xg&s', level: 1, diamonds: 1, rate: 3, description: 'A skilled writer with a knack for crafting engaging and informative articles.' }
-    ]
+    ];
 
     const imgUrls = [
         "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/c138cfdf4859bb497ff904beeb4be5f8-1717583961/Creative_self_new/design-unique-cover-art.jpg",
@@ -140,7 +139,6 @@ function _getRandomGig(partialGig = {}) {
         tags: getRandomElement(tags),
         likedByUsers: ['mini-user'],
         reviews: _generateReviews(users),
-        aboutUser: aboutUser
     }
 
     return { ...gig, ...partialGig }
