@@ -3,11 +3,11 @@ import magnifyingGlass from '../assets/img/svg/searchBar/magnifyingGlass.svg'
 
 
 export function ReviewFilter({ onFilterChange }) {
-  const [filterText, setFilterText] = useState('')
+  const [filterText, setFilterText] = useState('');
 
   function handleChange(event) {
-    setFilterText(event.target.value)
-    onFilterChange(event.target.value)
+    setFilterText(event.target.value);
+    onFilterChange(event.target.value);
   }
 
   return (

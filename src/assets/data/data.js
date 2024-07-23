@@ -1,4 +1,4 @@
-[
+export const gigs = [
     {
         "title": "I will do hyper realistic pencil portrait by hand drawing",
         "about": "Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services.",
