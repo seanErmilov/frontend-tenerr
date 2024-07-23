@@ -50,8 +50,6 @@ export function SearchBar({ trackInViewport = false }) {
 
     function handleChange(ev) {
         const { name, value } = ev.target
-        setSearchParams({[name]: value })
-        console.log(searchParams.get({name}))
 
         onSetFilter({ ...filterBy, [name]: value })
     }
