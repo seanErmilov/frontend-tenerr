@@ -1,11 +1,11 @@
 .sidebar {
-    border: 1px solid #c8cbd4;
+    border: 1px solid $clr6;
     position: sticky;
-    width: 350px;
+    width: 400px;
     height: min-content;
-    top: 170px;
-    left: 1350px;
+    top: 175px;
     color: $clr10;
+    margin-left: 50px;
 
     section {
         padding: 20px;
@@ -17,8 +17,9 @@
 
         button {
             padding: 16px;
-            border: 1px solid $clr5;
-            color: #74767e;
+            border: 1px solid $clr6;
+            color: $clr7;
+            opacity: 0.8;
             font-weight: 600;
             font-size: 16px;
             cursor: pointer;
@@ -80,10 +81,10 @@
         background-color: $clr9;
         display: flex;
         justify-content: end;
-        gap: 90px;
+        gap: 7.2rem;
         align-items: center;
         text-align: center;
-        margin-top: 15px;
+        margin-top: 18px;
 
         &:hover {
             background-color: $clr10;

@@ -1,9 +1,11 @@
 .link-icons {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
+    margin-left: auto;
     position: sticky;
     top: 122px;
+
   }
   
   .link-icon-menu,
@@ -14,12 +16,11 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    margin-right: 8px; 
   }
   .icon-count {
     margin-right: 8px; 
     border: 1px solid $clr6;
-    border-radius: 5px;
+    border-radius: px;
     padding: 6px;
   }
   .link-icon-menu {
@@ -35,7 +36,6 @@
     padding: 6px;
   }
   .link-icon-more {
-    margin-right: 8px; 
     border: 1px solid $clr6;
     border-radius: 5px;
     padding: 6px;
