@@ -12,7 +12,7 @@ export function ReviewFilter({ onFilterChange }) {
     <div className="review-filter">
       <input
         type="text"
-        placeholder="Filter reviews by text..."
+        placeholder="Filter reviews"
         value={filterText}
         onChange={handleChange}
       />
