@@ -64,7 +64,7 @@ export function SearchBar({ trackInViewport = false }) {
                     required
                 />
                 <button className='btn-search'>
-                    <img src="src/assets/icon/search white.svg" alt="Search" />
+                    <img src="src/assets/icon/search/white.svg" alt="Search" />
                 </button>
             </form>
         </section>
