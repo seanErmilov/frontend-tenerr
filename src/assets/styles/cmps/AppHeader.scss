@@ -14,7 +14,16 @@
     height: 5em;
     align-items: center;
 
-    .hamburger{cursor: pointer;}
+    .img-user {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 2rem;
+        margin-inline-end: 0.5rem;
+    }
+
+    .hamburger {
+        cursor: pointer;
+    }
 
     .logo {
         display: flex;
@@ -132,7 +141,7 @@
             display: none;
         }
 
-        
+
     }
 
 
