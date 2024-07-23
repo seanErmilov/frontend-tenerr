@@ -1,0 +1,44 @@
+.checkout {
+    section {
+        border: 1px solid $clr6;
+        margin-bottom: 3rem;
+        border-radius: 4px;
+    }
+
+    .side-content {
+        border-radius: 4px;
+
+        .order-details-container {
+            background-color: $clr11;
+
+            .img-container {
+                img {
+                    height: 70px;
+                }
+            }
+        }
+    }
+
+    .summary {
+        padding: 1rem 1.5rem;
+    }
+
+    .sidebar-btn-price {
+        width: 100%;
+        font-size: 16px;
+        color: #ffffff;
+        padding: 5px;
+        line-height: 16px;
+        border-radius: 5px;
+        background-color: $clr9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 8px;
+
+        &:hover {
+            background-color: $clr10;
+        }
+    }
+}

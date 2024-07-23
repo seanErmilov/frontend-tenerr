@@ -95,7 +95,7 @@ export function Pay() {
     })
   }
 
-  if (!packageDetails) return <div>Package details not found</div>
+  if (!packageDetails) return 
 
   return (
     <div>
@@ -114,7 +114,6 @@ export function Pay() {
           </div>
         </div>
       </div>
-      <p>Upgrade your order with extras</p>
 
       {[{
         id: 'additionalRevision',

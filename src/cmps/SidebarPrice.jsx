@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { addOrder } from '../store/actions/order.actions'
 
-export function SidebarPrice({ handelcheckout, price, avgResponseTime }) {
+export function SidebarPrice({ handelcheckout, price, avgResponseTime, handleOpen }) {
     const [selectedPackage, setSelectedPackage] = useState('normal')
     const [isCollapsed, setIsCollapsed] = useState(true)
 
@@ -62,7 +62,8 @@ export function SidebarPrice({ handelcheckout, price, avgResponseTime }) {
 
     function handlePackageChange(packageType) {
         setSelectedPackage(packageType)
-        navigate('/pay', { state: { packageDetails, quantity: 1 } })
+        // navigate('/pay', { state: { packageDetails, quantity: 1 } })
+        // navigate('/pay', { state: { packageDetails, quantity: 1 } })
     }
 
     function toggleCollapse() {
@@ -73,7 +74,6 @@ export function SidebarPrice({ handelcheckout, price, avgResponseTime }) {
         //todo add oreder
         handelcheckout()
         // const packageDetails = packages[selectedPackage]
-        // navigate('/pay', { state: { packageDetails } })
     }
     const down = 'https://cdn-icons-png.flaticon.com/128/8287/8287014.png'
     const up = 'https://cdn-icons-png.flaticon.com/128/2722/2722987.png'
@@ -81,6 +81,7 @@ export function SidebarPrice({ handelcheckout, price, avgResponseTime }) {
     return (
         <div className="sidebar">
             <div className="package-options">
+
                 {Object.keys(packages).map((pkg) => (
                     <button
                         key={pkg}
@@ -88,6 +89,7 @@ export function SidebarPrice({ handelcheckout, price, avgResponseTime }) {
                         onClick={() => handlePackageChange(pkg)}>{packages[pkg].name}</button>
                 ))}
             </div>
+
             <section>
                 <div className="package-details">
                     <h4>{packages[selectedPackage].name}</h4>
@@ -103,12 +105,10 @@ export function SidebarPrice({ handelcheckout, price, avgResponseTime }) {
                 <div className="collapsible-content">
                     <h4 onClick={toggleCollapse} role="button" aria-expanded={!isCollapsed}>
                         What's Included
-                        <img src={isCollapsed ? up : down}
-                        />
-
+                        <img src={isCollapsed ? up : down} alt="Toggle Arrow" />
                     </h4>
                     {!isCollapsed && (
-                        <ul>
+                        <ul className="feature-list">
                             {packages[selectedPackage].features.map((feature, index) => (
                                 <li
                                     key={index}
@@ -126,14 +126,16 @@ export function SidebarPrice({ handelcheckout, price, avgResponseTime }) {
                         </ul>
                     )}
                 </div>
+
                 <button className='sidebar-btn-price' onClick={handleButtonClick}>
                     Continue
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
-                            <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z" />
+                    <span className='button-icon'>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#FFFFFF">
+                            <path d="M9 5l7 7-7 7-1.41-1.41L12.17 12 7.59 7.41 9 5z" />
                         </svg>
                     </span>
                 </button>
+
             </section>
             <Link to="/compare-packages"><p className='link'>Compare packages</p></Link>
         </div>

@@ -1,14 +1,16 @@
-import { useNavigate } from 'react-router-dom'
+import React, { useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function ComparePackages({ price, avgResponseTime }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const packages = [
+  const packages = useMemo(() => [
     {
       name: 'Basic',
-      price: '₪' + price,
+      price: `₪${price}`,
       deliveryTime: `${avgResponseTime} days`,
       concepts: 2,
+      description: 'Two LOGO concepts in JPG and transparent PNG format (High resolution files)',
       features: {
         "Concept Included": "Yes",
         "Logo Transparency": "No",
@@ -21,9 +23,10 @@ export function ComparePackages({ price, avgResponseTime }) {
     },
     {
       name: 'Standard',
-      price: '₪' + (price * 2),
+      price: `₪${price * 2}`,
       deliveryTime: `${avgResponseTime + 1} days`,
       concepts: 3,
+      description: 'Three concepts in JPG and TRANSPARENT PNG format + SOURCE/VECTOR file (Ai/EPS)',
       features: {
         "Concept Included": "Yes",
         "Logo Transparency": "Yes",
@@ -36,9 +39,10 @@ export function ComparePackages({ price, avgResponseTime }) {
     },
     {
       name: 'Premium',
-      price: '₪' + (price * 5),
+      price: `₪${price * 5}`,
       deliveryTime: `${avgResponseTime + 3} days`,
-      concepts: 4,
+      concepts: 5,
+      description: 'Five LOGO concepts, All source files, Social media kit and stationary designs. PLUS MORE',
       features: {
         "Concept Included": "Yes",
         "Logo Transparency": "Yes",
@@ -49,11 +53,11 @@ export function ComparePackages({ price, avgResponseTime }) {
         "Stationery Designs": "Yes",
       }
     }
-  ]
+  ], [price, avgResponseTime]);
 
-  function handlePackageSelection(pkg) {
-    navigate('/pay', { state: { packageDetails: pkg, quantity: 1 } })
-  }
+  const handlePackageSelection = (pkg) => {
+    navigate('/pay', { state: { packageDetails: pkg, quantity: 1 } });
+  };
 
   return (
     <div className="compare-packages">
@@ -71,7 +75,12 @@ export function ComparePackages({ price, avgResponseTime }) {
           <tr>
             <td>Price</td>
             {packages.map(pkg => (
-              <td key={pkg.name}>{pkg.price}</td>
+              <td key={pkg.name}>
+                {pkg.price}
+                {pkg.name === 'Basic' && <div className="package-description">{pkg.description}</div>}
+                {pkg.name === 'Standard' && <div className="package-description">{pkg.description}</div>}
+                {pkg.name === 'Premium' && <div className="package-description">{pkg.description}</div>}
+              </td>
             ))}
           </tr>
 
@@ -80,7 +89,7 @@ export function ComparePackages({ price, avgResponseTime }) {
               <td>{feature}</td>
               {packages.map(pkg => (
                 <td key={pkg.name}>
-                  <span className={`icon ${pkg.features[feature] === 'Yes' ? 'yes' : 'no'}`} />
+                  <span className={`icon ${pkg.features[feature] === 'Yes' ? 'yes' : 'no'}`}></span>
                 </td>
               ))}
             </tr>
@@ -101,7 +110,7 @@ export function ComparePackages({ price, avgResponseTime }) {
             <td></td>
             {packages.map(pkg => (
               <td key={pkg.name}>
-                <button onClick={() => handlePackageSelection(pkg)}>
+                <button className="select-button" onClick={() => handlePackageSelection(pkg)}>
                   Select
                 </button>
               </td>
@@ -110,5 +119,5 @@ export function ComparePackages({ price, avgResponseTime }) {
         </tbody>
       </table>
     </div>
-  )
+  );
 }

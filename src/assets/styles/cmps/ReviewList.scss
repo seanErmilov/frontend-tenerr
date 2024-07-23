@@ -10,20 +10,20 @@
     margin-left: 5px;
     padding-bottom: 30px;
     display: grid;
-    grid-template-columns: auto 125px 250px 1fr;
-    grid-template-rows: 40px auto auto;
+    grid-template-columns: 90px 125px 250px 1fr;
+    grid-template-rows:55px auto auto;
     text-align: start;
     margin-top: 40px;
     border-bottom: 1px solid $clr6;
 
     .reviewer-img {
-      width: 55px;
+      // width: 55px;
 
       img {
         margin: 5px 2px;
         border-radius: 50%;
-        height: 44px;
-        width: 47px;
+        height: 60px;
+        width: 60px;
         grid-column: 2;
       }
     }
@@ -36,7 +36,7 @@
       .reviewer-name,
       .reviewer-loc {
         margin-top: 3px;
-        font-size: 16px;
+        font-size: 18px;
         margin-left: 5px;
       }
     }
@@ -45,13 +45,13 @@
       grid-column: 2 / span 3;
       grid-row: 3;
       margin-left: 5px;
-      font-size: 16px;
+      font-size: 15px;
     }
 
     .review-rate {
       grid-column: 2;
       margin-left: 5px;
-      font-size: 16px;
+      font: size 18px;
       color: $clr9;
     }
   }
@@ -311,77 +311,77 @@
     }
   }
 
-  // @media (max-width: 768px) {
-  //   width: 100%;
+  @media (max-width: 768px) {
+    width: 100%;
 
-  //   h3 {
-  //     font-size: 18px;
-  //   }
+    h3 {
+      font-size: 18px;
+    }
 
-  //   .review {
-  //     grid-template-columns: 1fr;
-  //     grid-template-rows: auto auto auto auto;
-  //     margin-top: 20px;
+    .review {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto;
+      margin-top: 20px;
 
-  //     .reviewer-img {
-  //       width: 35px;
+      .reviewer-img {
+        width: 35px;
 
-  //       img {
-  //         height: 30px;
-  //         width: 30px;
-  //       }
-  //     }
+        img {
+          height: 30px;
+          width: 30px;
+        }
+      }
 
-  //     .name-and-loc .reviewer-name,
-  //     .name-and-loc .reviewer-loc {
-  //       font-size: 12px;
-  //     }
+      .name-and-loc .reviewer-name,
+      .name-and-loc .reviewer-loc {
+        font-size: 12px;
+      }
 
-  //     .review-txt {
-  //       font-size: 12px;
-  //     }
+      .review-txt {
+        foh: 24px;
+      heighnt-size: 12px;
+      }
 
-  //     .review-rate {
-  //       font-size: 12px;
-  //     }
-  //   }
+      .review-rate {
+        font-size: 12px;
+      }
+    }
 
-  //   .carousel-arrow {
-  //     width: 24px;
-  //     height: 24px;
-  //     font-size: 10px;
-  //   }
+    .carousel-arrow {
+      widtt: 24px;
+      font-size: 10px;
+    }
 
-  //   .review-carousell {
-  //     grid-template-columns: 50px 40px 40px 1fr;
-  //     height: 80px;
+    .review-carousell {
+      grid-template-columns: 50px 40px 40px 1fr;
+      height: 80px;
 
-  //     .reviewer-carousell-img {
-  //       height: 30px;
-  //       width: 30px;
+      .reviewer-carousell-img {
+        height: 30px;
+        width: 30px;
 
-  //       img {
-  //         height: 30px;
-  //         width: 30px;
-  //       }
-  //     }
+        img {
+          height: 30px;
+          width: 30px;
+        }
+      }
 
-  //     .reviewer-carousell-name,
-  //     .reviewer-carousell-loc,
-  //     .review-carousell-rate {
-  //       font-size: 10px;
-  //     }
+      .reviewer-carousell-name,
+      .reviewer-carousell-loc,
+      .review-carousell-rate {
+        font-size: 10px;
+      }
 
-  //     .review-carousell-txt {
-  //       font-size: 10px;
-  //     }
-  //   }
+      .review-carousell-txt {
+        font-size: 10px;
+      }
+    }
 
-  //   .show-more-btn {
-  //     width: 180px;
-  //     font-size: 12px;
-  //   }
-  // }
+    .show-more-btn {
+      width: 180px;
+      font-size: 12px;
+    }
+  }
 
   @media (max-width: 576px) {
     .review {
@@ -393,4 +393,17 @@
       font-size: 16px;
     }
   }
+}
+.react-multiple-carousel__arrow--right{
+  right: calc(5% + 15px);
+}
+.react-multiple-carousel__arrow{
+  background-color: $clr4;
+  &:hover{
+    background-color: $clr4;
+
+  }
+}
+.react-multiple-carousel__arrow::before{
+  color: $clr9;
 }

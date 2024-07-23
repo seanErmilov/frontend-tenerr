@@ -44,6 +44,16 @@ export async function addOrder(order) {
     }
 }
 
+export async function setOrderToStore(order) {
+    try {
+        store.dispatch(getCmdSetOrder(order))
+        return order
+    } catch (err) {
+        console.log('Cannot add order', err)
+        throw err
+    }
+}
+
 export async function updateOrder(order) {
     try {
         const savedOrder = await orderService.save(order)

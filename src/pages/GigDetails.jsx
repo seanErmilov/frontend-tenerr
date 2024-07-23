@@ -11,9 +11,14 @@ import { GigPageReviews } from '../cmps/GigPageReviews'
 import { ReviewFilter } from '../cmps/ReviewFilter'
 import { ComparePackages } from '../cmps/ComparePackages'
 import { ReviewCarousel } from '../cmps/ReviewCarousel'
-import { addOrder } from '../store/actions/order.actions'
+import { setOrderToStore } from '../store/actions/order.actions'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { orderService } from '../services/order'
+import { CheckoutModal } from '../cmps/CheckoutModal'
 
+import { DetailsCarousel } from '../cmps/DetailsCarousel'
+import { Inside } from '../cmps/Inside'
+import { LinkIcon } from '../cmps/LinkIcons'
 
 const renderStars = (rate) => {
   const fullStars = Math.floor(rate)
@@ -34,6 +39,10 @@ export function GigDetails() {
   const [gig, setGig] = useState(null)
   const [filteredReviews, setFilteredReviews] = useState([])
   const { gigId } = useParams()
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -47,24 +56,11 @@ export function GigDetails() {
   }
 
   function handelcheckout() {
-    const order = {
-      seller: {
-        _id: gig.owner._id,
-        fullname: gig.owner.fullname,
-        imgUrl: gig.owner.imgUrl
-      },
-      gig: {
-        _id: gig._id,
-        name: gig.title,
-        imgUrl: gig.imgUrls[0],
-        price: gig.price
-      },
-      status: 'pending',
-    }
-    addOrder(order)
+    const order = orderService.getOrder(gig)
+    setOrderToStore(order)
       .then(() => {
-        showSuccessMsg('Order saved successfully')
-        navigate('/gig')
+        // showSuccessMsg('Order saved successfully')
+        navigate(`/checkout/${gig._id}`)
       })
       .catch(err => {
         showErrorMsg('Cannot save gig')
@@ -78,10 +74,12 @@ export function GigDetails() {
   return (
     <section className="gig-details">
       <div className='gig-overview'>
+      <Inside />
+      <LinkIcon />
         <h1 className="text-display">{gig.title}</h1>
         <MiniuserGig user={gig.owner} />
-        <div className="gig-carousel"><CarouselImg imgUrls={gig.imgUrls} /></div>
-        <SidebarPrice handelcheckout={handelcheckout} price={gig.price} avgResponseTime={gig.avgResponseTime} onChange={() => { }} />
+        <DetailsCarousel deviceType="desktop" />
+        <SidebarPrice handleOpen={handleOpen} handelcheckout={handelcheckout} price={gig.price} avgResponseTime={gig.avgResponseTime} onChange={() => { }} />
         <ReviewCarousel reviews={gig.reviews} loc={gig.loc} renderStars={renderStars} />
         <AboutGig description={gig.description} />
         <AboutUserGig user={gig.owner} loc={gig.loc} />
@@ -89,6 +87,7 @@ export function GigDetails() {
         <GigPageReviews reviews={gig.reviews} />
         <ReviewFilter reviews={filteredReviews} />
         <div className="gig-reviewList"><ReviewList reviews={gig.reviews} loc={gig.loc} /></div>
+        <CheckoutModal open={open} handleClose={handleClose} />
       </div>
     </section>
   )

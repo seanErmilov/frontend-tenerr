@@ -1,12 +1,11 @@
-
-import { useState } from 'react'
+import { useState } from 'react';
 
 export function ReviewFilter({ onFilterChange }) {
-  const [filterText, setFilterText] = useState('')
+  const [filterText, setFilterText] = useState('');
 
   function handleChange(event) {
-    setFilterText(event.target.value)
-    onFilterChange(event.target.value)
+    setFilterText(event.target.value);
+    onFilterChange(event.target.value);
   }
 
   return (
@@ -17,6 +16,9 @@ export function ReviewFilter({ onFilterChange }) {
         value={filterText}
         onChange={handleChange}
       />
+      <button className='btn-filter-review'>
+        <img src='	http://localhost:5173/src/assets/icon/search%20white.svg' />
+      </button>
     </div>
-  )
+  );
 }

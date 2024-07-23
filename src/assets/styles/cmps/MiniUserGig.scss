@@ -1,39 +1,53 @@
 .gig-owner-details {
   display: grid;
-  grid-template-columns: 70px 100px 5px 100px;
-  grid-template-rows: 30px auto;
+  grid-template-columns: 100px 150px 200px;
+  grid-template-rows: 45px 50px  ;
   grid-column: 1;
-  margin-bottom: 20px;
-  border-bottom: 1px solid $clr5;
-padding-bottom: 25px;
+
   .gig-owner-img {
-    width: max-content;
+    padding-right: 10px;
 
     img {
-      grid-column: 1;
       border-radius: 50%;
-      width: 50px;
-      height: 50px;
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      margin: 10px auto;
     }
   }
 
   .gig-owner-name,
   .gig-owner-rate {
     grid-column: 2;
-    font-size: 16px;
+    font-size: 18px;
+
+  }
+  
+
+  .gig-owner-level,
+  .gig-owner-name {
+    margin-top: 18px;
 
   }
 
   span {
-    color: $clr9;
-    opacity: 0.3;
+    color: $clr6;
+    opacity: 0.8;
     align-items: center;
+    padding-left: 20px;
+    
   }
 
   .gig-owner-level,
   .gig-owner-loc {
-    grid-column: 4;
-    font-size: 16px;
+    grid-column: 3;
+    grid-row: 1;
+    font-size: 18px;
+    margin-left: 20px;
+  }
+  .orders-in-queue{
+    color: $clr5;
+    font-size: 18px;
     margin-left: 20px;
   }
 }
