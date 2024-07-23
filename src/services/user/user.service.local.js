@@ -1,4 +1,5 @@
 import { storageService } from '../async-storage.service'
+import { loadFromStorage } from '../util.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
@@ -78,15 +79,20 @@ function saveLoggedinUser(user) {
 }
 
 // To quickly create an admin user, uncomment the next line
-// _createAdmin()
+_createAdmin()
 async function _createAdmin() {
+    const users = loadFromStorage('user') || []
+    if (users.length) return
     const user = {
+        _id: 'a101',
         username: 'admin',
         password: 'admin',
-        fullname: 'Mustafa Adminsky',
-        imgUrl: 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
-        score: 10000,
+        fullname: 'Emma Johnson',
+        imgUrl: 'https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8',
+        level: 'standard',
+        rate: 4,
+        description: 'An experienced logo designer with a passion for creating unique brand identities.'
     }
 
-    const newUser = await storageService.post('user', userCred)
+    const newUser = await storageService.post('user', user)
 }

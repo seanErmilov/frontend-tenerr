@@ -65,6 +65,18 @@ export async function updateOrder(order) {
     }
 }
 
+export async function updateOrderStatus(orderId, status) {
+    try {
+        const order = await orderService.getById(orderId)
+        order.status = status
+        const savedOrder = await orderService.save(order)
+        store.dispatch(getCmdSetOrder(savedOrder))
+    } catch (err) {
+        console.log('Cannot load order', err)
+        throw err
+    }
+}
+
 export async function addOrderMsg(orderId, txt) {
     try {
         const msg = await orderService.addOrderMsg(orderId, txt)
