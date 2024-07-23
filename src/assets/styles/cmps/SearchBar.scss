@@ -1,13 +1,37 @@
 .search-bar {
+    width: 100%;
     form {
+        width: 100%;
+        height: 3.75em;
         grid-template-columns: 1fr auto;
+        background-color: #ffffff;
+        border-radius: 0.75em;
+        align-items: center;
 
         .search-input {
-            background-color: green($color: #000000);
+            all: unset;
+            border: none;
+
+            &::placeholder {
+                padding-inline-start: 0.625em;
+            }
+          
         }
 
-        button{
-            background-color: #000000;
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 3em;
+            width: 3em;
+            border-radius: 0.5em;
+            margin-inline-end: 0.375em;
+            background-color: #003912;
+
+            img{
+                height: 1.125em;
+                width: 1.125em;
+            }
         }
 
     }

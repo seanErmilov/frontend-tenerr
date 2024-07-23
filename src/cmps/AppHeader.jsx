@@ -19,9 +19,9 @@ import { MainNav } from '../cmps/MainNav.jsx'
 // imgs
 import tennerLogo from '../assets/img/logos/tenner-loggo.png' // Import the image
 import arrow from '../assets/img/svg/explore-arrow.svg' // Import the image
+import hamburger from '../assets/img/svg/hamburger.svg' // Import the image
 
 export function AppHeader() {
-
 	// hooks
 	const user = useSelector(storeState => storeState.userModule.user)
 	const navigate = useNavigate()
@@ -44,13 +44,14 @@ export function AppHeader() {
 	function toggleExplore({ current }) {
 		current.classList.toggle("hidden")
 		setarrowTurnDeg(prev => (prev + 0.5) % 1)
-
 	}
 
 	return (
 		<header className="app-header grid-column">
-			{/* TODO hamburger */}
-			{/* <div></div> */}
+			{/* hamburger */}
+			<div className="hamburger" >
+				<img src={hamburger} alt="" />
+			</div>
 
 			{/* Logo */}
 			<div className="logo grid-column">
@@ -104,20 +105,12 @@ export function AppHeader() {
 									<li>
 										<button onClick={onLogout}>Logout</button>
 									</li>
-
 								</>
 							)}
 						</ul>
 					</li>
 				</ul>
 			</nav>
-
 		</header>
-
-
-
-
-
-
 	)
 }
