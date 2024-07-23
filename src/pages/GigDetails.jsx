@@ -12,13 +12,13 @@ import { ReviewFilter } from '../cmps/ReviewFilter'
 import { ComparePackages } from '../cmps/ComparePackages'
 import { ReviewCarousel } from '../cmps/ReviewCarousel'
 import { setOrderToStore } from '../store/actions/order.actions'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { showErrorMsg } from '../services/event-bus.service'
 import { orderService } from '../services/order'
 import { CheckoutModal } from '../cmps/CheckoutModal'
 
 import { DetailsCarousel } from '../cmps/DetailsCarousel'
-import { Inside } from '../cmps/Inside'
-import { LinkIcon } from '../cmps/LinkIcons'
+import { SidebarOptions } from '../cmps/SidebarOptions'
+import { Breadcrumbs } from '../cmps/Breadcrumbs'
 
 const renderStars = (rate) => {
   const fullStars = Math.floor(rate)
@@ -74,8 +74,8 @@ export function GigDetails() {
   return (
     <section className="gig-details">
       <div className='gig-overview'>
-      <Inside />
-      <LinkIcon />
+        <Breadcrumbs />
+        <SidebarOptions />
         <h1 className="text-display">{gig.title}</h1>
         <MiniuserGig user={gig.owner} />
         <DetailsCarousel deviceType="desktop" />

@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState } from 'react'
+import magnifyingGlass from '../assets/img/svg/searchBar/magnifyingGlass.svg'
+
 
 export function ReviewFilter({ onFilterChange }) {
   const [filterText, setFilterText] = useState('');
@@ -17,7 +19,7 @@ export function ReviewFilter({ onFilterChange }) {
         onChange={handleChange}
       />
       <button className='btn-filter-review'>
-        <img src='	http://localhost:5173/src/assets/icon/search%20white.svg' />
+        <img src={magnifyingGlass} alt="Search" />
       </button>
     </div>
   );

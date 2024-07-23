@@ -1,11 +1,10 @@
-import React from 'react';
 
 export function AboutGig({ description }) {
-  
+
   const paragraphs = description
-    .split(/\n\s*\n/) 
-    .map(para => para.split(/(?=\b[A-Z][A-Z]+\b)/)) 
-    .flat() 
+    .split(/\n\s*\n/)
+    .map(para => para.split(/(?=\b[A-Z]+\b)/))
+    .flat()
     .filter(para => para.trim() !== '')
 
   return (

@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import  { useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export function ComparePackages({ price, avgResponseTime }) {
   const navigate = useNavigate();
@@ -55,9 +55,9 @@ export function ComparePackages({ price, avgResponseTime }) {
     }
   ], [price, avgResponseTime]);
 
-  const handlePackageSelection = (pkg) => {
-    navigate('/pay', { state: { packageDetails: pkg, quantity: 1 } });
-  };
+  function handlePackageSelection(pkg) {
+    navigate('/pay', { state: { packageDetails: pkg, quantity: 1 } })
+  }
 
   return (
     <div className="compare-packages">
