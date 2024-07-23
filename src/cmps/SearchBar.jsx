@@ -10,6 +10,10 @@ import { SHOW_SEARCH_BAR } from '../store/reducers/system.reducer'
 import { setFilter } from '../store/actions/gig.actions'
 import { useNavigate } from 'react-router'
 
+// imgs
+import magnifyingGlass from '../assets/img/svg/searchBar/magnifyingGlass.svg'
+
+
 export function SearchBar({ trackInViewport = false }) {
     const showTopSearchBar = useSelector(storeState => storeState.systemModule.showSearchBar)
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
@@ -64,7 +68,7 @@ export function SearchBar({ trackInViewport = false }) {
                     required
                 />
                 <button className='btn-search'>
-                    <img src="src/assets/icon/search/white.svg" alt="Search" />
+                    <img src={magnifyingGlass} alt="Search" />
                 </button>
             </form>
         </section>

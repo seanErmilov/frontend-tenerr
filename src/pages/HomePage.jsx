@@ -1,5 +1,5 @@
 // react tools
-import { useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 
 // cmp
 import { GigFilter } from '../cmps/GigFilter'
@@ -24,12 +24,13 @@ export function HomePage() {
         <main className="gig-homepage">
 
             {/* home page hero */}
-            <div className={`hero pos-relative ${windowDims.width < 900 ? 'hero-backgroud-gradient' : ''}`}>
+            <div className='hero pos-relative'>
                 {windowDims.width >= 900 &&
                     <>
                         <img className="jenny pos-absolute" src="src/assets/img/home-page-hero/jenny.png" alt="" />
                         <img className="jordan pos-absolute" src="src/assets/img/home-page-hero/jordan.png" alt="" />
-                        <img className="verinica pos-absolute" src="src/assets/img/home-page-hero/verinica.png" alt="" />
+                        <img className="verinica pos-absolute" src="https://preview.redd.it/not-all-orange-cats-are-dumb-v0-fyyafby94i9a1.jpg?width=1080&crop=smart&auto=webp&s=76d5fa7b8bc214ad8ce9a515b16bdea3dd76bab8" alt="" />
+                        {/* <img className="verinica pos-absolute" src="src/assets/img/home-page-hero/verinica.png" alt="" /> */}
                         <img className="brurya pos-absolute" src="src/assets/img/home-page-hero/brurya.png" alt="" />
                         <img className="collin pos-absolute" src="src/assets/img/home-page-hero/collin.png" alt="" />
                     </>
@@ -45,22 +46,18 @@ export function HomePage() {
                 </div>
 
                 {/* Company logos */}
-                {windowDims.width >= 900 &&
-                    <div className='company-logos'>
-
-                        <ul className='company-logos grid-column'>
-                            <li><span>Trusted by:</span></li>
-                            <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/meta.398bc1c.svg" alt="meta" /></li>
-                            <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/google.129f8ec.svg" alt="Google" /></li>
-                            <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/netflix.e1b0070.svg" alt="NETFLIX" /></li>
-                            <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/pg.a47f1ab.svg" alt="P&amp;G" /></li>
-                            <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/paypal.0520267.svg" alt="PayPal" /></li>
-                            <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/payoneer.67915a0.svg" alt="Payoneer" /></li>
-                        </ul>
-                    </div>
-                }
+                <div className='company-logos pos-absolute'>
+                    <ul className='company-logos grid-column'>
+                        <li><span>Trusted by:</span></li>
+                        <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/meta.398bc1c.svg" alt="meta" /></li>
+                        <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/google.129f8ec.svg" alt="Google" /></li>
+                        <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/netflix.e1b0070.svg" alt="NETFLIX" /></li>
+                        <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/pg.a47f1ab.svg" alt="P&amp;G" /></li>
+                        <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/paypal.0520267.svg" alt="PayPal" /></li>
+                        <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/payoneer.67915a0.svg" alt="Payoneer" /></li>
+                    </ul>
+                </div>
             </div>
-
 
             <FilterPrimeCategories filterBy={filterBy} setFilterBy={onSetFilter} />
             <GigFilter filterBy={filterBy} setFilterBy={onSetFilter} />
@@ -72,6 +69,50 @@ export function HomePage() {
             <br />
             <br />
             <br />
+            <br />
+            <br />
+            <br />
+            <br />            <br />
+            <br />
+            <br />
+            <br />
+            <br />            <br />
+            <br />
+            <br />
+            <br />
+            <br />            <br />
+            <br />
+            <br />
+            <br />
+            <br />            <br />
+            <br />
+            <br />
+            <br />
+            <br />            <br />
+            <br />
+            <br />
+            <br />
+            <br />            <br />
+            <br />
+            <br />
+            <br />
+            <br />            <br />
+            <br />
+            <br />
+            <br />
+            <br />            <br />
+            <br />
+            <br />
+            <br />
+            <br />            <br />
+            <br />
+            <br />
+            <br />
+            <br />            <br />
+            <br />
+            <br />
+            <br />
+            <br />            <br />
             <br />
             <br />
             <br />

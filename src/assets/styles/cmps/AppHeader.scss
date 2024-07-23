@@ -1,4 +1,5 @@
 .app-header {
+    grid-column: 1 / -1;
     color: #74767e;
 
     background-color: #ffffff;
@@ -8,11 +9,12 @@
     position: sticky;
     top: 0;
 
-    grid-template-columns: auto 1fr auto;
     gap: 32px;
 
     height: 5em;
     align-items: center;
+
+    .hamburger{cursor: pointer;}
 
     .logo {
         display: flex;
@@ -24,7 +26,6 @@
 
     .search-bar {
         transition: opacity 0.2s linear;
-        width: 100%;
     }
 
     .nav-links,
@@ -70,7 +71,6 @@
                 width: 0.75em;
                 transition: transform 0.2s;
             }
-
         }
     }
 
@@ -78,4 +78,62 @@
         display: grid;
         grid-auto-flow: column;
     }
+
+
+
+    @include for-mobile-layout {
+        grid-template-columns: 1fr 1fr 1fr;
+
+
+        .hamburger {
+            display: block;
+        }
+
+
+        .explore {
+            display: none;
+        }
+
+        .search-bar {
+            display: none;
+        }
+    }
+
+    @include for-narrow-layout {
+        grid-template-columns: auto auto 1fr auto;
+
+        .hamburger {
+            display: block;
+        }
+
+        .explore {
+            display: none;
+        }
+
+
+    }
+
+    @include for-normal-layout {
+        grid-template-columns: auto 1fr auto;
+
+        .hamburger {
+            display: none;
+        }
+
+        .explore {
+            display: grid;
+        }
+    }
+
+    @include for-wide-layout {
+        grid-template-columns: auto 1fr auto;
+
+        .hamburger {
+            display: none;
+        }
+
+        
+    }
+
+
 }
