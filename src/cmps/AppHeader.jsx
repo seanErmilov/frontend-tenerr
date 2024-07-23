@@ -111,12 +111,8 @@ export function AppHeader() {
 										<button className="header-btn-style grid-column pos-relative" onClick={() => toggleProfileNav(profileNavRef)}>
 											<img className='img-user' src={user.imgUrl} alt="" />
 											<ProfileNav
-												profileNavRef={profileNavRef} onLogout={onLogout} />
+												profileNavRef={profileNavRef} onLogout={onLogout} userId={user._id} />
 										</button>
-									</li>
-
-									<li className='hheader-link sign-in-l÷ink'>
-										<button onClick={onLogout}>Logout</button>
 									</li>
 								</>
 							)}
