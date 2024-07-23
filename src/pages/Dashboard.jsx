@@ -2,22 +2,26 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { loadUser } from '../store/user.actions'
+import { loadUser } from '../store/actions/user.actions'
 import { store } from '../store/store'
 import { showSuccessMsg } from '../services/event-bus.service'
-import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from '../services/socket.service'
+import { loadOrders, updateOrder, updateOrderStatus } from '../store/actions/order.actions'
+import { OrderList } from '../cmps/orderList'
 
-export function UserDetails() {
+export function Dashboard() {
 
   const params = useParams()
   const user = useSelector(storeState => storeState.userModule.watchedUser)
+  const orders = useSelector(storeState => storeState.orderModule.orders)
 
   useEffect(() => {
     loadUser(params.id)
-
-
-
+    loadOrders({ _userId: params.id })
   }, [params.id])
+
+  function onStatusSelect(status, orderId) {
+    updateOrderStatus(orderId, status)
+  }
 
   function onUserUpdate(user) {
     showSuccessMsg(`This user ${user.fullname} just got updated from socket, new score: ${user.score}`)
@@ -25,15 +29,10 @@ export function UserDetails() {
   }
 
   return (
-    <main className="user-details">
-      <h1>User Details</h1>
-      {user && <div>
-        <h3>
-          {user.fullname}
-        </h3>
-        <img src={user.imgUrl} style={{ width: '100px' }} />
-        <pre> {JSON.stringify(user, null, 4)} </pre>
-      </div>}
+    <main className="Dashboard">
+
+      <h3>Manage Orders</h3>
+      <OrderList orders={orders} onStatusSelect={onStatusSelect} />
     </main>
   )
 }

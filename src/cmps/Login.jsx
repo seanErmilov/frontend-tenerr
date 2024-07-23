@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 import { userService } from '../services/user'
 import { login } from '../store/actions/user.actions'
 
-export function Login() {
+export function Login({ handleClose }) {
     const [users, setUsers] = useState([])
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
 
@@ -24,6 +24,7 @@ export function Login() {
 
         if (!credentials.username) return
         await login(credentials)
+        handleClose()
         navigate('/')
     }
 
@@ -32,15 +33,15 @@ export function Login() {
         const value = ev.target.value
         setCredentials({ ...credentials, [field]: value })
     }
-    
+
     return (
         <form className="login-form" onSubmit={onLogin}>
             <select
                 name="username"
                 value={credentials.username}
                 onChange={handleChange}>
-                    <option value="">Select User</option>
-                    {users.map(user => <option key={user._id} value={user.username}>{user.fullname}</option>)}
+                <option value="">Select User</option>
+                {users.map(user => <option key={user._id} value={user.username}>{user.fullname}</option>)}
             </select>
             <button>Login</button>
         </form>

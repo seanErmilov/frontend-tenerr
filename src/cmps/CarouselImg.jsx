@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 
+import rightArrow from '../assets/img/svg/primeCategories/rightArrow.svg'; // Import the image
+import leftArrow from '../assets/img/svg/primeCategories/leftArrow.svg'; // Import the image
+
 
 
 export function CarouselImg({ imgUrls }) {
@@ -25,8 +28,14 @@ export function CarouselImg({ imgUrls }) {
                         </div>
                     )
                 }
-                {showLeftArrow && <button className="arrow-prev" onClick={() => moveCarouse(1)}>left</button>}
-                {showRightArrow && <button className="arrow-next" onClick={() => moveCarouse(-1)}>Right</button>}
+                {showLeftArrow &&
+                    <button className="arrow-prev" onClick={() => moveCarouse(1)}>
+                        <img src={leftArrow} alt="" />
+                    </button>}
+                {showRightArrow &&
+                    <button className="arrow-next" onClick={() => moveCarouse(-1)}>
+                        <img src={rightArrow} alt="" />
+                    </button>}
 
             </div>
 

@@ -5,7 +5,7 @@ import { CarouselImg } from './CarouselImg'
 const demoProfilePic = "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/9e8702d529c8f21bb17f512459008a37-1677794942899/0970a995-f617-40ac-b337-46afa40c339b.png"
 
 // react tools
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export function GigPreview({ gig }) {
     const navigate = useNavigate()
@@ -46,9 +46,9 @@ export function GigPreview({ gig }) {
         </div>
 
         {/* title */}
-        <div className='title' onClick={() => { navigate(`${gig._id}`) }}>
+        <Link to={`${gig._id}`} target="_blank" className='title'>
             {gig.title}
-        </div>
+        </Link>
 
         {/* rating */}
         <div className='average-rating'>
@@ -62,7 +62,11 @@ export function GigPreview({ gig }) {
         </div>
 
         {/* from price */}
-        <span className='from-price bold' onClick={() => { navigate(`${gig._id}`) }}>From ${gig.price}</span>
+
+        <Link to={`${gig._id}`} target="_blank" className="from-price bold">
+            ${gig.price}
+        </Link>
+
     </article>
 }
 

@@ -2,6 +2,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { Signup } from './Signup';
+import { Login } from './Login';
 
 export function SignupLoginModal({ open, handleClose }) {
 
@@ -25,7 +26,8 @@ export function SignupLoginModal({ open, handleClose }) {
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
-        <Signup handleClose={handleClose} />
+        {/* <Signup handleClose={handleClose} /> */}
+        <Login handleClose={handleClose} />
       </Box>
     </Modal>
   )

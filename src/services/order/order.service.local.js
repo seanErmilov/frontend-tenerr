@@ -15,14 +15,16 @@ export const orderService = {
 window.cs = orderService
 
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = { txt: '', _userId: '' }) {
     var orders = await storageService.query(STORAGE_KEY)
-    console.log('orders:', orders)
-    const { txt } = filterBy
+    const { txt, _userId } = filterBy
 
     if (txt) {
         const regex = new RegExp(filterBy.txt, 'i')
-        orders = orders.filter(order => regex.test(order.vendor) || regex.test(order.description))
+        orders = orders.filter(order => regex.test(order.txt) || regex.test(order.txt))
+    }
+    if (_userId) {
+        orders = orders.filter(order => order.seller._id === _userId)
     }
 
     return orders
@@ -40,11 +42,7 @@ async function remove(orderId) {
 async function save(order) {
     var savedOrder
     if (order._id) {
-        const orderToSave = {
-            _id: order._id,
-            price: order.price,
-        }
-        savedOrder = await storageService.put(STORAGE_KEY, orderToSave)
+        savedOrder = await storageService.put(STORAGE_KEY, order)
     } else {
         const orderToSave = {
             buyer: userService.getLoggedinUser(),
