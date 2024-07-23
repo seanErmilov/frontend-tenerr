@@ -33,6 +33,26 @@ export function getRandomElement(arr) {
     return arr[getRandomInt(0, arr.length - 1)]
 }
 
+
+export function getRandomElements(arr, numElements) {
+    if (numElements > arr.length) {
+        throw new Error('Number of elements to pick is greater than the array length')
+    }
+
+    const result = []
+    const usedIndices = new Set()
+
+    while (result.length < numElements) {
+        const randomIndex = getRandomInt(0, arr.length - 1)
+        if (!usedIndices.has(randomIndex)) {
+            usedIndices.add(randomIndex)
+            result.push(arr[randomIndex])
+        }
+    }
+
+    return result
+}
+
 export function randomPastTime() {
     const HOUR = 1000 * 60 * 60
     const DAY = 1000 * 60 * 60 * 24
