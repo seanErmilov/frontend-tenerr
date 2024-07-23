@@ -2,33 +2,37 @@
     width: 100%;
     aspect-ratio: 30 / 18;
     position: relative;
-    overflow: hidden;
+    border: 1px solid $clr6;
     background: linear-gradient(180deg, #fff, #b5b6ba);
     border-radius: 0.5rem;
+
+    overflow: hidden;
 
     .arrow-prev,
     .arrow-next {
         position: absolute;
         top: 50%;
-        left: -1rem;
+        left: 1rem;
         transform: translate(0%, -50%);
         transition: all 0.3s linear;
     }
 
     .arrow-next {
-        right: -1rem;
+        right: 1rem;
         left: auto;
     }
 
     .container {
+
         position: absolute;
         width: 100%;
         height: 100%;
         transition: all 0.3s linear;
 
         img {
+            border-radius: 0.5rem;
             width: 100%;
-            height: 100%;
+            max-height: 100%;
             object-fit: contain;
         }
     }
@@ -38,10 +42,9 @@
 
 
 @keyframes slideinleft {
-  from {
-  }
+    from {}
 
-  to {
-    left: 1rem;
-  }
+    to {
+        left: 1rem;
+    }
 }
