@@ -1,25 +1,24 @@
 .gig-details {
-    width: 1304px;
+    width: 81.5rem; 
     margin: auto;
-
     h2 {
-        margin-bottom: 20px;
-        font-size: 24px;
+        margin-bottom: 1.25rem;
+        font-size: 1.5rem; 
         grid-column: 1;
     }
 
     .gig-overview {
         display: grid;
-        grid-template-columns: 834px 1fr;
-        grid-template-rows: 20px 40px;
-        gap: 20px;
+        grid-template-columns: 52.125rem 1fr; 
+        grid-template-rows: 1.25rem 2.5rem;
+        gap: 1.25rem; 
 
         .navigate {
-            width: 135px;
+            width: 8.4375rem; 
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 15px;
+            font-size: 0.9375rem; 
             color: $clr7;
 
             &:hover {
@@ -29,9 +28,7 @@
             span {
                 color: $clr5;
                 opacity: 0.5;
-
             }
-
         }
 
         .gig-mini-user-gig,
@@ -52,7 +49,6 @@
         .sidebar {
             grid-column: 2;
             grid-row: 2;
-
         }
 
         .about-gig {
@@ -60,37 +56,32 @@
             color: #404145;
 
             h2 {
-                font-size: 24px;
-
+                font-size: 1.5rem; 
             }
 
             .gig-description {
                 margin-bottom: 1em;
                 line-height: 1.6;
-                font-size: 17px;
+                font-size: 1.0625rem; 
                 color: $clr7;
 
                 p {
                     margin-left: 0;
                 }
             }
-
         }
 
-
         .text-display {
-            font-size: 28px;
+            font-size: 1.75rem;
             text-align: start;
             margin: 0;
-            // letter-spacing: normal;
             color: #404145;
-            line-height: 65px;
-
+            line-height: 4.0625rem; 
         }
 
         .gig-carousel,
         .gig-description {
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem; 
         }
     }
 
@@ -103,62 +94,147 @@
     .read-more:hover {
         text-decoration: underline;
     }
-
     @media (max-width: 1200px) {
         .gig-overview {
-            grid-template-columns: 800px;
+            grid-template-columns: 40rem 1fr; 
+
+            .about-gig {
+                width: 34rem;
+                color: #404145;
+    
+                h2 {
+                    font-size: 1.3rem; 
+                }
+    
+                .gig-description {
+                    margin-bottom: 1em;
+                    line-height: 1.6;
+                    font-size: 1.0625rem; 
+                    color: $clr7;
+    
+                    p {
+                        margin-left: 0;
+                    }
+                }
+            }
+            
         }
     }
+    @media (max-width: 1100px) {
+        .gig-details {
+            // width: 81.5rem; 
+        }
+        .gig-overview {
+            grid-template-columns: 35rem ; 
 
-    // @media (max-width: 768px) {
-    //     h2 {
-    //         font-size: 20px;
-    //     }
+            .about-gig {
+                width: 34rem;
+                color: #404145;
+    
+                h2 {
+                    font-size: 1.3rem; 
+                }
+    
+                .gig-description {
+                    margin-bottom: 1em;
+                    line-height: 1.6;
+                    font-size: 1.0625rem; 
+                    color: $clr7;
+    
+                    p {
+                        margin-left: 0;
+                    }
+                }
+            }
+            
+        }
+    }
+    @media (max-width: 1024px) {
+        .gig-overview {
+            grid-template-columns: 32.8rem ; 
 
-    //     .gig-overview {
-    //         grid-template-columns: 1fr;
-    //         gap: 10px;
-    //     }
+            .about-gig {
+                width: 34rem;
+                color: #404145;
+    
+                h2 {
+                    font-size: 1.3rem; 
+                }
+    
+                .gig-description {
+                    margin-bottom: 1em;
+                    line-height: 1.6;
+                    font-size: 1.0625rem; 
+                    color: $clr7;
+    
+                    p {
+                        margin-left: 0;
+                    }
+                }
+            }
+            
+        }
+    }
+    @media (max-width: 960px) {
+        .gig-overview {
+            grid-template-columns: 30rem ; 
 
-    //     .text-display {
-    //         font-size: 24px;
-    //         line-height: 32px;
-    //     }
+            .about-gig {
+                width: 30rem;
+                color: #404145;
+    
+                h2 {
+                    font-size: 1.4rem; 
+                }
+    
+                .gig-description {
+                    margin-bottom: 1em;
+                    line-height: 1.6;
+                    font-size: 1.0492rem; 
+                    color: $clr7;
+    
+                    p {
+                        margin-left: 0;
+                    }
+                }
+            }
+            
+        }
+    }
+    @media (max-width: 890px) {
+        .gig-overview {
+            grid-template-columns: 26rem ; 
 
-    //     .gig-description {
-    //         font-size: 16px;
-    //     }
-    // }
-
-    // @media (max-width: 480px) {
-    //     h2 {
-    //         font-size: 19px;
-    //         padding: 5px;
-    //     }
-    //     .gig-overview{
-    //         gap: 0;
-    //     }
-    //     .text-display {
-    //         font-size: 20px;
-    //         line-height: 28px;
-
-    //     }
-
-    //     .gig-description {
-    //         font-size: 16px;
-    //         max-width: 360px;
-    //     }
-    // }
+            .about-gig {
+                width: 28rem;
+                color: #404145;
+    
+                h2 {
+                    font-size: 1.4rem; 
+                }
+    
+                .gig-description {
+                    margin-bottom: 1em;
+                    line-height: 1.6;
+                    font-size: 1.0492rem; 
+                    color: $clr7;
+    
+                    p {
+                        margin-left: 0;
+                    }
+                }
+            }
+            
+        }
+    }
 }
 
 .item1 {
-    margin-left: 76px;
+    margin-left: 4.75rem; 
     transition: transform 0.3s;
-    width: 800px;
+    width: 50rem; 
 
     &:hover {
         transform: scale(1.05);
-
     }
-
 }
