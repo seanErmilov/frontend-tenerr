@@ -272,4 +272,20 @@
             top: 30px;
         }
     }
+
+    .home-video{
+        video {
+            position: absolute;
+            bottom: 0;
+            padding: 0;
+            margin-inline-start: -10px;
+        }
+        border-radius: 1rem;
+        background-color: #000238;
+        overflow: hidden;
+        position: relative;
+        height: 30vw;
+        padding: 10px;
+
+    }
 }

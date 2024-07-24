@@ -99,6 +99,7 @@ export function GigDetails() {
           description={gig.description} 
           name={gig.owner.fullname}/>
         <AboutUserGig user={gig.owner} loc={gig.loc} />
+        
         {/* <ComparePackages price={gig.price} avgResponseTime={gig.avgResponseTime} /> */}
         {/* <GigPageReviews reviews={gig.reviews} /> */}
         {/* <ReviewFilter reviews={filteredReviews} /> */}

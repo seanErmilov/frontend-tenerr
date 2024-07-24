@@ -1,26 +1,49 @@
-.app-footer{
-    display: flex;
+.app-footer {
+    display: grid;
+    grid-auto-flow: column;
     align-items: center;
     justify-content: space-between;
 
     min-height: 3.5rem;
 
-    padding: rem(10px) 1rem;
+    padding: rem(20px) 1rem;
     background-color: $clr4;
 
     p {
         margin: 0;
     }
-    
-    span {
-        font-size: .8em;
-        
-        &.local-services {
-            color: $clr1;
-        }
-        
-        &.remote-services {
-            color: $clr5;
-        }
+
+    img {
+        height: 2rem;
+        opacity: 0.2;
     }
+
+    ;
+
+
+
+    #shadow {
+        // border: 1px solid blue;
+        position: relative;
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        perspective: 50px;
+        perspective-origin: -10% 80%;
+        display: inline-block;
+    }
+
+    #shadow::after {
+        content: 'tenner';
+        // outline: 1px solid red;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: scaleY(0.5) rotateX(-15deg);
+        transform-origin: 50% 100%;
+        opacity: .3;
+    }
+
 }

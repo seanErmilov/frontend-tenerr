@@ -1,20 +1,23 @@
 .search-bar {
-    width: 100%;
     form {
         width: 100%;
         grid-template-columns: 1fr auto;
         background-color: #ffffff;
         align-items: center;
-        
+
+        input[type=text] {
+            padding-inline-start: 1em;
+        }
 
         .search-input {
+
+
             all: unset;
             border: none;
 
             &::placeholder {
                 padding-inline-start: 0.625em;
             }
-          
         }
 
         button {
@@ -25,11 +28,10 @@
             width: 3em;
             background-color: #003912;
 
-            img{
+            img {
                 height: 1.125em;
                 width: 1.125em;
             }
         }
-
     }
 }

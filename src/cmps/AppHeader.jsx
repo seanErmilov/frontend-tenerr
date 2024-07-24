@@ -60,9 +60,9 @@ export function AppHeader() {
 	}
 
 	return (
-
-		<header className="app-header grid-column">
-
+		<>
+			<div className='filler left'></div>
+			<header className="app-header grid-column">
 				{/* hamburger */}
 				<div className="hamburger" >
 					<img src={hamburger} alt="" />
@@ -125,9 +125,11 @@ export function AppHeader() {
 					</ul>
 				</nav>
 				<SignupLoginModal open={open} handleClose={handleClose} />
-			<FilterPrimeCategories />
+				<FilterPrimeCategories />
+			</header>
+			<div className='filler right'></div>
 
-
-		</header>
+			{/* <div className='full-liner main-container full'></div> */}
+		</>
 	)
 }

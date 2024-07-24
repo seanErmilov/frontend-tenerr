@@ -1,7 +1,5 @@
 .app-header {
-    // grid-column: 1 / -1;
     color: #74767e;
-    $headerHight: 5em;
     background-color: #ffffff;
     border-bottom: 1px solid #e4e5e7;
     margin-bottom: 42px;
@@ -41,11 +39,16 @@
 
         form {
             align-items: center;
-            border: 1px solid #e4e5e7;
-            border-radius: 0.3em;
 
 
-            .search-input {}
+
+            .search-input {
+                height: 100%;
+                border: 1px solid #e4e5e7;
+                border-top-left-radius: 0.3em;
+                border-bottom-left-radius: 0.3em;
+            }
+            
 
             button {
 
@@ -213,7 +216,32 @@
     }
 }
 
+.filler {
+    z-index: 3;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: $headerHight;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e4e5e7;
+
+}
+
+.filler.left {
+    grid-column: 1;
+}
+
+.filler.right {
+    grid-column: 3;
+}
+
 .no-height {
     background-color: #1dbf73;
     height: 0;
+}
+
+.full-liner {
+    position: sticky;
+    top: $headerHight;
+
 }
