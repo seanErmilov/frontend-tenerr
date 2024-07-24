@@ -8,12 +8,24 @@ import { showSuccessMsg } from '../services/event-bus.service'
 import { loadOrders, updateOrderStatus } from '../store/actions/order.actions'
 import { OrderList } from '../cmps/orderList'
 import { ProfileProgress } from '../cmps/profileProgress'
+import { ThemeProvider, createTheme } from '@mui/material'
 
 export function Dashboard() {
 
   const params = useParams()
   const user = useSelector(storeState => storeState.userModule.watchedUser)
   const orders = useSelector(storeState => storeState.orderModule.orders)
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#4caf50', // Corrected primary color
+      },
+      secondary: {
+        main: '#76ff03', // Corrected secondary color
+      },
+    },
+  })
 
 
   useEffect(() => {
@@ -32,9 +44,11 @@ export function Dashboard() {
 
   return (
     <main className="Dashboard">
-      <ProfileProgress orders={orders} />
-      <h3>Manage Orders</h3>
-      <OrderList orders={orders} onStatusSelect={onStatusSelect} />
+      <ThemeProvider theme={theme}>
+        <ProfileProgress orders={orders} />
+        <h3>Manage Orders</h3>
+        <OrderList orders={orders} onStatusSelect={onStatusSelect} />
+      </ThemeProvider >
     </main>
   )
 }
