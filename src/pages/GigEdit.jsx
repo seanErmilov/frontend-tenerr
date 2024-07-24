@@ -81,8 +81,7 @@ export function GigEdit() {
                     enableReinitialize
                     initialValues={gigToEdit}
                     validationSchema={GigSchema}
-                    onSubmit={onSaveGig}
-                >
+                    onSubmit={onSaveGig}                >
                     {({ errors, touched, values, handleChange, setFieldValue }) => (
                         <Form>
                             <div className='top-from'>
@@ -114,7 +113,7 @@ export function GigEdit() {
                                         as={TextField}
                                         label="Description"
                                         variant="outlined"
-                                        type="number"
+                                        type="text"
                                         name="daysToMake"
                                         margin="normal"
                                         inputProps={{ min: 1 }}
@@ -127,9 +126,9 @@ export function GigEdit() {
                                     />
                                 </label>
                             </div>
+
+
                             <div className='bottom-form'>
-
-
                                 <label className='day-to-complete'>
                                     <span>Days to Make
                                         <p>Days it will take you on average to finish this gig</p></span>
@@ -223,7 +222,7 @@ export function GigEdit() {
                     )}
                 </Formik>
                 <div className='btn-form'>
-                    <Button variant="contained" color="primary" type="submit">
+                    <Button variant="contained" color="primary" onClick={() => navigate('/gig')}>
                         cancel
                     </Button>
 

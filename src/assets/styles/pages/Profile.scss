@@ -1,0 +1,185 @@
+.seller-profile {
+    padding-top: 40px;
+    background-color: #f7f7f7;
+    color: #404145;
+
+    @font-face {
+        font-family: 'MacanPanWeb-Book';
+        src: url('src/assets/fonts/macan/MacanPanWeb-Book.ttf');
+    }
+
+    @font-face {
+        font-family: 'MacanPanWeb-Extrabold';
+        src: url('src/assets/fonts/macan/MacanPanWeb-Extrabold.ttf');
+    }
+
+    @font-face {
+        font-family: 'MacanPanWeb-Regular';
+        src: url('src/assets/fonts/macan/MacanPanWeb-Regular.woff');
+    }
+
+    .content-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .profile-container {
+        min-width: 398px;
+        max-width: 398px;
+
+        .user-profil {
+            background-color: #fff;
+            width: 100%;
+            height: 363px;
+            border: 1px solid $clr6;
+            padding: 30px;
+            margin-bottom: 20px;
+
+            .img-container {
+                width: 150px;
+                height: 150px;
+                border-radius: 10.4375em;
+                overflow: hidden;
+                margin-bottom: 15px;
+                margin-left: auto;
+                margin-right: auto;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            h2 {
+                text-align: center;
+                font-family: 'MacanPanWeb-Book';
+            }
+
+            .user-stats {
+                border-top: 1px solid $clr6;
+                margin-top: 24px;
+
+                ul {
+                    list-style: none;
+
+                    li {
+                        padding-top: 20px;
+                        display: flex;
+                        justify-content: space-between;
+
+                        div {
+                            color: #74767e;
+                            display: flex;
+                            gap: 12px;
+                            font-family: 'MacanPanWeb-Book';
+
+                            img {
+                                margin-top: 3px;
+                            }
+                        }
+
+                        span {
+                            color: #62646a;
+                            font-family: 'MacanPanWeb-Extrabold';
+                        }
+                    }
+                }
+            }
+        }
+
+        .description-container {
+            background-color: #fff;
+            width: 100%;
+            height: 450px;
+            border: 1px solid $clr6;
+            height: fit-content;
+            padding: 30px;
+
+            h3 {
+                margin-bottom: 20px;
+                margin-left: 9px;
+                font-family: 'MacanPanWeb-book';
+
+            }
+
+            p {
+                line-height: 24px;
+            }
+        }
+
+        .chat-seller-btn {
+            border: 1px solid transparent;
+            border-radius: .25em;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            line-height: 100%;
+            padding: .75em 1.5em;
+            position: relative;
+            text-align: center;
+            margin-block-start: 20px;
+            width: 100%;
+            transition: 70ms cubic-bezier(.75, 0, .25, 1);
+            cursor: pointer;
+            background-color: $clr8;
+            color: #fff;
+            font-family: 'MacanPanWeb-Regular';
+        }
+    }
+
+    .gigs-status {
+        padding-inline-start: 20px;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+
+        .status-filter-bar {
+            background-color: #fff;
+            width: 95%;
+            height: 60px;
+            border: 1px solid $clr6;
+            margin-bottom: 40px;
+            padding: 23px 25px;
+            font-family: 'MacanPanWeb-Regular';
+            font-weight: bold;
+        }
+
+        .gigs-status-list {
+            gap: 20px;
+            display: flex;
+            flex-wrap: wrap;
+
+            .add-gig {
+                background-color: #fff;
+                width: 230px;
+                height: 254px;
+                border: 1px solid $clr6;
+
+                div {
+                    align-items: center;
+                    display: flex;
+                    flex-direction: column;
+
+                    .add-gig-btn {
+                        color: #fff;
+                        width: 65px;
+                        height: 65px;
+                        background-color: #78cdd2;
+                        font-size: 3rem;
+                        border-radius: 10.4375em;
+                        line-height: 70px;
+                        text-align: center;
+                        margin-bottom: 20px;
+                        margin-top: 70px;
+
+                    }
+                }
+
+                p {
+                    font-family: 'MacanPanWeb-Regular';
+                }
+            }
+        }
+    }
+}

@@ -19,15 +19,15 @@ export function ImgUploader({ onUploaded = null }) {
 
   function getUploadLabel() {
     if (imgData.imgUrl) return 'Upload Another?'
-    return isUploading ? 'Uploading...' : 'Upload a image'
+    return isUploading ? 'Uploading....' : 'Upload Image'
   }
 
   return (
     <div className="upload-preview">
       <button className="upload-button">
-        {imgData.imgUrl && <img src={imgData.imgUrl} style={{ maxWidth: '200px', float: 'right' }} />}
-        {getUploadLabel()}
-        <input type="file" onChange={uploadImg} accept="img/*" id="imgUpload" style={{ display: 'none' }} />
+      {imgData.imgUrl && <img src={imgData.imgUrl} style={{ maxWidth: '200px', float: 'right' }} />}
+      <label htmlFor="imgUpload">{getUploadLabel()}</label>
+      <input type="file" onChange={uploadImg} accept="img/*" id="imgUpload" style={{ display: 'none' }} />
       </button>
     </div>
   )
