@@ -3,7 +3,7 @@ export function ProfileNav({ profileNavRef, onLogout, userId }) {
     return (
         <ul className='main-nav pos-absolute hidden' ref={profileNavRef}>
             <li>
-                <NavLink className="main-nav-link" to="gig/edit">Profile</NavLink>
+                <NavLink className="main-nav-link" to="profile">Profile</NavLink>
             </li>
             <li>
                 <NavLink className="main-nav-link" to={`user/Dashboard/${userId}`}>Dashboard</NavLink>
