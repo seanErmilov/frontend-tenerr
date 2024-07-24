@@ -16,17 +16,18 @@ import { useVisibility } from '../customHooks/useVisibility'
 import { SHOW_CATEGORIES_BAR } from '../store/reducers/system.reducer'
 
 // imgs
-import ai from '../assets/img/svg/primeCategories/ai.svg'; // Import the image
-import business from '../assets/img/svg/primeCategories/business.svg'; // Import the image
-import consulting from '../assets/img/svg/primeCategories/consulting.svg'; // Import the image
-import digital from '../assets/img/svg/primeCategories/digital.svg'; // Import the image
-import graphics from '../assets/img/svg/primeCategories/graphics.svg'; // Import the image
-import music from '../assets/img/svg/primeCategories/music.svg'; // Import the image
-import programming from '../assets/img/svg/primeCategories/programming.svg'; // Import the image
-import video from '../assets/img/svg/primeCategories/video.svg'; // Import the image
-import writing from '../assets/img/svg/primeCategories/writing.svg'; // Import the image
-import rightArrow from '../assets/img/svg/primeCategories/rightArrow.svg'; // Import the image
-import leftArrow from '../assets/img/svg/primeCategories/leftArrow.svg'; // Import the image
+import ai from '../assets/img/svg/primeCategories/ai.svg' // Import the image
+import business from '../assets/img/svg/primeCategories/business.svg' // Import the image
+import consulting from '../assets/img/svg/primeCategories/consulting.svg' // Import the image
+import digital from '../assets/img/svg/primeCategories/digital.svg' // Import the image
+import graphics from '../assets/img/svg/primeCategories/graphics.svg' // Import the image
+import music from '../assets/img/svg/primeCategories/music.svg' // Import the image
+import programming from '../assets/img/svg/primeCategories/programming.svg' // Import the image
+import video from '../assets/img/svg/primeCategories/video.svg' // Import the image
+import writing from '../assets/img/svg/primeCategories/writing.svg' // Import the image
+import rightArrow from '../assets/img/svg/primeCategories/rightArrow.svg' // Import the image
+import leftArrow from '../assets/img/svg/primeCategories/leftArrow.svg' // Import the image
+import { convertObjectToQueryParams } from '../services/util.service'
 
 
 
@@ -64,9 +65,12 @@ export function FilterPrimeCategories({ filterBy, setFilterBy, trackInViewport =
     const primeCategories = gigService.getPrimeCategories()
 
     // funcs
-    function onClickTag(category) {
-        setFilterBy({ ...filterBy, tags: [...filterBy.tags, category] })
-        navigate('/gig')
+    function onClickTag(categorys) {
+        const filterByToEdit = { ...filterBy, tags: [...filterBy.tags, categorys] }
+        setFilterBy(filterByToEdit)
+
+        const queryParams = convertObjectToQueryParams(filterByToEdit)
+        navigate(`/gig?${queryParams}`)
     }
 
     function onScrollTo({ current: edge }) {
