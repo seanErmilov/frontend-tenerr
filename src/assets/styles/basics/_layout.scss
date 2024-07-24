@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: minmax(2rem, 1fr) minmax(0, $main-layout-max) minmax(2rem, 1fr);
     position: relative;
+
     >* {
         grid-column: 2;
 
@@ -9,6 +10,7 @@
             grid-column: 1 / -1;
         }
     }
+
     // min-height: calc(100vh - 7rem);
 
     // @include for-narrow-layout {
@@ -31,3 +33,15 @@
     // }
 }
 
+.main-container-side-by-sidy {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    position: relative;
+    // >* {
+    //     grid-column: 2;
+
+    //     &.full {
+    //         grid-column: 1 / -1;
+    //     }
+    // }
+}

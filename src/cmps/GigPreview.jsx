@@ -46,7 +46,7 @@ export function GigPreview({ gig }) {
         </div>
 
         {/* title */}
-        <Link to={`${gig._id}`} target="_blank" className='title'>
+        <Link to={`${gig._id}`} className='title'>
             {gig.title}
         </Link>
 
@@ -63,7 +63,7 @@ export function GigPreview({ gig }) {
 
         {/* from price */}
 
-        <Link to={`${gig._id}`} target="_blank" className="from-price bold">
+        <Link to={`${gig._id}`} className="from-price bold">
             ${gig.price}
         </Link>
 
