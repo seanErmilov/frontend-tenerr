@@ -21,7 +21,36 @@ export function OrderList({ orders, onStatusSelect }) {
         return createData(order.buyer.fullname, order.buyer.imgUrl, order.gig.name, order.gig.price, order.status, order._id)
     })
 
-
+    const muiTheme = {
+        text: {
+            '& .MuiOutlinedInput-root': {
+                '&.Mui-focused fieldset': {
+                    borderColor: '#52b69a', // Change border color when focused
+                },
+            },
+            '& .MuiInputLabel-root.Mui-focused': {
+                color: '#ffd56b', // Change label color when focused
+            },
+        },
+        select: {
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#52b69a', // Border color when focused
+            },
+        },
+        button: {
+            color: 'black',
+            backgroundColor: '#ffd56b',
+            '&:hover': {
+                backgroundColor: '#52b69a', // Background color on hover
+            },
+        },
+        checkbox: {
+            color: '#52b69a', // Default color
+            '&.Mui-checked': {
+                color: '#52b69a', // Color when checked
+            },
+        },
+    }
 
 
 
@@ -49,7 +78,7 @@ export function OrderList({ orders, onStatusSelect }) {
                             </TableCell>
                             <TableCell align="left">{row.title}</TableCell>
                             <TableCell align="left">{row.price}</TableCell>
-                            <TableCell align="left"><StatusSelect onStatusSelect={onStatusSelect} status={row.status} orderId={row._id} /></TableCell>
+                            <TableCell align="left"><StatusSelect sx={muiTheme} onStatusSelect={onStatusSelect} status={row.status} orderId={row._id} /></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

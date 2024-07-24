@@ -1,25 +1,48 @@
 .gig-details {
-    width: 81.5rem; 
-    margin: auto;
-    h2 {
-        margin-bottom: 1.25rem;
-        font-size: 1.5rem; 
-        grid-column: 1;
+    // width: 100%;
+    display: grid;
+    grid-template-columns: 5fr 51fr 5.96fr 30fr 5fr;
+    align-items: start;
+    // padding-inline: 5.5%;
+
+    .gig-details-side {
+        top: 0;
+        position: sticky;
+        display: grid;
+        grid-column: 4;
+        grid-row: 1;
+        justify-content: end;
+        grid-template-columns: max-content;
     }
 
     .gig-overview {
+        width: 100%;
+        grid-column: 2;
+        grid-row: 1;
         display: grid;
-        grid-template-columns: 52.125rem 1fr; 
-        grid-template-rows: 1.25rem 2.5rem;
-        gap: 1.25rem; 
 
+        &>* {
+            grid-column: 1;
+        }
+
+
+        // h1
+        h1,
+        h2 {
+            color: #404145;
+        }
+
+        // breadcrumbs
         .navigate {
-            width: 8.4375rem; 
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: start;
             align-items: center;
-            font-size: 0.9375rem; 
+            font-size: 0.9375rem;
             color: $clr7;
+            gap: 0.5rem;
+            margin-bottom: 2.2rem;
+
 
             &:hover {
                 text-decoration: underline;
@@ -31,38 +54,104 @@
             }
         }
 
-        .gig-mini-user-gig,
-        .gig-reviewList,
-        .gig-reviews-carousel,
-        .about-gig,
-        .gig-page-reviews,
-        .review-filter,
-        .compare-packages,
-        .text-display,
-        .gig-carousel,
-        .gig-description,
-        .about-user-gig,
-        .react-multi-carousel-list {
-            grid-column: 1;
+        .gig-owner-brief {
+            $owner-img-height: 3.6rem;
+            margin-bottom: 1rem;
+            display: grid;
+            grid-template-columns: $owner-img-height auto;
+            height: $owner-img-height;
+            gap: 1rem;
+
+            // border-bottom: 1px solid #e4e5e7;
+
+            .gig-owner-img {
+                border-radius: 50%;
+                width: $owner-img-height;
+                height: $owner-img-height;
+                object-fit: cover;
+            }
+
+            .right-cell {
+                display: grid;
+                grid-template-rows: auto auto;
+
+                .upper-row,
+                .lowwer-row {
+                    display: grid;
+                    grid-template-columns: max-content max-content;
+                    align-items: center;
+                }
+
+                .upper-row {
+
+                    .gig-owner-name {
+                        font-weight: bold;
+
+                        &::after {
+                            content: '|';
+
+                            color: #e4e5e7;
+                            font-weight: 100;
+                            padding-inline-start: 1rem;
+                            padding-inline-end: 0.7rem;
+                        }
+                    }
+
+                    .gig-owner-level {
+                        height: 1.3rem;
+                    }
+                }
+
+                .lowwer-row {
+                    .orders-in-queue {
+                        color: #74767e;
+                        font-size: 0.8rem;
+                        letter-spacing: 0.02rem;
+                    }
+
+                    .gig-owner-rate {
+                        gap: 0.2rem;
+                        display: grid;
+                        grid-auto-flow: column;
+                        align-items: center;
+                        font-weight: bold;
+
+                        img {
+                            height: 0.7rem;
+                        }
+
+                        &::after {
+                            content: '|';
+
+                            color: #e4e5e7;
+                            font-weight: 100;
+                            padding-inline-start: 1rem;
+                            padding-inline-end: 0.7rem;
+                        }
+                    }
+                }
+            }
         }
 
-        .sidebar {
-            grid-column: 2;
-            grid-row: 2;
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
         }
 
         .about-gig {
-            width: 42.5rem;
             color: #404145;
 
             h2 {
-                font-size: 1.5rem; 
+                font-size: 1.5rem;
+            }
+
+            p {
             }
 
             .gig-description {
                 margin-bottom: 1em;
                 line-height: 1.6;
-                font-size: 1.0625rem; 
+                font-size: 1.0625rem;
                 color: $clr7;
 
                 p {
@@ -70,171 +159,5 @@
                 }
             }
         }
-
-        .text-display {
-            font-size: 1.75rem;
-            text-align: start;
-            margin: 0;
-            color: #404145;
-            line-height: 4.0625rem; 
-        }
-
-        .gig-carousel,
-        .gig-description {
-            margin-bottom: 1.25rem; 
-        }
-    }
-
-    .read-more {
-        color: #cecece;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    .read-more:hover {
-        text-decoration: underline;
-    }
-    @media (max-width: 1200px) {
-        .gig-overview {
-            grid-template-columns: 40rem 1fr; 
-
-            .about-gig {
-                width: 34rem;
-                color: #404145;
-    
-                h2 {
-                    font-size: 1.3rem; 
-                }
-    
-                .gig-description {
-                    margin-bottom: 1em;
-                    line-height: 1.6;
-                    font-size: 1.0625rem; 
-                    color: $clr7;
-    
-                    p {
-                        margin-left: 0;
-                    }
-                }
-            }
-            
-        }
-    }
-    @media (max-width: 1100px) {
-        .gig-details {
-            // width: 81.5rem; 
-        }
-        .gig-overview {
-            grid-template-columns: 35rem ; 
-
-            .about-gig {
-                width: 34rem;
-                color: #404145;
-    
-                h2 {
-                    font-size: 1.3rem; 
-                }
-    
-                .gig-description {
-                    margin-bottom: 1em;
-                    line-height: 1.6;
-                    font-size: 1.0625rem; 
-                    color: $clr7;
-    
-                    p {
-                        margin-left: 0;
-                    }
-                }
-            }
-            
-        }
-    }
-    @media (max-width: 1024px) {
-        .gig-overview {
-            grid-template-columns: 32.8rem ; 
-
-            .about-gig {
-                width: 34rem;
-                color: #404145;
-    
-                h2 {
-                    font-size: 1.3rem; 
-                }
-    
-                .gig-description {
-                    margin-bottom: 1em;
-                    line-height: 1.6;
-                    font-size: 1.0625rem; 
-                    color: $clr7;
-    
-                    p {
-                        margin-left: 0;
-                    }
-                }
-            }
-            
-        }
-    }
-    @media (max-width: 960px) {
-        .gig-overview {
-            grid-template-columns: 30rem ; 
-
-            .about-gig {
-                width: 30rem;
-                color: #404145;
-    
-                h2 {
-                    font-size: 1.4rem; 
-                }
-    
-                .gig-description {
-                    margin-bottom: 1em;
-                    line-height: 1.6;
-                    font-size: 1.0492rem; 
-                    color: $clr7;
-    
-                    p {
-                        margin-left: 0;
-                    }
-                }
-            }
-            
-        }
-    }
-    @media (max-width: 890px) {
-        .gig-overview {
-            grid-template-columns: 26rem ; 
-
-            .about-gig {
-                width: 28rem;
-                color: #404145;
-    
-                h2 {
-                    font-size: 1.4rem; 
-                }
-    
-                .gig-description {
-                    margin-bottom: 1em;
-                    line-height: 1.6;
-                    font-size: 1.0492rem; 
-                    color: $clr7;
-    
-                    p {
-                        margin-left: 0;
-                    }
-                }
-            }
-            
-        }
-    }
-}
-
-.item1 {
-    margin-left: 4.75rem; 
-    transition: transform 0.3s;
-    width: 50rem; 
-
-    &:hover {
-        transform: scale(1.05);
     }
 }

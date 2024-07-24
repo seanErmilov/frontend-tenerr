@@ -1,0 +1,240 @@
+.gig-details {
+    width: 81.5rem; 
+    margin: auto;
+    h2 {
+        margin-bottom: 1.25rem;
+        font-size: 1.5rem; 
+        grid-column: 1;
+    }
+
+    .gig-overview {
+        display: grid;
+        grid-template-columns: 52.125rem 1fr; 
+        grid-template-rows: 1.25rem 2.5rem;
+        gap: 1.25rem; 
+
+        .navigate {
+            width: 8.4375rem; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9375rem; 
+            color: $clr7;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            span {
+                color: $clr5;
+                opacity: 0.5;
+            }
+        }
+
+        .gig-mini-user-gig,
+        .gig-reviewList,
+        .gig-reviews-carousel,
+        .about-gig,
+        .gig-page-reviews,
+        .review-filter,
+        .compare-packages,
+        .text-display,
+        .gig-carousel,
+        .gig-description,
+        .about-user-gig,
+        .react-multi-carousel-list {
+            grid-column: 1;
+        }
+
+        .sidebar {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .about-gig {
+            width: 42.5rem;
+            color: #404145;
+
+            h2 {
+                font-size: 1.5rem; 
+            }
+
+            .gig-description {
+                margin-bottom: 1em;
+                line-height: 1.6;
+                font-size: 1.0625rem; 
+                color: $clr7;
+
+                p {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        .text-display {
+            font-size: 1.75rem;
+            text-align: start;
+            margin: 0;
+            color: #404145;
+            line-height: 4.0625rem; 
+        }
+
+        .gig-carousel,
+        .gig-description {
+            margin-bottom: 1.25rem; 
+        }
+    }
+
+    .read-more {
+        color: #cecece;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .read-more:hover {
+        text-decoration: underline;
+    }
+    @media (max-width: 1200px) {
+        .gig-overview {
+            grid-template-columns: 40rem 1fr; 
+
+            .about-gig {
+                width: 34rem;
+                color: #404145;
+    
+                h2 {
+                    font-size: 1.3rem; 
+                }
+    
+                .gig-description {
+                    margin-bottom: 1em;
+                    line-height: 1.6;
+                    font-size: 1.0625rem; 
+                    color: $clr7;
+    
+                    p {
+                        margin-left: 0;
+                    }
+                }
+            }
+            
+        }
+    }
+    @media (max-width: 1100px) {
+        .gig-details {
+            // width: 81.5rem; 
+        }
+        .gig-overview {
+            grid-template-columns: 35rem ; 
+
+            .about-gig {
+                width: 34rem;
+                color: #404145;
+    
+                h2 {
+                    font-size: 1.3rem; 
+                }
+    
+                .gig-description {
+                    margin-bottom: 1em;
+                    line-height: 1.6;
+                    font-size: 1.0625rem; 
+                    color: $clr7;
+    
+                    p {
+                        margin-left: 0;
+                    }
+                }
+            }
+            
+        }
+    }
+    @media (max-width: 1024px) {
+        .gig-overview {
+            grid-template-columns: 32.8rem ; 
+
+            .about-gig {
+                width: 34rem;
+                color: #404145;
+    
+                h2 {
+                    font-size: 1.3rem; 
+                }
+    
+                .gig-description {
+                    margin-bottom: 1em;
+                    line-height: 1.6;
+                    font-size: 1.0625rem; 
+                    color: $clr7;
+    
+                    p {
+                        margin-left: 0;
+                    }
+                }
+            }
+            
+        }
+    }
+    @media (max-width: 960px) {
+        .gig-overview {
+            grid-template-columns: 30rem ; 
+
+            .about-gig {
+                width: 30rem;
+                color: #404145;
+    
+                h2 {
+                    font-size: 1.4rem; 
+                }
+    
+                .gig-description {
+                    margin-bottom: 1em;
+                    line-height: 1.6;
+                    font-size: 1.0492rem; 
+                    color: $clr7;
+    
+                    p {
+                        margin-left: 0;
+                    }
+                }
+            }
+            
+        }
+    }
+    @media (max-width: 890px) {
+        .gig-overview {
+            grid-template-columns: 26rem ; 
+
+            .about-gig {
+                width: 28rem;
+                color: #404145;
+    
+                h2 {
+                    font-size: 1.4rem; 
+                }
+    
+                .gig-description {
+                    margin-bottom: 1em;
+                    line-height: 1.6;
+                    font-size: 1.0492rem; 
+                    color: $clr7;
+    
+                    p {
+                        margin-left: 0;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+.item1 {
+    margin-left: 4.75rem; 
+    transition: transform 0.3s;
+    width: 50rem; 
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}

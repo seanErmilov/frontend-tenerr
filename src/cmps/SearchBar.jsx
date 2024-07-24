@@ -2,10 +2,6 @@
 import { useEffect, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-//////////////////////////////////////////
-import { useSearchParams } from 'react-router-dom'
-////////////////////////////////////////////////////
-
 //hooks
 import { useVisibility } from '../customHooks/useVisibility'
 
@@ -16,19 +12,17 @@ import { useNavigate } from 'react-router'
 
 // imgs
 import magnifyingGlass from '../assets/img/svg/searchBar/magnifyingGlass.svg'
+import { convertObjectToQueryParams } from '../services/util.service'
 
 
 export function SearchBar({ trackInViewport = false }) {
-    /////////////////////////////////////
-    const [searchParams, setSearchParams] = useSearchParams()
-    ///////////////////////////////
+
     const showTopSearchBar = useSelector(storeState => storeState.systemModule.showSearchBar)
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
 
     const dispatch = useDispatch()
     const ref = useRef()
     const navigate = useNavigate()
-
 
     // Use the useVisibility hook only if trackInViewport is true
     const isVisible = trackInViewport ? useVisibility(ref, { threshold: 0 }) : true
@@ -43,7 +37,6 @@ export function SearchBar({ trackInViewport = false }) {
         }
     }, [isVisible])
 
-
     function onSetFilter(filterBy) {
         setFilter(filterBy)
     }
@@ -53,13 +46,13 @@ export function SearchBar({ trackInViewport = false }) {
         if (!filterBy.title) return
 
         onSetFilter(filterBy)
-        navigate('/gig')
+
+        const queryParams = convertObjectToQueryParams(filterBy)
+        navigate(`/gig?${queryParams}`)
     }
 
     function handleChange(ev) {
         const { name, value } = ev.target
-        setSearchParams({[name]: value })
-        console.log(searchParams.get({name}))
 
         onSetFilter({ ...filterBy, [name]: value })
     }

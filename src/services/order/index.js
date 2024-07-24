@@ -24,6 +24,30 @@ function getDefaultFilter() {
     }
 }
 
+function _countOrderStatuses(orders) {
+    return orders.reduce((accumulator, order) => {
+        if (order.status in accumulator) {
+            accumulator[order.status]++
+        } else {
+            accumulator[order.status] = 1
+        }
+        return accumulator
+    }, { pending: 0, rejected: 0, completed: 0 })
+}
+
+function getOrderStats(orders) {
+    const orderStatusSummary = _countOrderStatuses(orders)
+
+    const responseRate = ((orderStatusSummary.pending + orderStatusSummary.completed) / orders.length) * 100
+    const ordersCompleted = (orderStatusSummary.completed / (orders.length - orderStatusSummary.rejected)) * 100
+
+    return {
+        responseRate: responseRate,
+        ordersCompleted: ordersCompleted
+    }
+}
+
+
 function getOrder(gig) {
     const order = {
         seller: {
@@ -43,7 +67,7 @@ function getOrder(gig) {
 }
 
 const service = VITE_LOCAL === 'true' ? local : remote
-export const orderService = { getEmptyOrder, getDefaultFilter, getOrder, ...service }
+export const orderService = { getEmptyOrder, getDefaultFilter, getOrder, getOrderStats, ...service }
 
 
 

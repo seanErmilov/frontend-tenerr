@@ -53,6 +53,7 @@
     @include for-normal-layout {
         .hero {
             height: 438px;
+            background-image: none;
             background-color: #003811;
             font-size: 0.933rem;
         }
@@ -77,6 +78,7 @@
 
     @include for-wide-layout {
         .hero {
+            background-color: #003811;
             height: 500px;
             font-size: 1rem;
         }
@@ -130,7 +132,6 @@
             width: calc(8.614% + (1335px - 100%) * 0.06);
         }
 
-
         .jordan {
             right: 3.97%;
             top: 9.619%;
@@ -140,6 +141,19 @@
         .hero-center {
             display: grid;
             width: auto;
+        }
+
+        .search-bar {
+            form {
+                height: 3.75em;
+                border-radius: 0.75em;
+            }
+
+            button {
+                border-radius: 0.5em;
+                margin-inline-end: 0.375em;
+
+            }
         }
 
         .hero-inner-text {
@@ -173,6 +187,7 @@
     }
 
     .prime-categories-section {
+        margin-top: 1em;
 
         .right-arrow,
         .left-arrow {
@@ -198,7 +213,6 @@
         .right-arrow {
             right: 0;
             transform: translateX(50%);
-
         }
 
         .left-arrow {
@@ -218,12 +232,13 @@
             }
 
             li {
+                padding-inline-end: 0.3em;
                 font-size: 0.875em;
                 font-weight: 400;
                 cursor: pointer;
                 box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.16);
-                width: 8.062em;
-                height: 8.0625em;
+                width: 8.4em;
+                height: 8.4em;
                 border-radius: 1em;
                 padding-inline-start: 0.75em;
 
@@ -247,6 +262,14 @@
                     background: radial-gradient(63.44% 63.44% at 50% 50%, #c2ffe2 0, #fff 100%), #fff
                 }
             }
+        }
+
+        .out-of-vp-indicator {
+            background-color: transparent;
+            height: 8px;
+            z-index: 5;
+            position: absolute;
+            top: 30px;
         }
     }
 }

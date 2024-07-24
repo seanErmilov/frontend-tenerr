@@ -1,14 +1,13 @@
 import { useNavigate } from 'react-router-dom'
+import { gigService } from '../services/gig'
+import { setFilter } from '../store/actions/gig.actions'
 
 export function Inside({ innerText = '' }) {
     const navigate = useNavigate()
 
     function goToHome() {
-        navigate ('/')
-    }
-
-    function goToGig() {
-        navigate('/gig')
+        setFilter(gigService.getDefaultFilter())
+        navigate('/')
     }
 
     return (
@@ -19,7 +18,7 @@ export function Inside({ innerText = '' }) {
                 />
             </button>
             <span>/</span>
-            <button onClick={goToGig}>{innerText}</button>
+            <button>{innerText}</button>
         </div>
     )
 }

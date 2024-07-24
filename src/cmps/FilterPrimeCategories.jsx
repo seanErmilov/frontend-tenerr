@@ -1,6 +1,7 @@
 // react tools
 import { useNavigate } from 'react-router-dom'
-import { useState, useRef, useLayoutEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 // costumhooks
 import { useWindowDimensions } from '../customHooks/windowRisze'
@@ -8,21 +9,51 @@ import { useWindowDimensions } from '../customHooks/windowRisze'
 // services
 import { gigService } from '../services/gig'
 
+//hooks
+import { useVisibility } from '../customHooks/useVisibility'
+
+// store/reducers
+import { SHOW_CATEGORIES_BAR } from '../store/reducers/system.reducer'
+
 // imgs
-import ai from '../assets/img/svg/primeCategories/ai.svg'; // Import the image
-import business from '../assets/img/svg/primeCategories/business.svg'; // Import the image
-import consulting from '../assets/img/svg/primeCategories/consulting.svg'; // Import the image
-import digital from '../assets/img/svg/primeCategories/digital.svg'; // Import the image
-import graphics from '../assets/img/svg/primeCategories/graphics.svg'; // Import the image
-import music from '../assets/img/svg/primeCategories/music.svg'; // Import the image
-import programming from '../assets/img/svg/primeCategories/programming.svg'; // Import the image
-import video from '../assets/img/svg/primeCategories/video.svg'; // Import the image
-import writing from '../assets/img/svg/primeCategories/writing.svg'; // Import the image
-import rightArrow from '../assets/img/svg/primeCategories/rightArrow.svg'; // Import the image
-import leftArrow from '../assets/img/svg/primeCategories/leftArrow.svg'; // Import the image
+import ai from '../assets/img/svg/primeCategories/ai.svg' // Import the image
+import business from '../assets/img/svg/primeCategories/business.svg' // Import the image
+import consulting from '../assets/img/svg/primeCategories/consulting.svg' // Import the image
+import digital from '../assets/img/svg/primeCategories/digital.svg' // Import the image
+import graphics from '../assets/img/svg/primeCategories/graphics.svg' // Import the image
+import music from '../assets/img/svg/primeCategories/music.svg' // Import the image
+import programming from '../assets/img/svg/primeCategories/programming.svg' // Import the image
+import video from '../assets/img/svg/primeCategories/video.svg' // Import the image
+import writing from '../assets/img/svg/primeCategories/writing.svg' // Import the image
+import rightArrow from '../assets/img/svg/primeCategories/rightArrow.svg' // Import the image
+import leftArrow from '../assets/img/svg/primeCategories/leftArrow.svg' // Import the image
+import { convertObjectToQueryParams } from '../services/util.service'
 
 
-export function FilterPrimeCategories({ filterBy, setFilterBy }) {
+
+// case SHOW_CATEGORIES_BAR:
+//     return { ...state, showCategoriesBar: action.showCategoriesBar }
+
+export function FilterPrimeCategories({ filterBy, setFilterBy, trackInViewport = false }) {
+
+    const showCatBar = useSelector(storeState => storeState.systemModule.showCategoriesBar)
+    const dispatch = useDispatch()
+    const dref = useRef()
+
+    // Use the useVisibility hook only if trackInViewport is true
+    const isVisible = trackInViewport ? useVisibility(dref, { threshold: 0 }) : true
+
+    useEffect(() => {
+        if (trackInViewport) {
+            const action = {
+                type: SHOW_CATEGORIES_BAR,
+                showCategoriesBar: !isVisible,
+            }
+            dispatch(action)
+        }
+    }, [isVisible])
+
+
     // hooks
     const windowDims = useWindowDimensions()
     const navigate = useNavigate()
@@ -34,9 +65,12 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
     const primeCategories = gigService.getPrimeCategories()
 
     // funcs
-    function onClickTag(category) {
-        setFilterBy({ ...filterBy, tags: [...filterBy.tags, category] })
-        navigate('/gig')
+    function onClickTag(categorys) {
+        const filterByToEdit = { ...filterBy, tags: [...filterBy.tags, categorys] }
+        setFilterBy(filterByToEdit)
+
+        const queryParams = convertObjectToQueryParams(filterByToEdit)
+        navigate(`/gig?${queryParams}`)
     }
 
     function onScrollTo({ current: edge }) {
@@ -48,9 +82,9 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
         setHiddenArrow(edge.id)
     }
 
-    // .pos-absolute
     return (
-        <div className="prime-categories-section  pos-relative">
+        <div className={`prime-categories-section  pos-relative ${!(trackInViewport || showCatBar) ? 'transparent' : ''}`}>
+            <div ref={dref} className='out-of-vp-indicator'></div>
 
             {windowDims.width > 900 && windowDims.width < 1250 && (
                 <>
@@ -58,14 +92,14 @@ export function FilterPrimeCategories({ filterBy, setFilterBy }) {
                     <div
                         className={`right-arrow pos-absolute hidden`}
                         onClick={() => onScrollTo(rightEdge)}>
-                        <img src={rightArrow} alt="" />
+                        <img className="img-right-arrow" src={rightArrow} alt="" />
                     </div>
 
                     {/* left arrow */}
                     <div
                         className={`left-arrow pos-absolute`}
                         onClick={() => onScrollTo(leftEdge)}>
-                        <img src={leftArrow} alt="" />
+                        <img className="img-left-arrow" src={leftArrow} alt="" />
                     </div>
                 </>
             )}

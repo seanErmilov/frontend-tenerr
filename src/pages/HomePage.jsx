@@ -2,10 +2,10 @@
 import { useSelector } from 'react-redux'
 
 // cmp
-import { GigFilter } from '../cmps/GigFilter'
 import { SearchBar } from '../cmps/SearchBar'
 import { FilterPrimeCategories } from '../cmps/FilterPrimeCategories'
 import { HomeVideo } from '../cmps/HomeVideo.jsx'
+import { FreelanceTalent } from '../cmps/FreelanceTalent.jsx'
 
 // store - actions
 import { setFilter } from '../store/actions/gig.actions'
@@ -35,6 +35,7 @@ export function HomePage() {
                         <img className="collin pos-absolute" src="src/assets/img/home-page-hero/collin.png" alt="" />
                     </>
                 }
+
                 <div className='hero-center'>
                     {/* Hero inner text */}
                     <h1 className='hero-inner-text'>Find the right
@@ -44,6 +45,7 @@ export function HomePage() {
                     <SearchBar
                         trackInViewport={true} />
                 </div>
+
 
                 {/* Company logos */}
                 <div className='company-logos pos-absolute'>
@@ -59,8 +61,11 @@ export function HomePage() {
                 </div>
             </div>
 
+
             {/* filters  categories*/}
-            <FilterPrimeCategories filterBy={filterBy} setFilterBy={onSetFilter} />
+            <FilterPrimeCategories filterBy={filterBy} setFilterBy={onSetFilter} trackInViewport={true} />
+
+            <FreelanceTalent />
 
             {/* video */}
             <HomeVideo />
