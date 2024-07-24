@@ -25,7 +25,6 @@ export function GigIndex() {
 
     useEffect(() => {
         loadGigs(filterBy)
-        console.log('filterBy :', filterBy)
         setSearchParams(filterBy)
     }, [filterBy])
 
