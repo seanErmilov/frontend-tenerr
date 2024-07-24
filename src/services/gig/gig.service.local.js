@@ -1,5 +1,5 @@
 import { storageService } from '../async-storage.service'
-import { getRandomElement, getRandomInt, loadFromStorage, makeId, saveToStorage } from '../util.service'
+import { getRandomElement, getRandomElements, getRandomInt, loadFromStorage, makeId, saveToStorage } from '../util.service'
 import { userService } from '../user'
 
 const STORAGE_KEY = 'gigDb'
