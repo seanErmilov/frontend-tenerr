@@ -74,113 +74,163 @@ export function GigEdit() {
     }
 
     return (
-        <section className="gig-edit">
-            <h2>{gigToEdit._id ? 'Edit' : 'Add'} Gig</h2>
+        <section className='main-container'>
+            <div className="gig-edit">
+                {/* <h2>{gigToEdit._id ? 'Edit' : 'Add'} Gig</h2> */}
+                <Formik
+                    enableReinitialize
+                    initialValues={gigToEdit}
+                    validationSchema={GigSchema}
+                    onSubmit={onSaveGig}                >
+                    {({ errors, touched, values, handleChange, setFieldValue }) => (
+                        <Form>
+                            <div className='top-from'>
+                                <label className='title'>
+                                    <div>
+                                        <h2>Gig Title</h2>
+                                        <p>As your Gig storefront, your title is the most important place to include keywords that buyers would likely use to search for a service like yours.</p>
+                                    </div>
+                                    <Field
+                                        as={TextField}
+                                        label="Title"
+                                        variant="outlined"
+                                        name="title"
+                                        required
+                                        margin="normal"
+                                        error={touched.title && !!errors.title}
+                                        // helperText={touched.title && errors.title}
+                                        onChange={handleChange}
+                                        value={values.title}
+                                    />
+                                </label>
 
-            <Formik
-                enableReinitialize
-                initialValues={gigToEdit}
-                validationSchema={GigSchema}
-                onSubmit={onSaveGig}
-            >
-                {({ errors, touched, values, handleChange, setFieldValue }) => (
-                    <Form>
-                        <Field
-                            as={TextField}
-                            label="Title"
-                            variant="outlined"
-                            name="title"
-                            required
-                            margin="normal"
-                            error={touched.title && !!errors.title}
-                            helperText={touched.title && errors.title}
-                            onChange={handleChange}
-                            value={values.title}
-                        />
+                                <label className='description'>
+                                    <div>
+                                        <h2>Description</h2>
+                                        <p>Briefly Describe Your Gig</p>
+                                    </div>
+                                    <Field
+                                        as={TextField}
+                                        label="Description"
+                                        variant="outlined"
+                                        type="text"
+                                        name="daysToMake"
+                                        margin="normal"
+                                        inputProps={{ min: 1 }}
+                                        error={touched.daysToMake && !!errors.daysToMake}
+                                        helperText={touched.daysToMake && errors.daysToMake}
+                                        onChange={handleChange}
+                                        value={values.daysToMake}
+                                        multiline
+                                        rows={8}
+                                    />
+                                </label>
+                            </div>
 
 
-                        <Field
-                            as={TextField}
-                            label="Price"
-                            variant="outlined"
-                            type="number"
-                            name="price"
-                            margin="normal"
-                            inputProps={{ min: 1 }}
-                            error={touched.price && !!errors.price}
-                            helperText={touched.price && errors.price}
-                            onChange={handleChange}
-                            value={values.price}
-                        />
+                            <div className='bottom-form'>
+                                <label className='day-to-complete'>
+                                    <span>Days to Make
+                                        <p>Days it will take you on average to finish this gig</p></span>
+                                    <Field
+                                        as={TextField}
+                                        label="Day To complete"
+                                        variant="outlined"
+                                        type="number"
+                                        name="daysToMake"
+                                        margin="normal"
+                                        inputProps={{ min: 1 }}
+                                        error={touched.daysToMake && !!errors.daysToMake}
+                                        helperText={touched.daysToMake && errors.daysToMake}
+                                        onChange={handleChange}
+                                        value={values.daysToMake}
+                                    />
+                                </label>
 
-                        <Field
-                            as={TextField}
-                            label="Day To complete"
-                            variant="outlined"
-                            type="number"
-                            name="daysToMake"
-                            margin="normal"
-                            inputProps={{ min: 1 }}
-                            error={touched.daysToMake && !!errors.daysToMake}
-                            helperText={touched.daysToMake && errors.daysToMake}
-                            onChange={handleChange}
-                            value={values.daysToMake}
-                        />
+                                <label className='price'>
+                                    <span>Price <p>Price you're offering for this gig</p>
+                                    </span>
+                                    <Field
+                                        as={TextField}
+                                        label="Price"
+                                        variant="outlined"
+                                        type="number"
+                                        name="price"
+                                        margin="normal"
+                                        inputProps={{ min: 1 }}
+                                        error={touched.price && !!errors.price}
+                                        helperText={touched.price && errors.price}
+                                        onChange={handleChange}
+                                        value={values.price}
+                                    />
+                                </label>
 
-                        <Field
-                            as={TextField}
-                            label="Description"
-                            variant="outlined"
-                            name="description"
-                            margin="normal"
-                            error={touched.description && !!errors.description}
-                            helperText={touched.description && errors.description}
-                            onChange={handleChange}
-                            value={values.description}
-                        />
+                                <label className='location'>
+                                    <span>Location <p>What country are you from?</p></span>
+                                    <Field
+                                        as={TextField}
+                                        label="Location"
+                                        variant="outlined"
+                                        name="loc"
+                                        margin="normal"
+                                        error={touched.loc && !!errors.loc}
+                                        helperText={touched.loc && errors.loc}
+                                        onChange={handleChange}
+                                        value={values.loc}
+                                    />
+                                </label>
 
-                        <Field
-                            as={TextField}
-                            label="Location"
-                            variant="outlined"
-                            name="loc"
-                            margin="normal"
-                            error={touched.loc && !!errors.loc}
-                            helperText={touched.loc && errors.loc}
-                            onChange={handleChange}
-                            value={values.loc}
-                        />
-                        <ImgUploader onUploaded={(url) => { values.imgUrls.unshift(url) }} />
 
-                        <FormControl margin="normal">
-                            <InputLabel id="tags-tag">Tags</InputLabel>
-                            <Select
-                                multiple
-                                labelId="tags-tag"
-                                id="tags"
-                                name="tags"
-                                value={values.tags}
-                                onChange={event => {
-                                    setFieldValue('tags', event.target.value)
-                                }}
-                                renderValue={selected => selected.join(', ')}
-                                style={{ minWidth: '250px' }}
-                            >
-                                {tags.map(tag => (
-                                    <MenuItem key={tag} value={tag}>
-                                        <Checkbox checked={values.tags.includes(tag)} />
-                                        <ListItemText primary={tag} />
-                                    </MenuItem>
-                                ))}
-                            </Select>
-                        </FormControl>
 
-                        <Button variant="contained" color="primary" type="submit">
-                            {gigToEdit._id ? 'Save' : 'Add'}
-                        </Button>
-                    </Form>
-                )}
-            </Formik>
+                                <label className='categort'>
+                                    <span>Category <p>Choose the category most suitable for your Gig.</p></span>
+                                    <FormControl margin="normal">
+                                        <InputLabel id="tags-tag">Tags</InputLabel>
+                                        <Select
+                                            multiple
+                                            labelId="tags-tag"
+                                            id="tags"
+                                            name="tags"
+                                            value={values.tags}
+                                            onChange={event => {
+                                                setFieldValue('tags', event.target.value)
+                                            }}
+                                            renderValue={selected => selected.join(', ')}
+                                            style={{ minWidth: '250px' }}
+                                        >
+                                            {tags.map(tag => (
+                                                <MenuItem key={tag} value={tag}>
+                                                    <Checkbox checked={values.tags.includes(tag)} />
+                                                    <ListItemText primary={tag} />
+                                                </MenuItem>
+                                            ))}
+                                        </Select>
+                                    </FormControl>
+                                </label>
+
+                                <div className='upload-images'>
+                                    <span>Upload Images <p>Encourage buyers to choose your Gig by featuring a variety of your work.</p>
+                                    </span>
+                                    <label className='up-image'>
+                                        <ImgUploader onUploaded={(url) => { values.imgUrls.unshift(url) }} />
+                                    </label>
+                                </div>
+                            </div>
+
+
+                        </Form>
+                    )}
+                </Formik>
+                <div className='btn-form'>
+                    <Button variant="contained" color="primary" onClick={() => navigate('/gig')}>
+                        cancel
+                    </Button>
+
+                    <Button variant="contained" color="primary" type="submit">
+                        {gigToEdit._id ? 'Save' : 'Add'}
+                    </Button>
+                </div>
+            </div>
         </section>
     )
 }
