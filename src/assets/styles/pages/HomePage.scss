@@ -53,6 +53,7 @@
     @include for-normal-layout {
         .hero {
             height: 438px;
+            background-image: none;
             background-color: #003811;
             font-size: 0.933rem;
         }
