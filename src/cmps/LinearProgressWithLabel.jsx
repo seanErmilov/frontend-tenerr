@@ -6,20 +6,9 @@ import { useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material';
 
 function LinearProgressWithLabel(props) {
-    const theme = createTheme({
-        palette: {
-            primary: {
-                main: '#4caf50', // Corrected primary color
-            },
-            secondary: {
-                main: '#76ff03', // Corrected secondary color
-            },
-        },
-    })
 
 
     return (
-        // <ThemeProvider theme={theme}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Box sx={{ width: '100%', mr: 1 }}>
                 <LinearProgress variant="determinate" {...props} sx={{ color: '#1dbf73' }} />
@@ -30,7 +19,6 @@ function LinearProgressWithLabel(props) {
                 )}%`}</Typography>
             </Box>
         </Box>
-        // </ThemeProvider >
     );
 }
 

@@ -8,7 +8,7 @@ import { showSuccessMsg } from '../services/event-bus.service'
 import { loadOrders, updateOrderStatus } from '../store/actions/order.actions'
 import { OrderList } from '../cmps/orderList'
 import { ProfileProgress } from '../cmps/profileProgress'
-import { ThemeProvider, createTheme } from '@mui/material'
+import { Skeleton, ThemeProvider, createTheme } from '@mui/material'
 
 export function Dashboard() {
 
@@ -45,7 +45,11 @@ export function Dashboard() {
   return (
     <main className="Dashboard">
       <ThemeProvider theme={theme}>
-        <ProfileProgress orders={orders} />
+        {orders.length ?
+          <ProfileProgress orders={orders} /> :
+          <Skeleton variant="rounded" />
+
+        }
         <h3>Manage Orders</h3>
         <OrderList orders={orders} onStatusSelect={onStatusSelect} />
       </ThemeProvider >
