@@ -5,8 +5,9 @@ import { useParams } from 'react-router-dom'
 import { loadUser } from '../store/actions/user.actions'
 import { store } from '../store/store'
 import { showSuccessMsg } from '../services/event-bus.service'
-import { loadOrders, updateOrder, updateOrderStatus } from '../store/actions/order.actions'
+import { loadOrders, updateOrderStatus } from '../store/actions/order.actions'
 import { OrderList } from '../cmps/orderList'
+import { ProfileProgress } from '../cmps/profileProgress'
 
 export function Dashboard() {
 
@@ -14,10 +15,11 @@ export function Dashboard() {
   const user = useSelector(storeState => storeState.userModule.watchedUser)
   const orders = useSelector(storeState => storeState.orderModule.orders)
 
+
   useEffect(() => {
     loadUser(params.id)
     loadOrders({ _userId: params.id })
-  }, [params.id])
+  }, [params.id, orders])
 
   function onStatusSelect(status, orderId) {
     updateOrderStatus(orderId, status)
@@ -30,7 +32,7 @@ export function Dashboard() {
 
   return (
     <main className="Dashboard">
-
+      <ProfileProgress orders={orders} />
       <h3>Manage Orders</h3>
       <OrderList orders={orders} onStatusSelect={onStatusSelect} />
     </main>
