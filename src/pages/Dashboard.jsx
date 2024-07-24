@@ -43,16 +43,20 @@ export function Dashboard() {
   }
 
   return (
-    <main className="Dashboard">
+    <main className="Dashboard main-container-side-by-sidy">
       <ThemeProvider theme={theme}>
-        {orders.length ?
-          <ProfileProgress orders={orders} /> :
-          <Skeleton variant="rounded" />
+        <section className='seller-profile'>
+          {orders.length ?
+            <ProfileProgress orders={orders} /> :
+            <Skeleton variant="rounded" />
+          }
+        </section>
+        <section className='seller-orders'>
+          <h3>Manage Orders</h3>
+          <OrderList orders={orders} onStatusSelect={onStatusSelect} />
+        </section>
 
-        }
-        <h3>Manage Orders</h3>
-        <OrderList orders={orders} onStatusSelect={onStatusSelect} />
       </ThemeProvider >
-    </main>
+    </main >
   )
 }
