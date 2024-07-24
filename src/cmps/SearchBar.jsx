@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router'
 
 // imgs
 import magnifyingGlass from '../assets/img/svg/searchBar/magnifyingGlass.svg'
+import { convertObjectToQueryParams } from '../services/util.service'
 
 
 export function SearchBar({ trackInViewport = false }) {
@@ -45,7 +46,9 @@ export function SearchBar({ trackInViewport = false }) {
         if (!filterBy.title) return
 
         onSetFilter(filterBy)
-        navigate('/gig')
+
+        const queryParams = convertObjectToQueryParams(filterBy)
+        navigate(`/gig?${queryParams}`)
     }
 
     function handleChange(ev) {

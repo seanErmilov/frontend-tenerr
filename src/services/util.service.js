@@ -78,3 +78,25 @@ export function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
 }
+
+export function convertObjectToQueryParams(obj) {
+    const queryParams = new URLSearchParams()
+
+    Object.keys(obj).forEach(key => {
+        if (Array.isArray(obj[key])) {
+            // Convert array items to `key=value` format
+            obj[key].forEach(value => {
+                queryParams.append(`${key}`, value)
+            })
+        } else {
+            queryParams.set(key, obj[key])
+        }
+    })
+
+    return queryParams.toString()
+}
+
+export function getArrayFromSearchParams(searchParams, key) {
+    const values = searchParams.getAll(key); // Retrieve all values for the given key
+    return values.length > 0 ? values : []; // Return array of values or empty array if none
+}

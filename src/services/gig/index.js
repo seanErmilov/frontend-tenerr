@@ -1,6 +1,6 @@
 const { DEV, VITE_LOCAL } = import.meta.env
 
-import { getRandomIntInclusive, makeId } from '../util.service'
+import { getArrayFromSearchParams, getRandomIntInclusive, makeId } from '../util.service'
 
 import { gigService as local } from './gig.service.local'
 import { gigService as remote } from './gig.service.remote'
@@ -23,7 +23,6 @@ function getDefaultFilter() {
         price: '',
         tags: [],
         dayToMake: '',
-        imgUrls: [],
         loc: '',
         descrption: '',
         // sortDir: '',
@@ -37,12 +36,26 @@ function getPrimeCategories() {
     return ['programming', 'graphics', 'digital', 'writing', 'video', 'ai', 'music', 'business', 'consulting']
 }
 
+function getFilterFromSearchParams(searchParams) {
+    const filterBy = {
+        title: searchParams.get('title') || '',
+        price: +searchParams.get('price') || '',
+        dayToMake: +searchParams.get('dayToMake') || '',
+        descrption: searchParams.get('descrption') || '',
+        tags: getArrayFromSearchParams(searchParams, 'tags'),
+        // sort: searchParams.get('sort') || ''
+    }
+    return filterBy
+
+}
+
 const service = VITE_LOCAL === 'true' ? local : remote
 export const gigService = {
     getEmptyGig,
     getDefaultFilter,
     getPrimeryTags,
     getPrimeCategories,
+    getFilterFromSearchParams,
     ...service
 }
 
