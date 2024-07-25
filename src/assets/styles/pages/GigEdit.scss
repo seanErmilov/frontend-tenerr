@@ -212,34 +212,61 @@
 
         }
 
-        .upload-button {
-          background-color: $clr8;
-          color: $clr4;
-          padding: 8px;
-          border-radius: 5px;
-          height: 50px;
+        .upload-preview {
+          position: relative;
+          width: max-content;
+          border-radius: 4px;
+          padding: 10px;
+          // background-color: #f9f9f9;
+        
+          img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin-left: 5px
+          }
 
+        
+          label {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid $clr8;
+            border-radius: 4px;
+            background-color: $clr8;
+            color: $clr4;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        
+            &:hover {
+              background-color: #004711;
+            }
+          }
         }
-
+        
+        
       }
     }
   }
 
   .btn-form {
     display: flex;
-    justify-content: space-between;
-    width: 850px;
+    justify-content: space-around;
     margin: auto auto 20px;
+    margin-top: 3rem;
   }
 
   .css-sghohy-MuiButtonBase-root-MuiButton-root {
     background-color: $clr8;
-    &:hover{
-      background-color: $clr8; 
+
+    &:hover {
+      background-color: $clr8;
     }
   }
-  .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
-    border-color:$clr8;
+
+  .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: $clr8;
   }
 
 }
