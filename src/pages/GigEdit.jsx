@@ -114,13 +114,13 @@ export function GigEdit() {
                                         label="Description"
                                         variant="outlined"
                                         type="text"
-                                        name="daysToMake"
+                                        name="description"
                                         margin="normal"
                                         inputProps={{ min: 1 }}
-                                        error={touched.daysToMake && !!errors.daysToMake}
-                                        helperText={touched.daysToMake && errors.daysToMake}
+                                        error={touched.daysToMake && !!errors.description}
+                                        helperText={touched.daysToMake && errors.description}
                                         onChange={handleChange}
-                                        value={values.daysToMake}
+                                        value={values.description}
                                         multiline
                                         rows={8}
                                     />
@@ -216,20 +216,20 @@ export function GigEdit() {
                                     </label>
                                 </div>
                             </div>
+                            <div className='btn-form'>
+                                <Button variant="contained" color="primary" onClick={() => navigate('/gig')}>
+                                    cancel
+                                </Button>
 
+                                <Button variant="contained" color="primary" type="submit">
+                                    {gigToEdit._id ? 'Save' : 'Add'}
+                                </Button>
+                            </div>
 
                         </Form>
                     )}
                 </Formik>
-                <div className='btn-form'>
-                    <Button variant="contained" color="primary" onClick={() => navigate('/gig')}>
-                        cancel
-                    </Button>
 
-                    <Button variant="contained" color="primary" type="submit">
-                        {gigToEdit._id ? 'Save' : 'Add'}
-                    </Button>
-                </div>
             </div>
         </section>
     )
