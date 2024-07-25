@@ -37,7 +37,6 @@ export function GigEdit() {
             .catch(err => {
                 console.log('Had issued in gig edit:', err)
                 navigate('/gig')
-                navigate('/profile')
                 showErrorMsg('Gig not found!')
             })
     }
