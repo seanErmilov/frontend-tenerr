@@ -1,8 +1,9 @@
 
-import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useEffect} from 'react'
+import { useSelector} from 'react-redux'
 
 import { loadGigs, setFilter } from '../store/actions/gig.actions'
+import { HEADER_STICKY } from '../store/reducers/system.reducer'
 
 import { GigList } from '../cmps/GigList'
 import { GigFilter } from '../cmps/GigFilter'
@@ -12,27 +13,25 @@ import { useLocation, useParams } from 'react-router'
 import { useSearchParams } from 'react-router-dom'
 import { gigService } from '../services/gig'
 
+
+
+
 export function GigIndex() {
     const [searchParams, setSearchParams] = useSearchParams()
     const defaultFilter = gigService.getFilterFromSearchParams(searchParams)
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
-    const location = useLocation()
+
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
 
     useEffect(() => {
         setFilter(defaultFilter)
     }, [])
 
+
     useEffect(() => {
         loadGigs(filterBy)
         setSearchParams(filterBy)
     }, [filterBy])
-
-
-
-
-
-
 
     function onSetFilterBy(filterBy) {
         setFilter(filterBy)

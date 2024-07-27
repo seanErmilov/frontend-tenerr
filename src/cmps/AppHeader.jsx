@@ -27,6 +27,8 @@ import { ProfileNav } from './profileNav.jsx'
 
 export function AppHeader() {
 	// hooks
+	const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
+	const headerSticky = useSelector(storeState => storeState.systemModule.headerSticky)
 	const user = useSelector(storeState => storeState.userModule.user)
 	const navigate = useNavigate()
 	const active = true
@@ -37,6 +39,7 @@ export function AppHeader() {
 	const [open, setOpen] = useState(false)
 	const handleOpen = () => setOpen(true)
 	const handleClose = () => setOpen(false)
+
 
 
 	// functions
@@ -59,10 +62,14 @@ export function AppHeader() {
 		current.classList.toggle("hidden")
 	}
 
+	function onSetFilter(filterBy) {
+		setFilter(filterBy)
+	}
+
 	return (
 		<>
-			<div className='filler left'></div>
-			<header className="app-header grid-column">
+			<div className={`filler left ${headerSticky ? 'header-sticky' : ''}`}></div>
+			<header className={`app-header grid-column ${headerSticky ? 'header-sticky' : ''}`}>
 				{/* hamburger */}
 				<div className="hamburger" >
 					<img src={hamburger} alt="" />
@@ -125,9 +132,13 @@ export function AppHeader() {
 					</ul>
 				</nav>
 				<SignupLoginModal open={open} handleClose={handleClose} />
-				<FilterPrimeCategories />
+				<FilterPrimeCategories
+					filterBy={filterBy}
+					setFilterBy={onSetFilter}
+					avoidHiding={!headerSticky}
+					 />
 			</header>
-			<div className='filler right'></div>
+			<div className={`filler right ${headerSticky ? 'header-sticky' : ''}`}></div>
 
 			{/* <div className='full-liner main-container full'></div> */}
 		</>

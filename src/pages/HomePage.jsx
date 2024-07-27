@@ -1,5 +1,7 @@
 // react tools
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+
 
 // cmp
 import { SearchBar } from '../cmps/SearchBar'
@@ -9,6 +11,7 @@ import { FreelanceTalent } from '../cmps/FreelanceTalent.jsx'
 
 // store - actions
 import { setFilter } from '../store/actions/gig.actions'
+import { HEADER_STICKY } from '../store/reducers/system.reducer'
 
 // costumhooks
 import { useWindowDimensions } from '../customHooks/windowRisze'
@@ -16,10 +19,29 @@ import { useWindowDimensions } from '../customHooks/windowRisze'
 export function HomePage() {
     const windowDims = useWindowDimensions()
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
+    const dispatch = useDispatch()
+
 
     function onSetFilter(filterBy) {
         setFilter(filterBy)
     }
+
+    useEffect(() => {
+        const onMount = {
+            type: HEADER_STICKY,
+            headerSticky: true,
+        }
+        dispatch(onMount)
+
+        return () => {
+            const onDemount = {
+                type: HEADER_STICKY,
+                headerSticky: false,
+            }
+            dispatch(onDemount)
+        }
+    }, [])
+
 
     return (
         <main className="gig-homepage">
@@ -63,7 +85,10 @@ export function HomePage() {
 
 
             {/* filters  categories*/}
-            <FilterPrimeCategories filterBy={filterBy} setFilterBy={onSetFilter} trackInViewport={true} />
+            <FilterPrimeCategories
+                filterBy={filterBy}
+                setFilterBy={onSetFilter}
+                trackInViewport={true} />
 
             <FreelanceTalent />
 

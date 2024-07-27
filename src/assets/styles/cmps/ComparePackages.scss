@@ -10,31 +10,80 @@ $no: url('https://cdn.icon-icons.com/icons2/1369/PNG/512/-check_90383.png');
   }
 
   table {
+    border-block: 1px solid #ddd;
     width: 100%;
     border-collapse: collapse;
 
-    th,
     td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: center;
-      font-size: 10px;
-    }
-
-    td {
+      border-inline: 1px solid #ddd;
+      width: 25%;
       color: $clr7;
+
+      &:first-child {
+        font-size: 0.875em;
+        padding-inline-start: 1rem;
+      }
     }
 
-    th {
-      background-color: #f4f4f4;
-      color: $clr7;
-      font-size: 24px;
 
+    thead {
+      tr {
+        padding: 0;
+        margin: 0;
+
+        td {
+          vertical-align: top;
+          padding-top: 1.9em;
+          text-align: start;
+          padding-inline: 1em;
+
+          &>* {
+            padding-bottom: 1em;
+            margin: 0;
+          }
+
+          .price{
+            font-size: 1.1875rem;
+          }
+
+          .level{
+            font-size: 1.1875rem;
+            font-weight:bold;
+
+          }
+
+          .package-description{
+            font-size: 0.875rem;
+          }
+        }
+      }
     }
 
-    tr:nth-child(even) {
-      background-color: #f9f9f9;
+    tbody {
+      tr {
+        height: 3.1em;
+      }
+
+      td:not(:first-child) {
+        text-align: center;
+      }
+
+     
+
+      tr:nth-child(odd) {
+        background-color: #f9f9f9;
+      }
+
+      tr:last-child {
+        border-top: 1px solid #ddd;
+
+        td {
+          padding-block: 1em;
+        }
+      }
     }
+
+
 
     button {
       background-color: $clr9;
@@ -56,8 +105,6 @@ $no: url('https://cdn.icon-icons.com/icons2/1369/PNG/512/-check_90383.png');
     }
 
     td {
-      font-size: 17px;
-
       .yes,
       .no {
         display: inline-block;
@@ -77,75 +124,6 @@ $no: url('https://cdn.icon-icons.com/icons2/1369/PNG/512/-check_90383.png');
         background-image: $no;
         opacity: 0.4;
       }
-    }
-
-    .package-description {
-      font-size: 17px;
-      padding-top: 10px;
-      width: 60%;
-      color: $clr5;
-      margin-top: 5px;
-      display: flex;
-      flex-direction: column;
-      margin: auto;
-    }
-  }
-
-  @media (max-width: 1200px) {
-    table {
-      font-size: 18px;
-
-      th,
-      td {
-        padding: 6px;
-      }
-    }
-  }
-
-  @media (max-width: 992px) {
-    table {
-      font-size: 18px;
-      width: 800px;
-      height: 600px;
-
-
-      td {
-
-        .yes,
-        .no {
-          width: 14px;
-          height: 14px;
-        }
-      }
-    }
-  }
-
-  @media (max-width: 860px) {
-    table {
-      font-size: 18px;
-      width: 700px;
-      height: 600px;
-
-      td {
-
-        .yes,
-        .no {
-          width: 14px;
-          height: 14px;
-        }
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    table {
-
-      display: none;
-
-    }
-
-    h2 {
-      display: none;
     }
   }
 }
