@@ -79,7 +79,7 @@ function saveLoggedinUser(user) {
 }
 
 // To quickly create an admin user, uncomment the next line
-_createAdmin()
+// _createAdmin()
 async function _createAdmin() {
     const users = loadFromStorage('user') || []
     if (users.length) return
