@@ -76,6 +76,8 @@ export function GigDetails() {
       {/* right side */}
       <div className='gig-details-side'>
         <SidebarOptions />
+        <br />
+
         <SidebarPrice handleOpen={handleOpen} handelcheckout={handelcheckout} price={gig.price} avgResponseTime={gig.avgResponseTime} onChange={() => { }} />
       </div>
 
@@ -91,6 +93,8 @@ export function GigDetails() {
         <div className='carousel-container'>
             <DetailsCarousel deviceType="" />
         </div>
+        <br />
+        <br />
 
         <div className='carousel-container'>
           <ReviewCarousel
@@ -98,14 +102,25 @@ export function GigDetails() {
             loc={gig.loc}
             renderStars={renderStars} />
         </div>
+        <br />
+
 
         <AboutGig
           description={gig.description}
           name={gig.owner.fullname} />
+        <br />
 
         <AboutUserGig user={gig.owner} loc={gig.loc} />
+        <br />
+        <br />
+
+
 
         <ComparePackages price={gig.price} avgResponseTime={gig.avgResponseTime} />
+
+        <br />
+        <br />
+
         <GigPageReviews reviews={gig.reviews} />
         <ReviewFilter reviews={filteredReviews} />
         <div className="gig-reviewList"><ReviewList reviews={gig.reviews} loc={gig.loc} /></div>
