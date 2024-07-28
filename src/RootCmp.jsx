@@ -13,7 +13,7 @@ import { UserMsg } from './cmps/UserMsg.jsx'
 import { LoginSignup } from './cmps/LoginSignup.jsx'
 import { Login } from './cmps/Login.jsx'
 import { Signup } from './cmps/Signup.jsx'
-import { GigEdit } from './pages/GigEdit.jsx'
+import { GigAdd } from './pages/GigAdd.jsx'
 import { Checkout } from './pages/Checkout.jsx'
 import { Dashboard } from './pages/DashBoard.jsx'
 import { Profile } from './pages/Profile.jsx'
@@ -27,7 +27,7 @@ export function RootCmp() {
                 <Routes>
                     <Route path="" element={<HomePage />} />
                     <Route path="gig" element={<GigIndex />} />
-                    <Route path="gig/edit" element={<GigEdit />} />
+                    <Route path="gig/edit" element={<GigAdd />} />
                     <Route path="gig/:gigId" element={<GigDetails />} />
                     <Route path="profile" element={<Profile  />} />
                     <Route path="checkout/:orderId" element={<Checkout />} />

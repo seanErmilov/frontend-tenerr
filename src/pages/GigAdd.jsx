@@ -17,9 +17,8 @@ import { gigService } from '../services/gig'
 import { ImgUploader } from '../cmps/ImgUploader'
 import { addGig } from '../store/actions/gig.actions'
 
-export function GigEdit() {
+export function GigAdd() {
     const [gigToEdit, setGigToEdit] = useState(gigService.getEmptyGig())
-
     const { gigId } = useParams()
     const navigate = useNavigate()
 

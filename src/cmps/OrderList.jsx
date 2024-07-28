@@ -61,7 +61,7 @@ export function OrderList({ orders, onStatusSelect }) {
                 <TableHead>
                     <TableRow>
                         <TableCell>Buyer</TableCell>
-                        <TableCell align="left">Gig Name</TableCell>
+                        <TableCell align="left">Gig</TableCell>
                         <TableCell align="left">Total</TableCell>
                         <TableCell align="left">Status</TableCell>
                     </TableRow>
@@ -77,7 +77,7 @@ export function OrderList({ orders, onStatusSelect }) {
                                 {row.fullname}
                             </TableCell>
                             <TableCell align="left">{row.title}</TableCell>
-                            <TableCell align="left">{row.price}</TableCell>
+                            <TableCell align="left">US${row.price}</TableCell>
                             <TableCell align="left"><StatusSelect sx={muiTheme} onStatusSelect={onStatusSelect} status={row.status} orderId={row._id} /></TableCell>
                         </TableRow>
                     ))}

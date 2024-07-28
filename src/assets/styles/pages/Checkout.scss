@@ -12,10 +12,13 @@
 
         section {
 
-            border: 1px solid $clr6;
+            // border: 1px solid $clr6;
             margin-bottom: 3rem;
             border-radius: 4px;
 
+            // .payment-methods{
+            //    margin: 0; 
+            // }
             .section-header {
                 display: flex;
                 -webkit-box-orient: horizontal;
@@ -85,19 +88,16 @@
         display: flex;
         flex-direction: column;
 
-        .MuiFormControl-root {
-            // display: flex;
-            // width:s 60%;
-            width: 95%;
-
-        }
-
-        .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
-            border-radius: 15px;
-        }
-
         input {
+
             padding: 13px;
+            width: 450px;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 15px;
+            border: 1px solid $clr5;
+            margin-bottom: 20px;
+
         }
 
         .form-center {
@@ -106,7 +106,8 @@
             gap: 65px;
 
             .item {
-                width: 342px;
+                width: 190px;
+                margin-top: 20px;
             }
         }
 
