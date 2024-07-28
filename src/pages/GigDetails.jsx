@@ -90,8 +90,10 @@ export function GigDetails() {
         <MiniuserGig user={gig.owner} />
 
         <div className='carousel-container'>
-            <DetailsCarousel deviceType="" />
+          <DetailsCarousel deviceType="" />
         </div>
+
+
         <br />
         <br />
 
@@ -104,6 +106,7 @@ export function GigDetails() {
             loc={gig.loc}
             renderStars={renderStars} />
         </div>
+
         <br />
 
 

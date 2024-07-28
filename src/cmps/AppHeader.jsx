@@ -27,10 +27,20 @@ import { ProfileNav } from './profileNav.jsx'
 
 export function AppHeader() {
 	// hooks
+	// system states
 	const showCatBar = useSelector(storeState => storeState.systemModule.showCategoriesBar)
-	const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
 	const headerSticky = useSelector(storeState => storeState.systemModule.headerSticky)
+
+	//gig states
+	const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
+
+	//oreder states
+	const orders = useSelector((storeState) => storeState.orderModule.orders)
+
+	console.log(orders)
+	// use states
 	const user = useSelector(storeState => storeState.userModule.user)
+
 	const navigate = useNavigate()
 	const mainNavRef = useRef()
 	const profileNavRef = useRef()
@@ -40,7 +50,6 @@ export function AppHeader() {
 	const handleClose = () => setOpen(false)
 
 
-	console.log(showCatBar)
 	// functions
 	async function onLogout() {
 		try {
