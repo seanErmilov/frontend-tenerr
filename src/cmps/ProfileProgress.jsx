@@ -7,14 +7,18 @@ export function ProfileProgress({ orders }) {
     return (
         <div className="ProfileProgress">
             <div className="profile">
-                <img src={orders[0].seller.imgUrl} alt="" />
-                <div>
-                    <div>Positive Rating</div>
-                    <div>100%</div>
+                <div className="img-container">
+                    <img src={orders[0].seller.imgUrl} alt="" />
                 </div>
-                <div>
-                    <div>Response Time</div>
-                    <div>1 Hrs.</div>
+                <div className="user-desc">
+                    <div className="profile-item">
+                        <p>Positive Rating</p>
+                        <div>100%</div>
+                    </div>
+                    <div className="profile-item">
+                        <p>Response Time</p>
+                        <div>1 Hrs.</div>
+                    </div>
                 </div>
             </div>
             <ul className='profileStatusProgress'>

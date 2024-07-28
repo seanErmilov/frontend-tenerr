@@ -1,4 +1,113 @@
-.Dashboard {
+main {
+    margin: 0;
+    padding: 0;
+}
 
-    gap: 2rem;
+.Dashboard {
+    display: flex;
+
+    .seller-profile {
+        width: min-content;
+        background-color: #fff;
+        padding: 0;
+
+        .ProfileProgress {
+            border-radius: 5px;
+            background-color: #fff;
+            border: 1px solid #dadbdd;
+            margin: 0 40px 60px 0;
+            padding: 30px 20px 50px;
+            width: 400px;
+            max-height: 400px;
+
+            .profile {
+                display: flex;
+                justify-content: space-between;
+
+                .img-container {
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 10.4375em;
+                    overflow: hidden;
+                    margin-bottom: 15px;
+
+                }
+
+                .user-desc {
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 120px;
+                    margin-inline-start: 20px;
+
+
+                    .profile-item {
+                        padding: 8px;
+                        display: flex;
+                        flex-direction: column;
+
+                        p {
+                            margin: 0;
+                        }
+
+                        div {
+                            font-weight: bold;
+                        }
+                    }
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+
+            .profileStatusProgress {
+                li {
+                    margin: 30px 0
+                }
+
+                p {
+                    margin: 0;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    th {
+        font-weight: bold;
+    }
+
+    td {
+        font-weight: bold;
+        color: $clr7;
+        font-size: 15px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .Dashboard {
+        display: flex;
+        flex-direction: column;
+
+        .seller-profile {
+
+            .ProfileProgress {
+                width: 370px;
+                padding: 20px 30px 0px;
+                .profile {
+                    width: 300px;
+                }
+
+                .profileStatusProgress {
+                    width: 300px;
+                }
+            }
+        }
+    }
+
+ 
 }

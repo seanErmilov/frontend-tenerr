@@ -16,9 +16,9 @@ export function StatusSelect({ status, onStatusSelect, orderId }) {
     }
 
     const statusColors = {
-        pending: '#f8e5a0',  // Soft yellow
-        completed: '#a3d9a5', // Soft green
-        rejected: '#f4a6a1'  // Soft red
+        pending: '#efe900',  // Soft yellow
+        completed: '#007313', // Soft green
+        rejected: '#990000'  // Soft red
     }
 
     const selectColor = statusColors[statusToEdit]
@@ -35,9 +35,9 @@ export function StatusSelect({ status, onStatusSelect, orderId }) {
                     onChange={handleChange}
                     sx={{ color: selectColor }} // Dynamic color
                 >
-                    <MenuItem sx={{ color: '#f8e5a0' }} value={'pending'}>In progress</MenuItem>
-                    <MenuItem sx={{ color: '#a3d9a5' }} value={'completed'}>Completed</MenuItem>
-                    <MenuItem sx={{ color: '#f4a6a1' }} value={'rejected'}>Rejected</MenuItem>
+                    <MenuItem sx={{ color: '#efe900' }} value={'pending'}>In progress</MenuItem>
+                    <MenuItem sx={{ color: '#007313' }} value={'completed'}>Completed</MenuItem>
+                    <MenuItem sx={{ color: '#990000' }} value={'rejected'}>Rejected</MenuItem>
                 </Select>
             </FormControl>
         </Box>

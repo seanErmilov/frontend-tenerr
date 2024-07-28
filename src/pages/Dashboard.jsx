@@ -51,6 +51,7 @@ export function Dashboard() {
             <Skeleton variant="rounded" />
           }
         </section>
+        
         <section className='seller-orders'>
           <h3>Manage Orders</h3>
           <OrderList orders={orders} onStatusSelect={onStatusSelect} />
