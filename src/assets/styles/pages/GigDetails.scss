@@ -14,6 +14,7 @@
     }
 
     .gig-overview {
+        position: relative;
         width: 100%;
         grid-column: 2;
         grid-row: 1;
@@ -130,7 +131,8 @@
         }
 
         .carousel-container {
-            position: relative;
+            background-color: red;
+            // position: relative;
             width: 100%;
             overflow: hidden;
         }
