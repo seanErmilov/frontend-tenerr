@@ -39,16 +39,24 @@ export function Checkout() {
         <main className="checkout">
             <div className="main-content">
                 <section className="billing-info">
-                    <h6>Billing information</h6>
-                    <p>Your invoice will be issued according to the details listed here.</p>
-                    <Button>Edit</Button>
+                    <header className="section-header">
+                        <h6>Billing information</h6>
+                    </header>
+                    <div>
+                        <p>Your invoice will be issued according to the details listed here.</p>
+                        <Button>Add details
+                        </Button>
+                    </div>
                 </section>
                 <section className="payment-methods">
-                    <h6>Payment Options</h6>
+                    <header className="section-header">
+                        <h6>Payment Options</h6>
+                    </header>
+
                     <CheckoutForm order={order} />
                 </section>
             </div>
-            <div className="side-content">
+            {/* <div className="side-content">
                 <section className="order-details-container">
                     <header className="order-details-header">
                         <span className="img-container">
@@ -112,7 +120,7 @@ export function Checkout() {
                     </div>
 
                 </section>
-            </div>
+            </div> */}
         </main>
     )
 }
