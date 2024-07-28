@@ -43,10 +43,11 @@
 
   li {
     .review-carousell {
+      overflow: hidden;
       $profile-pic-size: 2.2em;
       display: grid;
-      grid-template-columns: max-content max-content;
-      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: max-content 1fr;
+      grid-template-rows: max-content max-content max-content;
       gap: 1rem;
       border: 1px solid $clr6;
       padding: 1.25em;
@@ -113,8 +114,14 @@
       }
 
       .review-carousell-txt {
+        width: unset;
+        padding-inline-end: 1rem;
+        text-align: start;
+        // background-color: red;
+        max-height: 2.5rem;
         grid-column: 2;
-        text-overflow: ellipsis;
+        overflow: hidden;
+        // text-overflow: ellipsis;
       }
 
       .review-carousell-time {
@@ -122,8 +129,6 @@
         grid-column: 2;
         font-size: 0.875em;
       }
-
-
     }
   }
 }
