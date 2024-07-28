@@ -40,7 +40,7 @@ export function CheckoutForm({ order }) {
   }
 
   return (
-    <section className="gig-edit">
+    <section className="card-pay">
 
       <Formik
         enableReinitialize

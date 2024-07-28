@@ -52,7 +52,6 @@ export function Checkout() {
                     <header className="section-header">
                         <h6>Payment Options</h6>
                     </header>
-
                     <CheckoutForm order={order} />
                 </section>
             </div>

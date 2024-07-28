@@ -1,7 +1,8 @@
 .checkout {
     .main-content {
         display: flex;
-flex-direction: column;
+        flex-direction: column;
+
         div {
             display: flex;
             justify-content: space-between;
@@ -68,6 +69,19 @@ flex-direction: column;
             }
         }
     }
+ form{
+    display: flex;
+    flex-direction: column;
+    .MuiFormControl-root  {
+        display: flex;
+        background-color: aquamarine;
+        label{
+            color: rgb(157, 54, 241);
+           
+        }
+    }
+
+}
 
 
     .side-content {
