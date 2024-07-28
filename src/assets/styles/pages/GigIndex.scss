@@ -1,4 +1,18 @@
 .gig-index {
+    .navigate {
+        padding-block: 2rem;
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: start;
+        button {
+            margin-inline-end: 1.5rem;
+        }
+
+        span{
+            margin-inline-end: .7rem;
+        }
+    }
+
     h1 {
         margin: 0;
         font-size: 2em;
