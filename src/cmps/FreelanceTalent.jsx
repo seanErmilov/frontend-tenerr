@@ -13,7 +13,6 @@ export function FreelanceTalent() {
                 </div>
 
                 <div className="card">
-
                     <img  src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/handshake.287b5d3.svg" alt="Clear, transparent pricing" loading="lazy" />
                     <h2>Clear, transparent pricing</h2>
                     <p>Pay per project or by the hour (Pro). Payments only get released when you approve.</p>

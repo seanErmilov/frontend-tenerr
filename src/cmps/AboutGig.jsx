@@ -27,7 +27,7 @@ export function AboutGig({ description, name = 'San' }) {
         <p>{descriptionTemp[2]}</p>
 
         <h3 className="subtitle">Curious to see my work?</h3>
-        <p>{descriptionTemp[3]}</p>
+        <p className="no-padding">{descriptionTemp[3] }</p>
         <p className="italics">{descriptionTemp[4]}</p>
 
         <h3 className="subtitle">Got Questions?</h3>

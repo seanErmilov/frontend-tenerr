@@ -73,21 +73,30 @@ export function GigDetails() {
 
   return (
     <section className="gig-details">
-      {/* right side */}
+
       <div className='gig-details-side'>
         <SidebarOptions />
+        <br />
         <SidebarPrice handleOpen={handleOpen} handelcheckout={handelcheckout} price={gig.price} avgResponseTime={gig.avgResponseTime} onChange={() => { }} />
       </div>
 
       {/* left side */}
       <div className='gig-overview'>
+
         <Breadcrumbs />
+
         <h1 className="text-display">{gig.title}</h1>
 
         <MiniuserGig user={gig.owner} />
+
         <div className='carousel-container'>
-          <DetailsCarousel deviceType="desktop" />
+            <DetailsCarousel deviceType="" />
         </div>
+        <br />
+        <br />
+
+        <SidebarPrice handleOpen={handleOpen} handelcheckout={handelcheckout} price={gig.price} avgResponseTime={gig.avgResponseTime} onChange={() => { }} />
+
 
         <div className='carousel-container'>
           <ReviewCarousel
@@ -95,16 +104,27 @@ export function GigDetails() {
             loc={gig.loc}
             renderStars={renderStars} />
         </div>
+        <br />
+
+
         <AboutGig
-          description={gig.description} 
-          name={gig.owner.fullname}/>
+          description={gig.description}
+          name={gig.owner.fullname} />
+        <br />
+
         <AboutUserGig user={gig.owner} loc={gig.loc} />
-        
-        {/* <ComparePackages price={gig.price} avgResponseTime={gig.avgResponseTime} /> */}
-        {/* <GigPageReviews reviews={gig.reviews} /> */}
-        {/* <ReviewFilter reviews={filteredReviews} /> */}
-        {/* <div className="gig-reviewList"><ReviewList reviews={gig.reviews} loc={gig.loc} /></div> */}
-        {/* <CheckoutModal open={open} handleClose={handleClose} /> */}
+        <br />
+        <br />
+
+        <ComparePackages price={gig.price} avgResponseTime={gig.avgResponseTime} />
+
+        <br />
+        <br />
+
+        <GigPageReviews reviews={gig.reviews} />
+        <ReviewFilter reviews={filteredReviews} />
+        <div className="gig-reviewList"><ReviewList reviews={gig.reviews} loc={gig.loc} /></div>
+        <CheckoutModal open={open} handleClose={handleClose} />
       </div>
     </section>
   )

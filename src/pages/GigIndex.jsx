@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 import { loadGigs, setFilter } from '../store/actions/gig.actions'
@@ -12,27 +12,25 @@ import { useLocation, useParams } from 'react-router'
 import { useSearchParams } from 'react-router-dom'
 import { gigService } from '../services/gig'
 
+
+
+
 export function GigIndex() {
     const [searchParams, setSearchParams] = useSearchParams()
     const defaultFilter = gigService.getFilterFromSearchParams(searchParams)
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
-    const location = useLocation()
+
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
 
     useEffect(() => {
         setFilter(defaultFilter)
     }, [])
 
+
     useEffect(() => {
         loadGigs(filterBy)
         setSearchParams(filterBy)
     }, [filterBy])
-
-
-
-
-
-
 
     function onSetFilterBy(filterBy) {
         setFilter(filterBy)
@@ -42,11 +40,8 @@ export function GigIndex() {
     const innerText = filterBy.title ? filterBy.title : filterBy.tags[0]
     return (
         <main className="gig-index">
-
             <Inside filterBy={filterBy}
                 innerText={innerText} />
-            <header>
-            </header>
             <h1>Logo Design</h1>
             <h4>Stand out from the crowd with a logo that fits your brand personality</h4>
             <FilterBtn />
