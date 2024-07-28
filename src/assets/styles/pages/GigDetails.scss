@@ -5,13 +5,12 @@
     align-items: start;
 
     .gig-details-side {
+        width: 100%;
         top: 20px;
         position: sticky;
         display: grid;
         grid-column: 4;
         grid-row: 1;
-        justify-content: end;
-        grid-template-columns: max-content;
     }
 
     .gig-overview {
@@ -208,7 +207,7 @@
     }
 
     @include for-normal-layout {
-        grid-template-columns: 5fr 55fr minmax(1rem, 5fr) 30fr 5fr;
+        grid-template-columns: 3.94fr 52.906fr 8.345fr 30.849fr  3.94fr;
 
         .gig-overview {
             .sidebar {
