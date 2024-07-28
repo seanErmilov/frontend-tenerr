@@ -34,7 +34,7 @@ import { convertObjectToQueryParams } from '../services/util.service'
 // case SHOW_CATEGORIES_BAR:
 //     return { ...state, showCategoriesBar: action.showCategoriesBar }
 
-export function FilterPrimeCategories({ filterBy, setFilterBy, trackInViewport = false, avoidHiding = false }) {
+export function FilterPrimeCategories({ filterBy, setFilterBy, trackInViewport = false, avoidHiding = false}) {
 
     const showCatBar = useSelector(storeState => storeState.systemModule.showCategoriesBar)
     const dispatch = useDispatch()
@@ -81,8 +81,6 @@ export function FilterPrimeCategories({ filterBy, setFilterBy, trackInViewport =
         })
         setHiddenArrow(edge.id)
     }
-
-    const noHight = avoidHiding ? '' : 'no-height'
 
     return (
         <div className={`prime-categories-section  pos-relative ${!(trackInViewport || showCatBar) ? avoidHiding ? '' : 'no-height' : ''}`}>
@@ -178,6 +176,8 @@ export function FilterPrimeCategories({ filterBy, setFilterBy, trackInViewport =
                     <div>Consulting</div>
                 </li>
             </ul >
+
+            {/* <div className='outline-bottom'> sdv</div> */}
         </div >
     )
 }
