@@ -8,9 +8,9 @@ import star from '../assets/img/svg/star.svg' // Import the image
 export function MiniuserGig({ user }) {
   const randomOrders = Math.floor(Math.random() * (300 - 20 + 1)) + 20
 
-  function renderDiamonds(count) {
-    return '♦️'.repeat(count)
-  }
+  // function renderDiamonds(count) {
+  //   return '♦️'.repeat(count)
+  // }
 
   return (
     <div className="gig-owner-brief">

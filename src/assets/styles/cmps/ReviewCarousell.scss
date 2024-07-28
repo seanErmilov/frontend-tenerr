@@ -1,81 +1,17 @@
 .gig-reviews-carousel {
-  width: 100%;
-  .carousel-root {
-    outline: none;
-    width: 100%;
-}
-  h1 {
-    margin-bottom: 15px;
-    font-size: 22px;
-    
+
+  .thumbs-wrapper {
+    display: none;
   }
 
-  .review {
-    margin-left: 5px;
-    padding-bottom: 30px;
-    display: grid;
-    // grid-template-columns: auto 55px 250px 1fr;
-    grid-template-rows: 40px auto auto;
-    text-align: start;
-    margin-top: 40px;
-    border-bottom: 1px solid $clr6;
 
-    .reviewer-img {
-      width: 55px;
-
-      img {
-        margin: 5px 2px;
-        border-radius: 50%;
-        height: 44px;
-        width: 47px;
-        grid-column: 2;
-      }
-    }
-
-    .name-and-loc {
-      line-height: 1.2;
-      grid-column: 2;
-      grid-row: 1;
-
-      .reviewer-name,
-      .reviewer-loc {
-        font-size: 16px;
-        margin-left: 5px;
-      }
-    }
-
-    .review-txt {
-      grid-column: 2 / span 3;
-      grid-row: 3;
-      margin-left: 5px;
-      font-size: 16px;
-    }
-
-    .review-rate {
-      grid-column: 2;
-      margin-left: 5px;
-      font-size: 16px;
-      color: $clr9;
-    }
-  }
-
-  .stars-container {
-    display: flex;
-
-    .full-star {
-      font-weight: 600;
-    }
-
-    span {
-      align-items: center;
-    }
-  }
+  h1 {}
 
   .carousel-arrow {
     font-size: 16px;
     align-items: center;
     position: absolute;
-    top: 57%;
+    top: 50%;
     transform: translateY(-50%);
     border: none;
     cursor: pointer;
@@ -90,138 +26,103 @@
     }
 
     &.prev {
-      left: -12px;
+      // left: -12px;
       z-index: 1;
     }
 
     &.next {
-      right: -15px;
+      right: -0;
       z-index: 5;
     }
   }
 
-  .review-carousell {
-    padding-top: 20px;
-    display: grid;
-    grid-template-columns: 80px 90px 95px 1fr;
-    grid-template-rows: 20px 40px;
-    border: 1px solid $clr6;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: start;
-    align-items: center;
-    margin-top: 20px;
-    height: 140px;
 
-    .reviewer-carousell-img {
-      grid-row: 1;
-      height: 38px;
-      width: 39px;
-
-      img {
-        border-radius: 50%;
-        margin: 10px 30px;
-        height: 36px;
-        grid-column: 1;
-        object-fit: cover;
-
-      }
-    }
-
-    .reviewer-carousell-name,
-    .reviewer-carousell-loc,
-    .review-carousell-rate {
-      font-size: 16px;
-      color: $clr9;
-      opacity: 80%;
-    }
-
-    .reviewer-carousell-name {
-      grid-column: 2;
-    }
-
-    .reviewer-carousell-loc {
-      grid-column: 3;
-
-      span {
-        padding-left: 10px;
-        color: $clr6;
-
-      }
-    }
-
-    .review-carousell-txt {
-      grid-column: 2 / span 4;
-      grid-row: 2;
-      color: $clr9;
-      opacity: 80%;
-    }
-
-    .review-carousell-rate {
-      color: $clr9;
-      grid-column: 4;
-      font-size: large;
-    }
+  .control-dots {
+    display: none;
   }
 
-  @media (max-width: 1200px) {
-    .carousel-root {
-      width: 38rem;
-    }
-  }
-
-  @media (max-width: 1100px) {
-    .carousel-root {
-      width: 36rem;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    .carousel-root {
-      width: 34rem;
-
-      .review-carousell {
-        grid-template-columns: 80px 92px 90px ;
-  
-      }
-    }
-
-    
-  }
-
-  @media (max-width: 960px) {
-    .carousel-root {
-      width: 30rem;
-
-      .review-carousell {
-        grid-template-columns: 80px 92px 90px ;
-  
-      }
-    }
-  }
-  @media (max-width: 890px) {
-    .carousel-root {
-      width: 26rem;
-
-      .review-carousell {
-        grid-template-columns: 80px 92px 90px ;
-      }
-      .review-carousell-txt{
-        margin-top: 7px;
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
+  li {
     .review-carousell {
-      display: none;
-    }
+      $profile-pic-size: 2.2em;
+      display: grid;
+      grid-template-columns: max-content max-content;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 1rem;
+      border: 1px solid $clr6;
+      padding: 1.25em;
+      border-radius: 0.2em;
+      color: #62646a;
+      justify-items: start;
 
-    h1 {
-      display: none;
-    }
+      .reviewer-img {
+        border-radius: 50%;
+        height: $profile-pic-size;
+        width: $profile-pic-size;
+        object-fit: cover;
+        grid-row: 1 / -1;
 
-    .carousel-root {
-      display: none;
+      }
+
+      .first-row {
+        height: max-content;
+        grid-column: 2;
+        display: grid;
+        align-items: center;
+        grid-template-columns: max-content max-content max-content;
+        gap: 0.6em;
+
+        .reviewer-carousell-name {
+          font-weight: bold;
+        }
+
+        .reviewer-carousell-loc {
+          display: grid;
+          grid-template-columns: max-content max-content max-content;
+          width: fit-content;
+          align-items: center;
+          gap: 0.6em;
+
+          &::after {
+            content: ';';
+            overflow: hidden;
+            width: 0.1px;
+            background-color: #95979d;
+
+          }
+        }
+
+        .review-carousell-rate {
+          color: #000000;
+          font-weight: 700;
+          align-items: center;
+          display: grid;
+          grid-auto-flow: column;
+          grid-auto-columns: max-content;
+          gap: 0.24em;
+          align-items: center;
+
+          img {
+            height: 1em;
+          }
+
+          div {
+            padding-top: 0.1em;
+          }
+
+        }
+      }
+
+      .review-carousell-txt {
+        grid-column: 2;
+        text-overflow: ellipsis;
+      }
+
+      .review-carousell-time {
+        color: #95979d;
+        grid-column: 2;
+        font-size: 0.875em;
+      }
+
 
     }
   }

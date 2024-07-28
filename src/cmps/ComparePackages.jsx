@@ -1,4 +1,4 @@
-import  { useMemo } from 'react'
+import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export function ComparePackages({ price, avgResponseTime }) {
@@ -63,27 +63,31 @@ export function ComparePackages({ price, avgResponseTime }) {
     <div className="compare-packages">
       <h2>Compare Packages</h2>
       <table>
-        <thead>
+        {/* <thead>
           <tr>
             <th>Package</th>
             {packages.map(pkg => (
               <th key={pkg.name}>{pkg.name}</th>
             ))}
           </tr>
-        </thead>
-        <tbody>
+        </thead> */}
+        {/* <tbody> */}
+        <thead>
           <tr>
-            <td>Price</td>
+            <td>Package</td>
             {packages.map(pkg => (
               <td key={pkg.name}>
-                {pkg.price}
+                <div className='price'>{pkg.price}</div>
+                <div className='level'>{pkg.name}</div>
                 {pkg.name === 'Basic' && <div className="package-description">{pkg.description}</div>}
                 {pkg.name === 'Standard' && <div className="package-description">{pkg.description}</div>}
                 {pkg.name === 'Premium' && <div className="package-description">{pkg.description}</div>}
               </td>
             ))}
           </tr>
+        </thead>
 
+        <tbody>
           {Object.keys(packages[0].features).map((feature, index) => (
             <tr key={index}>
               <td>{feature}</td>

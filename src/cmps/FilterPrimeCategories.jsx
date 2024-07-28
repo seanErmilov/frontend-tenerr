@@ -34,7 +34,7 @@ import { convertObjectToQueryParams } from '../services/util.service'
 // case SHOW_CATEGORIES_BAR:
 //     return { ...state, showCategoriesBar: action.showCategoriesBar }
 
-export function FilterPrimeCategories({ filterBy, setFilterBy, trackInViewport = false }) {
+export function FilterPrimeCategories({ filterBy, setFilterBy, trackInViewport = false, avoidHiding = false }) {
 
     const showCatBar = useSelector(storeState => storeState.systemModule.showCategoriesBar)
     const dispatch = useDispatch()
@@ -82,22 +82,24 @@ export function FilterPrimeCategories({ filterBy, setFilterBy, trackInViewport =
         setHiddenArrow(edge.id)
     }
 
+    const noHight = avoidHiding ? '' : 'no-height'
+
     return (
-        <div className={`prime-categories-section  pos-relative ${!(trackInViewport || showCatBar) ? 'transparent' : ''}`}>
+        <div className={`prime-categories-section  pos-relative ${!(trackInViewport || showCatBar) ? avoidHiding ? '' : 'no-height' : ''}`}>
             <div ref={dref} className='out-of-vp-indicator'></div>
 
             {windowDims.width > 900 && windowDims.width < 1250 && (
                 <>
                     {/* right arrow */}
                     <div
-                        className={`right-arrow pos-absolute hidden`}
+                        className={`right-arrow pos-absolute ${!(trackInViewport || showCatBar) ? avoidHiding ? '' : 'no-height' : ''}`}
                         onClick={() => onScrollTo(rightEdge)}>
                         <img className="img-right-arrow" src={rightArrow} alt="" />
                     </div>
 
                     {/* left arrow */}
                     <div
-                        className={`left-arrow pos-absolute`}
+                        className={`left-arrow pos-absolute ${!(trackInViewport || showCatBar) ? avoidHiding ? '' : 'no-height' : ''}`}
                         onClick={() => onScrollTo(leftEdge)}>
                         <img className="img-left-arrow" src={leftArrow} alt="" />
                     </div>
@@ -106,74 +108,74 @@ export function FilterPrimeCategories({ filterBy, setFilterBy, trackInViewport =
             <ul className='grid-column'>
                 {/* Programming & Tech */}
                 <li onClick={() => onClickTag('programming')} ref={leftEdge} id="left">
-                    <div>
+                    <div className="cat-img">
                         <img src={programming} alt="" />
                     </div>
-                    <p>Programming & Tech</p>
+                    <div>Programming & Tech</div>
                 </li>
 
                 {/* Graphics & Design */}
                 <li onClick={() => onClickTag('graphics')}>
-                    <div>
+                    <div className="cat-img">
                         <img src={graphics} alt="graphics_design" loading="lazy" />
                     </div>
-                    <p>Graphics & Design</p>
+                    <div>Graphics & Design</div>
                 </li>
 
                 {/* Digital Marketing */}
                 <li onClick={() => onClickTag('digital')}>
-                    <div>
+                    <div className="cat-img">
                         <img src={digital} alt="digital_marketing" loading="lazy" />
                     </div>
-                    <p>Digital Marketing</p>
+                    <div>Digital Marketing</div>
                 </li>
 
                 {/* Writing & Translation */}
                 <li onClick={() => onClickTag('writing')}>
-                    <div>
+                    <div className="cat-img">
                         <img src={writing} alt="writing_translation" loading="lazy" />
                     </div>
-                    <p>Writing & Translation</p>
+                    <div>Writing & Translation</div>
                 </li>
 
                 {/* Video & Animation */}
                 <li onClick={() => onClickTag('video')}>
-                    <div>
+                    <div className="cat-img">
                         <img src={video} alt="video_animation" loading="lazy" />
                     </div>
-                    <p>Video & Animation</p>
+                    <div>Video & Animation</div>
                 </li>
 
                 {/* AI Services */}
                 <li onClick={() => onClickTag('ai')}>
-                    <div>
+                    <div className="cat-img">
                         <img src={ai} alt="ai_services" loading="lazy" />
                     </div>
-                    <p>AI Services</p>
+                    <div>AI Services</div>
                 </li>
 
                 {/* Music & Audio */}
                 <li onClick={() => onClickTag('music')}>
-                    <div>
+                    <div className="cat-img">
                         <img src={music} alt="music_audio" loading="lazy" />
                     </div>
-                    <p>Music & Audio</p>
+                    <div>Music & Audio</div>
                 </li>
 
                 {/* Business */}
                 <li onClick={() => onClickTag('business')}>
-                    <div>
+                    <div className="cat-img">
                         <img src={business} alt="business" loading="lazy" />
                     </div>
-                    <p>Business</p>
+                    <div>Business</div>
                 </li>
 
                 {/* Lifestyle */}
                 <li onClick={() => onClickTag('consulting')} ref={rightEdge}>
-                    <div>
+                    <div className="cat-img">
                         <img src={consulting} alt="consulting" loading="lazy" />
                     </div>
-                    <p>Consulting</p>
+                    <div>Consulting</div>
                 </li>
             </ul >
         </div >

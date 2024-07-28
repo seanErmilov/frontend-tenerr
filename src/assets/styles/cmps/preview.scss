@@ -3,10 +3,16 @@
 
     .preview-header {
         margin-block-start: 0.75rem;
-
         font-size: 0.875rem;
         align-items: center;
         justify-content: space-between;
+        padding-bottom: 0.3em;
+
+        .owner-profile-pic {
+            border-radius: 50%;
+            height: 1.5rem;
+            padding-inline-end: 0.5em;
+        }
 
         &,
         .ad-by {
@@ -15,12 +21,11 @@
             align-items: center;
         }
 
-        img {
-            width: 1.5rem;
+        .level {
             height: 1.5rem;
-            border-radius: 2rem;
             margin-inline-end: 0.5rem
         }
+
     }
 
     .title {
@@ -70,5 +75,4 @@
         line-height: 1.5;
     }
 
-    &:hover {}
 }
