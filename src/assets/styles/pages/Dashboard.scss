@@ -93,11 +93,18 @@ main {
         display: flex;
         flex-direction: column;
 
+        .title-column {
+            display: none;
+        }
+
         .seller-profile {
+            margin-top: 20px;
 
             .ProfileProgress {
-                width: 370px;
-                padding: 20px 30px 0px;
+                width: 330px;
+                padding: 20px;
+                margin: 0;
+
                 .profile {
                     width: 300px;
                 }
@@ -107,7 +114,34 @@ main {
                 }
             }
         }
+
+        .seller-orders {
+            margin-top: 40px;
+            
+        }
+
+        .css-quj9j6-MuiTable-root {
+            min-width: 250px;
+        }
+
+        .css-q8hpuo-MuiFormControl-root {
+            width: 140px;
+
+        }
+
+        .css-11xur9t-MuiPaper-root-MuiTableContainer-root {
+            width: 330px;
+        }
+        th{
+            font-weight: 900;
+            color: $clr7;
+        }
+        h3{
+            color: $clr9;
+            opacity: 0.8;   
+        }
     }
 
- 
+
+
 }

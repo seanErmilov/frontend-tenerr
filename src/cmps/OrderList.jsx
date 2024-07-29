@@ -18,36 +18,36 @@ export function OrderList({ orders, onStatusSelect }) {
     }
 
     const rows = orders.map(order => {
-        return createData(order.buyer.fullname, order.buyer.imgUrl, order.gig.name, order.gig.price, order.status, order._id)
+        return createData(order.fullname, order.imgUrl, order.gig.name, order.gig.price, order.status, order._id)
     })
 
     const muiTheme = {
         text: {
             '& .MuiOutlinedInput-root': {
                 '&.Mui-focused fieldset': {
-                    borderColor: '#52b69a', // Change border color when focused
+                    borderColor: '#52b69a',
                 },
             },
             '& .MuiInputLabel-root.Mui-focused': {
-                color: '#ffd56b', // Change label color when focused
+                color: '#ffd56b',
             },
         },
         select: {
             '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                borderColor: '#52b69a', // Border color when focused
+                borderColor: '#52b69a',
             },
         },
         button: {
             color: 'black',
             backgroundColor: '#ffd56b',
             '&:hover': {
-                backgroundColor: '#52b69a', // Background color on hover
+                backgroundColor: '#52b69a',
             },
         },
         checkbox: {
-            color: '#52b69a', // Default color
+            color: '#52b69a',
             '&.Mui-checked': {
-                color: '#52b69a', // Color when checked
+                color: '#52b69a',
             },
         },
     }
@@ -61,7 +61,7 @@ export function OrderList({ orders, onStatusSelect }) {
                 <TableHead>
                     <TableRow>
                         <TableCell>Buyer</TableCell>
-                        <TableCell align="left">Gig</TableCell>
+                        <TableCell align="left"  className="title-column" >Gig</TableCell>
                         <TableCell align="left">Total</TableCell>
                         <TableCell align="left">Status</TableCell>
                     </TableRow>
@@ -76,7 +76,7 @@ export function OrderList({ orders, onStatusSelect }) {
                                 <Avatar alt="Remy Sharp" src={row.buyerImg} />
                                 {row.fullname}
                             </TableCell>
-                            <TableCell align="left">{row.title}</TableCell>
+                            <td className="title-column" style={{ borderBottom: '1px solid #ddd', padding: '8px' }} align="left">{row.title}</td>
                             <TableCell align="left">US${row.price}</TableCell>
                             <TableCell align="left"><StatusSelect sx={muiTheme} onStatusSelect={onStatusSelect} status={row.status} orderId={row._id} /></TableCell>
                         </TableRow>
