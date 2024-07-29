@@ -13,7 +13,6 @@ import { Skeleton, ThemeProvider, createTheme } from '@mui/material'
 export function Dashboard() {
 
   const params = useParams()
-  const user = useSelector(storeState => storeState.userModule.watchedUser)
   const orders = useSelector(storeState => storeState.orderModule.orders)
 
   const theme = createTheme({
@@ -31,7 +30,7 @@ export function Dashboard() {
   useEffect(() => {
     loadUser(params.id)
     loadOrders({ _userId: params.id })
-  }, [params.id, orders])
+  }, [params.id])
 
   function onStatusSelect(status, orderId) {
     updateOrderStatus(orderId, status)

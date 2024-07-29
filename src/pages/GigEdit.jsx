@@ -54,7 +54,7 @@ export function GigEdit() {
             .max(15, 'Too Long!'),
         price: Yup.number()
             .min(1, 'Price must be at least 1'),
-        dayToMake: Yup.number()
+        daysToMake: Yup.number()
             .min(1, 'Day To Make must be at least 1'),
         tags: Yup.array().of(Yup.string()),
     })
