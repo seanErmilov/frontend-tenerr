@@ -11,7 +11,7 @@ import { FreelanceTalent } from '../cmps/FreelanceTalent.jsx'
 
 // store - actions
 import { setFilter } from '../store/actions/gig.actions'
-import { HEADER_STICKY } from '../store/reducers/system.reducer'
+import { HEADER_STICKY, SHOW_SEARCH_BAR } from '../store/reducers/system.reducer'
 
 // costumhooks
 import { useWindowDimensions } from '../customHooks/windowRisze'
@@ -34,11 +34,19 @@ export function HomePage() {
         dispatch(onMount)
 
         return () => {
-            const onDemount = {
+            const onDemount1 = {
                 type: HEADER_STICKY,
                 headerSticky: false,
             }
-            dispatch(onDemount)
+
+            const onDemount2 = {
+                type: SHOW_SEARCH_BAR,
+                showSearchBar: true,
+            }
+            dispatch(onDemount1)
+            dispatch(onDemount2)
+
+            
         }
     }, [])
 
@@ -82,8 +90,7 @@ export function HomePage() {
                     </ul>
                 </div>
             </div>
-
-
+            
             {/* filters  categories*/}
             <FilterPrimeCategories
                 filterBy={filterBy}

@@ -92,6 +92,8 @@ export function GigDetails() {
         <div className='carousel-container'>
         <DetailsCarousel images={gig.imgUrls} /> 
         </div>
+
+
         <br />
         <br />
 
@@ -104,6 +106,7 @@ export function GigDetails() {
             loc={gig.loc}
             renderStars={renderStars} />
         </div>
+
         <br />
 
 

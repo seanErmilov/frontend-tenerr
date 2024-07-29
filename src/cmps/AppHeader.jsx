@@ -2,7 +2,7 @@
 import { Link, NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 
 // services
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
@@ -27,20 +27,43 @@ import { ProfileNav } from './profileNav.jsx'
 
 export function AppHeader() {
 	// hooks
+	// system states
 	const showCatBar = useSelector(storeState => storeState.systemModule.showCategoriesBar)
-	const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
 	const headerSticky = useSelector(storeState => storeState.systemModule.headerSticky)
+
+	//gig states
+	const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
+
+	//oreder states
+	const orders = useSelector((storeState) => storeState.orderModule.orders)
+
+
+	// use states
 	const user = useSelector(storeState => storeState.userModule.user)
+
 	const navigate = useNavigate()
+
 	const mainNavRef = useRef()
+	const orderListRef = useRef()
 	const profileNavRef = useRef()
-	const [arrowTurnDeg, setarrowTurnDeg] = useState(0)
+
+	const [arrowTurnDegExplore, setArrowTurnDegExplore] = useState(0)
+
+
+	const [orderListVisible, setOrderListVisible] = useState(false)
+
+
+
 	const [open, setOpen] = useState(false)
 	const handleOpen = () => setOpen(true)
 	const handleClose = () => setOpen(false)
 
 
-	console.log(showCatBar)
+	useEffect(() => {
+		if (orderListRef.current && orderListVisible) orderListRef.current.focus()
+
+	}, [orderListVisible])
+
 	// functions
 	async function onLogout() {
 		try {
@@ -54,7 +77,11 @@ export function AppHeader() {
 
 	function toggleExplore({ current }) {
 		current.classList.toggle("hidden")
-		setarrowTurnDeg(prev => (prev + 0.5) % 1)
+		setArrowTurnDegExplore(prev => (prev + 0.5) % 1)
+	}
+
+	function toggleOrderList() {
+		setOrderListVisible(prev => !prev)
 	}
 
 	function toggleProfileNav({ current }) {
@@ -89,11 +116,33 @@ export function AppHeader() {
 				<nav >
 					<ul className="nav-links grid-column">
 						<li>
-							<button className="header-btn-style grid-column pos-relative" onClick={() => toggleExplore(mainNavRef)}>
+							<button className="header-btn-style grid-column pos-relative explore" onClick={() => toggleExplore(mainNavRef)}>
 								Explore
-								<img className='arrow' src={arrow} alt="" style={{ transform: `rotate(${arrowTurnDeg}turn)` }} />
-								<MainNav
-									mainNavRef={mainNavRef} />
+								<img className='arrow' src={arrow} alt="" style={{ transform: `rotate(${arrowTurnDegExplore}turn)` }} />
+								<ul className='main-nav pos-absolute hidden' ref={mainNavRef}>
+
+									{!user &&
+										<li>
+											<div className='hheader-link sign-in-l÷ink' onClick={handleOpen}>Sign In</div>
+										</li>
+									}
+
+									<li>
+										<NavLink className="header-link" to="about">Become a Seller</NavLink>
+									</li>
+									<li>
+										<NavLink className="main-nav-link" to="gig/edit">Add gig</NavLink>
+									</li>
+									<li>
+										<NavLink className="main-nav-link" to="gig">Gigs</NavLink>
+									</li>
+									<li>
+										<NavLink className="main-nav-link" to="chat">Chat</NavLink>
+									</li>
+									<li>
+										<NavLink className="main-nav-link" to="review">Review</NavLink>
+									</li>
+								</ul>
 							</button>
 						</li>
 
@@ -102,23 +151,46 @@ export function AppHeader() {
 								{!user &&
 									<>
 										<li>
-											<NavLink className="header-link" to="about">Become a Seller</NavLink>
+											<NavLink className="header-link become-a-seller" to="about">Become a Seller</NavLink>
 										</li>
 
 										<li>
-											<button className='hheader-link sign-in-l÷ink' onClick={handleOpen}>Sign In</button>
+											<button className='header-link sign-in-link' onClick={handleOpen}>Sign In</button>
 										</li>
 
 										<li>
-											<button className='header-link header-btn-style login-link' onClick={handleOpen}>Join</button>
+											<button className='header-link header-btn-stle login-link' onClick={handleOpen}>Join</button>
 										</li>
 									</>
 								}
 
 								{user && (
 									<>
+										<li >
+											<button className="grid-column pos-relative orders" onClick={toggleOrderList}>
+												Orders
+												{
+													orders.length > 0 && orderListVisible &&
+													<ul className='pos-absolute user-orders' ref={orderListRef} tabIndex="-1" onBlur={toggleOrderList}>
+														{orders.map((order, idx) =>
+															<li key={idx}>
+																<Link to={`gig/${order.gig._id}`} title={order.gig.name}>
+																	<img src={order.gig.imgUrl} alt="" />
+																	<div>
+																		<div className='status'>{order.status}</div>
+																		<div className='by'>by: {order.seller.fullname}</div>
+																	</div>
+																</Link>
+															</li>
+														)}
+
+													</ul>
+												}
+
+											</button>
+										</li>
 										<li>
-											<button className="header-btn-style grid-column pos-relative" onClick={() => toggleProfileNav(profileNavRef)}>
+											<button className="grid-column pos-relative user-btn" onClick={() => toggleProfileNav(profileNavRef)}>
 												<img className='img-user' src={user.imgUrl} alt="" />
 												<ProfileNav
 													profileNavRef={profileNavRef} onLogout={onLogout} userId={user._id} />

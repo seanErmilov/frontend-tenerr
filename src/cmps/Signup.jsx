@@ -26,6 +26,10 @@ export function Signup({ handleClose }) {
         if (ev) ev.preventDefault()
 
         if (!credentials.username || !credentials.password || !credentials.fullname) return
+        credentials.rate = 4
+        credentials.level = 'standard'
+        credentials.descripton = 'An experienced logo designer with a passion for creating unique brand identities.'
+
         await signup(credentials)
         clearState()
         handleClose()

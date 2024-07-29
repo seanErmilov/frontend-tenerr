@@ -75,7 +75,7 @@ function getSymbolByLevel(level) {
     return levels[level] || 0
 }
 
-function _getRandomGig(partialGig = {}) {
+async function _getRandomGig(users, partialGig = {}) {
     const titles = [
         'I will design your logo',
         'I will create a website for you',
@@ -99,13 +99,6 @@ function _getRandomGig(partialGig = {}) {
         ['programming', 'digital'],
         ['business', 'digital'],
         ['lifestyle', 'business']
-    ]
-
-
-    const users = [
-        { _id: 'u101', fullname: 'Dudu Da', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3afO247RTO80vqElpg1Iyapzzg-d-bfeRxQ&s', level: 2, diamonds: 2, rate: 4, description: 'An experienced logo designer with a passion for creating unique.' },
-        { _id: 'u102', fullname: 'Jane Doe', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU7_D7oHLUDST-89GtjX2R4i3OPZSkCEICQw&s', level: 3, diamonds: 3, rate: 5, description: 'Specializing in building responsive and user-friendly websites.' },
-        { _id: 'a101', fullname: 'John Smith', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaXrFMnQrS3cdGFTB-UpG-5qMGMQyybPu7xg&s', level: 1, diamonds: 1, rate: 3, description: 'A skilled writer with a knack for crafting engaging and informative articles.' }
     ]
 
     const imgUrls = [
@@ -133,7 +126,6 @@ function _getRandomGig(partialGig = {}) {
     ]
 
     const gig = {
-        _id: `u${getRandomInt(100, 99999)}`,
         title: getRandomElement(titles),
         price: parseFloat((Math.random() * 70 + 40).toFixed(0)),
         owner: getRandomElement(users),
@@ -150,14 +142,20 @@ function _getRandomGig(partialGig = {}) {
     return { ...gig, ...partialGig }
 }
 
-function _createGigs() {
+async function _createGigs() {
     const gigs = loadFromStorage(STORAGE_KEY) || []
     if (gigs.length) return
 
+    const users = await _fetchUsers()
+    if (!users) return
+
+
     for (let i = 0; i < 55; i++) {
-        gigs.push(_getRandomGig())
+        gigs.push(await _getRandomGig(users))
     }
+
     saveToStorage(STORAGE_KEY, gigs)
+    console.log(JSON.stringify(gigs))
 }
 
 function _generateReviews(users) {
@@ -184,4 +182,13 @@ function _generateReviews(users) {
         })
     }
     return reviews
+}
+
+async function _fetchUsers() {
+    try {
+        const users = await userService.getUsers()
+        return users
+    } catch (error) {
+        console.error('Error fetching users:', error)
+    }
 }
