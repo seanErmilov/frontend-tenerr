@@ -73,8 +73,9 @@ export function AppHeader() {
 	}
 
 	function toggleOrderList({ current }) {
-		current.classList.toggle("hidden")
 		setarrowTurnDegOrders(prev => (prev + 0.5) % 1)
+		if (!orders.length) return
+		current.classList.toggle("hidden")
 	}
 
 	function toggleProfileNav({ current }) {
@@ -163,20 +164,24 @@ export function AppHeader() {
 											<button className="header-btn-style grid-column pos-relative orders" onClick={() => toggleOrderList(orderListRef)}>
 												Orders
 												<img className='arrow' src={arrow} alt="" style={{ transform: `rotate(${arrowTurnDegOrders}turn)` }} />
-												<ul className='pos-absolute hidden user-orders hidden' ref={orderListRef}>
-													{orders.map((order, idx) =>
-														<li key={idx}>
-															<Link to={`gig/${order.gig._id}`}>
-																<img src={order.gig.imgUrl} alt="" />
-																<div>
-																	<div className='status'>{order.status}</div>
-																	<div className='by'>by: {order.seller.fullname}</div>
-																</div>
-															</Link>
-														</li>
-													)}
+												{
+													orders.length > 0 &&
+													<ul className='pos-absolute hidden user-orders hidden' ref={orderListRef}>
+														{orders.map((order, idx) =>
+															<li key={idx}>
+																<Link to={`gig/${order.gig._id}`}>
+																	<img src={order.gig.imgUrl} alt="" />
+																	<div>
+																		<div className='status'>{order.status}</div>
+																		<div className='by'>by: {order.seller.fullname}</div>
+																	</div>
+																</Link>
+															</li>
+														)}
 
-												</ul>
+													</ul>
+												}
+
 											</button>
 										</li>
 										<li>
