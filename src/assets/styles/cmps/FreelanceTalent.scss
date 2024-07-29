@@ -41,4 +41,10 @@
             }
         }
     }
+
+
+    @include for-mobile-layout {
+
+        display: none;
+    }
 }

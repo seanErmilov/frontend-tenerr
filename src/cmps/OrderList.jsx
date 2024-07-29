@@ -9,14 +9,13 @@ import { Avatar, Button } from '@mui/material';
 import { StatusSelect } from './StatusSelect';
 import { useState } from 'react';
 
-
-
 export function OrderList({ orders, onStatusSelect }) {
 
     function createData(fullname, buyerImg, title, price, status, _id) {
         return { fullname, buyerImg, title, price, status, _id }
     }
 
+    console.log(orders)
     const rows = orders.map(order => {
         return createData(order.buyer.fullname, order.buyer.imgUrl, order.gig.name, order.gig.price, order.status, order._id)
     })

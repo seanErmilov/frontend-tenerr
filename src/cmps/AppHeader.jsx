@@ -2,7 +2,7 @@
 import { Link, NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 
 // services
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
@@ -37,24 +37,32 @@ export function AppHeader() {
 	//oreder states
 	const orders = useSelector((storeState) => storeState.orderModule.orders)
 
-	// console.log(orders[0].gig.imgUrl)
-	// console.log(orders)
-	// console.log(orders[0].status)
 
 	// use states
 	const user = useSelector(storeState => storeState.userModule.user)
 
 	const navigate = useNavigate()
+
 	const mainNavRef = useRef()
 	const orderListRef = useRef()
 	const profileNavRef = useRef()
-	const [arrowTurnDegExplore, setarrowTurnDegExplore] = useState(0)
-	const [arrowTurnDegOrders, setarrowTurnDegOrders] = useState(0)
+
+	const [arrowTurnDegExplore, setArrowTurnDegExplore] = useState(0)
+
+
+	const [orderListVisible, setOrderListVisible] = useState(false)
+
+
 
 	const [open, setOpen] = useState(false)
 	const handleOpen = () => setOpen(true)
 	const handleClose = () => setOpen(false)
 
+
+	useEffect(() => {
+		if (orderListRef.current && orderListVisible) orderListRef.current.focus()
+
+	}, [orderListVisible])
 
 	// functions
 	async function onLogout() {
@@ -69,13 +77,11 @@ export function AppHeader() {
 
 	function toggleExplore({ current }) {
 		current.classList.toggle("hidden")
-		setarrowTurnDegExplore(prev => (prev + 0.5) % 1)
+		setArrowTurnDegExplore(prev => (prev + 0.5) % 1)
 	}
 
-	function toggleOrderList({ current }) {
-		setarrowTurnDegOrders(prev => (prev + 0.5) % 1)
-		if (!orders.length) return
-		current.classList.toggle("hidden")
+	function toggleOrderList() {
+		setOrderListVisible(prev => !prev)
 	}
 
 	function toggleProfileNav({ current }) {
@@ -153,7 +159,7 @@ export function AppHeader() {
 										</li>
 
 										<li>
-											<button className='header-link header-btn-style login-link' onClick={handleOpen}>Join</button>
+											<button className='header-link header-btn-stle login-link' onClick={handleOpen}>Join</button>
 										</li>
 									</>
 								}
@@ -161,15 +167,14 @@ export function AppHeader() {
 								{user && (
 									<>
 										<li >
-											<button className="header-btn-style grid-column pos-relative orders" onClick={() => toggleOrderList(orderListRef)}>
+											<button className="grid-column pos-relative orders" onClick={toggleOrderList}>
 												Orders
-												<img className='arrow' src={arrow} alt="" style={{ transform: `rotate(${arrowTurnDegOrders}turn)` }} />
 												{
-													orders.length > 0 &&
-													<ul className='pos-absolute hidden user-orders hidden' ref={orderListRef}>
+													orders.length > 0 && orderListVisible &&
+													<ul className='pos-absolute user-orders' ref={orderListRef} tabIndex="-1" onBlur={toggleOrderList}>
 														{orders.map((order, idx) =>
 															<li key={idx}>
-																<Link to={`gig/${order.gig._id}`}>
+																<Link to={`gig/${order.gig._id}`} title={order.gig.name}>
 																	<img src={order.gig.imgUrl} alt="" />
 																	<div>
 																		<div className='status'>{order.status}</div>
