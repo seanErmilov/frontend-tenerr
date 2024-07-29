@@ -7,15 +7,23 @@
     z-index: 4;
     top: 0;
 
+
     gap: 32px;
 
     height: $headerHight;
     align-items: center;
 
-    .img-user {
+    .user-btn {
+        // background-color: red;
+        width: fit-content;
         width: 2rem;
+
+    }
+
+    .img-user {
+        // width: 2rem;
         height: 2rem;
-        border-radius: 2rem;
+        border-radius: 50%;
         margin-inline-end: 0.5rem;
     }
 
@@ -128,8 +136,6 @@
 
     .prime-categories-section {
 
-
-
         .right-arrow,
         .left-arrow {
             cursor: pointer;
@@ -157,28 +163,20 @@
 
         }
 
-
         transition: height 0.5s;
         background-color: #ffffff;
         width: 100%;
         position: absolute;
-        top:0;
+        top: 0;
         top: $headerHight;
-        height: 45.3px;
-
+        height: $prime-filters-height;
 
         ul {
-            padding-inline: 1.5rem;
             height: 100%;
             width: 100%;
-            border-bottom: 1px solid #e4e5e7;
-            justify-items: center;
 
             overflow-x: scroll;
             gap: 1em;
-
-
-            justify-items: center;
 
             &::-webkit-scrollbar {
                 display: none;
@@ -186,7 +184,6 @@
 
             li {
                 height: 100%;
-
                 cursor: pointer;
                 text-wrap: nowrap;
                 display: flex;
@@ -209,8 +206,61 @@
         }
     }
 
+    .user-orders {
+        top: calc(100% + 0.5em);
+        right: 0;
+
+        background-color: #ffffff;
+        border-radius: 0.5em;
+        border: 1px solid #e4e5e7;
+        color: #000000;
+        padding: 0.5em;
+        z-index: 5;
+        display: grid;
+        max-height: 80vh;
+        overflow-y: scroll;
+        width: max-content;
+        justify-items: start;
+
+        li {
+            // max-width: 200px;
+            // overflow-x: scroll;
+            width: 100%;
+            a {
+                width: 100%;
+                padding: 0.5em 1em;
+                display: grid;
+                align-items: center;
+                grid-template-columns: auto 1fr;
+                gap: 0.5em;
+                grid-auto-flow: column;
+                border-bottom: 1px solid #e4e5e7;
+
+                img {
+                    grid-column: 1;
+                    height: 20px;
+                    object-fit: cover;
+                }
+
+                .status {
+                    text-align: start;
+                    font-weight: bold;
+                    grid-column: 2;
+                }
+
+                .by {
+                    font-size: 0.9em;
+                    text-align: start;
+                    grid-column: 2;
+                }
+
+            }
+        }
+    }
+
     @include for-mobile-layout {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 50px 1fr 50px;
+        justify-items: center;
 
         .hamburger {
             display: block;
@@ -223,6 +273,26 @@
         .search-bar {
             display: none;
         }
+
+        .become-a-seller {
+            display: none;
+        }
+
+        .nav-links {
+            gap: unset;
+        }
+
+        .user-nav {
+            gap: unset;
+
+            .sign-in-link {
+                display: none;
+            }
+
+            .orders {
+                display: none;
+            }
+        }
     }
 
     @include for-narrow-layout {
@@ -233,6 +303,10 @@
         }
 
         .explore {
+            display: none;
+        }
+
+        .become-a-seller {
             display: none;
         }
     }
@@ -247,10 +321,13 @@
         .explore {
             display: grid;
         }
+
+        .become-a-seller {
+            display: initial;
+        }
     }
 
     @include for-wide-layout {
-        grid-template-columns: auto 1fr auto;
 
         .hamburger {
             display: none;
@@ -260,7 +337,6 @@
 
 .filler {
     z-index: 3;
-    // position: sticky;
     top: 0px;
     width: 100%;
     height: $headerHight;
@@ -283,8 +359,12 @@
 }
 
 .full-liner {
-    position: sticky;
-    top: $headerHight;
+    background-color: #e4e5e7;
+    // z-index: 5;
+    position: absolute;
+    width: 100%;
+    height: .1px;
+    top: calc($headerHight + $prime-filters-height);
 }
 
 .header-sticky {

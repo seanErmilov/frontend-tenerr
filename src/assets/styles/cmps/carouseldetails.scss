@@ -1,4 +1,5 @@
 .react-multi-carousel-list {
+  position: static !important;
   ul {
     li {
 
@@ -26,20 +27,19 @@
 
   .react-multiple-carousel__arrow--right {
     right: calc(0%);
-    transform: translate(0%);
+    transform: translateX(50%);
   }
 
   .react-multiple-carousel__arrow--left {
     left: calc(0);
-    transform: translate(-0%);
+    transform: translateX(-50%);
 
   }
 
 
   .react-multiple-carousel__arrow {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255) !important;
     filter: drop-shadow(0 3px 2px #00000034);
-
   }
 
   .react-multiple-carousel__arrow::before {

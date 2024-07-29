@@ -1,28 +1,29 @@
 .gig-details {
+    padding-top: 20px;
     display: grid;
     grid-template-columns: 5fr 55fr 5fr 30fr 5fr;
     align-items: start;
 
     .gig-details-side {
-        top: 0;
+        width: 100%;
+        top: 20px;
         position: sticky;
         display: grid;
         grid-column: 4;
         grid-row: 1;
-        justify-content: end;
-        grid-template-columns: max-content;
     }
 
     .gig-overview {
+        position: relative;
         width: 100%;
         grid-column: 2;
         grid-row: 1;
         display: grid;
 
-        &>* {
-            grid-column: 1;
-        }
 
+        .sidebar {
+            position: initial;
+        }
 
         h1,
         h2 {
@@ -130,7 +131,6 @@
         }
 
         .carousel-container {
-            position: relative;
             width: 100%;
             overflow: hidden;
         }
@@ -169,4 +169,60 @@
             }
         }
     }
+
+    @include for-mobile-layout {
+        grid-template-columns: 1fr;
+
+        .gig-overview {
+            .sidebar {
+                display: initial;
+            }
+        }
+
+        .gig-details-side {
+            display: none;
+        }
+
+        .compare-packages {
+            display: none;
+        }
+    }
+
+    @include for-narrow-layout {
+        grid-template-columns: 1fr;
+
+        .gig-overview {
+            .sidebar {
+                display: initial;
+            }
+        }
+
+        .gig-details-side {
+            display: none;
+        }
+
+        .compare-packages {
+            display: none;
+        }
+    }
+
+    @include for-normal-layout {
+        grid-template-columns: 3.94fr 52.906fr 8.345fr 30.849fr  3.94fr;
+
+        .gig-overview {
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .gig-details-side {
+            display: grid;
+        }
+
+        .compare-packages {
+            display: initial;
+        }
+    }
+
+    @include for-wide-layout {}
 }

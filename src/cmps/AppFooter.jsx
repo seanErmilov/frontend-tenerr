@@ -8,8 +8,8 @@ export function AppFooter() {
 	return (
 		<footer className="app-footer">
 			{/* <p> LET IT BE - TOO COOL FOR SCHOOL</p> */}
-			<p> &copy; Sean Ermilov - Shlomi Plishtiev - Amir Boxer 2024</p>
 			<img src={tennerLogo} alt="" />
+			<p> &copy; Sean Ermilov - Shlomi Plishtiev - Amir Boxer 2024</p>
 
 			{/* <p id='shadow'>tennerr</p> */}
 		</footer>
