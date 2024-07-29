@@ -1,7 +1,7 @@
 .checkout {
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
-    // gap: 100px;
     color: $clr7;
 
     .main-content {
@@ -11,14 +11,9 @@
         border: 1px solid $clr6;
 
         section {
-
-            // border: 1px solid $clr6;
             margin-bottom: 3rem;
             border-radius: 4px;
 
-            // .payment-methods{
-            //    margin: 0; 
-            // }
             .section-header {
                 display: flex;
                 -webkit-box-orient: horizontal;
@@ -42,6 +37,10 @@
                 }
             }
 
+            .flex {
+                justify-content: space-between;
+            }
+
             p {
                 font-size: 16px;
                 font-weight: bold;
@@ -52,29 +51,47 @@
 
             button {
                 margin-right: 10px;
-                width: 21%;
-                font-size: 14px;
+                width: 19%;
+                font-size: 16px;
                 color: $clr9;
-                padding: 5px;
-                line-height: 16px;
                 border-radius: 5px;
                 background-color: $clr4;
-                align-items: center;
-                text-align: center;
-                margin-bottom: 8px;
                 border: 1px solid $clr9;
-                height: 45px;
-                font-family: 'MacanPanWeb-Extrabold';
+                height: 42px;
+                margin-top: 17px;
+                font-weight: bold;
+                opacity: 0.8;
 
                 &:hover {
-                    background-color: $clr10;
+                    background-color: $clr7;
                     color: $clr4;
+                    opacity: 0.6;
+
                 }
             }
         }
     }
 
     form {
+        .card-number {
+            position: relative;
+            display: flex;
+
+            span {
+                img {
+                    position: absolute;
+                    top: 8px;
+                    left: 10px;
+                }
+            }
+
+            img {
+                position: relative;
+                top: -10px;
+                opacity: 0.6;
+                right: 28px;
+            }
+        }
 
         h2 {
             font-size: 16px;
@@ -89,7 +106,7 @@
         flex-direction: column;
 
         input {
-
+            font-weight: bold;
             padding: 13px;
             width: 450px;
             text-align: center;
@@ -97,7 +114,7 @@
             border-radius: 15px;
             border: 1px solid $clr5;
             margin-bottom: 20px;
-
+            color: $clr10;
         }
 
         .form-center {
@@ -107,6 +124,14 @@
 
             .item {
                 width: 190px;
+                margin-top: 20px;
+
+            }
+        }
+
+        div {
+            .saveCardCheckbox {
+                width: 2rem;
                 margin-top: 20px;
             }
         }
@@ -122,11 +147,10 @@
         border: 1px solid $clr6;
 
         .order-details-container {
-
             .order-details-header {
                 display: flex;
                 gap: 20px;
-                margin-bottom: 4rem;
+                margin-bottom: 2rem;
 
                 div {
                     font-weight: bold;
@@ -158,10 +182,6 @@
         }
     }
 
-
-
-
-
     .side-content {
         border-radius: 4px;
 
@@ -178,7 +198,7 @@
     }
 
     .summary {
-        margin-top: 40px;
+        margin-top: 20px;
         color: $clr7;
         padding: 15px;
 
@@ -256,9 +276,11 @@
     }
 
     .trader-disclaimer {
-        font-size: 16px;
+        font-size: 13px;
         line-height: 24px;
         gap: 5px;
+        margin-top: 10px;
+        font-weight: bold;
 
         p {
             margin: 0;

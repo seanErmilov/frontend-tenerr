@@ -42,10 +42,10 @@ export function Checkout() {
                     <header className="section-header">
                         <h6>Billing information</h6>
                     </header>
-                    <div>
+                    <div className="flex ">
                         <p>Your invoice will be issued according to the details listed here.</p>
-                        <Button>Add details
-                        </Button>
+                        <button>Add details
+                        </button>
                     </div>
                 </section>
                 <section className="payment-methods">
@@ -55,7 +55,7 @@ export function Checkout() {
                     <CheckoutForm order={order} />
                 </section>
             </div>
-           <div className="side-content"> 
+            <div className="side-content">
                 <section className="order-details-container">
                     <header className="order-details-header">
                         <span className="img-container">
@@ -66,7 +66,7 @@ export function Checkout() {
 
                     <div className="order-details-general-pricing">
                         <p>Revolver - Package</p>
-                        <h3>{order.gig.price}$</h3>
+                        <h3>${order.gig.price}</h3>
                     </div>
 
                     <ul className="features clean-list">
@@ -93,15 +93,15 @@ export function Checkout() {
                 <section className="summary">
                     <div className="service">
                         <p>Service fee</p>
-                        <p>{(order.gig.price * 0.17).toFixed(2)}$</p>
+                        <p>${(order.gig.price * 0.17).toFixed(2)}</p>
                     </div>
                     <div className="vat">
                         <p>VAT</p>
-                        <p>{(order.gig.price * 0.16).toFixed(2)}$</p>
+                        <p>${(order.gig.price * 0.16).toFixed(2)}</p>
                     </div>
                     <div className="Total">
                         <h1>Total</h1>
-                        <h1>{(order.gig.price + (order.gig.price * 0.16) + (order.gig.price * 0.17)).toFixed(2)}$</h1>
+                        <h1>${(order.gig.price + (order.gig.price * 0.16) + (order.gig.price * 0.17)).toFixed(2)}</h1>
                     </div>
                     <div className="delivery">
                         <p>Total delivery time</p>
@@ -117,11 +117,15 @@ export function Checkout() {
                         <h2>SSL Secure Payment</h2>
                     </div>
                     <div className="trader-disclaimer">
-                       <span>You will be charged</span>  <p> ${order.gig.price}.</p> <span>Total amount includes currency conversion fees.</span>
+                        <p>
+                            You will be charged <span> ${order.gig.price}</span>.
+                            Total amount <br />includes currency conversion fees.
+                        </p>
                     </div>
 
+
                 </section>
-            </div> 
+            </div>
         </main>
     )
 }

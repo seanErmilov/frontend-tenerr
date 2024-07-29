@@ -10,6 +10,7 @@ main {
         width: min-content;
         background-color: #fff;
         padding: 0;
+        color:$clr10;
 
         .ProfileProgress {
             border-radius: 5px;
@@ -45,7 +46,6 @@ main {
                         padding: 8px;
                         display: flex;
                         flex-direction: column;
-
                         p {
                             margin: 0;
                         }
@@ -75,9 +75,14 @@ main {
             }
         }
     }
+h3{
+    color:$clr10;
 
+}
     th {
         font-weight: bold;
+        color:$clr10;
+
     }
 
     td {

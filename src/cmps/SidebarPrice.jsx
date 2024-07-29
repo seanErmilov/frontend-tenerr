@@ -92,7 +92,7 @@ export function SidebarPrice({ handelcheckout, price, avgResponseTime, handleOpe
                 <div className="package-details">
                     <h3 className='sidebar-des'>{packages[selectedPackage].description}</h3>
                     <div>
-                        <label> ₪{packages[selectedPackage].price}</label>
+                        <label> ${packages[selectedPackage].price}</label>
                     </div>
                 </div>
                 <h1 className='sidebar-delivery'>
