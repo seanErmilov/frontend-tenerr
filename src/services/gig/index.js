@@ -22,7 +22,7 @@ function getDefaultFilter() {
         title: '',
         price: '',
         tags: [],
-        dayToMake: '',
+        daysToMake: '',
         loc: '',
         descrption: '',
         // sortDir: '',
@@ -40,7 +40,7 @@ function getFilterFromSearchParams(searchParams) {
     const filterBy = {
         title: searchParams.get('title') || '',
         price: +searchParams.get('price') || '',
-        dayToMake: +searchParams.get('dayToMake') || '',
+        daysToMake: +searchParams.get('daysToMake') || '',
         descrption: searchParams.get('descrption') || '',
         tags: getArrayFromSearchParams(searchParams, 'tags'),
         // sort: searchParams.get('sort') || ''

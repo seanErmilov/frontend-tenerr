@@ -1,3 +1,4 @@
+
 export function makeId(length = 6) {
     var txt = ''
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
@@ -95,6 +96,8 @@ export function convertObjectToQueryParams(obj) {
 
     return queryParams.toString()
 }
+
+
 
 export function getArrayFromSearchParams(searchParams, key) {
     const values = searchParams.getAll(key); // Retrieve all values for the given key

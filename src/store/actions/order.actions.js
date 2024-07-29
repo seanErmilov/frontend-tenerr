@@ -92,37 +92,37 @@ export function setFilter(filterBy) {
 }
 
 // Command Creators:
-function getCmdSetOrders(orders) {
+export function getCmdSetOrders(orders) {
     return {
         type: SET_ORDERS,
         orders
     }
 }
-function getCmdSetOrder(order) {
+export function getCmdSetOrder(order) {
     return {
         type: SET_ORDER,
         order
     }
 }
-function getCmdRemoveOrder(orderId) {
+export function getCmdRemoveOrder(orderId) {
     return {
         type: REMOVE_ORDER,
         orderId
     }
 }
-function getCmdAddOrder(order) {
+export function getCmdAddOrder(order) {
     return {
         type: ADD_ORDER,
         order
     }
 }
-function getCmdUpdateOrder(order) {
+export function getCmdUpdateOrder(order) {
     return {
         type: UPDATE_ORDER,
         order
     }
 }
-function getCmdAddOrderMsg(msg) {
+export function getCmdAddOrderMsg(msg) {
     return {
         type: ADD_ORDER_MSG,
         msg

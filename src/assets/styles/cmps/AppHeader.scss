@@ -13,22 +13,32 @@
     height: $headerHight;
     align-items: center;
 
-    .img-user {
+    .user-btn {
+        // background-color: red;
+        width: fit-content;
         width: 2rem;
+
+    }
+
+    .img-user {
+        // width: 2rem;
         height: 2rem;
-        border-radius: 2rem;
+        border-radius: 50%;
         margin-inline-end: 0.5rem;
     }
 
     .hamburger {
+        width: 35px;
         cursor: pointer;
     }
 
     .logo {
-        display: flex;
-        width: 89px;
         height: 27px;
         align-items: center;
+
+        img {
+            width: 110px;
+        }
     }
 
     .search-bar {
@@ -199,8 +209,82 @@
         }
     }
 
+    .user-orders {
+        top: calc(100% + 0.5em);
+        right: 0;
+
+        background-color: #ffffff;
+        border-radius: 0.5em;
+        border: 1px solid #e4e5e7;
+        color: #000000;
+        padding: 0.5em;
+        z-index: 5;
+        display: grid;
+        max-height: 80vh;
+        overflow-y: scroll;
+        width: max-content;
+        justify-items: start;
+
+        li {
+            // max-width: 200px;
+            // overflow-x: scroll;
+            width: 100%;
+
+            a {
+                width: 100%;
+                padding: 0.5em 1em;
+                display: grid;
+                align-items: center;
+                grid-template-columns: auto 1fr;
+                gap: 0.5em;
+                grid-auto-flow: column;
+                border-bottom: 1px solid #e4e5e7;
+
+                img {
+                    grid-column: 1;
+                    height: 20px;
+                    object-fit: cover;
+                }
+
+                .status {
+                    text-align: start;
+                    font-weight: bold;
+                    grid-column: 2;
+                }
+
+                .by {
+                    font-size: 0.9em;
+                    text-align: start;
+                    grid-column: 2;
+                }
+
+            }
+        }
+    }
+
+
+    .profile-nav {
+        left: unset;
+        right: 0;
+    }
+
     @include for-mobile-layout {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 50px 1fr 50px;
+        grid-template-rows: 1fr 1fr;
+        justify-items: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid  #e4e5e7;
+        height: 100px;
+        gap: 10px;
+
+        >* {
+            grid-row: 1;
+        }
+
+
+        .prime-categories-section {
+            display: none;
+        }
 
         .hamburger {
             display: block;
@@ -211,6 +295,34 @@
         }
 
         .search-bar {
+            justify-self: center;
+            grid-row: 2;
+            grid-column: 1 / -1;
+            width: 100%;
+            opacity: 1;
+
+
+
+        }
+
+        .become-a-seller {
+            display: none;
+        }
+
+        .nav-links {
+            gap: unset;
+        }
+
+        .user-nav {
+            gap: unset;
+
+            .orders {
+                display: none;
+            }
+
+        }
+
+        .sign-in-link {
             display: none;
         }
     }
@@ -218,11 +330,23 @@
     @include for-narrow-layout {
         grid-template-columns: auto auto 1fr auto;
 
+        .sign-in-link {
+            display: none;
+        }
+
         .hamburger {
             display: block;
         }
 
         .explore {
+            display: none;
+        }
+
+        .become-a-seller {
+            display: none;
+        }
+
+        .orders {
             display: none;
         }
     }
@@ -237,10 +361,17 @@
         .explore {
             display: grid;
         }
+
+        .become-a-seller {
+            display: initial;
+        }
+
+        .orders {
+            display: initial;
+        }
     }
 
     @include for-wide-layout {
-        grid-template-columns: auto 1fr auto;
 
         .hamburger {
             display: none;
@@ -255,6 +386,12 @@
     height: $headerHight;
     background-color: #ffffff;
     border-bottom: 1px solid #e4e5e7;
+
+    
+    @include for-mobile-layout {
+        height: 100px;
+    }
+
 
 }
 
@@ -273,11 +410,16 @@
 
 .full-liner {
     background-color: #e4e5e7;
-    z-index: 5;
+    // z-index: 5;
     position: absolute;
     width: 100%;
     height: .1px;
     top: calc($headerHight + $prime-filters-height);
+
+
+    @include for-mobile-layout {
+        display: none;
+    }
 }
 
 .header-sticky {

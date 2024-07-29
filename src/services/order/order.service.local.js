@@ -45,7 +45,7 @@ async function save(order) {
         savedOrder = await storageService.put(STORAGE_KEY, order)
     } else {
         const orderToSave = {
-            buyer: userService.getLoggedinUser(),
+            // buyer: userService.getLoggedinUser(),
             seller: order.seller,
             gig: order.gig,
             status: order.status,

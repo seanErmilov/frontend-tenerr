@@ -89,7 +89,7 @@ async function _createAdmin() {
         password: 'admin',
         fullname: 'Emma Johnson',
         imgUrl: 'https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8',
-        level: 'standard',
+        level: 2,
         rate: 4,
         description: 'An experienced logo designer with a passion for creating unique brand identities.'
     }
