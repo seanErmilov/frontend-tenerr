@@ -90,7 +90,7 @@ export function GigDetails() {
         <MiniuserGig user={gig.owner} />
 
         <div className='carousel-container'>
-          <DetailsCarousel deviceType="" />
+        <DetailsCarousel images={gig.imgUrls} /> 
         </div>
 
 

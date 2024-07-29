@@ -90,8 +90,7 @@ export function HomePage() {
                     </ul>
                 </div>
             </div>
-
-
+            
             {/* filters  categories*/}
             <FilterPrimeCategories
                 filterBy={filterBy}

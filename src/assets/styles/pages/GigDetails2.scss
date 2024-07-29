@@ -233,7 +233,9 @@
     margin-left: 4.75rem; 
     transition: transform 0.3s;
     width: 50rem; 
-
+img{
+    object-fit: cover;
+}
     &:hover {
         transform: scale(1.05);
     }
