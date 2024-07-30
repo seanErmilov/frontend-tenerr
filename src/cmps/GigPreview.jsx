@@ -25,12 +25,12 @@ export function GigPreview({ gig }) {
     return <article className="preview">
 
         <CarouselImg
-            gig={gig}/>
+            gig={gig} />
 
         <div className='preview-header'>
             {/* ad-by */}
             <div className='ad-by'>
-                <img className='owner-profile-pic' src={demoProfilePic} alt="" />
+                <img className='owner-profile-pic' src={gig.owner.imgUrl} alt="" />
                 <span className='owner-name bold'>{gig.owner.fullname}</span>
             </div>
             <img className="level" src={levels[gig.owner.level - 1]} alt="" />
