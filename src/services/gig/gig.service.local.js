@@ -1,5 +1,5 @@
 import { storageService } from '../async-storage.service'
-import { getRandomElement, getRandomElements, getRandomInt, getRandomIntInclusive, loadFromStorage, makeId, saveToStorage } from '../util.service'
+import { getRandomElement, getRandomElements, getRandomInt, getRandomIntInclusive, getRandomIntWithBias, loadFromStorage, makeId, saveToStorage } from '../util.service'
 import { userService } from '../user'
 
 const STORAGE_KEY = 'gigDb'
@@ -401,9 +401,9 @@ async function _getRandomGig(users, partialGig = {}) {
     const gig = {
         tags: tag,
         title: getRandomElement(titleByTag[tag]),
-        price: parseFloat((Math.random() * 80 + 70).toFixed(0)),
+        price: parseFloat((Math.random() * 80 + 40).toFixed(0)),
         owner: getRandomElement(users),
-        daysToMake: getRandomInt(1, 14),
+        daysToMake: getRandomIntWithBias(1, 8, 1),
         description: getRandomElement(descriptions),
         avgResponseTime: getRandomInt(1, 24),
         loc: getRandomElement(locations),
@@ -453,7 +453,7 @@ function _generateReviews(users) {
         reviews.push({
             id: `r${getRandomInt(100, 999999)}`,
             txt: getRandomElement(reviewTexts),
-            rate: getRandomInt(4, 5),
+            rate: getRandomIntWithBias(3, 5, 5),
             by: getRandomElement(users)
         })
     }
