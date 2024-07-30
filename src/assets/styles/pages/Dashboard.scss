@@ -20,10 +20,13 @@ main {
             padding: 30px 20px 50px;
             width: 400px;
             max-height: 400px;
+            -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
+            box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
 
             .profile {
                 display: flex;
                 justify-content: space-between;
+                position: relative;
 
                 .img-container {
                     width: 120px;
@@ -31,7 +34,18 @@ main {
                     border-radius: 10.4375em;
                     overflow: hidden;
                     margin-bottom: 15px;
-
+                    position: relative;
+                    display: inline-block;
+                }
+                .online-status {
+                    position: absolute;
+                    bottom: 20px;
+                    left: 90px;
+                    width: 20px;
+                    height: 20px;
+                    background-color: #4CAF50;
+                    border: 2px solid white;
+                    border-radius: 50%;
                 }
 
                 .user-desc {
@@ -66,7 +80,19 @@ main {
 
             .profileStatusProgress {
                 li {
-                    margin: 30px 0
+                    margin: 30px 0;
+
+                    .css-6u4q40-MuiLinearProgress-bar1 {
+                        background-color: #555555;
+                        padding: 5px;
+                    }
+
+                    .css-1fze73x-MuiLinearProgress-root {
+                        padding: 0.2rem;
+                        background-color: #d6d6d6;
+                        border-radius: 15px;
+
+                    }
                 }
 
                 p {
@@ -108,7 +134,7 @@ main {
 
         .seller-profile {
             .ProfileProgress {
-            
+
                 width: 330px;
                 padding: 10px;
                 margin: 0;
@@ -129,11 +155,18 @@ main {
                             padding: 5px;
                         }
                     }
+                    .online-status {
+                        position: absolute;
+                        bottom: 12px;
+                        left: 58px;
+                        width: 15px;
+                    height: 15px;
+                    }
                 }
 
                 .profileStatusProgress {
                     width: 300px;
-                  
+
                     li {
                         margin: 5px;
 
@@ -156,12 +189,12 @@ main {
 
         .seller-orders {
             margin-top: 20px;
-           
+
         }
 
         .css-quj9j6-MuiTable-root {
             min-width: 250px;
-            
+
         }
 
         .css-q8hpuo-MuiFormControl-root {

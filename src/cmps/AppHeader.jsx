@@ -192,6 +192,7 @@ export function AppHeader() {
 										<li>
 											<button className="grid-column pos-relative user-btn" onClick={() => toggleProfileNav(profileNavRef)}>
 												<img className='img-user' src={user.imgUrl} alt="" />
+												<div className="online-status"></div>
 												<ProfileNav
 													profileNavRef={profileNavRef} onLogout={onLogout} userId={user._id} />
 											</button>

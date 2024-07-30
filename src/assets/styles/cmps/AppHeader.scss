@@ -25,6 +25,17 @@
         height: 2rem;
         border-radius: 50%;
         margin-inline-end: 0.5rem;
+        
+    }
+    .online-status {
+        position: absolute;
+        bottom: 0;
+        right: -1px;
+        width: 11px;
+        height: 11px;
+        background-color: #4CAF50;
+        border: 2px solid white;
+        border-radius: 50%;
     }
 
     .hamburger {
@@ -39,13 +50,13 @@
         img {
             width: 110px;
         }
+        
     }
 
     .search-bar {
         display: flex;
         transition: opacity 0.2s linear;
         height: 2.4em;
-
 
 
         form {
@@ -74,6 +85,7 @@
                     height: 1em;
                     width: 1em;
                 }
+             
             }
         }
 

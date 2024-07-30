@@ -20,10 +20,10 @@ export function Dashboard() {
   const theme = createTheme({
     palette: {
       primary: {
-        main: '#4caf50', // Corrected primary color
+        main: '#4caf50', 
       },
       secondary: {
-        main: '#76ff03', // Corrected secondary color
+        main: '#76ff03',
       },
     },
   })

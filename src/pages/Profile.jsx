@@ -1,15 +1,18 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export function Profile() {
+	const user = useSelector(storeState => storeState.userModule.user)
+
     return (
         <section className="seller-profile">
             <section className="content-wrapper">
                 <div className="profile-container">
                     <div className="user-profil">
                         <div className="img-container">
-                            <img src="	https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8" />
+                            <img src={user.imgUrl} />
                         </div>
-                        <h2>Emma Johnson</h2>
+                        <h2>{user.fullname}</h2>
                         <div className="user-stats">
                             <ul>
                                 <li className="flex space-between">
