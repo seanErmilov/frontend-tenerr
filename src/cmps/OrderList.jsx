@@ -75,7 +75,7 @@ export function OrderList({ orders, onStatusSelect }) {
                                 {row.fullname}
                             </TableCell>
                             <td className="title-column" style={{ borderBottom: '1px solid #ddd', padding: '8px' }} align="left">{row.title}</td>
-                            <TableCell align="left">US${row.price}</TableCell>
+                            <TableCell align="left">${row.price}</TableCell>
                             <TableCell align="left"><StatusSelect sx={muiTheme} onStatusSelect={onStatusSelect} status={row.status} orderId={row._id} /></TableCell>
                         </TableRow>
                     ))}

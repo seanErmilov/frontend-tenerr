@@ -131,6 +131,11 @@ async function _getRandomGig(users, partialGig = {}) {
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/230546656/original/db5c0730ae8d0d883876269ce3f0ac73118e461d.jpeg",
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/176735592/original/86c44e0c41442e47d59a536d89d7f16e00905cb6.jpg",
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/7176527/original/a5456b4e290fc1e44ad6f956aaa5f0d02b902f7b.png",
+    "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/93035656/original/8fd9ea7423ff3bf4d5ce2ac2038c3fd8c6c0dc21.png",
+    "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/300427605/original/c1fbf39713e96c5eef4fd63b53652fbfccfca0ab.png",
+    "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/291332785/original/72cca9c7dc58999d4c59509f8460ffa0dfc91eb3.jpg",
+    "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/330944065/original/38385709e64400ac41807144e97ce77064514cd2.jpg",
+    "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/1948215/original/b9a056cbf034fa4f8c93044e2c36329972c6ed16.jpg",
     ]
 
     const gig = {
@@ -158,7 +163,7 @@ async function _createGigs() {
     if (!users) return
 
 
-    for (let i = 0; i < 55; i++) {
+    for (let i = 0; i < 120; i++) {
         gigs.push(await _getRandomGig(users))
     }
 
