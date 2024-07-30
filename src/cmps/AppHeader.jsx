@@ -215,6 +215,7 @@ export function AppHeader() {
 										<li>
 											<button className="grid-column pos-relative user-btn" onClick={() => setProfileListVisible(prev => !prev)} data-preventchildblur="user-profile">
 												<img className='img-user' src={user.imgUrl} alt="" />
+												<div className="online-status"></div>
 
 
 

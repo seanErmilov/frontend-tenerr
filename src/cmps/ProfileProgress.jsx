@@ -1,7 +1,9 @@
+import { useSelector } from "react-redux";
 import { orderService } from "../services/order";
 import { LinearWithValueLabel } from "./LinearProgressWithLabel";
 
 export function ProfileProgress({ orders }) {
+	const user = useSelector(storeState => storeState.userModule.user)
 
     const orderStatusSummary = orderService.getOrderStats(orders)
     if (!orders) return
@@ -11,6 +13,7 @@ export function ProfileProgress({ orders }) {
                 <div className="img-container">
                     <img src={orders[0].seller.imgUrl} alt="" />
                 </div>
+                    <div className="online-status"></div>
                 <div className="user-desc">
                     <div className="profile-item">
                         <p>Positive Rating</p>

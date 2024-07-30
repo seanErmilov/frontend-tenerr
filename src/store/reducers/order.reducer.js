@@ -30,7 +30,7 @@ export function orderReducer(state = initialState, action) {
             newState = { ...state, orders, lastRemovedOrder }
             break
         case ADD_ORDER:
-            newState = { ...state, orders: [...state.orders, action.order] }
+            newState = { ...state, orders: [action.order, ...state.orders] }
             break
         case UPDATE_ORDER:
             orders = state.orders.map(order => (order._id === action.order._id) ? action.order : order)

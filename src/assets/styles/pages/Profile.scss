@@ -34,6 +34,33 @@
             border: 1px solid $clr6;
             padding: 30px;
             margin-bottom: 20px;
+            position: relative;
+
+            
+                
+                .online-indicator {
+                    position: absolute;
+                    width: 7px;
+                    height: 7px;
+                    border-radius: 50%;
+                    background-color: green;
+                    display: inline-block;
+                    margin-right: 5px;
+                    right: 3.4rem;
+                    top: 25px;
+                    border: 1px solid green;
+
+                }
+
+                .online-text {
+                    position: absolute;
+                    right: 1rem;
+                    top: 20px;
+                    font-size: 14px;
+                    color: green;
+                }
+            
+
 
             .img-container {
                 width: 150px;
@@ -83,6 +110,14 @@
                             color: #62646a;
                             font-family: 'MacanPanWeb-Extrabold';
                         }
+
+                        .online-status {
+                            display: flex;
+                            align-items: center;
+                        }
+
+
+
                     }
                 }
             }
