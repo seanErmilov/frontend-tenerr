@@ -1,3 +1,4 @@
+import { orderService } from "../services/order";
 import { LinearWithValueLabel } from "./LinearProgressWithLabel";
 
 export function ProfileProgress({ orders }) {

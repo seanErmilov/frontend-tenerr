@@ -15,7 +15,6 @@ export function OrderList({ orders, onStatusSelect }) {
         return { fullname, buyerImg, title, price, status, _id }
     }
 
-    console.log(orders)
     const rows = orders.map(order => {
         return createData(order.buyer.fullname, order.buyer.imgUrl, order.gig.name, order.gig.price, order.status, order._id)
     })
@@ -60,7 +59,7 @@ export function OrderList({ orders, onStatusSelect }) {
                 <TableHead>
                     <TableRow>
                         <TableCell>Buyer</TableCell>
-                        <TableCell align="left"  className="title-column" >Gig</TableCell>
+                        <TableCell align="left" className="title-column" >Gig</TableCell>
                         <TableCell align="left">Total</TableCell>
                         <TableCell align="left">Status</TableCell>
                     </TableRow>

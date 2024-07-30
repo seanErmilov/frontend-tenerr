@@ -1,23 +1,8 @@
-import {
-  Button,
-  Checkbox,
-  FormControl,
-  InputLabel,
-  ListItemText,
-  MenuItem,
-  Select,
-  TextField,
-} from '@mui/material'
-import { Field, Form, Formik } from 'formik'
-import { useEffect, useState } from 'react'
-import { Await, useNavigate, useParams } from 'react-router-dom'
+import { Form, Formik } from 'formik'
+import { useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { gigService } from '../services/gig'
-import { ImgUploader } from '../cmps/ImgUploader'
-import { addGig } from '../store/actions/gig.actions'
 import { addOrder } from '../store/actions/order.actions'
-import { orderService } from '../services/order'
 
 export function CheckoutForm({ order }) {
   const navigate = useNavigate()

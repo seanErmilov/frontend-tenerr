@@ -10,7 +10,7 @@ main {
         width: min-content;
         background-color: #fff;
         padding: 0;
-        color:$clr10;
+        color: $clr10;
 
         .ProfileProgress {
             border-radius: 5px;
@@ -46,6 +46,7 @@ main {
                         padding: 8px;
                         display: flex;
                         flex-direction: column;
+
                         p {
                             margin: 0;
                         }
@@ -75,13 +76,15 @@ main {
             }
         }
     }
-h3{
-    color:$clr10;
 
-}
+    h3 {
+        color: $clr10;
+
+    }
+
     th {
         font-weight: bold;
-        color:$clr10;
+        color: $clr10;
 
     }
 
@@ -100,33 +103,65 @@ h3{
 
         .title-column {
             display: none;
+
         }
 
         .seller-profile {
-            margin-top: 20px;
-
             .ProfileProgress {
+            
                 width: 330px;
-                padding: 20px;
+                padding: 10px;
                 margin: 0;
+                -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
+                box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
 
                 .profile {
                     width: 300px;
+                    height: 90px;
+
+                    .img-container {
+                        width: 80px;
+                        height: 80px;
+                    }
+
+                    .user-desc {
+                        .profile-item {
+                            padding: 5px;
+                        }
+                    }
                 }
 
                 .profileStatusProgress {
                     width: 300px;
+                  
+                    li {
+                        margin: 5px;
+
+                        .css-6u4q40-MuiLinearProgress-bar1 {
+                            background-color: #555555;
+                            padding: 5px;
+                        }
+
+                        .css-1fze73x-MuiLinearProgress-root {
+                            padding: 0.2rem;
+                            background-color: #d6d6d6;
+                            border-radius: 15px;
+
+                        }
+
+                    }
                 }
             }
         }
 
         .seller-orders {
-            margin-top: 40px;
-            
+            margin-top: 20px;
+           
         }
 
         .css-quj9j6-MuiTable-root {
             min-width: 250px;
+            
         }
 
         .css-q8hpuo-MuiFormControl-root {
@@ -137,13 +172,15 @@ h3{
         .css-11xur9t-MuiPaper-root-MuiTableContainer-root {
             width: 330px;
         }
-        th{
+
+        th {
             font-weight: 900;
             color: $clr7;
         }
-        h3{
+
+        h3 {
             color: $clr9;
-            opacity: 0.8;   
+            opacity: 0.8;
         }
     }
 
