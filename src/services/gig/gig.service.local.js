@@ -110,7 +110,7 @@ async function _getRandomGig(users, partialGig = {}) {
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/107996286/original/fbdd899de5a8fb881547b9e49de84e489b9a90af.png",
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/252280723/original/b69272e2f5ad314a58bc55499cad8f9109c944da.jpg",
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/192945874/original/45074ea0dfcd30781722c0cc82cdd54355d2102d.jpg",
-        "https://www.fiverr.com/antonclevela97/create-2-custom-logo-designs-exclusive-hi-quality?context_referrer=subcategory_listing&source=category_tree&ref_ctx_id=18a92fc316484fd3a2b795834dd8dd01&pckg_id=1&pos=6&context_type=rating&funnel=18a92fc316484fd3a2b795834dd8dd01&imp_id=8432abbd-117b-4ed9-bf3c-2dd2ac2ca28b",
+        "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/868110/original/fdcadd80ea0a061a64303ca8a63c7cee6afd49d3/create-2-custom-logo-designs-exclusive-hi-quality.jpg",
         "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/870c4e3c181ccd1361fa99aab58f71d8-1689426735/Cosmic%20Highs%20Logo_A%20%20Live%20Moc/design-minimalist-logo-design.jpg",
         "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/d6234c03522f05c4e835918a663db0b4-1689160324/mooifutnou%20nl-A1%20Live%20Moc/design-minimalist-logo-design.jpg",
         "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/23197467/original/d4f9121d0d962301e3ef52c1a5217bf003889e2a/design-an-impressive-logo.jpg",
@@ -124,6 +124,13 @@ async function _getRandomGig(users, partialGig = {}) {
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/6391413/original/1f6d61882949cf993d547729665b20eb32f82ad7.jpg",
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/143871884/original/cdba0a3892ba81a7c1b202b10e9385825787f4b6.png",
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs2/145577603/original/8594f5f7f76b7d0c0f2d3fe97e59830f9af331b6.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/68802766/original/0af35ca3e4ab73ebeba85ffc3a986c1299e992a3.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/309017204/original/21ac2c16813cae919649007150f47c741d186f10.png",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/354996864/original/4b1226f96fa081b5cf3748b905e7ded66636070f.png",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/243216910/original/96c5602ccbb9e77aebc415669cd2093f487a46dc.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/230546656/original/db5c0730ae8d0d883876269ce3f0ac73118e461d.jpeg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/176735592/original/86c44e0c41442e47d59a536d89d7f16e00905cb6.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/7176527/original/a5456b4e290fc1e44ad6f956aaa5f0d02b902f7b.png",
     ]
 
     const gig = {
