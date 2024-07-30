@@ -37,8 +37,7 @@ export function AppHeader() {
 	//oreder states
 	const orders = useSelector((storeState) => storeState.orderModule.orders)
 
-
-	// use states
+	// user states
 	const user = useSelector(storeState => storeState.userModule.user)
 
 	const navigate = useNavigate()
@@ -47,10 +46,12 @@ export function AppHeader() {
 	const orderListRef = useRef()
 	const profileNavRef = useRef()
 
+
+	// lists rendering states
 	const [arrowTurnDegExplore, setArrowTurnDegExplore] = useState(0)
-
-
 	const [orderListVisible, setOrderListVisible] = useState(false)
+	const [exploreListVisible, setExploreListVisible] = useState(false)
+	const [profileListVisible, setProfileListVisible] = useState(false)
 
 
 
@@ -64,6 +65,17 @@ export function AppHeader() {
 
 	}, [orderListVisible])
 
+	useEffect(() => {
+		if (mainNavRef.current && exploreListVisible) mainNavRef.current.focus()
+
+	}, [exploreListVisible])
+
+	useEffect(() => {
+		if (profileNavRef.current && profileListVisible) profileNavRef.current.focus()
+
+	}, [profileListVisible])
+
+
 	// functions
 	async function onLogout() {
 		try {
@@ -75,18 +87,14 @@ export function AppHeader() {
 		}
 	}
 
-	function toggleExplore({ current }) {
-		current.classList.toggle("hidden")
+	function toggleExplore() {
+		setExploreListVisible(prev => !prev)
 		setArrowTurnDegExplore(prev => (prev + 0.5) % 1)
 	}
 
-	function toggleOrderList() {
-		setOrderListVisible(prev => !prev)
-	}
-
-	function toggleProfileNav({ current }) {
-		current.classList.toggle("hidden")
-	}
+	// function toggleProfileNav({ current }) {
+	// 	// current.classList.toggle("hidden")
+	// }
 
 	function onSetFilter(filterBy) {
 		setFilter(filterBy)
@@ -116,33 +124,42 @@ export function AppHeader() {
 				<nav >
 					<ul className="nav-links grid-column">
 						<li>
-							<button className="header-btn-style grid-column pos-relative explore" onClick={() => toggleExplore(mainNavRef)}>
+							<button className="header-btn-style grid-column pos-relative explore" onClick={toggleExplore} data-preventchildblur="explore">
 								Explore
 								<img className='arrow' src={arrow} alt="" style={{ transform: `rotate(${arrowTurnDegExplore}turn)` }} />
-								<ul className='main-nav pos-absolute hidden' ref={mainNavRef}>
+								{exploreListVisible &&
 
-									{!user &&
-										<li>
-											<div className='hheader-link sign-in-l÷ink' onClick={handleOpen}>Sign In</div>
-										</li>
-									}
+									<HideOnBlur
+										jsx={
+											<ul className='main-nav pos-absolute' ref={mainNavRef} tabIndex="-1" >
+												{!user &&
+													<li>
+														<div className='hheader-link sign-in-l÷ink' onClick={handleOpen}>Sign In</div>
+													</li>
+												}
 
-									<li>
-										<NavLink className="header-link" to="about">Become a Seller</NavLink>
-									</li>
-									<li>
-										<NavLink className="main-nav-link" to="gig/edit">Add gig</NavLink>
-									</li>
-									<li>
-										<NavLink className="main-nav-link" to="gig">Gigs</NavLink>
-									</li>
-									<li>
-										<NavLink className="main-nav-link" to="chat">Chat</NavLink>
-									</li>
-									<li>
-										<NavLink className="main-nav-link" to="review">Review</NavLink>
-									</li>
-								</ul>
+												<li>
+													<NavLink className="header-link" to="about">Become a Seller</NavLink>
+												</li>
+												<li>
+													<NavLink className="main-nav-link" to="gig/edit">Add gig</NavLink>
+												</li>
+												<li>
+													<NavLink className="main-nav-link" to="gig">Gigs</NavLink>
+												</li>
+												<li>
+													<NavLink className="main-nav-link" to="chat">Chat</NavLink>
+												</li>
+												<li>
+													<NavLink className="main-nav-link" to="review">Review</NavLink>
+												</li>
+											</ul>}
+
+										setVisibility={setExploreListVisible}
+										reference={mainNavRef}
+										ignoreId={'explore'}
+									/>
+								}
 							</button>
 						</li>
 
@@ -167,34 +184,53 @@ export function AppHeader() {
 								{user && (
 									<>
 										<li >
-											<button className="grid-column pos-relative orders" onClick={toggleOrderList}>
+											<button className="grid-column pos-relative orders" onClick={() => setOrderListVisible(prev => !prev)} data-preventchildblur="user-orders">
 												Orders
 												{
 													orders.length > 0 && orderListVisible &&
-													<ul className='pos-absolute user-orders' ref={orderListRef} tabIndex="-1" onBlur={toggleOrderList}>
-														{orders.map((order, idx) =>
-															<li key={idx}>
-																<Link to={`gig/${order.gig._id}`} title={order.gig.name}>
-																	<img src={order.gig.imgUrl} alt="" />
-																	<div>
-																		<div className='status'>{order.status}</div>
-																		<div className='by'>by: {order.seller.fullname}</div>
-																	</div>
-																</Link>
-															</li>
-														)}
 
-													</ul>
+													<HideOnBlur
+														jsx={<ul className='pos-absolute user-orders' ref={orderListRef} tabIndex="-1">
+															{orders.map((order, idx) =>
+																<li key={idx}>
+																	<Link to={`gig/${order.gig._id}`} title={order.gig.name}>
+																		<img src={order.gig.imgUrl} alt="" />
+																		<div>
+																			<div className='status'>{order.status}</div>
+																			<div className='by'>by: {order.seller.fullname}</div>
+																		</div>
+																	</Link>
+																</li>
+															)}
+														</ul>}
+
+														setVisibility={setOrderListVisible}
+														reference={orderListRef}
+														ignoreId={'user-orders'}
+													/>
 												}
 
 											</button>
 										</li>
 										<li>
-											<button className="grid-column pos-relative user-btn" onClick={() => toggleProfileNav(profileNavRef)}>
+											<button className="grid-column pos-relative user-btn" onClick={() => setProfileListVisible(prev => !prev)} data-preventchildblur="user-profile">
 												<img className='img-user' src={user.imgUrl} alt="" />
 												<div className="online-status"></div>
-												<ProfileNav
-													profileNavRef={profileNavRef} onLogout={onLogout} userId={user._id} />
+
+
+
+
+												{profileListVisible &&
+													<HideOnBlur
+														jsx={< ProfileNav
+															profileNavRef={profileNavRef} onLogout={onLogout} userId={user._id} />}
+
+														setVisibility={setProfileListVisible}
+														reference={profileNavRef}
+														ignoreId={'user-profile'}
+													/>
+
+												}
 											</button>
 										</li>
 									</>
@@ -210,10 +246,30 @@ export function AppHeader() {
 					avoidHiding={!headerSticky}
 				/>
 			</header>
+
 			<div className={`filler right ${headerSticky ? 'header-sticky' : ''}`}></div>
 			{(showCatBar || !headerSticky) &&
 				<div className={`full-liner full ${headerSticky ? 'header-sticky' : ''}`}></div>
 			}
 		</>
 	)
+}
+
+
+function HideOnBlur({ jsx, setVisibility, reference, ignoreId }) {
+	useEffect(() => {
+		const handleBlur = (event) => {
+			if (event.relatedTarget && event.relatedTarget.dataset.preventchildblur === ignoreId) return
+			setVisibility(false)
+		}
+
+		const el = reference.current
+		el.addEventListener('blur', handleBlur, true)
+
+		return () => {
+			el.removeEventListener('blur', handleBlur, true)
+		}
+	}, [])
+
+	return jsx
 }
