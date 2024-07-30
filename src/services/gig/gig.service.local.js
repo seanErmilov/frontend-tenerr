@@ -384,8 +384,19 @@ async function _getRandomGig(users, partialGig = {}) {
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/291332785/original/72cca9c7dc58999d4c59509f8460ffa0dfc91eb3.jpg",
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/330944065/original/38385709e64400ac41807144e97ce77064514cd2.jpg",
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/1948215/original/b9a056cbf034fa4f8c93044e2c36329972c6ed16.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/146897042/original/6232379ad1f4e38d095a17a42c27a410fde6baa7.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/117336212/original/f84dbd7f7ce1bde0e5a4b4115d688e85a6d49a76.png",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/55171054/original/0158450847558dfbe04fd57344ee217840e8afa4.png",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/313979354/original/6a25948df3edd4c5791f6dfc9ff0432746b65530.png",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/22527722/original/5dd0e670c2fbd2eb1637c485b8c971eda0f32caf.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/336344889/original/737e94f56a15a843caae995b6277cfcfa8c11fb5.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/146599020/original/1cd7326ab96d64876cbef1237fa7ed444331c4cf.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/181018412/original/9df3ba5e11d69cc6e14d7a61e9e7ba50c05cb4f1.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/104670003/original/94d67f8e312dcd2c25fd3b38873cf90071b42a76.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/105340530/original/5ed7ae85babcaed81dac19d040740fbab2dfb982.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/109848161/original/32f013cfb69aa5ed5ad5438d749b2bc5f1842eb8.jpg",
     ]
-    const flatTags = tags.flat();
+
     const tag = getRandomElement(tags)
     const gig = {
         tags: tag,
