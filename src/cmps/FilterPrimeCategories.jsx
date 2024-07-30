@@ -34,7 +34,7 @@ import { convertObjectToQueryParams } from '../services/util.service'
 // case SHOW_CATEGORIES_BAR:
 //     return { ...state, showCategoriesBar: action.showCategoriesBar }
 
-export function FilterPrimeCategories({ filterBy, setFilterBy, trackInViewport = false, avoidHiding = false}) {
+export function FilterPrimeCategories({ filterBy, setFilterBy, trackInViewport = false, avoidHiding = false }) {
 
     const showCatBar = useSelector(storeState => storeState.systemModule.showCategoriesBar)
     const dispatch = useDispatch()
@@ -66,7 +66,10 @@ export function FilterPrimeCategories({ filterBy, setFilterBy, trackInViewport =
 
     // funcs
     function onClickTag(categorys) {
-        const filterByToEdit = { ...filterBy, tags: [...filterBy.tags, categorys] }
+        console.log('filterBy.tags :', filterBy.tags)
+        console.log('categorys :', categorys)
+        const filterByToEdit = { ...filterBy, tags: [categorys] }
+        // const filterByToEdit = { ...filterBy, tags: [...filterBy.tags, categorys] }
         setFilterBy(filterByToEdit)
 
         const queryParams = convertObjectToQueryParams(filterByToEdit)
