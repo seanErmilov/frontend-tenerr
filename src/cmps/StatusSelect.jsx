@@ -16,9 +16,9 @@ export function StatusSelect({ status, onStatusSelect, orderId }) {
     }
 
     const statusColors = {
-        pending: '#efe900',  // Soft yellow
+        pending: '#efab00',  // Soft yellow
         completed: '#007313', // Soft green
-        rejected: '#990000'  // Soft red
+        rejected: '#ef2000'  // Soft red
     }
 
     const selectColor = statusColors[statusToEdit]
@@ -26,18 +26,18 @@ export function StatusSelect({ status, onStatusSelect, orderId }) {
     return (
         <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
-                <InputLabel id="status-select-label">Status</InputLabel>
+                {/* <InputLabel id="status-select-label">Status</InputLabel> */}
                 <Select
                     labelId="status-select-label"
                     id="status-select"
                     value={statusToEdit}
-                    label="Status"
+                    // label="Status"
                     onChange={handleChange}
                     sx={{ color: selectColor }} // Dynamic color
                 >
-                    <MenuItem sx={{ color: '#efe900' }} value={'pending'}>In progress</MenuItem>
+                    <MenuItem sx={{ color: '#efab00' }} value={'pending'}>In progress</MenuItem>
                     <MenuItem sx={{ color: '#007313' }} value={'completed'}>Completed</MenuItem>
-                    <MenuItem sx={{ color: '#990000' }} value={'rejected'}>Rejected</MenuItem>
+                    <MenuItem sx={{ color: '#ef2000' }} value={'rejected'}>Rejected</MenuItem>
                 </Select>
             </FormControl>
         </Box>

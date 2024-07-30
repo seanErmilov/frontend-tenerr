@@ -71,7 +71,7 @@ export function FilterPrimeCategories({ filterBy, setFilterBy, trackInViewport =
         const filterByToEdit = { ...filterBy, tags: [categorys] }
         // const filterByToEdit = { ...filterBy, tags: [...filterBy.tags, categorys] }
         setFilterBy(filterByToEdit)
-
+        //
         const queryParams = convertObjectToQueryParams(filterByToEdit)
         navigate(`/gig?${queryParams}`)
     }

@@ -5,16 +5,15 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Avatar, Button } from '@mui/material';
+import { Avatar } from '@mui/material';
 import { StatusSelect } from './StatusSelect';
-import { useState } from 'react';
 
 export function OrderList({ orders, onStatusSelect }) {
 
     function createData(fullname, buyerImg, title, price, status, _id) {
         return { fullname, buyerImg, title, price, status, _id }
     }
-
+    console.log("Orders: ", orders)
     const rows = orders.map(order => {
         return createData(order.buyer.fullname, order.buyer.imgUrl, order.gig.name, order.gig.price, order.status, order._id)
     })
