@@ -1,6 +1,7 @@
 import { storageService } from '../async-storage.service'
 import { getRandomElement, getRandomElements, getRandomInt, getRandomIntInclusive, getRandomIntWithBias, loadFromStorage, makeId, saveToStorage } from '../util.service'
 import { userService } from '../user'
+import { httpService } from '../http.service'
 
 const STORAGE_KEY = 'gigDb'
 
@@ -76,50 +77,6 @@ function getSymbolByLevel(level) {
 }
 
 async function _getRandomGig(users, partialGig = {}) {
-
-    const staticUsers = [
-        {
-            "_id": '66a5f964676fe11238a1bbb9',
-            "fullname": "Alice Johnson",
-            "imgUrl": "https://res.cloudinary.com/vanilla-test-images/image/upload/v1722153314/ib46tzoensnbadbypm8u.jpg",
-            "description": "A skilled graphic designer specializing in vibrant illustrations and creative branding.",
-            "rate": 5,
-            "level": "premium"
-        },
-        {
-            "_id": '66a5f964676fe11238a1bbba',
-            "fullname": "Michael Smith",
-            "imgUrl": "https://res.cloudinary.com/vanilla-test-images/image/upload/v1722153314/ib46tzoensnbadbypm9u.jpg",
-            "description": "A web developer with a focus on user experience and responsive design.",
-            "rate": 4.5,
-            "level": "standard"
-        },
-        {
-            "_id": '66a5f964676fe11238a1bbbc',
-            "fullname": "Sophia Brown",
-            "imgUrl": "https://res.cloudinary.com/vanilla-test-images/image/upload/v1722153314/ib46tzoensnbadbypm10u.jpg",
-            "description": "An innovative packaging designer dedicated to creating sustainable solutions.",
-            "rate": 4,
-            "level": "standard"
-        },
-        {
-            "_id": '66a5f964676fe11238a1bbbd',
-            "fullname": "David Lee",
-            "imgUrl": "https://res.cloudinary.com/vanilla-test-images/image/upload/v1722153314/ib46tzoensnbadbypm11u.jpg",
-            "description": "A creative UX/UI designer with a knack for improving user engagement.",
-            "rate": 4.7,
-            "level": "premium"
-        },
-        {
-            "_id": '66a5f964676fe11238a1bbbe',
-            "fullname": "Emma Wilson",
-            "imgUrl": "https://res.cloudinary.com/vanilla-test-images/image/upload/v1722153314/ib46tzoensnbadbypm12u.jpg",
-            "description": "A versatile illustrator experienced in both digital and traditional media.",
-            "rate": 5,
-            "level": "premium"
-        }
-    ]
-    users = [...users, ...staticUsers]
 
     const titleByTag = {
         graphics: [
@@ -426,7 +383,6 @@ async function _createGigs() {
     const users = await _fetchUsers()
     console.log('users :', users)
 
-
     if (!users) return
 
 
@@ -466,9 +422,33 @@ function _generateReviews(users) {
 
 async function _fetchUsers() {
     try {
-        const users = await userService.getUsers()
-        return users
+        const realUsers = await userService.getUsers()
+        const randomUsers = await _getRandomUsers()
+
+        return [...realUsers, ...randomUsers]
     } catch (error) {
         console.error('Error fetching users:', error)
     }
 }
+
+async function _getRandomUsers() {
+    try {
+        const response = await httpService.get('', '', 'https://randomuser.me/api/?results=6&inc=picture,name')
+        const randomUsers = response.results.map((userToEdit) => {
+            return {
+                "_id": `uu${getRandomInt(100, 999999)}`,
+                "fullname": `${userToEdit.name.first} ${userToEdit.name.last}`,
+                "imgUrl": userToEdit.picture.thumbnail,
+                "description": "A skilled graphic designer specializing in vibrant illustrations and creative branding.",
+                "rate": 4,
+                "level": "premium"
+            }
+        })
+        return randomUsers
+    } catch (error) {
+        console.error('Error fetching Random users:', error)
+    }
+
+
+}
+

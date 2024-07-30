@@ -58,11 +58,8 @@ export function GigIndex() {
                 innerText={innerText} />
             <h1>Logo Design</h1>
             <h4>Stand out from the crowd with a logo that fits your brand personality</h4>
-
-            <GigFilter filterBy={filterBy} setFilterBy={onSetFilterBy} />
-
-
             {/* <FilterBtn /> */}
+            <GigFilter filterBy={filterBy} setFilterBy={onSetFilterBy} />
             <GigList
                 gigs={gigs}
             />
