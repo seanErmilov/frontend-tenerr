@@ -1,5 +1,5 @@
 import { storageService } from '../async-storage.service'
-import { getRandomElement, getRandomElements, getRandomInt, loadFromStorage, makeId, saveToStorage } from '../util.service'
+import { getRandomElement, getRandomElements, getRandomInt, getRandomIntInclusive, loadFromStorage, makeId, saveToStorage } from '../util.service'
 import { userService } from '../user'
 
 const STORAGE_KEY = 'gigDb'
@@ -181,11 +181,11 @@ function _generateReviews(users) {
         'Creative and unique approach to design. Loved it!'
     ]
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < getRandomIntInclusive(13, 70); i++) {
         reviews.push({
-            id: `r${getRandomInt(100, 99999)}`,
+            id: `r${getRandomInt(100, 999999)}`,
             txt: getRandomElement(reviewTexts),
-            rate: getRandomInt(3, 5),
+            rate: getRandomInt(4, 5),
             by: getRandomElement(users)
         })
     }
