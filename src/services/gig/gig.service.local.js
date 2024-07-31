@@ -433,7 +433,7 @@ async function _fetchUsers() {
 
 async function _getRandomUsers() {
     try {
-        const response = await httpService.get('', '', 'https://randomuser.me/api/?results=6&inc=picture,name')
+        const response = await httpService.get('', '', 'https://randomuser.me/api/?results=6&inc=picture,name&nat=gb')
         const randomUsers = response.results.map((userToEdit) => {
             return {
                 "_id": `uu${getRandomInt(100, 999999)}`,
