@@ -9,6 +9,14 @@ import { FilterPrimeCategories } from '../cmps/FilterPrimeCategories'
 import { HomeVideo } from '../cmps/HomeVideo.jsx'
 import { FreelanceTalent } from '../cmps/FreelanceTalent.jsx'
 
+//img
+import jenny from '../assets/img/home-page-hero/jenny.png'
+import jordan from '../assets/img/home-page-hero/jordan.png'
+import verinica from '../assets/img/home-page-hero/verinica.png'
+import brurya from '../assets/img/home-page-hero/brurya.png'
+import collin from '../assets/img/home-page-hero/collin.png'
+
+
 // store - actions
 import { setFilter } from '../store/actions/gig.actions'
 import { HEADER_STICKY, SHOW_SEARCH_BAR } from '../store/reducers/system.reducer'
@@ -46,10 +54,9 @@ export function HomePage() {
             dispatch(onDemount1)
             dispatch(onDemount2)
 
-            
+
         }
     }, [])
-
 
     return (
         <main className="gig-homepage">
@@ -58,11 +65,11 @@ export function HomePage() {
             <div className='hero pos-relative'>
                 {windowDims.width >= 900 &&
                     <>
-                        <img className="jenny pos-absolute" src="src/assets/img/home-page-hero/jenny.png" alt="" />
-                        <img className="jordan pos-absolute" src="src/assets/img/home-page-hero/jordan.png" alt="" />
-                        <img className="verinica pos-absolute" src="src/assets/img/home-page-hero/verinica.png" alt="" />
-                        <img className="brurya pos-absolute" src="src/assets/img/home-page-hero/brurya.png" alt="" />
-                        <img className="collin pos-absolute" src="src/assets/img/home-page-hero/collin.png" alt="" />
+                        <img className="jenny pos-absolute" src={jenny} alt="" />
+                        <img className="jordan pos-absolute" src={jordan} alt="" />
+                        <img className="verinica pos-absolute" src={verinica} alt="" />
+                        <img className="brurya pos-absolute" src={brurya} alt="" />
+                        <img className="collin pos-absolute" src={collin} alt="" />
                     </>
                 }
 
@@ -90,7 +97,7 @@ export function HomePage() {
                     </ul>
                 </div>
             </div>
-            
+
             {/* filters  categories*/}
             <FilterPrimeCategories
                 filterBy={filterBy}
