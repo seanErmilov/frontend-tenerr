@@ -44,8 +44,8 @@ export function GigFilter({ filterBy, setFilterBy }) {
         setCostumPrice(val)
     }
 
-    function handleBlur(e, setter) {
-        if (e.currentTarget.contains(e.relatedTarget) || e.relatedTarget && e.relatedTarget.dataset.preventchildblur) return
+    function handleBlur(e, setter, ignoreName) {
+        if (e.currentTarget.contains(e.relatedTarget) || e.relatedTarget && e.relatedTarget.dataset.preventchildblur === ignoreName) return
 
         setter(false)
     }
@@ -65,7 +65,7 @@ export function GigFilter({ filterBy, setFilterBy }) {
         <div className="filter-btn" onClick={() => setPriceListVisible(prev => !prev)} tabIndex="-1" data-preventchildblur="prices-btn"><span>Budget</span>
             {/* price */}
             {priceOptionsVisible &&
-                <div className='index-filter-container' ref={priceList} onBlur={e => handleBlur(e, setPriceListVisible)} tabIndex="-1" onClick={e => e.stopPropagation()}>
+                <div className='index-filter-container' ref={priceList} onBlur={e => handleBlur(e, setPriceListVisible, 'prices-btn')} tabIndex="-1" onClick={e => e.stopPropagation()}>
                     <form action="" onSubmit={ev => onfilterBySubmit(ev, 'price')}>
 
                         <div className='opt'>
@@ -92,7 +92,7 @@ export function GigFilter({ filterBy, setFilterBy }) {
                         </div>
 
                         <div className='btn-container'>
-                            <button type="submit" className='apply'>Apply</button>
+                            <button type="submit" className='apply' onClick={() => setPriceListVisible(false)}>Apply</button>
                         </div>
                     </form>
                 </div>}
@@ -102,7 +102,7 @@ export function GigFilter({ filterBy, setFilterBy }) {
         <div className="filter-btn" onClick={() => setDateListVisible(prev => !prev)} tabIndex="-1" data-preventchildblur="date-btn"><span>Delivery time</span>
             {dateOptionsVisible &&
 
-                <div className='index-filter-container' ref={dateList} onBlur={e => handleBlur(e, setDateListVisible)} tabIndex="-1" onClick={e => e.stopPropagation()}>
+                <div className='index-filter-container' ref={dateList} onBlur={e => handleBlur(e, setDateListVisible, 'date-btn')} tabIndex="-1" onClick={e => e.stopPropagation()}>
                     <form action="" onSubmit={ev => onfilterBySubmit(ev, 'daysToMake')}>
                         <div className='opt'>
                             <input type="radio" id="huey" name="daysToMake" value="1" />
@@ -125,7 +125,7 @@ export function GigFilter({ filterBy, setFilterBy }) {
                         </div>
 
                         <div className='btn-container'>
-                            <button type="submit" className='apply'>Apply</button>
+                            <button type="submit" className='apply' onClick={() => setDateListVisible(false)}>Apply</button>
                         </div>
                     </form>
                 </div>}
