@@ -44,6 +44,14 @@
         }
 
         .index-filter-container {
+            .check{
+                pointer-events: none;
+                height: 100px;
+                width: 100px;
+                position: absolute;
+                background-color: rgba(255, 0, 0, 0.421);
+                z-index: 1;
+            }
             background-color: #ffffff;
             z-index: 1;
             top: calc(100% + 5px);
@@ -124,7 +132,7 @@
 
 
                     &.costum {
-                        
+
                         display: grid;
                         grid-auto-flow: column;
 

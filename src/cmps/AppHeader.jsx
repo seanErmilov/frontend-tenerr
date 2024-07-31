@@ -92,9 +92,7 @@ export function AppHeader() {
 		setArrowTurnDegExplore(prev => (prev + 0.5) % 1)
 	}
 
-	// function toggleProfileNav({ current }) {
-	// 	// current.classList.toggle("hidden")
-	// }
+
 
 	function onSetFilter(filterBy) {
 		setFilter(filterBy)
@@ -137,7 +135,6 @@ export function AppHeader() {
 														<div className='hheader-link sign-in-l÷ink' onClick={handleOpen}>Sign In</div>
 													</li>
 												}
-
 												<li>
 													<NavLink className="header-link" to="about">Become a Seller</NavLink>
 												</li>
@@ -188,7 +185,6 @@ export function AppHeader() {
 												Orders
 												{
 													orders.length > 0 && orderListVisible &&
-
 													<HideOnBlur
 														jsx={<ul className='pos-absolute user-orders' ref={orderListRef} tabIndex="-1">
 															{orders.map((order, idx) =>
@@ -203,22 +199,17 @@ export function AppHeader() {
 																</li>
 															)}
 														</ul>}
-
 														setVisibility={setOrderListVisible}
 														reference={orderListRef}
 														ignoreId={'user-orders'}
 													/>
 												}
-
 											</button>
 										</li>
 										<li>
 											<button className="grid-column pos-relative user-btn" onClick={() => setProfileListVisible(prev => !prev)} data-preventchildblur="user-profile">
 												<img className='img-user' src={user.imgUrl} alt="" />
 												<div className="online-status"></div>
-
-
-
 
 												{profileListVisible &&
 													<HideOnBlur
