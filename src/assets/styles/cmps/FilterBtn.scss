@@ -44,14 +44,6 @@
         }
 
         .index-filter-container {
-            .check{
-                pointer-events: none;
-                height: 100px;
-                width: 100px;
-                position: absolute;
-                background-color: rgba(255, 0, 0, 0.421);
-                z-index: 1;
-            }
             background-color: #ffffff;
             z-index: 1;
             top: calc(100% + 5px);
@@ -66,6 +58,7 @@
                 display: grid;
 
                 label {
+                    cursor: pointer;
                     color: #74767e;
                     text-wrap: nowrap;
 
@@ -90,6 +83,8 @@
                     align-items: center;
 
                     input[type='radio'] {
+                        cursor: pointer;
+
                         position: relative;
                         -webkit-appearance: none;
                         width: 22px;
