@@ -374,7 +374,20 @@ async function _getRandomGig(users, partialGig = {}) {
    "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/275349935/original/2d7a86f2042b064e0df6789125b358c624d70c1f.jpg",
    "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/3406341/original/d70f116e222110885482113be3b7de10256ed53b.jpg",
    "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/297340331/original/9834a820c4d7089d9e9d63ec80a50738263314fe.png",
-    ]
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/226889680/original/7f2c707a30d7f9f9c3d4b3856df935ca3dffa8f2.png",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/131596772/original/8e5a5e248a7db70c6952c597bb014f68cf37b11d.png",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/187719208/original/009cd89fe4eb7151479f0bf59e6ee19f760e50b7.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/8999082/original/2a334cfbe39feda9560b5ecddea3a4a46d45385f.png",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/15719089/original/79f32fc8fc4629751b11222ba99a532cd8896b64.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/237922171/original/27286af865ef6bd965ac900c3ed60175c3bb7cbd.png",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/174636995/original/214717948343b828c027b5093bb039dc15caf80f.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/176540321/original/eb463606ccb40332f8a62b359616d591a4492fca.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/330000669/original/2f01e8a3426b156a893fdc038ce29ed492a50f37.png",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/138275830/original/3da1133045ef97f82f23c05afbf5531ff5d1264c.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/154098396/original/e02f6a2785405242eb9b86c00175887631f780db.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/292354837/original/6f15fed85708f4e221cf28154da87865621baf34.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/233266566/original/55d221b63627ea5312f7bdfb37325046c95b08e7.jpg",
+]
 
 
     const tag = getRandomElement(tags)

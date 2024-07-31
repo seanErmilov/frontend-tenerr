@@ -2,7 +2,7 @@
 export function GigPageReviews({ reviews }) {
     const reviewsLen = reviews.length
     const avgRating = (reviews.reduce((sum, review) => sum + review.rate, 0) / reviewsLen).toFixed(1)
-    const starCounts = [1, 2, 3, 4, 5].map(star => reviews.filter(review => review.rate === star).length)
+    const starCounts = [ 3, 4, 5].map(star => reviews.filter(review => review.rate === star).length)
 
     function renderStars(rate) {
         const fullStars = Math.floor(rate)
