@@ -29,7 +29,6 @@ export function GigFilter({ filterBy, setFilterBy }) {
     }, [filterToEdit])
 
     function onfilterBySubmit(ev, type, visibilitySetter) {
-        console.log('hgfdfgfdshgfdhgfdghfd');
         ev.preventDefault()
         visibilitySetter(false)
         const formData = new FormData(ev.target)
