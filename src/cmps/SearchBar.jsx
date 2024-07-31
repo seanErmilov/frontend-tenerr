@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 
 //hooks
 import { useVisibility } from '../customHooks/useVisibility'
+import { useWindowDimensions } from '../customHooks/windowRisze'
+
 
 // store/reducers
 import { SHOW_SEARCH_BAR } from '../store/reducers/system.reducer'
@@ -19,6 +21,8 @@ export function SearchBar({ trackInViewport = false }) {
 
     const showTopSearchBar = useSelector(storeState => storeState.systemModule.showSearchBar)
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
+    const windowDims = useWindowDimensions()
+
 
     const dispatch = useDispatch()
     const ref = useRef()
@@ -66,7 +70,7 @@ export function SearchBar({ trackInViewport = false }) {
                     type="text"
                     name="title"
                     value={filterBy.title}
-                    placeholder="What service are you looking for today?"
+                    placeholder={windowDims.width <= 650 ? 'Find services' : 'What service are you looking for today?'}
                     onChange={handleChange}
                     required
                 />
