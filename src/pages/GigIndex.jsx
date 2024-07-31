@@ -57,19 +57,18 @@ export function GigIndex() {
         setFilter(filterBy)
     }
 
-    function onChamgeCostumPrice(val) {
-        setCostumPrice(val)
-    }
 
 
-    function onfilterByPriceSubmit(ev) {
+
+    function onfilterBySubmit(ev, type) {
         ev.preventDefault()
 
         const formData = new FormData(ev.target)
 
-        const selectedPrice = +formData.get('price')
+        const selectedPrice = +formData.get(type)
 
         if (!selectedPrice || selectedPrice <= 0) return
+
         console.log("Selected Price:", selectedPrice)
     }
 

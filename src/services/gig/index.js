@@ -20,9 +20,9 @@ function getEmptyGig() {
 function getDefaultFilter() {
     return {
         title: '',
-        price: '',
+        price: Infinity,
         tags: [],
-        daysToMake: '',
+        daysToMake: Infinity,
         loc: '',
         descrption: '',
         // sortDir: '',
