@@ -14,10 +14,6 @@
 
             all: unset;
             border: none;
-
-            &::placeholder {
-                padding-inline-start: 0.625em;
-            }
         }
 
         button {

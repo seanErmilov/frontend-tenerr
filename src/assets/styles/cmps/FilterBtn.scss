@@ -58,6 +58,7 @@
                 display: grid;
 
                 label {
+                    cursor: pointer;
                     color: #74767e;
                     text-wrap: nowrap;
 
@@ -82,6 +83,8 @@
                     align-items: center;
 
                     input[type='radio'] {
+                        cursor: pointer;
+
                         position: relative;
                         -webkit-appearance: none;
                         width: 22px;
@@ -124,7 +127,7 @@
 
 
                     &.costum {
-                        
+
                         display: grid;
                         grid-auto-flow: column;
 

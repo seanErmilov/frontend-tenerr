@@ -8,8 +8,8 @@ const BASE_URL = process.env.NODE_ENV === 'production'
 const axios = Axios.create({ withCredentials: true })
 
 export const httpService = {
-    get(endpoint, data) {
-        return ajax(endpoint, 'GET', data)
+    get(endpoint, data, baseUrl) {
+        return ajax(endpoint, 'GET', data, baseUrl)
     },
     post(endpoint, data) {
         return ajax(endpoint, 'POST', data)
@@ -22,8 +22,8 @@ export const httpService = {
     }
 }
 
-async function ajax(endpoint, method = 'GET', data = null) {
-    const url = `${BASE_URL}${endpoint}`
+async function ajax(endpoint, method = 'GET', data = null, baseUrl = null) {
+    const url = `${baseUrl || BASE_URL}${endpoint}`
     const params = (method === 'GET') ? data : null
 
     const options = { url, method, data, params }

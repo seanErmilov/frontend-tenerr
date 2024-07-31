@@ -1,6 +1,7 @@
 import { storageService } from '../async-storage.service'
-import { getRandomElement, getRandomElements, getRandomInt, getRandomIntInclusive, loadFromStorage, makeId, saveToStorage } from '../util.service'
+import { getRandomElement, getRandomElements, getRandomInt, getRandomIntInclusive, getRandomIntWithBias, loadFromStorage, makeId, saveToStorage } from '../util.service'
 import { userService } from '../user'
+import { httpService } from '../http.service'
 
 const STORAGE_KEY = 'gigDb'
 
@@ -76,50 +77,6 @@ function getSymbolByLevel(level) {
 }
 
 async function _getRandomGig(users, partialGig = {}) {
-
-    const staticUsers = [
-        {
-            "_id": '66a5f964676fe11238a1bbb9',
-            "fullname": "Alice Johnson",
-            "imgUrl": "https://res.cloudinary.com/vanilla-test-images/image/upload/v1722153314/ib46tzoensnbadbypm8u.jpg",
-            "description": "A skilled graphic designer specializing in vibrant illustrations and creative branding.",
-            "rate": 5,
-            "level": "premium"
-        },
-        {
-            "_id": '66a5f964676fe11238a1bbba',
-            "fullname": "Michael Smith",
-            "imgUrl": "https://res.cloudinary.com/vanilla-test-images/image/upload/v1722153314/ib46tzoensnbadbypm9u.jpg",
-            "description": "A web developer with a focus on user experience and responsive design.",
-            "rate": 4.5,
-            "level": "standard"
-        },
-        {
-            "_id": '66a5f964676fe11238a1bbbc',
-            "fullname": "Sophia Brown",
-            "imgUrl": "https://res.cloudinary.com/vanilla-test-images/image/upload/v1722153314/ib46tzoensnbadbypm10u.jpg",
-            "description": "An innovative packaging designer dedicated to creating sustainable solutions.",
-            "rate": 4,
-            "level": "standard"
-        },
-        {
-            "_id": '66a5f964676fe11238a1bbbd',
-            "fullname": "David Lee",
-            "imgUrl": "https://res.cloudinary.com/vanilla-test-images/image/upload/v1722153314/ib46tzoensnbadbypm11u.jpg",
-            "description": "A creative UX/UI designer with a knack for improving user engagement.",
-            "rate": 4.7,
-            "level": "premium"
-        },
-        {
-            "_id": '66a5f964676fe11238a1bbbe',
-            "fullname": "Emma Wilson",
-            "imgUrl": "https://res.cloudinary.com/vanilla-test-images/image/upload/v1722153314/ib46tzoensnbadbypm12u.jpg",
-            "description": "A versatile illustrator experienced in both digital and traditional media.",
-            "rate": 5,
-            "level": "premium"
-        }
-    ]
-    users = [...users, ...staticUsers]
 
     const titleByTag = {
         graphics: [
@@ -399,15 +356,34 @@ async function _getRandomGig(users, partialGig = {}) {
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/104670003/original/94d67f8e312dcd2c25fd3b38873cf90071b42a76.jpg",
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/105340530/original/5ed7ae85babcaed81dac19d040740fbab2dfb982.jpg",
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/109848161/original/32f013cfb69aa5ed5ad5438d749b2bc5f1842eb8.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/15781989/original/45a8f5c85a1727ff603938e23e08808fd60ab56a.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs2/15781989/original/6305ed22206af0240124ea7b334862f030c6a6ff.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs3/15781989/original/a0a8fa791f920763d8cdd19eec8c8b52746e5f2d.jpg",
+   "https://fiverr-res.cloudinary.com/image/upload/t_gig_cards_web,q_auto,f_auto/v1/attachments/delivery/asset/6880e09ea95e866438fe8feeffba9cd3-1722347435/M2.jpg",
+   "https://fiverr-res.cloudinary.com/image/upload/t_gig_cards_web,q_auto,f_auto/v1/attachments/delivery/asset/21a7ba5c5f69b03d913807f688514091-1722385647/3.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/115533372/original/36a26451dd7876335f8f646d41edf6868bea0a93.jpg",
+   "https://fiverr-res.cloudinary.com/image/upload/t_gig_cards_web,q_auto,f_auto/v1/attachments/delivery/asset/a67e541a4a932b4db6b77a0e34d1c9c5-1722112348/M2.jpg",
+   "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/delivery/asset/07c873a533e5c71771c8e43a1e06cfea-1706839524/Salinan%20logo%20preview%20.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/350140320/original/f684070dc06efc2db6c281a5e0d05e13705e8338.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/8020116/original/6ecd0c33db92111176205c6e877487710a84dc01.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/136735691/original/00b48fba6d6ec20159c02b33c94a12148ed34d3b.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/148826277/original/04fc9b0deb9ae7f91c625aa0efdc61c3b26c7fbb.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/162281380/original/8478dcaf5b8068ec8c2275602ecb6bc8828abcd4.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/300906556/original/a2143e563a56defc308621d8ac348c29ee914dc8.png",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/154274953/original/ffe7a419052cc967f0c792911e5257f0bb345f6b.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/275349935/original/2d7a86f2042b064e0df6789125b358c624d70c1f.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/3406341/original/d70f116e222110885482113be3b7de10256ed53b.jpg",
+   "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/297340331/original/9834a820c4d7089d9e9d63ec80a50738263314fe.png",
     ]
+
 
     const tag = getRandomElement(tags)
     const gig = {
         tags: tag,
         title: getRandomElement(titleByTag[tag]),
-        price: parseFloat((Math.random() * 80 + 70).toFixed(0)),
+        price: parseFloat((Math.random() * 80 + 40).toFixed(0)),
         owner: getRandomElement(users),
-        daysToMake: getRandomInt(1, 14),
+        daysToMake: getRandomIntWithBias(1, 8, 1),
         description: getRandomElement(descriptions),
         avgResponseTime: getRandomInt(1, 24),
         loc: getRandomElement(locations),
@@ -425,7 +401,6 @@ async function _createGigs() {
 
     const users = await _fetchUsers()
     console.log('users :', users)
-
 
     if (!users) return
 
@@ -457,7 +432,7 @@ function _generateReviews(users) {
         reviews.push({
             id: `r${getRandomInt(100, 999999)}`,
             txt: getRandomElement(reviewTexts),
-            rate: getRandomInt(4, 5),
+            rate: getRandomIntWithBias(3, 5, 5),
             by: getRandomElement(users)
         })
     }
@@ -466,9 +441,33 @@ function _generateReviews(users) {
 
 async function _fetchUsers() {
     try {
-        const users = await userService.getUsers()
-        return users
+        const realUsers = await userService.getUsers()
+        const randomUsers = await _getRandomUsers()
+
+        return [...realUsers, ...randomUsers]
     } catch (error) {
         console.error('Error fetching users:', error)
     }
 }
+
+async function _getRandomUsers() {
+    try {
+        const response = await httpService.get('', '', 'https://randomuser.me/api/?results=6&inc=picture,name&nat=gb')
+        const randomUsers = response.results.map((userToEdit) => {
+            return {
+                "_id": `uu${getRandomInt(100, 999999)}`,
+                "fullname": `${userToEdit.name.first} ${userToEdit.name.last}`,
+                "imgUrl": userToEdit.picture.thumbnail,
+                "description": "A skilled graphic designer specializing in vibrant illustrations and creative branding.",
+                "rate": 4,
+                "level": "premium"
+            }
+        })
+        return randomUsers
+    } catch (error) {
+        console.error('Error fetching Random users:', error)
+    }
+
+
+}
+
