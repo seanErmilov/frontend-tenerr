@@ -66,8 +66,6 @@ export function FilterPrimeCategories({ filterBy, setFilterBy, trackInViewport =
 
     // funcs
     function onClickTag(categorys) {
-        console.log('filterBy.tags :', filterBy.tags)
-        console.log('categorys :', categorys)
         const filterByToEdit = { ...filterBy, tags: [categorys] }
         // const filterByToEdit = { ...filterBy, tags: [...filterBy.tags, categorys] }
         setFilterBy(filterByToEdit)
