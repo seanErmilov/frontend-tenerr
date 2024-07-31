@@ -4,7 +4,7 @@ import Modal from '@mui/material/Modal';
 import { Signup } from './Signup';
 import { Login } from './Login';
 
-export function SignupLoginModal({ open, handleClose }) {
+export function SignupLoginModal({ open, handleClose, signUp }) {
 
   const style = {
     position: 'absolute',
@@ -26,8 +26,10 @@ export function SignupLoginModal({ open, handleClose }) {
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
-        {/* <Signup handleClose={handleClose} /> */}
-        <Login handleClose={handleClose} />
+        {signUp ?
+          <Signup handleClose={handleClose} />
+          : <Login handleClose={handleClose} />
+        }
       </Box>
     </Modal>
   )
