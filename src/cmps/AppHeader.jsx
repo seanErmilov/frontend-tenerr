@@ -21,9 +21,13 @@ import { FilterPrimeCategories } from '../cmps/FilterPrimeCategories'
 // imgs
 import tennerLogo from '../assets/img/logos/tenner-loggo.png' // Import the image
 import arrow from '../assets/img/svg/explore-arrow.svg' // Import the image
-import hamburger from '../assets/img/svg/hamburger.svg' // Import the image
+import hamburger from '../assets/img/svg/hamburger.svg' // Impo
 import { SignupLoginModal } from './SignupLoginModal.jsx'
 import { ProfileNav } from './profileNav.jsx'
+
+
+//socket ServiceWorkerRegistration
+import { SOCKET_EVENT_ORDER_STATUS_UPDATE, socketService } from '../socket.service'
 
 export function AppHeader() {
 	// hooks
@@ -61,10 +65,21 @@ export function AppHeader() {
 	function handleOpen() {
 		return setOpen(true)
 	}
+
 	function handleClose() {
 		return setOpen(false)
 	}
 
+	//use effects
+	useEffect(() => {
+		socketService.on(SOCKET_EVENT_ORDER_STATUS_UPDATE, order => {
+			console.log('order :', 'text from header ok')
+		})
+
+		return () => {
+			socketService.off(SOCKET_EVENT_ORDER_STATUS_UPDATE)
+		}
+	}, [])
 
 	useEffect(() => {
 		if (orderListRef.current && orderListVisible) orderListRef.current.focus()
@@ -80,6 +95,9 @@ export function AppHeader() {
 		if (profileNavRef.current && profileListVisible) profileNavRef.current.focus()
 
 	}, [profileListVisible])
+
+	// 
+
 
 
 	// functions

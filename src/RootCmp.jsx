@@ -30,7 +30,7 @@ export function RootCmp() {
                     <Route path="gig/edit" element={<GigAdd />} />
                     <Route path="gig/:gigId" element={<GigDetails />} />
                     <Route path="profile" element={<Profile  />} />
-                    <Route path="checkout/:orderId" element={<Checkout />} />
+                    <Route path="checkout/:orderId/:price" element={<Checkout />} />
                     <Route path="user/Dashboard/:id" element={<Dashboard />} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="login" element={<LoginSignup />}>
