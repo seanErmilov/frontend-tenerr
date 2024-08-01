@@ -1,13 +1,19 @@
 import { useNavigate, useParams } from "react-router"
+import { useSearchParams } from 'react-router-dom'
+
 import { useSelector } from "react-redux"
 import { Button } from "@mui/material"
 import { CheckoutForm } from "../cmps/CheckoutForm"
 import { addOrder } from "../store/actions/order.actions"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
+import { useState } from "react"
 
 export function Checkout() {
     const order = useSelector(storeState => storeState.orderModule.order)
     const navigate = useNavigate()
+    const pkgPrice = +useParams().price
+    const [totalPrice, _] = useState((pkgPrice + (pkgPrice * 0.16) + (pkgPrice * 0.17)))
+
     const features = [
         "1 concept included",
         "Logo transparency",
@@ -17,9 +23,9 @@ export function Checkout() {
 
     async function handelcheckout() {
         try {
-            const savedOrder = await addOrder(order)
+            const savedOrder = await addOrder({...order, gig: {...order.gig, price:totalPrice.toFixed(2)}})
             showSuccessMsg('Order saved successfully')
-            navigate('/gig')
+            navigate('/')
         } catch {
             showErrorMsg('Cannot save order')
             console.log('Cannot save order', err)
@@ -66,7 +72,7 @@ export function Checkout() {
 
                     <div className="order-details-general-pricing">
                         <p>Revolver - Package</p>
-                        <h3>${order.gig.price}</h3>
+                        <h3>${pkgPrice}</h3>
                     </div>
 
                     <ul className="features clean-list">
@@ -93,15 +99,15 @@ export function Checkout() {
                 <section className="summary">
                     <div className="service">
                         <p>Service fee</p>
-                        <p>${(order.gig.price * 0.17).toFixed(2)}</p>
+                        <p>${(pkgPrice * 0.17).toFixed(2)}</p>
                     </div>
                     <div className="vat">
                         <p>VAT</p>
-                        <p>${(order.gig.price * 0.16).toFixed(2)}</p>
+                        <p>${(pkgPrice * 0.16).toFixed(2)}</p>
                     </div>
                     <div className="Total">
                         <h1>Total</h1>
-                        <h1>${(order.gig.price + (order.gig.price * 0.16) + (order.gig.price * 0.17)).toFixed(2)}</h1>
+                        <h1>${(totalPrice).toFixed(2)}</h1>
                     </div>
                     <div className="delivery">
                         <p>Total delivery time</p>
@@ -118,12 +124,10 @@ export function Checkout() {
                     </div>
                     <div className="trader-disclaimer">
                         <p>
-                            You will be charged <span> ${order.gig.price}</span>.
+                            You will be charged <span> ${totalPrice.toFixed(2)}</span>.
                             Total amount <br />includes currency conversion fees.
                         </p>
                     </div>
-
-
                 </section>
             </div>
         </main>

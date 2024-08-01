@@ -57,7 +57,7 @@ export function AboutUserGig({ user, loc }) {
                         <p className="about-user-response-time">Avg. response time <span>1 hour</span></p>
                         <p className="about-user-languages">Languages <span>{languages}</span></p>
                     </div>
-                    <p className="about-user-aboutUser">HelloI'm an IT geek, MacOS addict & I love what I do. I'm known for my kindness, friendliness & great communication skills, and also for taking my time to help people and answer to their needs. I'm a fast deliverer because I work 14hrs/day on Fiverr to support, provide & protect my family..</p>
+                    <p className="about-user-aboutUser">Hello I'm an IT geek, MacOS addict & I love what I do. I'm known for my kindness, friendliness & great communication skills, and also for taking my time to help people and answer to their needs. I'm a fast deliverer because I work 14hrs/day on Fiverr to support, provide & protect my family..</p>
                 </div>
             </div>
 

@@ -55,12 +55,12 @@ export function GigDetails() {
     setFilteredReviews(fetchedGig.reviews)
   }
 
-  function handelcheckout() {
+  function handelcheckout(price) {
     const order = orderService.getOrder(gig)
     setOrderToStore(order)
       .then(() => {
         // showSuccessMsg('Order saved successfully')
-        navigate(`/checkout/${gig._id}`)
+        navigate(`/checkout/${gig._id}/${price}`)
       })
       .catch(err => {
         showErrorMsg('Cannot save gig')

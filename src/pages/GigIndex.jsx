@@ -35,18 +35,26 @@ export function GigIndex() {
     function onSetFilterBy(filterBy) {
         setFilter(filterBy)
     }
-
-
-
+    const categoriesMap = {
+        programming: ["Programming & Tech","Let us manage your Programming & Tech project"],
+        graphics: ["Graphics & Design","Stand out from the crowd with a logo that fits your brand personality"],
+        digital: ["Digital Marketing","Find a comprehensive digital marketing agency to handle it all."],
+        writing: ["Writing & Translation","Most Popular in Writing & Translation"],
+        video: ["Video & Animation","Let us manage your Video & Animation project"],
+        ai: ["AI Services","Add AI with the help of experts who get it"],
+        music: ["Music & Audio","Most Popular in Music & Audio"],
+        business: ["Business","Most popular in Business"],
+        consulting: ["Consulting","Access experts to accelerate your business."]
+    }
     if (!gigs.length) return
     const innerText = filterBy.title ? filterBy.title : filterBy.tags[0]
     return (
         <main className="gig-index">
             <Inside filterBy={filterBy}
-                innerText={innerText} />
+                innerText={categoriesMap[innerText][0]} />
 
-            <h1>{innerText}</h1>
-            <h4>Stand out from the crowd with a logo that fits your brand personality</h4>
+            <h1>{categoriesMap[innerText][0]}</h1>
+            <h4>{categoriesMap[innerText][1]}</h4>
             {/* <FilterBtn /> */}
             <GigFilter filterBy={filterBy} setFilterBy={onSetFilterBy} />
             <GigList
