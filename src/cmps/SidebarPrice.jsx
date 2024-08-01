@@ -68,7 +68,7 @@ export function SidebarPrice({ handelcheckout, price, avgResponseTime, handleOpe
         setIsCollapsed(!isCollapsed)
     }
 
-    function handleButtonClick() {
+    function handleButtonClick(pkg) {
         //todo add oreder
         handelcheckout()
         // const packageDetails = packages[selectedPackage]

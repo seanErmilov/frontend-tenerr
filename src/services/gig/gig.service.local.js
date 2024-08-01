@@ -444,9 +444,9 @@ function _generateReviews(users) {
         reviews.push({
             id: `r${getRandomInt(100, 999999)}`,
             txt: getRandomElement(reviewTexts),
-            rate: getRandomIntWithBias(2, 5, 5,0.9),
+            rate: getRandomIntWithBias(2, 5, 5, 0.9),
             by: getRandomElement(users),
-            loc:getRandomElement(locations)
+            loc: getRandomElement(locations)
         })
     }
     return reviews
@@ -473,7 +473,7 @@ async function _getRandomUsers() {
                 "imgUrl": userToEdit.picture.thumbnail,
                 "description": "A skilled graphic designer specializing in vibrant illustrations and creative branding.",
                 "rate": 4,
-                "level": "premium",
+                'level': ['premium', 'standard', 'basic'](getRandomIntWithBias(0, 2, 0, percentage = 0.6)),
                 "loc": getRandomElement(locations)
             }
         })
