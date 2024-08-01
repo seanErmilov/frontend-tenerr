@@ -15,6 +15,7 @@ import { useNavigate } from 'react-router'
 // imgs
 import magnifyingGlass from '../assets/img/svg/searchBar/magnifyingGlass.svg'
 import { convertObjectToQueryParams } from '../services/util.service'
+import { gigService } from '../services/gig'
 
 
 export function SearchBar({ trackInViewport = false }) {
@@ -57,8 +58,8 @@ export function SearchBar({ trackInViewport = false }) {
 
     function handleChange(ev) {
         const { name, value } = ev.target
-
-        onSetFilter({ ...filterBy, [name]: value })
+        const defaultFilter = gigService.getDefaultFilter()
+        onSetFilter({ ...defaultFilter, [name]: value })
     }
 
     return (

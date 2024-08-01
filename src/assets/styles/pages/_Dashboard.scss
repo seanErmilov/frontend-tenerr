@@ -37,6 +37,7 @@ main {
                     position: relative;
                     display: inline-block;
                 }
+
                 .online-status {
                     position: absolute;
                     bottom: 20px;
@@ -155,12 +156,13 @@ main {
                             padding: 5px;
                         }
                     }
+
                     .online-status {
                         position: absolute;
                         bottom: 12px;
                         left: 58px;
                         width: 15px;
-                    height: 15px;
+                        height: 15px;
                     }
                 }
 
@@ -209,6 +211,15 @@ main {
         th {
             font-weight: 900;
             color: $clr7;
+            max-width: 58px;
+        }
+
+        td.total {
+            max-width: 38px;
+        }
+
+        td.status {
+            max-width: 150px;
         }
 
         h3 {

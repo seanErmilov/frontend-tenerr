@@ -5,8 +5,10 @@
 @import "setup/typography";
 
 // Basics
-@import "basics/layout";
 @import "basics/base";
+@import "basics/helpers";
+@import "basics/layout";
+
 
 
 // pages
@@ -20,9 +22,9 @@
 @import "pages/UserDetails";
 @import "pages/GigDetails";
 @import "pages/LoginSignup";
-@import "pages/GigEdit.scss";
-@import "pages/Profile.scss";
-@import "pages/Dashboard.scss";
+@import "pages/GigEdit";
+@import "pages/Profile";
+@import "pages/Dashboard";
 
 // Components
 @import "cmps/GigList";
@@ -33,26 +35,25 @@
 @import "cmps/GigFilter";
 @import "cmps/ReviewEdit";
 @import "cmps/ReviewList";
-@import "cmps/GigPageReviews.scss";
+@import "cmps/GigPageReviews";
 @import "cmps/ReviewPreview";
 @import "cmps/CarouselImg";
 @import "cmps/SidebarPrice";
 @import "cmps/MiniUserGig";
-@import "cmps/AboutUserGig.scss";
-@import "cmps/ComparePackages.scss";
-@import "cmps/ReviewCarousell.scss";
-@import "cmps/MainNav.scss";
-@import "cmps/SearchBar.scss";
-@import "cmps/LinkIcon.scss";
-@import "cmps/FilterBtn.scss";
-@import "cmps/carouseldetails.scss";
-@import "cmps/FreelanceTalent.scss";
+@import "cmps/AboutUserGig";
+@import "cmps/ComparePackages";
+@import "cmps/ReviewCarousell";
+@import "cmps/MainNav";
+@import "cmps/SearchBar";
+@import "cmps/LinkIcon";
+@import "cmps/FilterBtn";
+@import "cmps/carouseldetails";
+@import "cmps/FreelanceTalent";
 
 
 
 
 // Basics -helpers for overrunning other settings
-@import "basics/helpers";
 
 // @import "cmps/GigList";
 // @import "cmps/GigPreview";

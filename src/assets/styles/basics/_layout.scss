@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: minmax(2rem, 1fr) minmax(0, $main-layout-max) minmax(2rem, 1fr);
     position: relative;
+    min-height: calc(100vh - 1.5rem);
 
     >* {
         grid-column: 2;
@@ -11,11 +12,10 @@
         }
     }
 
-    footer{
+    footer {
         align-self: end;
     }
 
-    min-height: calc(100vh - 1.5rem);
 
 
 }

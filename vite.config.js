@@ -7,5 +7,6 @@ export default defineConfig({
 	build: {
 		outDir: '../backend-tenner/public',
 		emptyOutDir: true,
+		chunkSizeWarningLimit: 1000,
 	},
 })
