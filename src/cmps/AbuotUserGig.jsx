@@ -1,6 +1,6 @@
 import level3 from '../assets/img/levels/level3.png' // Import the image
 
-
+import { countries } from 'country-data'
 import star from '../assets/img/svg/star.svg' // Import the image
 
 
@@ -51,7 +51,7 @@ export function AboutUserGig({ user, loc }) {
 
                 <div className="abuot-user-gig-info ">
                     <div className="user-info">
-                        <p className="about-user-loc">From <span>{loc}</span></p>
+                        <p className="about-user-loc">From <span>{countries[user.loc] ? countries[user.loc].name : "Israel"}</span></p>
                         <p className="about-user-Member-since">Member since <span>Feb 2016</span></p>
                         <p className="about-user-last-delivery">Last delivery <span>about 1 hour</span></p>
                         <p className="about-user-response-time">Avg. response time <span>1 hour</span></p>

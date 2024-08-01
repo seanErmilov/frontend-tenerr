@@ -45,7 +45,7 @@ export function GigIndex() {
             <Inside filterBy={filterBy}
                 innerText={innerText} />
 
-            <h1>Logo Design</h1>
+            <h1>{innerText}</h1>
             <h4>Stand out from the crowd with a logo that fits your brand personality</h4>
             {/* <FilterBtn /> */}
             <GigFilter filterBy={filterBy} setFilterBy={onSetFilterBy} />

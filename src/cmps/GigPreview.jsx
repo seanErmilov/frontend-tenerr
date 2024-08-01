@@ -1,20 +1,16 @@
+import level1 from '../assets/img/levels/level1.png' // Import the image
+import level2 from '../assets/img/levels/level2.png' // Import the image
+import level3 from '../assets/img/levels/level3.png' // Import the image
 // cmps
 import { CarouselImg } from './CarouselImg'
-
-import level3 from '../assets/img/levels/level3.png' // Import the image
-import level2 from '../assets/img/levels/level2.png' // Import the image
-import level1 from '../assets/img/levels/level1.png' // Import the image
-
-const levels = [level1, level2, level3]
-
-// temporary
-const demoProfilePic = "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/9e8702d529c8f21bb17f512459008a37-1677794942899/0970a995-f617-40ac-b337-46afa40c339b.png"
 
 // react tools
 import { Link, useNavigate } from 'react-router-dom'
 
 export function GigPreview({ gig }) {
+
     function calcAverageRating() {
+        if (!gig.reviews) return "no reviews"
         const rating = gig.reviews.reduce((acc, review) => {
             acc += review.rate
             return acc
@@ -23,7 +19,6 @@ export function GigPreview({ gig }) {
     }
 
     return <article className="preview">
-
         <CarouselImg
             gig={gig} />
 
@@ -33,7 +28,10 @@ export function GigPreview({ gig }) {
                 <img className='owner-profile-pic' src={gig.owner.imgUrl} alt="" />
                 <span className='owner-name bold'>{gig.owner.fullname}</span>
             </div>
-            <img className="level" src={levels[gig.owner.level - 1]} alt="" />
+            <img
+                className="level"
+                src={gig.owner.level == 'basic' ? level1 : gig.owner.level == 'standard' ? level2 : level3}
+            />
         </div>
 
         {/* title */}
@@ -49,7 +47,7 @@ export function GigPreview({ gig }) {
                 </svg>
             </span>
             <span className='rating bold'>{calcAverageRating()}</span>
-            <span className='reviewers-count'>({gig.reviews.length})</span>
+            <span className='reviewers-count'>({gig.reviews ? gig.reviews.length : 0})</span>
         </div>
 
         {/* from price */}

@@ -28,7 +28,7 @@ export function SidebarPrice({ handelcheckout, price, avgResponseTime, handleOpe
         medium: {
             name: 'Standard',
             description: 'Enhanced package with additional features',
-            price: price * 2,
+            price: Math.floor(price* 1.2),
             avgResponseTime: avgResponseTime + 1,
             features: [
                 { name: "1 concept included", included: true },
@@ -43,8 +43,8 @@ export function SidebarPrice({ handelcheckout, price, avgResponseTime, handleOpe
         premium: {
             name: 'Premium',
             description: 'Premium package with full features',
-            price: price * 5,
-            avgResponseTime: avgResponseTime + 3,
+            price: price * 2,
+            avgResponseTime: avgResponseTime + 2,
             features: [
                 { name: "1 concept included", included: true },
                 { name: "Logo transparency", included: true },
@@ -68,7 +68,7 @@ export function SidebarPrice({ handelcheckout, price, avgResponseTime, handleOpe
         setIsCollapsed(!isCollapsed)
     }
 
-    function handleButtonClick() {
+    function handleButtonClick(pkg) {
         //todo add oreder
         handelcheckout()
         // const packageDetails = packages[selectedPackage]
