@@ -60,18 +60,14 @@ export function SidebarPrice({ handelcheckout, price, avgResponseTime, handleOpe
 
     function handlePackageChange(packageType) {
         setSelectedPackage(packageType)
-        // navigate('/pay', { state: { packageDetails, quantity: 1 } })
-        // navigate('/pay', { state: { packageDetails, quantity: 1 } })
     }
 
     function toggleCollapse() {
         setIsCollapsed(!isCollapsed)
     }
 
-    function handleButtonClick(pkg) {
-        //todo add oreder
-        handelcheckout()
-        // const packageDetails = packages[selectedPackage]
+    function handleButtonClick() {
+        handelcheckout(packages[selectedPackage].price)
     }
     const down = 'https://cdn-icons-png.flaticon.com/128/8287/8287014.png'
     const up = 'https://cdn-icons-png.flaticon.com/128/2722/2722987.png'
