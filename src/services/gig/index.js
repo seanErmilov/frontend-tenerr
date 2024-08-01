@@ -26,6 +26,7 @@ function getDefaultFilter() {
         loc: '',
         descrption: '',
         // sortDir: '',
+        //
     }
 }
 function getPrimeryTags() {

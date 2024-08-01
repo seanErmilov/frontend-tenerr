@@ -5,7 +5,10 @@ import level3 from '../assets/img/levels/level3.png' // Import the image
 import level2 from '../assets/img/levels/level2.png' // Import the image
 import level1 from '../assets/img/levels/level1.png' // Import the image
 
-const levels = [level1, level2, level3]
+function getImageUrl(name) {
+    return new URL(`../assets/img/levels/level${name}.png`, import.meta.url).href
+  }
+const levels = [getImageUrl(1), getImageUrl(2), getImageUrl(3)]
 
 // temporary
 const demoProfilePic = "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/9e8702d529c8f21bb17f512459008a37-1677794942899/0970a995-f617-40ac-b337-46afa40c339b.png"

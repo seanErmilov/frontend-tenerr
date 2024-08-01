@@ -29,7 +29,6 @@ export function GigFilter({ filterBy, setFilterBy }) {
     }, [filterToEdit])
 
     function onfilterBySubmit(ev, type, visibilitySetter) {
-        console.log('hgfdfgfdshgfdhgfdghfd');
         ev.preventDefault()
         visibilitySetter(false)
         const formData = new FormData(ev.target)
@@ -63,23 +62,30 @@ export function GigFilter({ filterBy, setFilterBy }) {
                     <form action="" onSubmit={ev => onfilterBySubmit(ev, 'price', setPriceListVisible)}>
 
                         <div className='opt'>
-                            <input type="radio" id="Under50" name="price" value="50" defaultChecked />
-                            <label htmlFor="Under50"><span>value</span>Under $50</label>
+                            <label htmlFor="Under50">
+                                <input type="radio" id="Under50" name="price" value="50" defaultChecked />
+                                <span>value</span>
+                                Under $50</label>
                         </div>
 
                         <div className='opt'>
-                            <input type="radio" id="Under100" name="price" value="100" />
-                            <label htmlFor="Under100"><span>value</span>Under $100</label>
+                            <label htmlFor="Under100">
+                                <input type="radio" id="Under100" name="price" value="100" />
+                                <span>value</span>Under $100
+                            </label>
                         </div>
 
                         <div className='opt'>
-                            <input type="radio" id="Under200" name="price" value="200" />
-                            <label htmlFor="Under200"><span>value</span>Under $200</label>
+                            <label htmlFor="Under200">
+                                <input type="radio" id="Under200" name="price" value="200" />
+                                <span>value</span>Under $200
+                            </label>
                         </div>
 
                         <div className='costum opt'>
-                            <input type="radio" id="costum" name="price" value={costumPrice} />
-                            <label htmlFor="costum">Costum
+                            <label htmlFor="costum">
+                                    <input type="radio" id="costum" name="price" value={costumPrice} />
+                                <span>Costum</span>
                                 <br />
                                 <input type="number" name="" id="" onChange={e => onChamgeCostumPrice(e.target.value)} placeholder='Enter Budget                     $' />
                             </label>
@@ -99,23 +105,31 @@ export function GigFilter({ filterBy, setFilterBy }) {
                 <div className='index-filter-container' ref={dateList} onBlur={e => handleBlur(e, setDateListVisible, 'date-btn')} tabIndex="-1" onClick={e => e.stopPropagation()}>
                     <form action="" onSubmit={ev => onfilterBySubmit(ev, 'daysToMake', setDateListVisible)}>
                         <div className='opt'>
-                            <input type="radio" id="1" name="daysToMake" value="1" />
-                            <label htmlFor="1"><span>Express 24H</span></label>
+                            <label htmlFor="1">
+                                <input type="radio" id="1" name="daysToMake" value="1" />
+                                <span>Express 24H</span>
+                            </label>
                         </div>
 
                         <div className='opt'>
-                            <input type="radio" id="3" name="daysToMake" value="3" />
-                            <label htmlFor="3"><span>Up to 3 days</span></label>
+                            <label htmlFor="3">
+                                <input type="radio" id="3" name="daysToMake" value="3" />
+                                <span>Up to 3 days</span>
+                            </label>
                         </div>
 
                         <div className='opt'>
-                            <input type="radio" id="7" name="daysToMake" value="7" />
-                            <label htmlFor="7"><span>Up to 7 days</span></label>
+                            <label htmlFor="7">
+                                <input type="radio" id="7" name="daysToMake" value="7" />
+                                <span>Up to 7 days</span>
+                            </label>
                         </div>
 
                         <div className='opt'>
-                            <input type="radio" id="inf" name="daysToMake" value={Infinity} defaultChecked />
-                            <label htmlFor="inf"><span>Anytime</span></label>
+                            <label htmlFor="inf">
+                                <input type="radio" id="inf" name="daysToMake" value={Infinity} defaultChecked />
+                                <span>Anytime</span>
+                            </label>
                         </div>
 
                         <div className='btn-container'>

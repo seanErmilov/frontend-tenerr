@@ -13,7 +13,7 @@
     .filter-btn {
         display: grid;
         justify-content: start;
-       
+
         cursor: pointer;
         padding: 0.625em 1em;
         padding-right: 25px;
@@ -44,47 +44,33 @@
         }
 
         .index-filter-container {
+
             background-color: #ffffff;
             z-index: 1;
             top: calc(100% + 5px);
             left: 0;
             position: absolute;
             border-radius: 10px;
-            padding-inline: 13px;
             padding-top: 22px;
             box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.186);
 
             form {
-                display: grid;
-
-                label {
-                    cursor: pointer;
-                    color: #74767e;
-                    text-wrap: nowrap;
-
-                    span {
-                        color: #404145;
-                        padding-right: 10px;
-                    }
-                }
-
                 .opt {
+                    margin-inline: 13px;
+
+
                     &:hover {
                         background-color: #fafafa;
                     }
 
-                    width: calc(max-content + 50px);
                     border-radius: 7px;
-                    padding: 10px;
                     font-size: 14px;
-                    display: grid;
                     grid-auto-flow: column;
                     justify-content: start;
                     align-items: center;
 
                     input[type='radio'] {
                         cursor: pointer;
-
                         position: relative;
                         -webkit-appearance: none;
                         width: 22px;
@@ -111,10 +97,11 @@
                         line-height: 1;
                         top: -5.1px;
                         left: 4.8px;
+                        // transition: all 1s ease;
                     }
 
                     input[type='radio']:checked:after {
-                        left: -1px;
+                        left: -0.5px;
                         top: -0.5px;
                         position: absolute;
                         content: '';
@@ -124,45 +111,72 @@
                         border-radius: 50%;
                     }
 
+                    label {
+                        width: 100%;
+                        cursor: pointer;
+                        color: #74767e;
+                        text-wrap: nowrap;
+                        padding-block: 10px;
+                        padding-left: 10px;
+                        padding-right: 20px;
+                        display: flex;
+                        align-items: center;
+
+                        span {
+                            color: #404145;
+                            padding-right: 10px;
+                        }
+                    }
 
 
                     &.costum {
-
-                        display: grid;
-                        grid-auto-flow: column;
+                        margin-bottom: 5px;
 
                         input {
                             grid-column: 1;
                             grid-row: 1;
                             align-self: start;
+
                         }
 
                         label {
-                            margin-top: 3px;
-                            grid-column: 2;
-
+                            display: grid;
+                            grid-auto-flow: column;
+                            background-color: transparent;
 
                             span {
-                                padding-right: 10px;
+                                grid-column: 2;
+                                font-weight: unset;
+                                color: #74767e;
                             }
-
 
                             input[type=number]::-webkit-inner-spin-button {
                                 -webkit-appearance: none;
                             }
 
                             input {
+                                grid-column: 2;
+                                grid-row: 2;
                                 padding: 10px;
                                 margin-top: 10px;
                                 border-radius: 5px;
                                 border: 1px solid rgb(203, 203, 203);
                             }
+
+                            input[type='radio'] {
+                                margin-top: 0;
+                                grid-row: 1;
+                                grid-column: 1;
+                                border-radius: 50%;
+                            }
                         }
                     }
+
 
                 }
 
                 .btn-container {
+                    margin: 0;
                     width: 100%;
                     padding-block: 18px;
                     border-top: 1px solid rgb(203, 203, 203);

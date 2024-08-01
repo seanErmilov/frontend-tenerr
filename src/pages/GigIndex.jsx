@@ -6,9 +6,7 @@ import { loadGigs, setFilter } from '../store/actions/gig.actions'
 
 import { GigList } from '../cmps/GigList'
 import { GigFilter } from '../cmps/GigFilter'
-import { FilterBtn } from '../cmps/FilterBtn'
 import { Inside } from '../cmps/Inside'
-import { useLocation, useParams } from 'react-router'
 import { useSearchParams } from 'react-router-dom'
 import { gigService } from '../services/gig'
 
