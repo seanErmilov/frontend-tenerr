@@ -2,10 +2,11 @@ import { useState, useEffect, useRef } from 'react'
 import { gigService } from '../services/gig'
 import { SearchBar } from './SearchBar'
 import { useEffectUpdate } from '../customHooks/useEffectUpdate'
+import { useSelector } from 'react-redux'
 
-export function GigFilter({ filterBy, setFilterBy }) {
+export function GigFilter({ setFilterBy }) {
     //in dev for list page
-    const [filterToEdit, setFilterToEdit] = useState(structuredClone(filterBy))
+    const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
     const [costumPrice, setCostumPrice] = useState()
 
     const [priceOptionsVisible, setPriceListVisible] = useState(false)
@@ -24,9 +25,7 @@ export function GigFilter({ filterBy, setFilterBy }) {
 
     }, [dateOptionsVisible])
 
-    useEffectUpdate(() => {
-        setFilterBy(filterToEdit)
-    }, [filterToEdit])
+
 
     function onfilterBySubmit(ev, type, visibilitySetter) {
         ev.preventDefault()
@@ -34,7 +33,7 @@ export function GigFilter({ filterBy, setFilterBy }) {
         const formData = new FormData(ev.target)
         const selectedValue = +formData.get(type)
         if (!selectedValue || selectedValue <= 0) return
-        setFilterToEdit({ ...filterToEdit, [type]: selectedValue })
+        setFilterBy({ ...filterBy, [type]: selectedValue })
     }
 
     function onChamgeCostumPrice(val) {
@@ -47,11 +46,11 @@ export function GigFilter({ filterBy, setFilterBy }) {
     }
 
     function clearFilter() {
-        setFilterToEdit({ ...filterToEdit, txt: '', minSpeed: '', maxPrice: '' })
+        setFilterBy({ ...filterBy, txt: '', minSpeed: '', maxPrice: '' })
     }
 
     function clearSort() {
-        setFilterToEdit({ ...filterToEdit, sortField: '', sortDir: '' })
+        setFilterBy({ ...filterBy, sortField: '', sortDir: '' })
     }
 
     return <div className="filter-btn-container">
@@ -84,7 +83,7 @@ export function GigFilter({ filterBy, setFilterBy }) {
 
                         <div className='costum opt'>
                             <label htmlFor="costum">
-                                    <input type="radio" id="costum" name="price" value={costumPrice} />
+                                <input type="radio" id="costum" name="price" value={costumPrice} />
                                 <span>Costum</span>
                                 <br />
                                 <input type="number" name="" id="" onChange={e => onChamgeCostumPrice(e.target.value)} placeholder='Enter Budget                     $' />

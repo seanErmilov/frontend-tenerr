@@ -100,22 +100,15 @@ async function _getRandomGig(users, partialGig = {}) {
             'I will create high-quality book cover designs',
             'I will design professional presentation slides',
             'I will provide custom t-shirt designs',
-            'I will create an eye-catching banner for your website',
-            'I will design an attractive email newsletter template',
             'I will provide social media branding packages',
             'I will create custom graphics for your blog posts',
             'I will design a unique brand style guide',
-            'I will develop merchandise designs for your events',
             'I will create custom icons for your website or app',
-            'I will design a professional letterhead and stationery',
             'I will create visually appealing event invitations',
-            'I will design engaging YouTube thumbnails for your videos',
             'I will create custom graphics for online advertisements',
             'I will develop an attractive product catalog layout',
-            'I will create dynamic presentations for conferences',
             'I will design a unique website layout for your brand',
             'I will create illustrations for your childrens book',
-            'I will design visually appealing infographics for reports',
             'I will create promotional materials for your business',
             'I will design custom graphics for your podcast',
             'I will develop a logo for your non-profit organization',
@@ -389,13 +382,13 @@ async function _getRandomGig(users, partialGig = {}) {
     ]
 
 
-    const tag = getRandomElement(tags)
+    const tag = tags[getRandomIntWithBias(0, tags.length - 1, 0)]
     const gig = {
         tags: tag,
         title: getRandomElement(titleByTag[tag]),
         price: parseFloat((Math.random() * 500 + 40).toFixed(0)),
         owner: getRandomElement(users),
-        daysToMake: getRandomIntWithBias(1, 8, 1),
+        daysToMake: getRandomIntWithBias(1, 8, 1, 1),
         description: getRandomElement(descriptions),
         avgResponseTime: getRandomInt(1, 24),
         loc: getRandomElement(locations),
@@ -417,7 +410,7 @@ async function _createGigs() {
     if (!users) return
 
 
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < 200; i++) {
         gigs.push(await _getRandomGig(users))
     }
 
@@ -454,9 +447,9 @@ function _generateReviews(users) {
 
 async function _fetchUsers() {
     try {
-        const realUsers = await userService.getUsers()
+        let realUsers = await userService.getUsers()
         const randomUsers = await _getRandomUsers()
-        console.log(JSON.stringify(randomUsers))
+        console.log(JSON.stringify(realUsers))
 
         return [...realUsers, ...randomUsers]
 
