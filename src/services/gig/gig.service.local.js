@@ -455,17 +455,10 @@ function _generateReviews(users) {
 async function _fetchUsers() {
     try {
         const realUsers = await userService.getUsers()
-        // const randomUsers = await _getRandomUsers()
+        const randomUsers = await _getRandomUsers()
+        console.log(JSON.stringify(randomUsers))
 
-        // return [...realUsers, ...randomUsers]
-        return realUsers  ////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+        return [...realUsers, ...randomUsers]
 
     } catch (error) {
         console.error('Error fetching users:', error)
@@ -474,16 +467,17 @@ async function _fetchUsers() {
 
 async function _getRandomUsers() {
     try {
-        const response = await httpService.get('', '', 'https://randomuser.me/api/?results=6&inc=picture,name&nat=gb')
-        console.log(response);
+        const response = await httpService.get('', '', 'https://randomuser.me/api/?results=6&inc=picture,name&nat=gb&seed=abc')
         const randomUsers = response.results.map((userToEdit) => {
             return {
-                "_id": `uu${getRandomInt(100, 999999)}`,
+                // "_id": `uu${getRandomInt(100, 999999)}`,
                 "fullname": `${userToEdit.name.first} ${userToEdit.name.last}`,
+                "username": `${userToEdit.name.first}`,
+                "password": '$2b$10$f0PMWX6SAuUowFmw0oXdgeIOSBOwPggJ6/aozH39.1rzdaMrlIXRW',
                 "imgUrl": userToEdit.picture.thumbnail,
                 "description": "A skilled graphic designer specializing in vibrant illustrations and creative branding.",
                 "rate": 4,
-                'level': ['premium', 'standard', 'basic'](getRandomIntWithBias(0, 2, 0, percentage = 0.6)),
+                'level': ['premium', 'standard', 'basic'][getRandomIntWithBias(0, 2, 0, 0.6)],
                 "loc": getRandomElement(locations)
             }
         })
