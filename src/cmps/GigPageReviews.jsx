@@ -2,22 +2,11 @@
 export function GigPageReviews({ reviews }) {
     const reviewsLen = reviews.length
     const avgRating = (reviews.reduce((sum, review) => sum + review.rate, 0) / reviewsLen).toFixed(1)
-    const starCounts = [ 3, 4, 5].map(star => reviews.filter(review => review.rate === star).length)
+    const starCounts = [5, 4, 3, 2, 1].map(star => reviews.filter(review => review.rate === star).length)
 
     function renderStars(rate) {
-        const fullStars = Math.floor(rate)
-        const halfStars = rate % 1 !== 0 ? 1 : 0
-        const emptyStars = 5 - fullStars - halfStars
-
         return (
             <div className="stars-container">
-                {/* {Array(fullStars).fill().map((_, idx) => (
-                    <span key={`full-${idx}`} className="star full-star">★</span>
-                ))}
-                {halfStars ? <span key="half" className="star half-star">☆</span> : null}
-                {Array(emptyStars).fill().map((_, idx) => (
-                    <span key={`empty-${idx}`} className="star empty-star">☆</span>
-                ))} */}
                 <span>{rate}<p>stars</p></span>
             </div>
         )
@@ -28,9 +17,6 @@ export function GigPageReviews({ reviews }) {
             <div className="reviews-summary">
                 <h2>Reviews</h2>
                 <div className="total-reviews">{reviewsLen.toLocaleString()} reviews for this Gig</div>
-                {/* <div className="average-rating">
-                    {renderStars(avgRating)}
-                </div> */}
             </div>
             <div className="breakdown">
                 <div className="rating-breakdown">

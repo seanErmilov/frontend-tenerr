@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import { countries } from 'country-data';
+import ReactCountryFlag from "react-country-flag"
 
 export function ReviewList({ reviews, loc }) {
 
@@ -36,7 +37,9 @@ export function ReviewList({ reviews, loc }) {
               <div className="reviewer-img"><img src={review.by.imgUrl} /></div>
               <div className='name-and-loc'>
                 <div className="reviewer-name">{review.by.fullname}</div>
-                <div className="reviewer-loc">{loc}</div>
+                <div className="reviewer-loc"><ReactCountryFlag countryCode={review.loc} svg
+                  title={review.loc}/>
+                   {countries[review.loc].name}</div>
               </div>
               <div className="review-rate">{renderStars(review.rate)}</div>
 

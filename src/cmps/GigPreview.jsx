@@ -14,7 +14,9 @@ const demoProfilePic = "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto
 import { Link, useNavigate } from 'react-router-dom'
 
 export function GigPreview({ gig }) {
+
     function calcAverageRating() {
+        if (!gig.reviews) return "no reviews"
         const rating = gig.reviews.reduce((acc, review) => {
             acc += review.rate
             return acc
@@ -49,7 +51,7 @@ export function GigPreview({ gig }) {
                 </svg>
             </span>
             <span className='rating bold'>{calcAverageRating()}</span>
-            <span className='reviewers-count'>({gig.reviews.length})</span>
+            <span className='reviewers-count'>({gig.reviews ? gig.reviews.length : 0})</span>
         </div>
 
         {/* from price */}

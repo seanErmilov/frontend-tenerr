@@ -30,7 +30,7 @@ export function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-export function getRandomIntWithBias(min, max, biasedNumber) {
+export function getRandomIntWithBias(min, max, biasedNumber,percentage =0.3) {
     // Ensure biasedNumber is within the specified range
     if (biasedNumber < min || biasedNumber > max) {
         throw new Error('Biased number must be within the range of ' + min + ' to ' + max)
@@ -40,7 +40,7 @@ export function getRandomIntWithBias(min, max, biasedNumber) {
     const random = Math.random()
 
     // Determine if we should choose the biased number
-    if (random < 0.3) {
+    if (random < percentage) {
         // 30% chance to return the biased number
         return biasedNumber
     } else {

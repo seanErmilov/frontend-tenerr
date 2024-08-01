@@ -77,7 +77,7 @@ export function GigDetails() {
       <div className='gig-details-side'>
         <SidebarOptions />
         <br />
-        <SidebarPrice handleOpen={handleOpen} handelcheckout={handelcheckout} price={gig.price} avgResponseTime={gig.avgResponseTime} onChange={() => { }} />
+        <SidebarPrice handleOpen={handleOpen} handelcheckout={handelcheckout} price={gig.price} avgResponseTime={gig.daysToMake} onChange={() => { }} />
       </div>
 
       {/* left side */}
@@ -97,7 +97,7 @@ export function GigDetails() {
         <br />
         <br />
 
-        <SidebarPrice handleOpen={handleOpen} handelcheckout={handelcheckout} price={gig.price} avgResponseTime={gig.avgResponseTime} onChange={() => { }} />
+        <SidebarPrice handleOpen={handleOpen} handelcheckout={handelcheckout} price={gig.price} avgResponseTime={gig.daysToMake} onChange={() => { }} />
 
 
         <div className='carousel-container'>
