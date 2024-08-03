@@ -7,12 +7,6 @@ const hardCodedDescription = `A visionary logo and branding expert, here to craf
 export function AboutGig({ description, name = 'San' }) {
   const descriptionTemp = hardCodedDescription.split('\n')
 
-  // const paragraphs = description
-  //   .split(/\n\s*\n/)
-  //   .map(para => para.split(/(?=\b[A-Z]+\b)/))
-  //   .flat()
-  //   .filter(para => para.trim() !== '')
-
   return (
     <div className='about-gig'>
       <h2>About this gig</h2>

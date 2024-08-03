@@ -34,13 +34,17 @@ export function ReviewList({ reviews, loc }) {
         {displayedReviews.length > 0 ? (
           displayedReviews.map(review => (
             <div key={review.id} className="review">
-              <div className="reviewer-img"><img src={review.by.imgUrl} /></div>
-              <div className='name-and-loc'>
-                <div className="reviewer-name">{review.by.fullname}</div>
-                <div className="reviewer-loc"><ReactCountryFlag countryCode={review.loc} svg
-                  title={review.loc}/>
-                   {countries[review.loc].name}</div>
+              <div className='pic-name-loc'>
+
+                <div className="reviewer-img"><img src={review.by.imgUrl} /></div>
+                <div className='name-and-loc'>
+                  <div className="reviewer-name">{review.by.fullname}</div>
+                  <div className="reviewer-loc"><ReactCountryFlag countryCode={review.loc} svg
+                    title={review.loc} />
+                    {countries[review.loc].name}</div>
+                </div>
               </div>
+
               <div className="review-rate">{renderStars(review.rate)}</div>
 
               <div className="review-txt">{review.txt}</div>

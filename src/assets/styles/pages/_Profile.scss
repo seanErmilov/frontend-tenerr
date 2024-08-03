@@ -1,7 +1,4 @@
 .seller-profile {
-    padding-top: 40px;
-    background-color: #f7f7f7;
-    color: #404145;
 
     @font-face {
         font-family: 'MacanPanWeb-Book';
@@ -37,7 +34,6 @@
             position: relative;
 
             
-                
                 .online-indicator {
                     position: absolute;
                     width: 7px;
@@ -115,9 +111,6 @@
                             display: flex;
                             align-items: center;
                         }
-
-
-
                     }
                 }
             }
