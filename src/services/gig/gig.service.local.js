@@ -448,10 +448,10 @@ function _generateReviews(users) {
 async function _fetchUsers() {
     try {
         let realUsers = await userService.getUsers()
-        const randomUsers = await _getRandomUsers()
-        console.log(JSON.stringify(realUsers))
+        // const randomUsers = await _getRandomUsers()
+        // console.log(JSON.stringify(realUsers))
 
-        return [...realUsers, ...randomUsers]
+        // return [...realUsers, ...randomUsers]
 
     } catch (error) {
         console.error('Error fetching users:', error)

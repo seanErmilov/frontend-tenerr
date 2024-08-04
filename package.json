@@ -20,6 +20,7 @@
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.16.4",
     "axios": "^1.5.0",
+    "cors": "^2.8.5",
     "country-data": "^0.0.31",
     "formik": "^2.4.6",
     "mongodb": "^6.8.0",
