@@ -77,7 +77,7 @@ export function OrderList({ orders }) {
                 {orders.map(order =>
                     [<li className="buyer-img" key={`img-${order._id}`} title={order.buyer.fullname}><img src={order.buyer.imgUrl} alt="" /></li>,
                     <li className="gig-name" key={`name-${order._id}`}>{order.gig.name}</li>,
-                    <li className="gig-price" key={`price-${order._id}`}>${order.gig.price}</li>,
+                    <li className="gig-price" key={`price-${order._id}`}>${Math.ceil(order.gig.price)}</li>,
                     <li
                         className="gig-status"
                         title='Click to change'
