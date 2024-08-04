@@ -37,6 +37,7 @@
         font-weight: bold;
         color: #404145;
         margin-bottom: 13px;
+        height: 4rem;
 
         h3 {
             font-size: 1rem;
@@ -63,6 +64,7 @@
         }
     }
 
+
     .collapsible-content {
         h4 {
             cursor: pointer;
@@ -79,15 +81,40 @@
             height: 20px;
         }
 
-        li {
-            display: flex;
-            color: #95979d;
-            gap: 12px;
-            margin-bottom: 3.55px;
-            font-size: 0.875em;
+        .feature-list {
+            li {
 
-            img {
-                width: 16px;
+
+                display: flex;
+                color: #95979d;
+                gap: 12px;
+                margin-bottom: 3.55px;
+                font-size: 0.875em;
+
+                img {
+                    width: 16px;
+                }
+            }
+
+            &.normal {
+                li:first-child {
+                    font-weight: 700;
+                    color: #62646a;
+                }
+            }
+
+            &.medium {
+                li:nth-child(-n+3) {
+                    font-weight: 700;
+                    color: #62646a;
+                }
+            }
+
+            &.premium {
+                li {
+                    font-weight: 700;
+                    color: #62646a;
+                }
             }
         }
     }
@@ -104,10 +131,10 @@
         // text-align: center;
         margin-top: 18px;
 
-        .button-icon{
+        .button-icon {
             position: absolute;
             right: 0;
-            top:100%;
+            top: 100%;
             // transform: translateY(-50%);
         }
 

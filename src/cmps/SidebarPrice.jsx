@@ -1,13 +1,11 @@
 
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { addOrder } from '../store/actions/order.actions'
+import { Link } from 'react-router-dom'
 
 export function SidebarPrice({ handelcheckout, price, avgResponseTime, handleOpen }) {
     const [selectedPackage, setSelectedPackage] = useState('normal')
     const [isCollapsed, setIsCollapsed] = useState(true)
 
-    const navigate = useNavigate()
 
     const packages = {
         normal: {
@@ -28,7 +26,7 @@ export function SidebarPrice({ handelcheckout, price, avgResponseTime, handleOpe
         medium: {
             name: 'Standard',
             description: 'Enhanced package with additional features',
-            price: Math.floor(price* 1.2),
+            price: Math.floor(price * 1.2),
             avgResponseTime: avgResponseTime + 1,
             features: [
                 { name: "1 concept included", included: true },
@@ -101,7 +99,7 @@ export function SidebarPrice({ handelcheckout, price, avgResponseTime, handleOpe
                         <img src={isCollapsed ? up : down} alt="Toggle Arrow" />
                     </h4>
                     {!isCollapsed && (
-                        <ul className="feature-list">
+                        <ul className={`feature-list ${selectedPackage}`}>
                             {packages[selectedPackage].features.map((feature, index) => (
                                 <li>
                                     <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxMSA5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9ImN1cnJlbnRGaWxsIj48cGF0aCBkPSJNMy42NDUgOC4xMDIuMTU4IDQuNjE1YS41MzYuNTM2IDAgMCAxIDAtLjc1OWwuNzU5LS43NThjLjIxLS4yMS41NDktLjIxLjc1OCAwbDIuMzUgMi4zNDlMOS4wNTQuNDE2Yy4yMS0uMjEuNTUtLjIxLjc1OSAwbC43NTguNzU4Yy4yMS4yMS4yMS41NSAwIC43NTlMNC40MDMgOC4xMDJjLS4yMDkuMjEtLjU0OS4yMS0uNzU4IDBaIi8+PC9zdmc+" />
@@ -121,8 +119,8 @@ export function SidebarPrice({ handelcheckout, price, avgResponseTime, handleOpe
                     </span>
                 </button>
 
-            </section>
-            <Link to="/compare-packages"><p className='link'>Compare packages</p></Link>
-        </div>
+            </section >
+        <Link to="/compare-packages"><p className='link'>Compare packages</p></Link>
+        </div >
     )
 }

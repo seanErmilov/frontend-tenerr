@@ -1,233 +1,409 @@
-main {
-    margin: 0;
-    padding: 0;
-}
+.dashboard {
 
-.Dashboard {
-    display: flex;
+    h1,
+    h2,
+    h3 {
+        color: #62646a;
+        font-size: 1.4rem;
+    }
 
-    .seller-profile {
-        width: min-content;
-        background-color: #fff;
-        padding: 0;
+    display: grid;
+    color: #95979d;
+
+    .seller-profil {
+        font-size: 1rem;
         color: $clr10;
+        border: 1px solid #dadbdd;
+        padding: 2em 1em;
+        -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
+        box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
+        border-radius: 0.3em;
+
 
         .ProfileProgress {
-            border-radius: 5px;
-            background-color: #fff;
-            border: 1px solid #dadbdd;
-            margin: 0 40px 60px 0;
-            padding: 30px 20px 50px;
-            width: 400px;
-            max-height: 400px;
-            -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
-            box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
+            display: grid;
+            gap: 0.9em;
+            padding-inline: 0.8em;
 
             .profile {
-                display: flex;
+                align-items: center;
+                display: grid;
+                grid-auto-flow: column;
                 justify-content: space-between;
-                position: relative;
 
                 .img-container {
                     width: 120px;
                     height: 120px;
-                    border-radius: 10.4375em;
-                    overflow: hidden;
-                    margin-bottom: 15px;
                     position: relative;
-                    display: inline-block;
-                }
 
-                .online-status {
-                    position: absolute;
-                    bottom: 20px;
-                    left: 90px;
-                    width: 20px;
-                    height: 20px;
-                    background-color: #4CAF50;
-                    border: 2px solid white;
-                    border-radius: 50%;
+                    img {
+                        border-radius: 100%;
+
+                    }
+
+                    .online-status {
+                        position: absolute;
+                        bottom: calc(100% / 11);
+                        left: calc(300% / 4);
+                        width: calc(100% / 6);
+                        height: calc(100% / 6);
+                        background-color: #4CAF50;
+                        border: 2px solid white;
+                        border-radius: 50%;
+                    }
                 }
 
                 .user-desc {
-                    flex-direction: column;
-                    justify-content: space-between;
-                    align-items: center;
-                    height: 120px;
-                    margin-inline-start: 20px;
+                    display: grid;
+                    gap: 0.2em;
 
 
                     .profile-item {
-                        padding: 8px;
                         display: flex;
+                        gap: .5em;
                         flex-direction: column;
 
                         p {
+                            font-size: em;
                             margin: 0;
+                            padding: 0;
                         }
 
                         div {
                             font-weight: bold;
                         }
                     }
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
                 }
             }
+        }
+    }
 
-            .profileStatusProgress {
-                li {
-                    margin: 30px 0;
+    //////////////////////////////////////////////////////////////////////////
+    /// order list section
+    //////////////////////////////////////////////////////////////////////////
+    .dashboard-orders {
 
-                    .css-6u4q40-MuiLinearProgress-bar1 {
-                        background-color: #555555;
-                        padding: 5px;
-                    }
 
-                    .css-1fze73x-MuiLinearProgress-root {
-                        padding: 0.2rem;
-                        background-color: #d6d6d6;
-                        border-radius: 15px;
+        .orders-list {
+            gap: 0.5rem;
+            padding: 0.5em;
+            border: 1px solid #dadbdd;
+            -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
 
-                    }
+            box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
+            border-radius: 0.3em;
+
+            width: 100%;
+            display: grid;
+            align-items: center;
+
+            grid-template-columns: max-content auto max-content max-content;
+
+            li{
+                &:nth-child(-n+4) {
+
+                    text-align: center;
+                    // background-color: #1dbf73;
                 }
 
-                p {
-                    margin: 0;
+                &:nth-child(n+5):not(:nth-child(4n)) {
                     font-weight: bold;
+
+                    color: #62646a;
+                    ;
+                    // text-align: center;
+                }
+
+            }
+            
+            .buyer-img {
+
+                padding-block: 0.3rem;
+                margin: 0;
+                img {
+                    border-radius: 100%;
+                    object-fit: cover;
+                    width: 38px;
+                    height: 38px;
+                }
+            }
+
+            .gig-name {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+            .gig-status {
+                cursor: pointer;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                padding-right: 0.6em;
+
+                .btn-like {
+                    position: relative;
+                    width: 100%;
+                    line-height: 1;
+                    padding: 0.4em 0.95em;
+                    border-radius: 2em;
+                    color: #ffffff;
+                    text-transform: uppercase;
                 }
             }
         }
-    }
 
-    h3 {
-        color: $clr10;
-
-    }
-
-    th {
-        font-weight: bold;
-        color: $clr10;
-
-    }
-
-    td {
-        font-weight: bold;
-        color: $clr7;
-        font-size: 15px;
-    }
-
-}
-
-@media (max-width: 768px) {
-    .Dashboard {
-        display: flex;
-        flex-direction: column;
-
-        .title-column {
-            display: none;
-
+        .pending {
+            background-color: #ff9822;
         }
 
-        .seller-profile {
-            .ProfileProgress {
+        .rejected {
+            background-color: #ff5f56;
+        }
 
-                width: 330px;
-                padding: 10px;
-                margin: 0;
-                -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
-                box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
+        .completed {
+            background-color: #1dbf73;
+        }
+    }
+
+    @include for-mobile-layout {
+        gap: 2em;
+
+        .dashboard-orders {
+            .orders-list {
+                .gig-status {
+                    font-size: 3.5vw;
+                }
+            }
+        }
+
+        .seller-profil {
+
+            padding: 0.5em;
+            border: 1px solid #dadbdd;
+            -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
+
+            box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
+            border-radius: 0.3em;
+
+            .ProfileProgress {
+                padding-inline: 0;
+
+
 
                 .profile {
-                    width: 300px;
-                    height: 90px;
-
+                    justify-content: start;
+                    gap: 1.5em;
                     .img-container {
                         width: 80px;
                         height: 80px;
                     }
 
                     .user-desc {
+                        display: grid;
+                        grid-auto-flow: column;
+                        gap: 1.4em;
+
+
                         .profile-item {
-                            padding: 5px;
+                            display: flex;
+                            gap: 0.5em;
+                            flex-direction: column;
+
+                            p {
+                                font-size: .8em;
+                                margin: 0;
+                                padding: 0;
+                            }
+
+                            div {
+                                font-weight: bold;
+                            }
                         }
-                    }
-
-                    .online-status {
-                        position: absolute;
-                        bottom: 12px;
-                        left: 58px;
-                        width: 15px;
-                        height: 15px;
-                    }
-                }
-
-                .profileStatusProgress {
-                    width: 300px;
-
-                    li {
-                        margin: 5px;
-
-                        .css-6u4q40-MuiLinearProgress-bar1 {
-                            background-color: #555555;
-                            padding: 5px;
-                        }
-
-                        .css-1fze73x-MuiLinearProgress-root {
-                            padding: 0.2rem;
-                            background-color: #d6d6d6;
-                            border-radius: 15px;
-
-                        }
-
                     }
                 }
             }
         }
 
-        .seller-orders {
-            margin-top: 20px;
 
+
+    }
+
+    @include for-narrow-layout {}
+
+    @include for-normal-layout {
+        gap: 5%;
+        grid-template-columns: minmax(auto, 400px) 1fr;
+    }
+
+    @include for-wide-layout {}
+
+}
+
+
+.statistics-container {
+    --right-clr: #dadbdd;
+    --left-clr: #404145;
+    $bar-height: 0.65em;
+
+    @include for-mobile-layout {
+        $bar-height: 0.4em;
+
+        h2 {
+            font-size: 0.1em;
+            padding-bottom: 0.5em;
+            margin: 0;
         }
 
-        .css-quj9j6-MuiTable-root {
-            min-width: 250px;
-
-        }
-
-        .css-q8hpuo-MuiFormControl-root {
-            width: 140px;
-
-        }
-
-        .css-11xur9t-MuiPaper-root-MuiTableContainer-root {
-            width: 330px;
-        }
-
-        th {
-            font-weight: 900;
-            color: $clr7;
-            max-width: 58px;
-        }
-
-        td.total {
-            max-width: 38px;
-        }
-
-        td.status {
-            max-width: 150px;
-        }
-
-        h3 {
-            color: $clr9;
-            opacity: 0.8;
+        span {
+            font-weight: 400;
+            padding-bottom: 0.5em;
         }
     }
 
+    width: 100%;
+
+    height: max-content;
+
+    h2 {
+        font-size: 1em;
+        padding-bottom: 0.5em;
+        margin: 0;
+    }
+
+    span {
+        font-weight: 400;
+        padding-bottom: 0.5em;
+    }
+
+    .progress-bar {
+        margin-top: 0.5em;
+        --progress: 80%;
+        height: calc($bar-height * 5);
+        position: relative;
+
+        .left-handside,
+        .right-handside,
+        .upright-bar {
+            top: 50%;
+            transform: translateY(-50%);
+            height: $bar-height;
+            position: absolute;
+
+        }
+
+        .left-handside {
+            transition: width 0.5s ease-in-out;
+            left: 0;
+            z-index: 1;
+            width: var(--progress);
+            background-color: #404145;
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .right-handside {
+            overflow: hidden;
+            width: 100%;
+            right: 0;
+            background-color: #dadbdd;
+            border-radius: 5px;
+        }
+
+        .upright-bar {
+            z-index: 1;
+            transition: left 0.5s ease-in-out;
+            transform: translate(-50%, -50%);
 
 
+            height: 10px;
+            top: 50%;
+            left: var(--progress);
+
+            border-radius: 100px;
+            background-color: #1ebf73;
+            width: 5px;
+            height: calc($bar-height * 5);
+
+            .left,
+            .right {
+                background-color: #ffffff;
+                height: calc($bar-height + 5px);
+            }
+
+            .left,
+            &::before {
+                position: absolute;
+                right: 100%;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 5px;
+            }
+
+            &::before {
+                z-index: 1;
+                background-color: var(--left-clr);
+                height: $bar-height;
+                right: calc(100% + 3px);
+                width: 5px;
+                content: '';
+                border-radius: 100px;
+            }
+
+
+            .right,
+            &::after {
+                position: absolute;
+                left: 100%;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 5px;
+            }
+
+            &::after {
+                background-color: var(--right-clr);
+                height: $bar-height;
+                width: 5px;
+                left: calc(100% + 3px);
+                top: 50%;
+                content: '';
+                border-radius: 100px;
+            }
+        }
+    }
+
+    @include for-mobile-layout {
+        $bar-height: 0.4em;
+
+        h2 {
+            font-size: 0.9em;
+            padding-bottom: 0.5em;
+            margin: 0;
+            display: inline;
+            padding-right: 0.8em;
+        }
+
+        span {
+            font-size: 0.9em;
+        }
+    }
+}
+
+
+.change-status {
+    width: 0%;
+    max-width: fit-content;
+    overflow: hidden;
+    transition: all 1s;
+    right: 100%;
+    top: 0;
+    position: absolute;
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.full-width {
+    width: 250%;
 }

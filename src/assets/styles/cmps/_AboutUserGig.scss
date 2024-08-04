@@ -1,4 +1,5 @@
 .about-user-gig {
+    margin-top: 1rem;
     .general-info {
         $owner-img-height: 6rem;
         $white-circle : 0.2em;
@@ -152,4 +153,9 @@
         color: $clr7;
         margin: 0;
     }
+}
+
+.about-user-gig-header{
+    margin-top: 1rem;
+    font-size: 20px;
 }
