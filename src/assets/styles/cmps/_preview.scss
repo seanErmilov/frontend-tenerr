@@ -9,9 +9,11 @@
         padding-bottom: 0.3em;
 
         .owner-profile-pic {
-            border-radius: 50%;
+            border-radius: 100%;
             height: 1.5rem;
-            padding-inline-end: 0.5em;
+            width: 1.5rem;
+            object-fit: cover;
+            margin-inline-end: 0.5em;
         }
 
         &,
@@ -22,13 +24,21 @@
         }
 
         .level {
-            height: 1.5rem;
+            height: 1.35rem;
             margin-inline-end: 0.5rem
         }
+
 
     }
 
     .title {
+        height: 2.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+
         &:hover {
             text-decoration: underline;
             cursor: pointer;

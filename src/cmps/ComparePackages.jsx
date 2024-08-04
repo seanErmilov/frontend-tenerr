@@ -63,15 +63,7 @@ export function ComparePackages({ price, avgResponseTime }) {
     <div className="compare-packages">
       <h2>Compare Packages</h2>
       <table>
-        {/* <thead>
-          <tr>
-            <th>Package</th>
-            {packages.map(pkg => (
-              <th key={pkg.name}>{pkg.name}</th>
-            ))}
-          </tr>
-        </thead> */}
-        {/* <tbody> */}
+
         <thead>
           <tr>
             <td>Package</td>

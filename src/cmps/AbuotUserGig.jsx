@@ -4,24 +4,18 @@ import { countries } from 'country-data'
 import star from '../assets/img/svg/star.svg' // Import the image
 
 
-export function AboutUserGig({ user, loc }) {
+export function AboutUserGig({ user}) {
 
     const languages = Array.isArray(user.languages) ? user.languages.join(', ') : 'Not specified'
 
     const randomReviewers1 = Math.floor(Math.random() * (100)) + 1
     const randomReviewers2 = Math.floor(Math.random() * (1000)) + 100
 
-    function renderDiamonds(count) {
-        return '♦️'.repeat(count)
-    }
-
     return (
         <>
-            <h2>Get to know {user.fullname}</h2>
+            <h2 className='about-user-gig-header'>Get to know {user.fullname}</h2>
             <div className="about-user-gig">
-
                 <div className='general-info'>
-
                     {/* img */}
                     <div className="about-user-img">
                         <div className='green-circle'></div>

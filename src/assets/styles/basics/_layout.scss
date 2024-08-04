@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: minmax(2rem, 1fr) minmax(0, $main-layout-max) minmax(2rem, 1fr);
     position: relative;
-    min-height: calc(100vh - 1.5rem);
+    min-height: calc(100vh);
 
     >* {
         grid-column: 2;
@@ -16,12 +16,9 @@
         align-self: end;
     }
 
+    @include for-mobile-layout {
+        grid-template-columns: minmax(.7rem, 1fr) minmax(0, $main-layout-max) minmax(0.7rem, 1fr);
 
-
+    }
 }
 
-.main-container-side-by-sidy {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    position: relative;
-}
