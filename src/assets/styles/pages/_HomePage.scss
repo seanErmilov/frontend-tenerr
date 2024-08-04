@@ -254,7 +254,7 @@
                 div:last-child {
                     font-weight: bold;
                     line-height: 1.38;
-                   
+
                 }
 
                 &:hover {
@@ -272,19 +272,20 @@
         }
     }
 
-    .home-video{
+    .home-video {
         video {
             position: absolute;
             bottom: 0;
             padding: 0;
             margin-inline-start: -10px;
         }
+
         border-radius: 1rem;
         background-color: #000238;
         overflow: hidden;
         position: relative;
-        height: 30vw;
+        height: 40vw;
         padding: 10px;
-
+        margin-top: 25px;
     }
 }
