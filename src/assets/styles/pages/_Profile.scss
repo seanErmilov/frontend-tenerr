@@ -18,11 +18,13 @@
     .content-wrapper {
         display: flex;
         justify-content: space-between;
+        // flex-wrap: wrap;
     }
 
     .profile-container {
         min-width: 398px;
         max-width: 398px;
+        flex: 1 1 100%;
 
         .user-profil {
             background-color: #fff;
@@ -33,30 +35,26 @@
             margin-bottom: 20px;
             position: relative;
 
-            
-                .online-indicator {
-                    position: absolute;
-                    width: 7px;
-                    height: 7px;
-                    border-radius: 50%;
-                    background-color: green;
-                    display: inline-block;
-                    margin-right: 5px;
-                    right: 3.4rem;
-                    top: 25px;
-                    border: 1px solid green;
+            .online-indicator {
+                position: absolute;
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background-color: green;
+                display: inline-block;
+                margin-right: 5px;
+                right: 3.4rem;
+                top: 25px;
+                border: 1px solid green;
+            }
 
-                }
-
-                .online-text {
-                    position: absolute;
-                    right: 1rem;
-                    top: 20px;
-                    font-size: 14px;
-                    color: green;
-                }
-            
-
+            .online-text {
+                position: absolute;
+                right: 1rem;
+                top: 20px;
+                font-size: 14px;
+                color: green;
+            }
 
             .img-container {
                 width: 150px;
@@ -128,7 +126,6 @@
                 margin-bottom: 20px;
                 margin-left: 9px;
                 font-family: 'MacanPanWeb-book';
-
             }
 
             p {
@@ -161,6 +158,7 @@
         width: 60%;
         display: flex;
         flex-direction: column;
+        flex: 1 1 100%;
 
         .status-filter-bar {
             background-color: #fff;
@@ -200,7 +198,6 @@
                         text-align: center;
                         margin-bottom: 20px;
                         margin-top: 70px;
-
                     }
                 }
 
@@ -208,6 +205,79 @@
                     font-family: 'MacanPanWeb-Regular';
                 }
             }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .content-wrapper {
+            flex-direction: column;
+        }
+
+        .profile-container {
+            min-width: 100%;
+            max-width: 100%;
+
+            .user-profil {
+                padding: 20px;
+            }
+
+            .description-container {
+                padding: 20px;
+            }
+        }
+
+        .gigs-status {
+            width: 100%;
+            padding-inline-start: 0;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .content-wrapper {
+            flex-direction: column;
+        }
+
+        .profile-container {
+            min-width: 100%;
+            max-width: 100%;
+
+            .user-profil {
+                padding: 15px;
+            }
+
+            .description-container {
+                padding: 15px;
+            }
+        }
+
+        .gigs-status {
+            width: 100%;
+            padding-inline-start: 0;
+
+            .status-filter-bar {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .gigs-status-list {
+                .add-gig {
+                    width: 100%;
+                    height: auto;
+                    margin-bottom: 20px;
+                    
+                    .add-gig-btn {
+                        width: 50px;
+                        height: 50px;
+                        font-size: 2.5rem;
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+
+        .chat-seller-btn {
+            padding: 10px;
+            font-size: 0.9rem;
         }
     }
 }

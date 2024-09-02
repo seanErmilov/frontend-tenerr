@@ -165,7 +165,7 @@ export function AppHeader() {
 													</li>
 												}
 												<li>
-													<NavLink className="header-link" to="about">Become a Seller</NavLink>
+													<NavLink className="header-link" to="seller/register">Become a Seller</NavLink>
 												</li>
 												<li>
 													<NavLink className="main-nav-link" to="gig/edit">Add gig</NavLink>
@@ -194,7 +194,7 @@ export function AppHeader() {
 								{!user &&
 									<>
 										<li>
-											<NavLink className="header-link become-a-seller" to="about">Become a Seller</NavLink>
+											<NavLink className="header-link become-a-seller" to="seller/register">Become a Seller</NavLink>
 										</li>
 
 										<li>

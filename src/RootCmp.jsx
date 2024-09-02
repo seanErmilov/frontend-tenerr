@@ -17,6 +17,7 @@ import { GigAdd } from './pages/GigAdd.jsx'
 import { Checkout } from './pages/Checkout.jsx'
 import { Dashboard } from './pages/DashBoard.jsx'
 import { Profile } from './pages/Profile.jsx'
+import { BecomeSeller } from './pages/BecomeSeller.jsx'
 
 export function RootCmp() {
     return (
@@ -26,6 +27,7 @@ export function RootCmp() {
             <main>
                 <Routes>
                     <Route path="" element={<HomePage />} />
+                    <Route path="seller/register" element={<BecomeSeller />} />
                     <Route path="gig" element={<GigIndex />} />
                     <Route path="gig/edit" element={<GigAdd />} />
                     <Route path="gig/:gigId" element={<GigDetails />} />

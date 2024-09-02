@@ -30,7 +30,7 @@ function getDefaultFilter() {
     }
 }
 function getPrimeryTags() {
-    return ['logo-design', 'wordpress', 'voice-over', 'artisitic', 'proffesional', 'accessible']
+    return ['Programming & Tech', 'Graphics & Design', 'Digital Marketing', 'Writing & Translation', 'Video & Animation', 'Business']
 }
 
 function getPrimeCategories() {

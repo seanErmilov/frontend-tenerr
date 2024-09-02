@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router'
+import { useNavigate, Link } from 'react-router-dom'
 
 import { signup } from '../store/actions/user.actions'
 
@@ -15,8 +15,6 @@ export function Signup({ handleClose }) {
     }
 
     function handleChange(ev) {
-        const type = ev.target.type
-
         const field = ev.target.name
         const value = ev.target.value
         setCredentials({ ...credentials, [field]: value })
@@ -33,7 +31,6 @@ export function Signup({ handleClose }) {
         await signup(credentials)
         clearState()
         handleClose()
-        navigate('/')
     }
 
     function onUploaded(imgUrl) {

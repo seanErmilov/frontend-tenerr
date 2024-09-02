@@ -9,7 +9,6 @@
     padding: 30px;
     margin: 30px auto;
 
-
     .title {
       display: flex;
       gap: 20px;
@@ -71,7 +70,6 @@
           font-size: 1.12em;
         }
       }
-
     }
 
     .bottom-form {
@@ -83,7 +81,9 @@
         height: 100px;
       }
 
-      .day-to-complete {
+      .day-to-complete,
+      .price,
+      .location {
         margin-right: 45px;
         border-radius: 5px;
         display: flex;
@@ -91,56 +91,6 @@
 
         input {
           width: 173px;
-          height: 30px;
-        }
-
-        span {
-          height: 60px;
-
-          p {
-            width: 200px;
-            margin: 0;
-            font-size: 0.82rem;
-            font-weight: 700;
-            line-height: 21px;
-            color: $clr5;
-          }
-        }
-      }
-
-      .price {
-        margin-right: 48px;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-
-        input {
-          width: 173px;
-          height: 30px;
-        }
-
-        span {
-          height: 60px;
-
-          p {
-            width: 200px;
-            margin: 0;
-            font-size: 0.82rem;
-            font-weight: 700;
-            line-height: 21px;
-            color: $clr5;
-          }
-        }
-      }
-
-      .location {
-        margin-right: 50px;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-
-        input {
-          width: 188px;
           height: 30px;
         }
 
@@ -209,7 +159,6 @@
             margin-bottom: 10px;
             width: 300px;
           }
-
         }
 
         .upload-preview {
@@ -217,17 +166,15 @@
           width: max-content;
           border-radius: 4px;
           padding: 10px;
-          // background-color: #f9f9f9;
-        
+
           img {
             max-width: 100%;
             height: auto;
             border-radius: 4px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            margin-left: 5px
+            margin-left: 5px;
           }
 
-        
           label {
             display: inline-block;
             padding: 8px 16px;
@@ -238,14 +185,12 @@
             font-size: 14px;
             cursor: pointer;
             transition: background-color 0.3s, border-color 0.3s;
-        
+
             &:hover {
               background-color: #004711;
             }
           }
         }
-        
-        
       }
     }
   }
@@ -269,4 +214,102 @@
     border-color: $clr8;
   }
 
+  @media (max-width: 768px) {
+    form {
+      width: 100%;
+      padding: 20px;
+      margin: 20px auto;
+
+      .title,
+      .description {
+        flex-direction: column;
+        gap: 10px;
+
+        p,
+        h2 {
+          width: 100%;
+        }
+
+        .css-1rv3ei8-MuiFormControl-root-MuiTextField-root input,
+        .css-1rv3ei8-MuiFormControl-root-MuiTextField-root textarea {
+          width: 100%;
+        }
+      }
+
+      .bottom-form {
+        margin-top: 50px;
+
+        .day-to-complete,
+        .price,
+        .location,
+        .categort {
+          margin-right: 0;
+          margin-bottom: 20px;
+
+          input {
+            width: 100%;
+          }
+
+          span {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    form {
+      width: 100%;
+      padding: 10px;
+      margin: 10px auto;
+
+      .title,
+      .description {
+        flex-direction: column;
+        gap: 5px;
+
+        p,
+        h2 {
+          width: 100%;
+        }
+
+        .css-1rv3ei8-MuiFormControl-root-MuiTextField-root input,
+        .css-1rv3ei8-MuiFormControl-root-MuiTextField-root textarea {
+          width: 100%;
+        }
+      }
+
+      .bottom-form {
+        margin-top: 30px;
+
+        .day-to-complete,
+        .price,
+        .location,
+        .categort {
+          margin-right: 0;
+          margin-bottom: 10px;
+
+          input {
+            width: 100%;
+          }
+
+          span {
+            width: 100%;
+          }
+        }
+      }
+
+      .upload-images {
+        span p {
+          width: 100%;
+        }
+
+        .upload-preview {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
+
