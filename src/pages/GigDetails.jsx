@@ -19,6 +19,7 @@ import { CheckoutModal } from '../cmps/CheckoutModal'
 import { DetailsCarousel } from '../cmps/DetailsCarousel'
 import { SidebarOptions } from '../cmps/SidebarOptions'
 import { Breadcrumbs } from '../cmps/Breadcrumbs'
+import { Chat } from '../cmps/chat'
 
 const renderStars = (rate) => {
   const fullStars = Math.floor(rate)
@@ -39,6 +40,7 @@ export function GigDetails() {
   const [gig, setGig] = useState(null)
   const [filteredReviews, setFilteredReviews] = useState([])
   const { gigId } = useParams()
+  const [isChatActive, setIsChatActive] = useState(false)
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
@@ -97,13 +99,16 @@ export function GigDetails() {
         <AboutGig
           description={gig.description}
           name={gig.owner.fullname} />
-        <AboutUserGig user={gig.owner} loc={gig.loc} />
+        <AboutUserGig user={gig.owner} setIsChatActive={setIsChatActive} />
         <ComparePackages price={gig.price} avgResponseTime={gig.avgResponseTime} />
         <GigPageReviews reviews={gig.reviews} />
         <ReviewFilter reviews={filteredReviews} />
         <div className="gig-reviewList"><ReviewList reviews={gig.reviews} loc={gig.loc} /></div>
         <CheckoutModal open={open} handleClose={handleClose} />
       </div>
+
+      {isChatActive && <Chat gigOwner={gig.owner} />}
+
     </section>
   )
 }

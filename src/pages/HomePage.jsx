@@ -53,8 +53,6 @@ export function HomePage() {
             }
             dispatch(onDemount1)
             dispatch(onDemount2)
-
-
         }
     }, [])
 

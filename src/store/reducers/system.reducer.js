@@ -3,13 +3,15 @@ export const LOADING_DONE = 'LOADING_DONE'
 export const SHOW_SEARCH_BAR = 'SHOW_SEARCH_BAR'
 export const SHOW_CATEGORIES_BAR = 'SHOW_CATEGORIES_BAR'
 export const HEADER_STICKY = 'HEADER_STICKY'
+export const SET_Is_Chat_Active = 'SHOW_CHAT'
 
 
 const initialState = {
   isLoading: false,
   showSearchBar: false,
   showCategoriesBar: false,
-  headerSticky: false
+  headerSticky: false,
+  isChatActive: false
 }
 
 export function systemReducer(state = initialState, action = {}) {
@@ -17,6 +19,7 @@ export function systemReducer(state = initialState, action = {}) {
     // loader
     case LOADING_START:
       return { ...state, isLoading: true }
+
     case LOADING_DONE:
       return { ...state, isLoading: false }
 
@@ -31,6 +34,11 @@ export function systemReducer(state = initialState, action = {}) {
     // header
     case HEADER_STICKY:
       return { ...state, headerSticky: action.headerSticky }
+
+    // chat
+    case SET_Is_Chat_Active:
+      return { ...state, isChatActive: action.isChatActive }
+
     default: return state
   }
 }

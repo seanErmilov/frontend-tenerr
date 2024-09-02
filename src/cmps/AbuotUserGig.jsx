@@ -4,7 +4,7 @@ import { countries } from 'country-data'
 import star from '../assets/img/svg/star.svg' // Import the image
 
 
-export function AboutUserGig({ user}) {
+export function AboutUserGig({ user, setIsChatActive }) {
 
     const languages = Array.isArray(user.languages) ? user.languages.join(', ') : 'Not specified'
 
@@ -41,7 +41,7 @@ export function AboutUserGig({ user}) {
                 </div>
 
                 {/* contact button */}
-                <button className="about-user-contact">Contact me</button>
+                <button className="about-user-contact" onClick={() => setIsChatActive(true)}>Contact me</button>
 
                 <div className="abuot-user-gig-info ">
                     <div className="user-info">

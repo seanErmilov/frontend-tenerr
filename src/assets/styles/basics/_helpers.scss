@@ -27,6 +27,34 @@
     font-size: rem(30px);
 }
 
+//Line height
+
+.lh21 {
+    line-height: 21px;
+}
+
+.lh26 {
+    line-height: 26px;
+}
+
+//colors
+
+.co-grey-1000 {
+    color: $gray12;
+}
+
+.co-grey-1100 {
+    color: $gray13;
+}
+
+//profile img
+.profileImg {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+
 // flex helpers
 
 .flex {
@@ -68,6 +96,10 @@
 
 .bold {
     font-weight: 700;
+}
+
+.text-semi-bold {
+    font-weight: 600;
 }
 
 .transparent {
