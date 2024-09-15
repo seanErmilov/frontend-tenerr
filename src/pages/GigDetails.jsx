@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { CarouselImg } from '../cmps/CarouselImg'
 import { SidebarPrice } from '../cmps/SidebarPrice'
 import { gigService } from '../services/gig'
 import { ReviewList } from '../cmps/ReviewList'
@@ -107,7 +106,7 @@ export function GigDetails() {
         <CheckoutModal open={open} handleClose={handleClose} />
       </div>
 
-      {isChatActive && <Chat gigOwner={gig.owner} />}
+      {isChatActive && <Chat gigOwner={gig.owner} setIsChatActive={setIsChatActive} />}
 
     </section>
   )

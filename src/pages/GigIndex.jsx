@@ -32,12 +32,7 @@ export function GigIndex() {
 
 
     useEffect(() => {
-        // TODO delete check
-
-        setTimeout(() => loadGigs(filterBy), 1000);
-
-        // TODO undo comment here
-        // loadGigs(filterBy)
+        loadGigs(filterBy)
         setSearchParams(filterBy)
     }, [filterBy])
 
