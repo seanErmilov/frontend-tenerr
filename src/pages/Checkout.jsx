@@ -23,22 +23,16 @@ export function Checkout() {
 
     async function handelcheckout() {
         try {
-            const savedOrder = await addOrder({...order, gig: {...order.gig, price:totalPrice.toFixed(2)}})
+            const savedOrder = await addOrder({ ...order, gig: { ...order.gig, price: totalPrice.toFixed(2) } })
             showSuccessMsg('Order saved successfully')
             navigate('/')
-        } catch {
+        } catch (err) {
             showErrorMsg('Cannot save order')
             console.log('Cannot save order', err)
             throw err
         }
 
     }
-
-    // async function loadOrder(orderId) {
-    //     const fetchedOrder = await orderService.getById(orderId)
-    //     setOrder(fetchedOrder)
-    //     setFilteredReviews(fetchedOrder.reviews)
-    // }
 
     if (!order) return
     return (

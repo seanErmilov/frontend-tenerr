@@ -2,9 +2,10 @@ import { messageService } from '../../services/message/message.service'
 import { store } from '../store'
 import { ADD_MESSAGE, REMOVE_MESSAGE, SET_MESSAGES, SET_MESSAGE, SET_FILTER, UPDATE_MESSAGE, ADD_MESSAGE_MSG } from '../reducers/message.reducer'
 
-export async function loadMessages(filterBy) {
+export async function loadMessages() {
     try {
-        const messages = await messageService.query(filterBy)
+        const messages = await messageService.query()
+        console.log('messages :', messages)
         store.dispatch(getCmdSetMessages(messages))
     } catch (err) {
         console.log('Cannot load messages', err)

@@ -105,8 +105,7 @@ export function GigDetails() {
         <div className="gig-reviewList"><ReviewList reviews={gig.reviews} loc={gig.loc} /></div>
         <CheckoutModal open={open} handleClose={handleClose} />
       </div>
-
-      {isChatActive && <Chat gigOwner={gig.owner} setIsChatActive={setIsChatActive} />}
+      {isChatActive && <Chat messageRecipient={gig.owner} setIsChatActive={setIsChatActive} />}
 
     </section>
   )

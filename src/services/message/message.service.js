@@ -1,4 +1,6 @@
+import { attachment } from '@cloudinary/url-gen/qualifiers/flag'
 import { httpService } from '../http.service'
+import { userService } from '../user'
 
 export const messageService = {
     query,
@@ -9,7 +11,6 @@ export const messageService = {
     getMessage,
     getEmptyMessage,
     getDefaultFilter,
-    getMessageStats,
 
 }
 
@@ -30,6 +31,7 @@ async function save(message) {
     if (message._id) {
         savedMessage = await httpService.put(`message/${message._id}`, message)
     } else {
+        console.log('message in post :', message)
         savedMessage = await httpService.post('message', message)
     }
     return savedMessage
@@ -42,10 +44,11 @@ async function addMessageMsg(messageId, txt) {
 
 function getEmptyMessage() {
     return {
-        vendor: makeId(),
-        price: getRandomIntInclusive(1000, 9000),
-        speed: getRandomIntInclusive(80, 240),
-        msgs: [],
+        senderId: '',
+        recipientId: '',
+        content: '',
+        messageType: '',
+        attachments: [],
     }
 }
 
@@ -60,44 +63,14 @@ function getDefaultFilter() {
     }
 }
 
-function _countMessageStatuses(messages) {
-    return messages.reduce((accumulator, message) => {
-        if (message.status in accumulator) {
-            accumulator[message.status]++
-        } else {
-            accumulator[message.status] = 1
-        }
-        return accumulator
-    }, { pending: 0, rejected: 0, completed: 0 })
-}
 
-function getMessageStats(messages) {
-    const messageStatusSummary = _countMessageStatuses(messages)
-
-    const responseRate = ((messageStatusSummary.pending + messageStatusSummary.completed) / messages.length) * 100
-    const messagesCompleted = (messageStatusSummary.completed / (messages.length - messageStatusSummary.rejected)) * 100
-
-    return {
-        responseRate: responseRate,
-        messagesCompleted: messagesCompleted
-    }
-}
-
-
-function getMessage(gig) {
+function getMessage(recipientId, partialMessage) {
+    const loginUser = userService.getLoggedinUser()
     const message = {
-        seller: {
-            _id: gig.owner._id,
-            fullname: gig.owner.fullname,
-            imgUrl: gig.owner.imgUrl
-        },
-        gig: {
-            _id: gig._id,
-            name: gig.title,
-            imgUrl: gig.imgUrls[0],
-            price: gig.price
-        },
-        status: 'pending',
+        senderId: loginUser._id,
+        recipientId: recipientId,
+        content: partialMessage.content,
+        attachments: partialMessage.attachments,
     }
     return message
 }
