@@ -1,0 +1,29 @@
+.basic-chat-msg {
+    display: flex;
+    align-items: center;
+    border-radius: 18px;
+}
+
+.current-user {
+    justify-content: flex-start;
+    background-color: $clr1;
+}
+
+.recipient {
+    justify-content: flex-start;
+    background-color: #f1f8e9;
+}
+
+.message-content {
+    border-radius: 6px;
+    padding-block: 8px;
+    padding-inline: 10px;
+    flex-grow: 0;
+}
+
+.recipient-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+}

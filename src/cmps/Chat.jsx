@@ -11,23 +11,21 @@ import { useNavigate } from 'react-router';
 import { messageService } from '../services/message/message.service';
 
 export function Chat({ messageRecipient, setIsChatActive }) {
-    const navigate = useNavigate()
-
     const [msgToEdit, setMsgToEdit] = useState(messageService.getEmptyMessage())
     const messages = useSelector(storeState => storeState.messageModule.messages)
+    const user = useSelector(storeState => storeState.userModule.user)
 
     useEffect(() => {
         loadMessages()
     }, [])
 
     function clearState() {
-        setMsgToEdit('')
+        setMsgToEdit(messageService.getEmptyMessage())
     }
 
     async function onSend(ev = null) {
         if (ev) ev.preventDefault()
-        const message = messageService.getMessage(messageRecipient._id, msgToEdit)
-        console.log('message :', message)
+        const message = messageService.getMessage(messageRecipient, msgToEdit)
         try {
             const savedMessage = await addMessage(message)
             showSuccessMsg('Message saved successfully')
@@ -66,7 +64,9 @@ export function Chat({ messageRecipient, setIsChatActive }) {
         </div>
         <div className='chat-content'>
             <MessageList
+                messageRecipient={messageRecipient}
                 messages={messages}
+                logedInUser={user}
             />
         </div>
         <form onSubmit={onSend} className='message-input-container'>

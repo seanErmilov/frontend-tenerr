@@ -44,13 +44,22 @@ async function addMessageMsg(messageId, txt) {
 
 function getEmptyMessage() {
     return {
-        senderId: '',
-        recipientId: '',
+        sender: {
+            _id: '',
+            imgUrl: '',
+            fullname: ''
+        },
+        recipient: {
+            _id: '',
+            imgUrl: '',
+            fullname: ''
+        },
         content: '',
         messageType: '',
         attachments: [],
-    }
+    };
 }
+
 
 function getDefaultFilter() {
     return {
@@ -64,13 +73,25 @@ function getDefaultFilter() {
 }
 
 
-function getMessage(recipientId, partialMessage) {
-    const loginUser = userService.getLoggedinUser()
+function getMessage(recipient, partialMessage) {
+    const loginUser = userService.getLoggedinUser();
+
     const message = {
-        senderId: loginUser._id,
-        recipientId: recipientId,
-        content: partialMessage.content,
-        attachments: partialMessage.attachments,
-    }
-    return message
+        sender: {
+            _id: loginUser._id,
+            imgUrl: loginUser.imgUrl,
+            fullname: loginUser.fullname
+        },
+        recipient: {
+            _id: recipient._id,
+            imgUrl: recipient.imgUrl,
+            fullname: recipient.fullname
+        },
+        content: partialMessage.content || '',
+        messageType: partialMessage.messageType || '',
+        attachments: partialMessage.attachments || []
+    };
+
+    return message;
 }
+

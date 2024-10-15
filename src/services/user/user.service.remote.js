@@ -12,6 +12,7 @@ export const userService = {
 	update,
 	getLoggedinUser,
 	saveLoggedinUser,
+	getMiniUserById,
 }
 
 function getUsers() {
@@ -21,6 +22,17 @@ function getUsers() {
 async function getById(userId) {
 	const user = await httpService.get(`user/${userId}`)
 	return user
+}
+
+async function getMiniUserById(userId) {
+	const user = await httpService.get(`user/${userId}`)
+	const miniUser =
+	{
+		_id: user._id,
+		fullname: user.fullname,
+		imgUrl: user.imgUrl,
+	}
+	return miniUser
 }
 
 function remove(userId) {

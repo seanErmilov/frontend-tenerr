@@ -5,7 +5,6 @@ import { ADD_MESSAGE, REMOVE_MESSAGE, SET_MESSAGES, SET_MESSAGE, SET_FILTER, UPD
 export async function loadMessages() {
     try {
         const messages = await messageService.query()
-        console.log('messages :', messages)
         store.dispatch(getCmdSetMessages(messages))
     } catch (err) {
         console.log('Cannot load messages', err)
