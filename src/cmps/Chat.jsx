@@ -16,7 +16,7 @@ export function Chat({ messageRecipient, setIsChatActive }) {
     const user = useSelector(storeState => storeState.userModule.user)
 
     useEffect(() => {
-        loadMessages()
+        loadMessages(messageRecipient._id)
     }, [])
 
     function clearState() {
@@ -50,7 +50,7 @@ export function Chat({ messageRecipient, setIsChatActive }) {
                     <img src={messageRecipient.imgUrl} className="profile-img" alt="logo" />
                 </div>
                 <div className="flex column ">
-                    <div className="bold fs16 lh26 co-grey-1100">Message {messageRecipient.fullname}</div>
+                    <div className="bold fs16 lh26 co-grey-1100">{messageRecipient.fullname}</div>
                     <div className="flex co-grey-1000 fs14 lh21">
                         <span>Online</span>
                         <span className="dot-separator"></span>

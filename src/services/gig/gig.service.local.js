@@ -405,7 +405,6 @@ async function _createGigs() {
     if (gigs.length) return
 
     const users = await _fetchUsers()
-    console.log('users :', users)
 
     if (!users) return
 
@@ -452,6 +451,7 @@ async function _fetchUsers() {
         // console.log(JSON.stringify(realUsers))
 
         // return [...realUsers, ...randomUsers]
+        return realUsers
 
     } catch (error) {
         console.error('Error fetching users:', error)

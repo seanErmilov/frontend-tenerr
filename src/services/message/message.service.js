@@ -11,11 +11,14 @@ export const messageService = {
     getMessage,
     getEmptyMessage,
     getDefaultFilter,
+    getContacts,
 
 }
 
-async function query() {
-    return httpService.get(`message`)
+async function query(filterBy) {
+    console.log('filterBy :', filterBy)
+    return httpService.get(`message/`, filterBy)
+
 }
 
 function getById(messageId) {
@@ -57,7 +60,7 @@ function getEmptyMessage() {
         content: '',
         messageType: '',
         attachments: [],
-    };
+    }
 }
 
 
@@ -74,7 +77,7 @@ function getDefaultFilter() {
 
 
 function getMessage(recipient, partialMessage) {
-    const loginUser = userService.getLoggedinUser();
+    const loginUser = userService.getLoggedinUser()
 
     const message = {
         sender: {
@@ -90,8 +93,26 @@ function getMessage(recipient, partialMessage) {
         content: partialMessage.content || '',
         messageType: partialMessage.messageType || '',
         attachments: partialMessage.attachments || []
-    };
+    }
 
-    return message;
+    return message
+}
+
+function getContacts(messages) {
+    const contacts = []
+    const user = userService.getLoggedinUser()
+
+    messages.forEach(message => {
+        // Check if the recipient's _id is not already in the contacts list
+        if (message.sender._id === user._id && !contacts.some(contact => contact._id === message.recipient._id)) {
+            contacts.push(message.recipient)
+        }
+        // Check if the sender's _id is not already in the contacts list
+        if (message.recipient._id === user._id && !contacts.some(contact => contact._id === message.sender._id)) {
+            contacts.push(message.sender)
+        }
+    })
+
+    return contacts
 }
 

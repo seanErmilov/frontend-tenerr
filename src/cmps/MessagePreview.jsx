@@ -1,5 +1,6 @@
 export function MessagePreview({ message, logedInUser, messageRecipient }) {
-    const isCurrentUser = message.sender._id === logedInUser._id || messageRecipient._id === logedInUser._id;
+
+    const isCurrentUser = message.sender._id === logedInUser._id
 
     return (
         <div className={`basic-chat-msg ${isCurrentUser ? 'current-user' : 'recipient'}`}>

@@ -9,6 +9,9 @@ export function ProfileNav({ profileNavRef, onLogout, userId }) {
                 <NavLink className="main-nav-link" to={`user/Dashboard/${userId}`}>Dashboard</NavLink>
             </li>
             <li>
+                <NavLink className="main-nav-link" to="inbox">Chat</NavLink>
+            </li>
+            <li>
                 <span className="main-nav-link" onClick={onLogout}>logout</span>
             </li>
         </ul>

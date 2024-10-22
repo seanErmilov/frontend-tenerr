@@ -174,7 +174,7 @@ export function AppHeader() {
 													<NavLink className="main-nav-link" to="gig">Gigs</NavLink>
 												</li>
 												<li>
-													<NavLink className="main-nav-link" to="chat">Chat</NavLink>
+													<NavLink className="main-nav-link" to="inbox">Chat</NavLink>
 												</li>
 												<li>
 													<NavLink className="main-nav-link" to="review">Review</NavLink>
@@ -283,19 +283,19 @@ export function AppHeader() {
 	)
 }
 
-
 function HideOnBlur({ jsx, setVisibility, reference, ignoreId }) {
 	useEffect(() => {
-		const handleBlur = (event) => {
-			if (event.relatedTarget && event.relatedTarget.dataset.preventchildblur === ignoreId) return
-			setVisibility(false)
+		const handleClickOutside = (event) => {
+			if (reference.current && !reference.current.contains(event.target) &&
+				(!event.target.dataset.preventchildblur || event.target.dataset.preventchildblur !== ignoreId)) {
+				setVisibility(false)
+			}
 		}
 
-		const el = reference.current
-		el.addEventListener('blur', handleBlur, true)
+		document.addEventListener('mousedown', handleClickOutside)
 
 		return () => {
-			el.removeEventListener('blur', handleBlur, true)
+			document.removeEventListener('mousedown', handleClickOutside)
 		}
 	}, [])
 
